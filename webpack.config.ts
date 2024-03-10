@@ -1,7 +1,7 @@
 import path from 'path';
 import webpack from 'webpack';
-import { buildWebpackConfig } from './config/build/buildWebpackConfig';
 import { BuildPaths } from './config/build/types/config';
+import { buildWebpackConfig } from './config/build/buildWebpackConfig';
 
 const paths: BuildPaths = {
   entry: path.resolve(__dirname, 'src', 'index.ts'),
