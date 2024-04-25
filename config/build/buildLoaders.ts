@@ -1,25 +1,25 @@
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import webpack from 'webpack';
-import { BuildOptions } from './types/config';
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import webpack from "webpack";
+import { BuildOptions } from "./types/config";
 
 export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
   const svgLoader = {
     test: /\.svg$/,
-    use: ['@svgr/webpack'],
+    use: ["@svgr/webpack"],
   };
 
   const babelLoader = {
     test: /\.(js|jsx|tsx)$/,
     exclude: /node_modules/,
     use: {
-      loader: 'babel-loader',
+      loader: "babel-loader",
       options: {
-        presets: ['@babel/preset-env'],
+        presets: ["@babel/preset-env"],
         plugins: [
           [
-            'i18next-extract',
+            "i18next-extract",
             {
-              locales: ['ru', 'en'],
+              locales: ["ru", "en"],
               keyAsDefaultValue: true,
             },
           ],
@@ -32,25 +32,27 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     test: /\.s[ac]ss$/i,
     use: [
       // Если production - mini-css-extract-plugin(которая отделяет css oт bundle.js), иначе css будеи внутри bundle.js
-      isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+      isDev ? "style-loader" : MiniCssExtractPlugin.loader,
       {
-        loader: 'css-loader',
+        loader: "css-loader",
         options: {
           modules: {
             // Возращает True если модульный стиль присуствует
-            auto: (resPath: string) => Boolean(resPath.includes('.module.')),
+            auto: (resPath: string) => Boolean(resPath.includes(".module.")),
             // Если Dev - название класса с путем, если прод - сгенерированный класс
-            localIdentName: isDev ? '[path][name]__[local]--[hash:base64:5]' : '[hash:base64:8]',
+            localIdentName: isDev
+              ? "[path][name]__[local]--[hash:base64:5]"
+              : "[hash:base64:8]",
           },
         },
       },
-      'sass-loader',
+      "sass-loader",
     ],
   };
 
   const typescriptLoader = {
     test: /\.tsx?$/,
-    use: 'ts-loader',
+    use: "ts-loader",
     exclude: /node_modules/,
   };
 
@@ -58,7 +60,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     test: /\.(png|jpe?g|gif)$/i,
     use: [
       {
-        loader: 'file-loader',
+        loader: "file-loader",
       },
     ],
   };
