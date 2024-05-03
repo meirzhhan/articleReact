@@ -16,7 +16,7 @@ const App = () => {
     <div className={classNames('app', { selected: false }, [theme])}>
       <Suspense fallback="">
         {s.map((s) => (
-          <div></div>
+          <div key={s}></div>
         ))}
         <Navbar />
         <div className="content-page">
