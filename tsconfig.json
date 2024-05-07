@@ -6,7 +6,7 @@
     "target": "es5",
     "jsx": "react-jsx",
     "allowJs": true,
-    "moduleResolution": "node",
+    "moduleResolution": "Node",
     // esModuleIntertop позволяет юзать обычные import вместо common js(require() module export)
     "esModuleInterop": true,
     // allowSyntheticDefaultImports импорт дефолт вместо (import * as React from 'react')
@@ -20,5 +20,8 @@
     "compilerOptions": {
       "module": "CommonJS"
     }
-  }
+  },
+  // "include": [
+  //   "./config/jest/setupTests.ts"
+  // ],
 }

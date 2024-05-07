@@ -1,9 +1,5 @@
-/**
- * For a detailed explanation regarding each configuration property, visit:
- * https://jestjs.io/docs/configuration
- */
-
 import type { Config } from 'jest';
+import path from 'path';
 
 const config: Config = {
   // All imported modules in your tests should be mocked automatically
@@ -19,7 +15,9 @@ const config: Config = {
   clearMocks: true,
   testEnvironment: 'jsdom',
   coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
+  rootDir: '../../',
   moduleDirectories: ['node_modules'],
+  modulePaths: ['<rootDir>/src'],
   moduleFileExtensions: [
     'js',
     'mjs',
@@ -30,8 +28,13 @@ const config: Config = {
     'json',
     'node',
   ],
-  testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
-  rootDir: '../../',
+  testMatch: ['<rootDir>/src/**/*(*.)@(spec|test).[tj]s?(x)'],
+  setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
+
+  moduleNameMapper: {
+    '\\.s?css$': 'identity-obj-proxy',
+    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+  },
 
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
@@ -124,9 +127,6 @@ const config: Config = {
   // The root directory that Jest should scan for tests and modules within
 
   // A list of paths to directories that Jest should use to search for files in
-  // roots: [
-  //   "<rootDir>"
-  // ],
 
   // Allows you to use a custom runner instead of Jest's default test runner
   // runner: "jest-runner",
@@ -168,7 +168,6 @@ const config: Config = {
   // testRunner: "jest-circus/runner",
 
   // A map from regular expressions to paths to transformers
-  // transform: undefined,
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [

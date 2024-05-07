@@ -1,4 +1,5 @@
 import { classNames } from './classNames';
+// import { classNames } from 'shared/lib/classNames/classNames';
 
 describe('classNames', () => {
   test('only first param', () => {
@@ -25,7 +26,7 @@ describe('classNames', () => {
     expect(
       classNames(
         'someClass',
-        { hovered: true, scrollable: undefined, selectable: false },
+        { hovered: true, scrollable: false, selectable: false },
         ['class1', 'class2'],
       ),
     ).toBe(expected);
