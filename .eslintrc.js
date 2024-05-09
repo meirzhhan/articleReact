@@ -33,6 +33,8 @@ module.exports = {
         ignoreRestSiblings: true,
       },
     ],
+
+    'react/no-unescaped-entities': 0,
   },
   globals: {
     __IS_DEV__: true,

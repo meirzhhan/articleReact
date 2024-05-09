@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
+import 'regenerator-runtime/runtime';
 
 // Если будут проблемы с i18n async (useTranslation)
-// import 'regenerator-runtime/runtime';
 // npm i -D regenerator-runtime
