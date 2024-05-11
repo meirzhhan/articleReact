@@ -1,7 +1,5 @@
-import './styles/index.scss';
-
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTheme } from './providers/ThemProvider';
+import { useTheme } from './providers/ThemeProvider';
 
 import { AppRouter } from './providers/router';
 import { Navbar } from 'widgets/Navbar';
@@ -15,6 +13,7 @@ const App = () => {
     <div className={classNames('app', { selected: false }, [theme])}>
       <Suspense fallback="">
         <Navbar />
+
         <div className="content-page">
           <Sidebar />
           <AppRouter />
