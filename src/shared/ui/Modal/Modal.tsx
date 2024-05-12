@@ -2,7 +2,6 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import cl from './Modal.module.scss';
 import { ReactNode, useRef, useState, useEffect, useCallback } from 'react';
 import { Portal } from '../Portal/Portal';
-import { useTheme } from 'app/providers/ThemeProvider';
 
 interface ModalProps {
   className?: string;
@@ -18,7 +17,7 @@ export const Modal = (props: ModalProps) => {
 
   const [isClosing, setIsClosing] = useState(false);
   const timeRef = useRef<ReturnType<typeof setTimeout>>();
-  const { theme } = useTheme();
+  // const { theme } = useTheme();
 
   const closeHandler = useCallback(() => {
     // Если onClose передан по пропсу
@@ -57,12 +56,14 @@ export const Modal = (props: ModalProps) => {
   const mods: Record<string, boolean> = {
     [cl.opened]: isOpen,
     [cl.isClosing]: isClosing,
-    [cl[theme]]: true,
   };
 
   return (
     <Portal>
-      <div className={classNames(cl.Modal, mods, [className])}>
+      <div
+        className={classNames(cl.Modal, mods, [className])}
+        // className={classNames(cl.Modal, mods, [className, theme, 'app_modal'])}
+      >
         <div className={cl.overlay} onClick={closeHandler}>
           <div className={cl.content} onClick={onContentClick}>
             {children}
