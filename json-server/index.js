@@ -13,7 +13,8 @@ server.use(jsonServer.defaults({}));
 server.use(jsonServer.bodyParser);
 
 // Задержка для имитации Backend-а
-server.use(async (_, _, next) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+server.use(async (req, res, next) => {
   await new Promise((res) => {
     setTimeout(res, 800);
   });
