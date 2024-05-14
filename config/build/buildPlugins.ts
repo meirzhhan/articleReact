@@ -22,13 +22,13 @@ export function buildPlugins({
     }),
   ];
 
-  plugins.push(
-    new BundleAnalyzerPlugin({
-      openAnalyzer: false,
-      // http://127.0.0.1:8888/
-    }),
-  );
   if (isDev) {
+    plugins.push(
+      new BundleAnalyzerPlugin({
+        openAnalyzer: false,
+        // http://127.0.0.1:8888/
+      }),
+    );
   }
 
   return plugins;
