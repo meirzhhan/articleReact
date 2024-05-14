@@ -4,9 +4,11 @@
   "Страница не найдена": "Page not found",
   "Главная": "Main",
   "О сайте": "About us",
-  "Выбросить ошибку": "Throw error",
   "Короткий язык": "En",
   "Войти": "Sign in",
   "Введите логин": "Enter login",
-  "ВВедите пароль": "Enter password"
+  "Введите пароль": "Enter password",
+  "Форма авторизации": "Authorization form",
+  "Вы ввели неверный логин или пароль": "You entered an incorrect username or password",
+  "Выйти": "Log out"
 }
