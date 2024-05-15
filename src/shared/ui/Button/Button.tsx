@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FC } from 'react';
+import { ButtonHTMLAttributes, ReactNode, memo } from 'react';
 import cl from './Button.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
 
@@ -22,16 +22,17 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   square?: boolean;
   size?: ButtonSize;
   disabled?: boolean;
+  children?: ReactNode;
 }
 
-export const Button: FC<ButtonProps> = (props) => {
+export const Button = memo((props: ButtonProps) => {
   const {
     className,
-    children,
     theme,
     square,
     size = ButtonSize.M,
     disabled,
+    children,
     ...otherProps
   } = props;
 
@@ -52,4 +53,4 @@ export const Button: FC<ButtonProps> = (props) => {
       {children}
     </button>
   );
-};
+});

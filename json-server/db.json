@@ -25,5 +25,14 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "first": "Meirzhan",
+    "lastname": "Beimishev",
+    "age": 21,
+    "currency": "KZT",
+    "country": "Kazakhstan",
+    "city": "Almaty",
+    "username": "admin",
+    "avatar": "https://instagram.fala3-2.fna.fbcdn.net/v/t51.29350-15/222589943_118385233749789_9147011273723348879_n.jpg?stp=dst-jpg_e35&_nc_ht=instagram.fala3-2.fna.fbcdn.net&_nc_cat=109&_nc_ohc=l2HV5s62AhIQ7kNvgFFO9fJ&edm=ANTKIIoBAAAA&ccb=7-5&oh=00_AYCnpumrxCO8NCSBcwqsjS3RDomUBEPWv_Je0oBRdeGPmQ&oe=664A6DC8&_nc_sid=cf751b"
+  }
 }
