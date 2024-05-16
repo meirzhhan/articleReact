@@ -3,7 +3,7 @@ import { classNames } from './classNames';
 
 describe('classNames', () => {
   test('only first param', () => {
-    expect(classNames('someClass')).toBe('someClass');
+    expect(classNames('someClass', {}, [])).toBe('someClass');
   });
 
   test('additional class', () => {

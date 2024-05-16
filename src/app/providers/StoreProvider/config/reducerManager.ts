@@ -18,6 +18,7 @@ export function createReducerManager(
 
   return {
     getReducerMap: () => reducers, // Возвращает reducer-ы
+    // @ts-ignore
     reduce: (state: StateSchema, action: UnknownAction) => {
       if (keysToRemove.length > 0) {
         // Ключи Reducer-а удаляются
@@ -27,7 +28,7 @@ export function createReducerManager(
         });
         keysToRemove = [];
       }
-
+      // @ts-ignore
       return combinedReducer(state, action); // Возвращает reducer без лишних ключей
     },
     add: (key: StateSchemaKey, reducer: Reducer) => {
