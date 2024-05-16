@@ -6,6 +6,7 @@
     "target": "es5",
     "jsx": "react-jsx",
     "allowJs": true,
+    "strict": true,
     "moduleResolution": "Node",
     // esModuleIntertop позволяет юзать обычные import вместо common js(require() module export)
     "esModuleInterop": true,
