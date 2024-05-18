@@ -1,6 +1,21 @@
 {
   "Профиль": "Profile",
   "Редактировать": "Edit",
+  "Отменить": "Cancel",
+  "Сохранить": "Save",
+
   "Имя": "First name",
-  "Фамилия": "Last name"
+  "Фамилия": "Last name",
+  "Возраст": "Age",
+  "Город": "City",
+  "Имя пользователя": "Username",
+  "Ссылка на аватар": "Avatar link",
+  "Укажите валюту": "Specify currency",
+  "Укажите страну": "Specify country",
+
+  "Серверная ошибка": "Server error",
+  "Некорректный возраст": "Incorrect age",
+  "Некорректная страна": "Incorrect country",
+  "Данные не указаны": "Data not provided",
+  "Имя и фамилия обязательны": "First and last name are required"
 }
