@@ -5,9 +5,10 @@ describe('loginSlice.test', () => {
   test('test set username', () => {
     const state: Partial<LoginSchema> = {
       username: 'something',
-    };
+    }; // initialState
+
     expect(
-      loginReducer(state as LoginSchema, loginActions.setUsername('username')),
+      loginReducer(state as LoginSchema, loginActions.setUsername('username')), // 1: initialState, 2: reducer
     ).toStrictEqual({ username: 'username' });
   });
 
