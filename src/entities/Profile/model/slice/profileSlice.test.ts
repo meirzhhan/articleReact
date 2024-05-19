@@ -3,11 +3,6 @@ import { ProfileSchema, ValidateProfileError } from '../types/profile';
 import { profileActions, profileReducer } from './profileSlice';
 import { Currency } from 'entities/Currency';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
-import { AsyncThunkPendingActionCreator } from '@reduxjs/toolkit/dist/createAsyncThunk';
-import {
-  PendingActionFromAsyncThunk,
-  UnknownAsyncThunkPendingAction,
-} from '@reduxjs/toolkit/dist/matchers';
 
 const data = {
   username: 'admin',
