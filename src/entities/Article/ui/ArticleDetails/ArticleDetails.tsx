@@ -6,7 +6,7 @@ import {
   ReducerList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
-import { memo, useEffect } from 'react';
+import { memo, useEffect, useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { useSelector } from 'react-redux';
@@ -15,8 +15,16 @@ import {
   getArticleDetailsError,
   getArticleDetailsIsLoading,
 } from '../../model/selectors/getArticleDetails';
-import { Text, TextAlign } from 'shared/ui/Text/Text';
+import { Text, TextAlign, TextSize } from 'shared/ui/Text/Text';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import EyeIcon from 'shared/assets/icons/eye.svg';
+import CalendarIcon from 'shared/assets/icons/calendar.svg';
+import { Icon } from 'shared/ui/Icon/Icon';
+import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
+import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 interface ArticleDetailsProps {
   className?: string;
@@ -35,15 +43,30 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   const article = useSelector(getArticleDetailsData);
   const error = useSelector(getArticleDetailsError);
 
+  const renderBlock = useCallback((block: ArticleBlock) => {
+    switch (block.type) {
+      case ArticleBlockType.CODE:
+        return <ArticleCodeBlockComponent className={cl.block} block={block} />;
+      case ArticleBlockType.IMAGE:
+        return (
+          <ArticleImageBlockComponent className={cl.block} block={block} />
+        );
+      case ArticleBlockType.TEXT:
+        return <ArticleTextBlockComponent className={cl.block} block={block} />;
+      default:
+        return null;
+    }
+  }, []);
+
   useEffect(() => {
     dispatch(fetchArticleById(id));
   }, [dispatch, id]);
 
   let content;
 
-  if (isLoading)
+  if (isLoading) {
     content = (
-      <div>
+      <>
         <Skeleton
           className={cl.avatar}
           width={200}
@@ -54,16 +77,41 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         <Skeleton className={cl.skeleton} width={600} height={24} />
         <Skeleton className={cl.skeleton} width="100%" height={200} />
         <Skeleton className={cl.skeleton} width="100%" height={200} />
-      </div>
+      </>
     );
-  else if (error)
+  } else if (error) {
     content = (
       <Text
         align={TextAlign.CENTER}
         title={t('Произошла ошибка при загрузке статьи.')}
       />
     );
-  else content = <div>Article details</div>;
+  } else {
+    content = (
+      <>
+        <div className={cl.avatarWrapper}>
+          <Avatar size={200} src={article?.img} className={cl.avatar} />
+        </div>
+
+        <Text
+          className={cl.title}
+          title={article?.title}
+          text={article?.subtitle}
+          size={TextSize.L}
+        />
+        <div className={cl.articleInfo}>
+          <Icon className={cl.icon} Svg={EyeIcon} />
+          <Text title={String(article?.views)} />
+        </div>
+        <div className={cl.articleInfo}>
+          <Icon className={cl.icon} Svg={CalendarIcon} />
+          <Text title={article?.createdAt} />
+        </div>
+
+        {article?.blocks.map(renderBlock)}
+      </>
+    );
+  }
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>

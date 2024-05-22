@@ -8,7 +8,7 @@ import ArticleIcon from 'shared/assets/icons/articles.svg';
 export interface SidebarItemsType {
   path: string;
   text: string;
-  Icon: React.FC<React.SVGProps<SVGElement>>;
+  Icon: React.FC<React.SVGProps<SVGSVGElement>>;
   authOnly?: boolean;
 }
 
