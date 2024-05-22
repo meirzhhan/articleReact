@@ -8,10 +8,10 @@ interface ArticlePageProps {
 }
 
 const ArticlePage = ({ className }: ArticlePageProps) => {
-  const { t } = useTranslation('article');
+  const { t } = useTranslation('article-details');
   return (
     <div className={classNames(cl.ArticlePage, {}, [className])}>
-      Articles Page
+      {t('Страница статьи')}
     </div>
   );
 };

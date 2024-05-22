@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import cl from './ArticleDetails.module.scss';
 import {
   DynamicModuleLoader,
-  ReducerList,
+  ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { memo, useEffect, useCallback } from 'react';
@@ -25,13 +25,14 @@ import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import {} from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 
 interface ArticleDetailsProps {
   className?: string;
   id: string;
 }
 
-const reducers: ReducerList = {
+const reducers: ReducersList = {
   articleDetails: articleDetailsReducer,
 };
 
@@ -43,16 +44,32 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   const article = useSelector(getArticleDetailsData);
   const error = useSelector(getArticleDetailsError);
 
-  const renderBlock = useCallback((block: ArticleBlock) => {
+  const renderBlock = useCallback((block: ArticleBlock, index: number) => {
     switch (block.type) {
       case ArticleBlockType.CODE:
-        return <ArticleCodeBlockComponent className={cl.block} block={block} />;
+        return (
+          <ArticleCodeBlockComponent
+            key={index}
+            className={cl.block}
+            block={block}
+          />
+        );
       case ArticleBlockType.IMAGE:
         return (
-          <ArticleImageBlockComponent className={cl.block} block={block} />
+          <ArticleImageBlockComponent
+            key={index}
+            className={cl.block}
+            block={block}
+          />
         );
       case ArticleBlockType.TEXT:
-        return <ArticleTextBlockComponent className={cl.block} block={block} />;
+        return (
+          <ArticleTextBlockComponent
+            key={index}
+            className={cl.block}
+            block={block}
+          />
+        );
       default:
         return null;
     }

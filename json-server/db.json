@@ -99,21 +99,23 @@
       "id": "3",
       "text": "some comment 3",
       "articleId": "1",
-      "userId": "1"
+      "userId": "2"
     }
   ],
   "users": [
     {
       "id": "1",
-      "username": "admin",
+      "username": "meirzhhan",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://avatars.dzeninfra.ru/get-zen_doc/5327700/pub_634d11eb9de7f5753f556834_634d1e2f9853e80abd26a73f/scale_1200"
     },
     {
       "id": "2",
-      "username": "user",
+      "username": "admin",
       "password": "123",
-      "role": "USER"
+      "role": "USER",
+      "avatar": "https://avatars.dzeninfra.ru/get-zen_doc/5327700/pub_634d11eb9de7f5753f556834_634d1e2f9853e80abd26a73f/scale_1200"
     }
   ],
   "profile": {

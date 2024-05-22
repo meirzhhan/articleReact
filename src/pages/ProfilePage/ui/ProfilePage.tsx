@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
   DynamicModuleLoader,
-  ReducerList,
+  ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
   ProfileCard,
@@ -24,7 +24,7 @@ import { Country } from 'entities/Country';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 
-const reducers: ReducerList = {
+const reducers: ReducersList = {
   profile: profileReducer,
 };
 

@@ -14,7 +14,7 @@ import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLo
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import {
   DynamicModuleLoader,
-  ReducerList,
+  ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 
@@ -23,7 +23,7 @@ export interface LoginFormProps {
   onSuccess: () => void;
 }
 
-const initialReducers: ReducerList = {
+const initialReducers: ReducersList = {
   loginForm: loginReducer,
 };
 
