@@ -23,6 +23,7 @@ import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
 
 const reducers: ReducersList = {
   profile: profileReducer,
@@ -41,6 +42,8 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   const readonly = useSelector(getProfileReadonly);
   const validateErrors = useSelector(getProfileValidateErrors);
 
+  const { id } = useParams<{ id: string }>();
+
   const validateErrorsTranslates = {
     [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка'),
     [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректная страна'),
@@ -50,8 +53,8 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   };
 
   useEffect(() => {
-    dispatch(fetchProfileData());
-  }, [dispatch]);
+    if (id) dispatch(fetchProfileData(id));
+  }, [dispatch, id]);
 
   const onChangeFirstname = useCallback(
     (value?: string) => {
