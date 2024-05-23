@@ -1,0 +1,8 @@
+.ArticleViewSelector {
+  display: flex; // TODO
+  column-gap: 5px; // TODO
+}
+
+.notSelected {
+  fill: var(--secondary-color);
+}

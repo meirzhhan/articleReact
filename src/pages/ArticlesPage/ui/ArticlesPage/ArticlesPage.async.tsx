@@ -8,6 +8,6 @@ export const ArticlesPageAsync = lazy(
       setTimeout(() => {
         // @ts-ignore
         resolve(import('./ArticlesPage'));
-      }, 1500);
+      }, 400);
     }),
 );
