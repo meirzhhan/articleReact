@@ -19,9 +19,7 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -128,11 +126,11 @@
       "username": "meirzhhan",
       "password": "123",
       "role": "ADMIN",
-      "avatar": "https://s43vla.storage.yandex.net/rdisk/5d10eaab934b31e0637fd58e7f0c4929569aace430676de85fa3ee00690f9fb7/664e8acc/r_B3vzBhxBb5aGxsw90U_Ypvc2vMF_OndojbtepGIdKGsM4Ddv5mWMOhh6IL6yfYgvrHn5_b4vwRaMm64mv3Bw==?uid=1397265792&filename=2.JPG&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=1397265792&fsize=573259&hid=fb71e53b656d95b1a71824f53b854621&media_type=image&tknv=v2&etag=21924837b947c14bcf1ad048130c433d&ts=61913f55f4b00&s=964bbbd8cd8cc8888662178e221ef8392620d137abda89f89ba48c1d76064df5&pb=U2FsdGVkX1-5P_H8jWjRo_lvN7rnn-vyPCNYzD9V5a_axHaOBQfE0P2ddewojd3gKgSW6fFMqnlQCFILP8DMZ2ElAlsPiuK0n_dMwZeeaOA"
+      "avatar": "https://2.downloader.disk.yandex.kz/preview/922bcc92ea05b45a13e5b947e8d857df60015823b224a2c9377f84971ece80e2/inf/xy2aN4qiyJBaIw9tdaKubWYPatbyEq8mOAOgg9FdCQqsZt6zC-us8AA5W85y7o7TCw0frz_3KS7XwxGn4w0McQ%3D%3D?uid=1397265792&filename=2.JPG&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=1397265792&tknv=v2&size=1920x970"
     },
     {
       "id": "2",
-      "username": "admin",
+      "username": "user",
       "password": "123",
       "role": "USER",
       "avatar": "https://avatars.dzeninfra.ru/get-zen_doc/5327700/pub_634d11eb9de7f5753f556834_634d1e2f9853e80abd26a73f/scale_1200"
@@ -147,8 +145,8 @@
       "currency": "KZT",
       "country": "Kazakhstan",
       "city": "Almaty",
-      "username": "admin",
-      "avatar": "https://s43vla.storage.yandex.net/rdisk/5d10eaab934b31e0637fd58e7f0c4929569aace430676de85fa3ee00690f9fb7/664e8acc/r_B3vzBhxBb5aGxsw90U_Ypvc2vMF_OndojbtepGIdKGsM4Ddv5mWMOhh6IL6yfYgvrHn5_b4vwRaMm64mv3Bw==?uid=1397265792&filename=2.JPG&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=1397265792&fsize=573259&hid=fb71e53b656d95b1a71824f53b854621&media_type=image&tknv=v2&etag=21924837b947c14bcf1ad048130c433d&ts=61913f55f4b00&s=964bbbd8cd8cc8888662178e221ef8392620d137abda89f89ba48c1d76064df5&pb=U2FsdGVkX1-5P_H8jWjRo_lvN7rnn-vyPCNYzD9V5a_axHaOBQfE0P2ddewojd3gKgSW6fFMqnlQCFILP8DMZ2ElAlsPiuK0n_dMwZeeaOA"
+      "username": "meirzhhan",
+      "avatar": "https://2.downloader.disk.yandex.kz/preview/922bcc92ea05b45a13e5b947e8d857df60015823b224a2c9377f84971ece80e2/inf/xy2aN4qiyJBaIw9tdaKubWYPatbyEq8mOAOgg9FdCQqsZt6zC-us8AA5W85y7o7TCw0frz_3KS7XwxGn4w0McQ%3D%3D?uid=1397265792&filename=2.JPG&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=1397265792&tknv=v2&size=1920x970"
     },
     {
       "id": "2",
