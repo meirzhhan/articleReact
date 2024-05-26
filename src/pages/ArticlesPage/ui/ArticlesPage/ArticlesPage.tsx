@@ -23,6 +23,8 @@ import {
   getArticlesPageIsLoading,
   getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
+import { Page } from 'shared/ui/Page/Page';
+import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlePage';
 
 interface ArticlePageProps {
   className?: string;
@@ -48,17 +50,26 @@ const ArticlesPage = (props: ArticlePageProps) => {
     [dispatch],
   );
 
-  useEffect(() => {
-    dispatch(fetchArticlesList());
-    dispatch(articlePageActions.initState());
+  const onLoadNextPart = useCallback(() => {
+    dispatch(fetchNextArticlesPage());
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(articlePageActions.initState());
+    dispatch(fetchArticlesList({ page: 1 }));
+  }, [dispatch]);
+
+  // if (error) null;
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div className={classNames(cl.ArticlesPage, {}, [className])}>
+      <Page
+        onScrollEnd={onLoadNextPart}
+        className={classNames(cl.ArticlesPage, {}, [className])}
+      >
         <ArticleViewSelector view={view} onViewClick={onChangeView} />
         <ArticleList isLoading={isLoading} view={view} articles={articles} />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };
