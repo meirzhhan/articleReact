@@ -34,8 +34,6 @@ export const getArticleComments = {
   selectAll: selectAllComments,
 };
 
-//
-
 const articleDetailsCommentsSlice = createSlice({
   name: 'articleDetailsCommentsSlice',
   initialState: commentsAdapter.getInitialState<ArticleDetailsCommentsSchema>({
