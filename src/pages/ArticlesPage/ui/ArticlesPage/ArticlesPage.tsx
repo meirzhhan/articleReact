@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import cl from './ArticlesPage.module.scss';
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback, useEffect, useMemo } from 'react';
 import {
   ArticleList,
   ArticleView,
@@ -16,15 +16,16 @@ import {
   getArticles,
 } from '../../model/slices/articlesPageSlice';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { useSelector } from 'react-redux';
 import {
   getArticlesPageError,
+  getArticlesPageInitiated,
   getArticlesPageIsLoading,
   getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
 import { Page } from 'shared/ui/Page/Page';
-import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlePage';
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlePage';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 
 interface ArticlePageProps {
   className?: string;
@@ -42,6 +43,7 @@ const ArticlesPage = (props: ArticlePageProps) => {
   const isLoading = useSelector(getArticlesPageIsLoading);
   const error = useSelector(getArticlesPageError);
   const view = useSelector(getArticlesPageView);
+  const initiated = useSelector(getArticlesPageInitiated);
 
   const onChangeView = useCallback(
     (view: ArticleView) => {
@@ -55,14 +57,13 @@ const ArticlesPage = (props: ArticlePageProps) => {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(articlePageActions.initState());
-    dispatch(fetchArticlesList({ page: 1 }));
-  }, [dispatch]);
+    dispatch(initArticlesPage());
+  }, [dispatch, initiated]);
 
   // if (error) null;
 
   return (
-    <DynamicModuleLoader reducers={reducers}>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <Page
         onScrollEnd={onLoadNextPart}
         className={classNames(cl.ArticlesPage, {}, [className])}

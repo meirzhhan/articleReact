@@ -1,6 +1,7 @@
 import {
   PayloadAction,
   createEntityAdapter,
+  createSelector,
   createSlice,
 } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
@@ -13,9 +14,27 @@ const commentsAdapter = createEntityAdapter({
   selectId: (comment: CommentType) => comment.id,
 });
 
-export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(
-  (state) => state.articleDetailsComments || commentsAdapter.getInitialState(),
+// export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(
+//   (state) => state.articleDetailsComments || commentsAdapter.getInitialState(),
+// );
+// Old variant
+
+const selectArticleCommentsState = (state: StateSchema) =>
+  state.articleDetailsComments;
+
+const selectAllComments = createSelector(
+  [selectArticleCommentsState],
+  (articleCommentsState) =>
+    articleCommentsState
+      ? articleCommentsState.ids.map((id) => articleCommentsState.entities[id])
+      : [],
 );
+
+export const getArticleComments = {
+  selectAll: selectAllComments,
+};
+
+//
 
 const articleDetailsCommentsSlice = createSlice({
   name: 'articleDetailsCommentsSlice',

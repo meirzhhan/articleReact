@@ -1,6 +1,7 @@
 import {
   PayloadAction,
   createEntityAdapter,
+  createSelector,
   createSlice,
 } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
@@ -9,14 +10,28 @@ import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
 
-// Нормализация
+// Нормализация entity adapter
 const articlesAdapter = createEntityAdapter({
   selectId: (article: Article) => article.id,
 });
 
-export const getArticles = articlesAdapter.getSelectors<StateSchema>(
-  (state) => state.articlesPage || articlesAdapter.getInitialState(),
+// export const getArticles = articlesAdapter.getSelectors<StateSchema>(
+//   (state) => state.articlesPage || articlesAdapter.getInitialState(),
+// ); old
+
+const SelectArticlesPageState = (state: StateSchema) => state.articlesPage;
+
+const selectAllArticles = createSelector(
+  [SelectArticlesPageState],
+  (articlePageState) =>
+    articlePageState
+      ? articlePageState.ids.map((id) => articlePageState.entities[id])
+      : [],
 );
+
+export const getArticles = {
+  selectAll: selectAllArticles,
+};
 
 const articlesPageSlice = createSlice({
   name: 'articlesPageSlice',
@@ -28,6 +43,7 @@ const articlesPageSlice = createSlice({
     view: ArticleView.SMALL,
     page: 1,
     hasMore: true,
+    _initiated: false,
   }),
 
   reducers: {
@@ -43,8 +59,9 @@ const articlesPageSlice = createSlice({
         ARTICLES_VIEW_LOCALSTORAGE_KEY,
       ) as ArticleView;
 
-      state.view = view;
+      state.view = view || ArticleView.SMALL;
       state.limit = view === ArticleView.BIG ? 4 : 9;
+      state._initiated = true;
     },
   },
 

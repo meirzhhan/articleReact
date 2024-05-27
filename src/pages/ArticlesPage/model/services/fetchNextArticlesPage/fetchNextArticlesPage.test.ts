@@ -16,6 +16,7 @@ describe('fetchNextArticlesPage.test', () => {
         isLoading: false,
         hasMore: true,
         view: ArticleView.BIG,
+        _initiated: false,
       }, // initialState
     }); // mock AsyncThunk
 
@@ -35,6 +36,7 @@ describe('fetchNextArticlesPage.test', () => {
         isLoading: false,
         hasMore: false,
         view: ArticleView.BIG,
+        _initiated: false,
       }, // initialState
     }); // mock AsyncThunk
 
@@ -54,6 +56,7 @@ describe('fetchNextArticlesPage.test', () => {
         isLoading: true,
         hasMore: true,
         view: ArticleView.BIG,
+        _initiated: false,
       }, // initialState
     }); // mock AsyncThunk
 
