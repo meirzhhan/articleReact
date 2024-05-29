@@ -1,10 +1,16 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { Article } from 'entities/Article';
-import { getArticlesPageLimit } from '../../selectors/articlesPageSelectors';
+import {
+  getArticlesPageLimit,
+  getArticlesPageNum,
+  getArticlesPageOrder,
+  getArticlesPageSearch,
+  getArticlesPageSort,
+} from '../../selectors/articlesPageSelectors';
 
 interface FetchArticlesListProps {
-  page?: number;
+  replace?: boolean;
 }
 
 export const fetchArticlesList = createAsyncThunk<
@@ -13,8 +19,13 @@ export const fetchArticlesList = createAsyncThunk<
   ThunkConfig<string> // extra, state and <rejectValue>
 >('articlesPage/fetchArticlesList', async (props, ThunkApi) => {
   const { extra, rejectWithValue, getState } = ThunkApi;
-  const { page = 1 } = props;
+
   const limit = getArticlesPageLimit(getState());
+
+  const page = getArticlesPageNum(getState());
+  const sort = getArticlesPageSort(getState());
+  const order = getArticlesPageOrder(getState());
+  const search = getArticlesPageSearch(getState());
 
   try {
     const response = await extra.api.get<Article[]>('/articles', {
@@ -22,6 +33,9 @@ export const fetchArticlesList = createAsyncThunk<
         _expand: 'user',
         _limit: limit,
         _page: page,
+        _sort: sort,
+        _order: order,
+        q: search,
       },
     }); // Ищет id user привязанный к посту для отрисовки
 

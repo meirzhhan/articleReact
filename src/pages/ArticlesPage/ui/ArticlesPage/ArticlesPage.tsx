@@ -1,17 +1,12 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import cl from './ArticlesPage.module.scss';
-import { memo, useCallback, useEffect, useMemo } from 'react';
-import {
-  ArticleList,
-  ArticleView,
-  ArticleViewSelector,
-} from 'entities/Article';
+import { memo, useCallback, useEffect } from 'react';
+import { ArticleList } from 'entities/Article';
 import {
   DynamicModuleLoader,
   ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
-  articlePageActions,
   articlesPageReducer,
   getArticles,
 } from '../../model/slices/articlesPageSlice';
@@ -26,6 +21,7 @@ import {
 import { Page } from 'widgets/Page/Page';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlePage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 
 interface ArticlePageProps {
   className?: string;
@@ -45,13 +41,6 @@ const ArticlesPage = (props: ArticlePageProps) => {
   const view = useSelector(getArticlesPageView);
   const initiated = useSelector(getArticlesPageInitiated);
 
-  const onChangeView = useCallback(
-    (view: ArticleView) => {
-      dispatch(articlePageActions.setView(view));
-    },
-    [dispatch],
-  );
-
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlesPage());
   }, [dispatch]);
@@ -68,11 +57,18 @@ const ArticlesPage = (props: ArticlePageProps) => {
         onScrollEnd={onLoadNextPart}
         className={classNames(cl.ArticlesPage, {}, [className])}
       >
-        <ArticleViewSelector view={view} onViewClick={onChangeView} />
-        <ArticleList isLoading={isLoading} view={view} articles={articles} />
+        <ArticlesPageFilters />
+        <ArticleList
+          className={cl.list}
+          isLoading={isLoading}
+          view={view}
+          articles={articles}
+        />
       </Page>
     </DynamicModuleLoader>
   );
 };
 
 export default memo(ArticlesPage);
+
+// 17 : 20
