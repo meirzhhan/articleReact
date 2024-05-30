@@ -20,7 +20,7 @@ const commentsAdapter = createEntityAdapter({
 // Old variant
 
 const selectArticleCommentsState = (state: StateSchema) =>
-  state.articleDetailsComments;
+  state.articleDetailsPage?.comments;
 
 const selectAllComments = createSelector(
   [selectArticleCommentsState],
