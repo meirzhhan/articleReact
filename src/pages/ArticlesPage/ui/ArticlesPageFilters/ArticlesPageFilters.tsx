@@ -5,6 +5,7 @@ import cl from './ArticlesPageFilters.module.scss';
 import {
   ArticleSortField,
   ArticleSortSelector,
+  ArticleTypeTabs,
   ArticleView,
   ArticleViewSelector,
 } from 'entities/Article';
@@ -15,13 +16,15 @@ import {
   getArticlesPageOrder,
   getArticlesPageSearch,
   getArticlesPageSort,
+  getArticlesPageType,
   getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
 import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input/Input';
 import { SortOrder } from 'shared/types';
-import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
+import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
+import { ArticleType } from 'entities/Article/model/types/article';
 
 interface ArticlesPageFiltersProps {
   className?: string;
@@ -36,6 +39,7 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
   const sort = useSelector(getArticlesPageSort);
   const order = useSelector(getArticlesPageOrder);
   const search = useSelector(getArticlesPageSearch);
+  const type = useSelector(getArticlesPageType);
 
   const fetchData = useCallback(() => {
     dispatch(fetchArticlesList({ replace: true }));
@@ -54,18 +58,18 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
     (newSort: ArticleSortField) => {
       dispatch(articlePageActions.setSort(newSort));
       dispatch(articlePageActions.setPage(1));
-      debouncedFetchData();
+      fetchData();
     },
-    [dispatch, debouncedFetchData],
+    [dispatch, fetchData],
   );
 
   const onChangeOrder = useCallback(
     (newOrder: SortOrder) => {
       dispatch(articlePageActions.setOrder(newOrder));
       dispatch(articlePageActions.setPage(1));
-      debouncedFetchData();
+      fetchData();
     },
-    [dispatch, debouncedFetchData],
+    [dispatch, fetchData],
   );
 
   const onChangeSearch = useCallback(
@@ -75,6 +79,15 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
       debouncedFetchData();
     },
     [dispatch, debouncedFetchData],
+  );
+
+  const onChangeType = useCallback(
+    (value: ArticleType) => {
+      dispatch(articlePageActions.setType(value));
+      dispatch(articlePageActions.setPage(1));
+      fetchData();
+    },
+    [dispatch, fetchData],
   );
 
   return (
@@ -96,6 +109,11 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
           placeholder={t('Поиск')}
         />
       </Card>
+      <ArticleTypeTabs
+        className={cl.tabs}
+        value={type}
+        onChangeType={onChangeType}
+      />
     </div>
   );
 });

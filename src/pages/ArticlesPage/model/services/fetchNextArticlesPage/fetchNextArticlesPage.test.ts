@@ -2,7 +2,10 @@ import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { fetchNextArticlesPage } from './fetchNextArticlePage';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 import { ArticleView } from 'entities/Article';
-import { ArticleSortField } from 'entities/Article/model/types/article';
+import {
+  ArticleSortField,
+  ArticleType,
+} from 'entities/Article/model/types/article';
 
 jest.mock('../fetchArticlesList/fetchArticlesList');
 
@@ -21,6 +24,7 @@ describe('fetchNextArticlesPage.test', () => {
         order: 'asc',
         search: '',
         sort: ArticleSortField.TITLE,
+        type: ArticleType.ALL,
       }, // initialState
     }); // mock AsyncThunk
 
@@ -44,6 +48,7 @@ describe('fetchNextArticlesPage.test', () => {
         order: 'asc',
         search: '',
         sort: ArticleSortField.TITLE,
+        type: ArticleType.ALL,
       },
     }); // mock AsyncThunk
 
@@ -67,6 +72,7 @@ describe('fetchNextArticlesPage.test', () => {
         order: 'asc',
         search: '',
         sort: ArticleSortField.TITLE,
+        type: ArticleType.ALL,
       }, // initialState
     }); // mock AsyncThunk
 

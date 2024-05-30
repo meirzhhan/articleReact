@@ -19,7 +19,7 @@ export function useInfiniteScroll({
 
     if (callback) {
       let options = {
-        root: wrapperRef.current,
+        root: wrapperElement,
         rootMargin: '0px',
         threshold: 1.0,
       };

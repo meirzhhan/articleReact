@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import cl from './ArticleViewSelector.module.scss';
 import { ArticleView } from '../../model/types/article';
