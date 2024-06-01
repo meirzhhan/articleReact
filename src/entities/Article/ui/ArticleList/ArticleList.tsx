@@ -23,6 +23,7 @@ const getSkeletons = (view: ArticleView) =>
     ));
 
 export const ArticleList = memo((props: ArticleListProps) => {
+  const { t } = useTranslation('article-details');
   const {
     className,
     articles,
@@ -30,7 +31,6 @@ export const ArticleList = memo((props: ArticleListProps) => {
     isLoading,
     target,
   } = props;
-  const { t } = useTranslation();
 
   const renderArticle = (article: Article) => (
     <ArticleListItem
