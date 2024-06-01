@@ -1,12 +1,12 @@
+import { List, ListRowProps, WindowScroller } from 'react-virtualized';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
-import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
+import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
 import { Article, ArticleView } from '../../model/types/article';
 import { Text, TextSize } from 'shared/ui/Text/Text';
-import { List, ListRowProps, WindowScroller } from 'react-virtualized';
 import { PAGE_ID } from 'widgets/Page/Page';
 
 interface ArticleListProps {
@@ -41,7 +41,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     ? articles.length
     : Math.ceil(articles.length / itemsPerRow);
 
-  const rowRender = ({ index, isScrolling, key, style }: ListRowProps) => {
+  const rowRender = ({ index, key, style }: ListRowProps) => {
     const items = [];
     const fromIndex = index * itemsPerRow;
     const toIndex = Math.min(fromIndex + itemsPerRow, articles.length);

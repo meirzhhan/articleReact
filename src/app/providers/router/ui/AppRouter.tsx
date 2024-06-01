@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { Suspense, memo, useCallback } from 'react';
 
-import PageLoader from 'shared/ui/PageLoader/PageLoader';
+import PageLoader from 'widgets/PageLoader/PageLoader';
 import {
   AppRoutesProps,
   routeConfig,

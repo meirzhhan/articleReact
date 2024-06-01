@@ -12,11 +12,7 @@ import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
 import { UISchema } from 'features/UI/model/types/UISchema';
 import { AddCommentFormSchema } from 'features/addCommentForm';
-import {
-  ArticleDetailsCommentsSchema,
-  ArticleDetailsPageSchema,
-  articleDetailsPageRecommendationsSchema,
-} from 'pages/ArticleDetailsPage';
+import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 
 export interface StateSchema {
