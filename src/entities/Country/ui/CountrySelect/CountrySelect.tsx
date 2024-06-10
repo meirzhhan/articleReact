@@ -1,8 +1,6 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Country } from '../../model/types/country';
-import { Select } from 'shared/ui/Select/Select';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { ListBox } from 'shared/ui/ListBox/ListBox';
 
 interface CountrySelectProps {
@@ -21,7 +19,7 @@ const options = [
 ];
 
 export const CountrySelect = memo((props: CountrySelectProps) => {
-  const { className, value, onChange, readonly } = props;
+  const { value, onChange, readonly } = props;
   const { t } = useTranslation('profile');
 
   const onChangeHandler = useCallback(

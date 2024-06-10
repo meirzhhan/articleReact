@@ -37,5 +37,11 @@ export function buildPlugins({
     );
   }
 
+  // plugins.push(
+  //   new BundleAnalyzerPlugin({
+  //     openAnalyzer: true,
+  //     // http://127.0.0.1:8888/
+  //   }),
+  // );
   return plugins;
 }

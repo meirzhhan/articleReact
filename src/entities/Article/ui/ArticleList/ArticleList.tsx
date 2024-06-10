@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
-import cls from './ArticleList.module.scss';
+import cl from './ArticleList.module.scss';
 import { Article, ArticleView } from '../../model/types/article';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { PAGE_ID } from 'widgets/Page/Page';
@@ -21,7 +21,7 @@ const getSkeletons = (view: ArticleView) =>
   new Array(view === ArticleView.SMALL ? 9 : 3)
     .fill(0)
     .map((_, index) => (
-      <ArticleListItemSkeleton className={cls.card} key={index} view={view} />
+      <ArticleListItemSkeleton className={cl.card} key={index} view={view} />
     ));
 
 export const ArticleList = memo((props: ArticleListProps) => {
@@ -52,14 +52,14 @@ export const ArticleList = memo((props: ArticleListProps) => {
           target={target}
           article={articles[i]}
           view={view}
-          className={cls.card}
+          className={cl.card}
           key={`str${i}`}
         />,
       );
     }
 
     return (
-      <div className={cls.row} key={key} style={style}>
+      <div className={cl.row} key={key} style={style}>
         {items}
       </div>
     );
@@ -67,7 +67,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
   if (!isLoading && !articles.length) {
     return (
-      <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+      <div className={classNames(cl.ArticleList, {}, [className, cl[view]])}>
         <Text size={TextSize.L} title={t('Статьи не найдены')} />
       </div>
     );
@@ -85,7 +85,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
       }) => (
         <div
           ref={registerChild as (instance: HTMLDivElement | null) => void}
-          className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+          className={classNames(cl.ArticleList, {}, [className, cl[view]])}
         >
           <List
             height={height ?? 700}

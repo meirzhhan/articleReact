@@ -8,7 +8,7 @@ import { Card } from 'shared/ui/Card/Card';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import cls from './ArticleListItem.module.scss';
+import cl from './ArticleListItem.module.scss';
 import {
   Article,
   ArticleBlockType,
@@ -29,10 +29,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   const { className, article, view, target } = props;
   const { t } = useTranslation();
 
-  const types = <Text text={article.type.join(', ')} className={cls.types} />;
+  const types = <Text text={article.type.join(', ')} className={cl.types} />;
   const views = (
     <>
-      <Text text={String(article.views)} className={cls.views} />
+      <Text text={String(article.views)} className={cl.views} />
       <Icon Svg={EyeIcon} />
     </>
   );
@@ -44,24 +44,24 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
     return (
       <div
-        className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+        className={classNames(cl.ArticleListItem, {}, [className, cl[view]])}
       >
-        <Card className={cls.card}>
-          <div className={cls.header}>
+        <Card className={cl.card}>
+          <div className={cl.header}>
             <Avatar size={30} src={article.user.avatar} />
-            <Text text={article.user.username} className={cls.username} />
-            <Text text={article.createdAt} className={cls.date} />
+            <Text text={article.user.username} className={cl.username} />
+            <Text text={article.createdAt} className={cl.date} />
           </div>
-          <Text title={article.title} className={cls.title} />
+          <Text title={article.title} className={cl.title} />
           {types}
-          <img src={article.img} className={cls.img} alt={article.title} />
+          <img src={article.img} className={cl.img} alt={article.title} />
           {textBlock && (
             <ArticleTextBlockComponent
               block={textBlock}
-              className={cls.textBlock}
+              className={cl.textBlock}
             />
           )}
-          <div className={cls.footer}>
+          <div className={cl.footer}>
             <AppLink
               target={target}
               to={RoutePath.article_details + article.id}
@@ -80,18 +80,18 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     <AppLink
       target={target}
       to={RoutePath.article_details + article.id}
-      className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+      className={classNames(cl.ArticleListItem, {}, [className, cl[view]])}
     >
-      <Card className={cls.card}>
-        <div className={cls.imageWrapper}>
-          <img alt={article.title} src={article.img} className={cls.img} />
-          <Text text={article.createdAt} className={cls.date} />
+      <Card className={cl.card}>
+        <div className={cl.imageWrapper}>
+          <img alt={article.title} src={article.img} className={cl.img} />
+          <Text text={article.createdAt} className={cl.date} />
         </div>
-        <div className={cls.infoWrapper}>
+        <div className={cl.infoWrapper}>
           {types}
           {views}
         </div>
-        <Text text={article.title} className={cls.title} />
+        <Text text={article.title} className={cl.title} />
       </Card>
     </AppLink>
   );

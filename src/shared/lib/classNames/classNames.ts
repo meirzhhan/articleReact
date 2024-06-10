@@ -1,12 +1,12 @@
 export type Mods = Record<string, boolean | string | undefined>;
 
 export function classNames(
-  cls: string,
+  cl: string,
   mods: Mods = {},
   additional: Array<string | undefined>,
 ): string {
   return [
-    cls,
+    cl,
     ...additional.filter(Boolean),
     ...Object.entries(mods)
       .filter(([_, value]) => Boolean(value))

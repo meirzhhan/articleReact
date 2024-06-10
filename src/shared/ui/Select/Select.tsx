@@ -1,6 +1,6 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { ChangeEvent, useMemo } from 'react';
-import cls from './Select.module.scss';
+import cl from './Select.module.scss';
 
 export interface SelectOption<T extends string> {
   value: T;
@@ -28,7 +28,7 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
   const optionsList = useMemo(
     () =>
       options?.map((opt) => (
-        <option className={cls.option} value={opt.value} key={opt.value}>
+        <option className={cl.option} value={opt.value} key={opt.value}>
           {opt.content}
         </option>
       )),
@@ -36,15 +36,15 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
   );
 
   const mods: Mods = {
-    [cls.readonly]: readonly,
+    [cl.readonly]: readonly,
   };
 
   return (
-    <div className={classNames(cls.Wrapper, mods, [className])}>
-      {label && <span className={cls.label}>{`${label}>`}</span>}
+    <div className={classNames(cl.Wrapper, mods, [className])}>
+      {label && <span className={cl.label}>{`${label}>`}</span>}
       <select
         disabled={readonly}
-        className={cls.select}
+        className={cl.select}
         value={value}
         onChange={onChangeHandler}
       >
