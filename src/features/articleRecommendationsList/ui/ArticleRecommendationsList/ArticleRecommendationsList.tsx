@@ -17,16 +17,16 @@ export const ArticleRecommendationsList = memo(
 
     const {
       isLoading,
-      data: articles = [],
+      data: articles,
       error,
     } = useArticleRecommendationsList(4); // RTK query params in the Hook
 
-    if (isLoading || error) null;
+    if (isLoading || error || !articles) return null;
 
     return (
       <VStack gap="8" className={classNames('', {}, [className])}>
         <Text size={TextSize.L} title={t('Рекомендации')} />
-        <ArticleList articles={articles} target="_blank" />
+        <ArticleList articles={articles} target="_blank" virtualized={false} />
       </VStack>
     );
   },

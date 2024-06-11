@@ -1,4 +1,5 @@
 // RTK query TODO
+import { Article } from 'entities/Article';
 import { rtkApi } from 'shared/api/rtkApi';
 
 /**
@@ -12,7 +13,7 @@ const recommendationsApi = rtkApi.injectEndpoints({
      * @param limit Limit parameter for the query
      * @returns Query object for the endpoint
      */
-    getArticleRecommendationsList: build.query({
+    getArticleRecommendationsList: build.query<Article[], number>({
       query: (limit) => ({
         url: '/articles',
         params: {
