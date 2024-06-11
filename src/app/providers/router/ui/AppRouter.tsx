@@ -20,7 +20,11 @@ const AppRouter = () => {
         path={route.path}
         element={
           // If page is authOnly, element renders with Require Auth which redirects to '/'
-          route.authOnly ? <RequireAuth>{element}</RequireAuth> : element
+          route.authOnly ? (
+            <RequireAuth roles={route.roles}>{element}</RequireAuth>
+          ) : (
+            element
+          )
         }
       />
     );
