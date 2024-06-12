@@ -29,7 +29,7 @@ import { HStack, VStack } from 'shared/ui/Stack';
 
 interface ArticleDetailsProps {
   className?: string;
-  id: string;
+  id?: string;
 }
 
 const reducers: ReducersList = {
@@ -136,6 +136,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <VStack
         gap={'16'}
+        max
         className={classNames(cl.ArticleDetails, {}, [className])}
       >
         {content}

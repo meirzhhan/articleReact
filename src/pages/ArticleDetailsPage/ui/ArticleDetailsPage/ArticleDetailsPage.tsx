@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import cl from './ArticleDetailsPage.module.scss';
 import { memo } from 'react';
 import { ArticleDetails } from 'entities/Article';
@@ -24,16 +23,8 @@ const reducers: ReducersList = {
 };
 
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
-  const { t } = useTranslation('article-details');
+  // const { t } = useTranslation('article-details');
   const { id } = useParams<{ id: string }>();
-
-  if (!id) {
-    return (
-      <Page className={classNames(cl.ArticleDetailsPage, {}, [className])}>
-        {t('Статья не найдена')}
-      </Page>
-    );
-  }
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>

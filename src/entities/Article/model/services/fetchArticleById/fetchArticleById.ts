@@ -4,7 +4,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchArticleById = createAsyncThunk<
   Article, // return value
-  string, // input value
+  string | undefined, // input value
   ThunkConfig<string> // extra, state and <rejectValue>
 >('articleDetails/fetchArticleById', async (articleId, ThunkApi) => {
   const { extra, rejectWithValue } = ThunkApi;
@@ -16,7 +16,7 @@ export const fetchArticleById = createAsyncThunk<
       },
     });
 
-    if (!response.data) {
+    if (!response.data || !articleId) {
       throw new Error();
     }
 
