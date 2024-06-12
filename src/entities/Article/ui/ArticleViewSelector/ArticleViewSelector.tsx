@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
 import cl from './ArticleViewSelector.module.scss';
-import { ArticleView } from '../../model/types/article';
+import { ArticleView } from '../../model/consts/articleConsts';
 
 import ListIcon from 'shared/assets/icons/list.svg';
 import TiledIcon from 'shared/assets/icons/tiled.svg';

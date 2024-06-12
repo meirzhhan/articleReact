@@ -9,12 +9,11 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cl from './ArticleListItem.module.scss';
+import { Article, ArticleTextBlock } from '../../model/types/article';
 import {
-  Article,
-  ArticleBlockType,
-  ArticleTextBlock,
   ArticleView,
-} from '../../model/types/article';
+  ArticleBlockType,
+} from '../../model/consts/articleConsts';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 
