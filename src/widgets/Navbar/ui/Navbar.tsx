@@ -13,6 +13,8 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { HStack } from 'shared/ui/Stack';
 import { NotificationButton } from 'features/notificationButton';
 import { AvatarDropdown } from 'features/avatarDropdown';
+import { Drawer } from 'shared/ui/Drawer/Drawer';
+import { NotificationList } from 'entities/Notification';
 
 interface NavbarProps {
   className?: string;
