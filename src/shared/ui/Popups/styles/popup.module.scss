@@ -1,7 +1,8 @@
-.Dropdown {
+.popup {
   position: relative;
 }
-.btn {
+
+.trigger {
   background: none;
   outline: none;
   margin: 0;
@@ -9,24 +10,7 @@
   border: none;
   cursor: pointer;
 }
-.menu {
-  background: var(--card-bg);
-  position: absolute;
-  z-index: 10000;
-  border-radius: 8px;
-  border: 1px solid var(--primary-color);
-  display: flex;
-  flex-direction: column;
-}
-.item {
-  padding: 10px 25px;
-  width: 100%;
-  border: none;
-  background: none;
-  outline: none;
-  color: var(--primary-color);
-  cursor: pointer;
-}
+
 .active {
   background: var(--inverted-primary-color);
 }
@@ -47,4 +31,8 @@
 .optionsTopLeft {
   bottom: 100%;
   right: 0;
+}
+
+.disabled {
+  opacity: 0.7;
 }
