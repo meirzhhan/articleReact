@@ -1,10 +1,10 @@
-import { Mods, classNames } from 'shared/lib/classNames/classNames';
-import cl from './Modal.module.scss';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { ReactNode } from 'react';
-import { Portal } from '../Portal/Portal';
 import { useTheme } from 'app/providers/ThemeProvider';
-import { Overlay } from '../Overlay/Overlay';
 import { useModal } from 'shared/lib/hooks/useModal/useModal';
+import { Overlay } from '../Overlay/Overlay';
+import { Portal } from '../Portal/Portal';
+import cl from './Modal.module.scss';
 
 interface ModalProps {
   className?: string;
@@ -18,13 +18,14 @@ const ANIMATION_DELAY = 300;
 
 export const Modal = (props: ModalProps) => {
   const { className, children, isOpen, onClose, lazy } = props;
-  const { theme } = useTheme();
 
   const { close, isClosing, isMounted } = useModal({
     animationDelay: ANIMATION_DELAY,
     onClose,
     isOpen,
   });
+
+  const { theme } = useTheme();
 
   const mods: Mods = {
     [cl.opened]: isOpen,
