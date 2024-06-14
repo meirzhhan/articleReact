@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import {
   MutableRefObject,
   ReactNode,
@@ -8,14 +8,14 @@ import {
   useRef,
 } from 'react';
 import cl from './Page.module.scss';
-import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getUIScrollByPath } from 'features/UI/model/selectors/ui';
+import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { getUIScrollByPath } from '@/features/UI/model/selectors/ui';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { uiActions } from 'features/UI';
-import { StateSchema } from 'app/providers/StoreProvider';
-import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
+import { uiActions } from '@/features/UI';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
 
 interface PageProps {
   className?: string;

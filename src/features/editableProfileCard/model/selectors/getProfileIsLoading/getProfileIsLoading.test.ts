@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import { getProfileIsLoading } from './getProfileIsLoading';
 import { ProfileSchema } from '../../types/editableProfileCardSchema';
 
