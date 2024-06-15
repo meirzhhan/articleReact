@@ -6,12 +6,10 @@ interface PageLoaderProps {
   className?: string;
 }
 
-const PageLoader = ({ className }: PageLoaderProps) => {
+export const PageLoader = ({ className }: PageLoaderProps) => {
   return (
     <div className={classNames(cl.PageLoader, {}, [className])}>
       <Loader />
     </div>
   );
 };
-
-export default PageLoader;

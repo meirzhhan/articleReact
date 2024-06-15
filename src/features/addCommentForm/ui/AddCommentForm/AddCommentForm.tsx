@@ -5,10 +5,7 @@ import cl from './AddCommentForm.module.scss';
 import { Input } from '@/shared/ui/Input/Input';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
-import {
-  getAddCommentFormError,
-  getAddCommentFormText,
-} from '../../model/selectors/addCommentFormSelectors';
+import { getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
   addCommentFormActions,

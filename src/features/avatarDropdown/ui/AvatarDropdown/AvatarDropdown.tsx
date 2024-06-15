@@ -42,7 +42,7 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
         ...(isAdminPanelAvailable
           ? [
               {
-                // content: t('Админка', { $Dictionary: 's' }), // TODO
+                // content: t('Админка', { $Dictionary: 's' }), // TODO: t('')
                 content: t('Админка'),
                 href: RoutePath.admin_panel,
               },

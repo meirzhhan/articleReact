@@ -1,4 +1,4 @@
-// RTK query TODO
+// RTK query TODO: comments
 import { Article } from '@/entities/Article';
 import { rtkApi } from '@/shared/api/rtkApi';
 

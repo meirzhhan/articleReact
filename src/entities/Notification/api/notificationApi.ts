@@ -1,4 +1,4 @@
-// RTK query TODO
+// RTK query TODO: comments
 import { rtkApi } from '@/shared/api/rtkApi';
 import { Notification } from '../model/types/notification';
 

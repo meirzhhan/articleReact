@@ -13,6 +13,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   theme?: CardTheme;
   max?: boolean;
 }
+// FIXME:
 
 export const Card = memo((props: CardProps) => {
   const {

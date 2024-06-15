@@ -1,3 +1,4 @@
+// TODO: add new feature ProfileRating
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { RatingCard } from '@/entities/Rating';

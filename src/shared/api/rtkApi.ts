@@ -1,4 +1,4 @@
-// RTK query TODO
+// RTK query TODO: comments
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
 
