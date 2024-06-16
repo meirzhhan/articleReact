@@ -14,6 +14,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     use: {
       loader: 'babel-loader',
       options: {
+        cacheDirectory: true,
         presets: ['@babel/preset-env'],
         plugins: [
           [
@@ -30,6 +31,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 
   const cssLoader = {
     test: /\.s[ac]ss$/i,
+    exclude: /node_modules/,
     use: [
       // Если production - mini-css-extract-plugin(которая отделяет css oт bundle.js), иначе css будет внутри bundle.js
       isDev ? 'style-loader' : MiniCssExtractPlugin.loader,

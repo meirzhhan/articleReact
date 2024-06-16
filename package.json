@@ -13,7 +13,6 @@
     "build:dev": "webpack --env mode=development",
     "unit": "jest --config ./config/jest/jest.config.ts",
     "lint:ts": " eslint \"**/*.{ts,tsx}\"",
-    "lint:ts:fix": " eslint \"**/*.{ts,tsx}\" --fix",
     "generate:slice": "node ./scripts/createSlice/index.js"
   },
   "keywords": [],
