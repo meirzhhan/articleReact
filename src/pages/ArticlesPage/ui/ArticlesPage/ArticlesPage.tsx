@@ -39,7 +39,7 @@ const ArticlesPage = (props: ArticlePageProps) => {
     dispatch(initArticlesPage(searchParams));
   }, [dispatch, initiated, searchParams]);
 
-  // if (error) null;
+  // if (error) return null;
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
