@@ -603,6 +603,10 @@
       "roles": [
         "ADMIN"
       ],
+      "features": {
+        "isArticleRatingEnabled": true,
+        "isCounterEnabled": true
+      },
       "avatar": "https://2.downloader.disk.yandex.kz/preview/922bcc92ea05b45a13e5b947e8d857df60015823b224a2c9377f84971ece80e2/inf/xy2aN4qiyJBaIw9tdaKubWYPatbyEq8mOAOgg9FdCQqsZt6zC-us8AA5W85y7o7TCw0frz_3KS7XwxGn4w0McQ%3D%3D?uid=1397265792&filename=2.JPG&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=1397265792&tknv=v2&size=1920x970"
     },
     {
@@ -612,15 +616,23 @@
       "roles": [
         "USER"
       ],
+      "features": {
+        "isArticleRatingEnabled": false,
+        "isCounterEnabled": false
+      },
       "avatar": "https://avatars.dzeninfra.ru/get-zen_doc/5327700/pub_634d11eb9de7f5753f556834_634d1e2f9853e80abd26a73f/scale_1200"
     },
     {
-      "id": "2",
+      "id": "3",
       "username": "manager",
       "password": "123",
       "roles": [
         "MANAGER"
       ],
+      "features": {
+        "isArticleRatingEnabled": false,
+        "isCounterEnabled": true
+      },
       "avatar": "https://avatars.dzeninfra.ru/get-zen_doc/5327700/pub_634d11eb9de7f5753f556834_634d1e2f9853e80abd26a73f/scale_1200"
     }
   ],
@@ -676,6 +688,12 @@
       "rate": 1,
       "feedback": "test",
       "id": "89O2rL4"
+    },
+    {
+      "userId": "1",
+      "articleId": "7",
+      "rate": 2,
+      "id": "LGT8EL6"
     }
   ],
   "profile-ratings": [
