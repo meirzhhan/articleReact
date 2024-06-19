@@ -14,7 +14,10 @@ import { initArticlesPage } from '../../model/services/initArticlesPage/initArti
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 import { useSearchParams } from 'react-router-dom';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
-import { getArticlesPageInitiated } from '../../model/selectors/articlesPageSelectors';
+import {
+  getArticlesPageInitiated,
+  useArticleItemById,
+} from '../../model/selectors/articlesPageSelectors';
 
 interface ArticlePageProps {
   className?: string;
@@ -30,6 +33,9 @@ const ArticlesPage = (props: ArticlePageProps) => {
   const initiated = useSelector(getArticlesPageInitiated);
 
   const [searchParams] = useSearchParams();
+
+  // const articleItem = useArticleItemById('2'); // TODO: Should use this instead useSelector
+  // console.log(articleItem);
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlesPage());

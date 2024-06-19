@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    jest: true,
   },
   extends: ['plugin:react/recommended', 'plugin:react-hooks/recommended'],
   parser: '@typescript-eslint/parser',
@@ -14,13 +15,12 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint', 'react-hooks'],
   rules: {
+    'unused-imports/no-unused-imports': 'warning',
     'react/jsx-filename-extension': [
       2,
       { extensions: ['.js', '.jsx', '.tsx'] },
     ],
-
     'react/react-in-jsx-scope': 'off',
-
     '@typescript-eslint/no-unused-vars': [
       'warn',
       {
