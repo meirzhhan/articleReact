@@ -39,6 +39,7 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
     'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
     'react/display-name': 'off',
+    // 'react/no-unstable-nested-components': 'warn',
   },
   globals: {
     __IS_DEV__: true,

@@ -5,12 +5,7 @@ import { Counter } from '@/entities/CounterForTests';
 const MainPage = () => {
   const { t } = useTranslation('main');
 
-  return (
-    <Page data-testid="MainPage">
-      <Counter />
-      {t('Главная страница')}
-    </Page>
-  );
+  return <Page data-testid="MainPage">{t('Главная страница')}</Page>;
 };
 
 export default MainPage;
