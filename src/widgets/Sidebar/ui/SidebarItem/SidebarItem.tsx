@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import cl from './SidebarItem.module.scss';
-import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
+import { AppLink, AppLinkTheme } from '@/shared/ui/deprecated/AppLink';
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
