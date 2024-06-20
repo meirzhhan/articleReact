@@ -13,6 +13,7 @@ import { getRouteArticleCreate } from '@/shared/const/router';
 import { HStack } from '@/shared/ui/Stack';
 import { NotificationButton } from '@/features/notificationButton';
 import { AvatarDropdown } from '@/features/avatarDropdown';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface NavbarProps {
   className?: string;
@@ -32,25 +33,38 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   if (authData) {
     return (
-      <header className={classNames(cl.Navbar, {}, [className])}>
-        <Text
-          className={cl.appName}
-          title="Zhan News"
-          theme={TextTheme.INVERTED}
-        />
-        <AppLink
-          className={cl.createBtn}
-          theme={AppLinkTheme.SECONDARY}
-          to={getRouteArticleCreate()}
-        >
-          {t('Создать статью')}
-        </AppLink>
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <header className={classNames(cl.NavbarRedesigned, {}, [className])}>
+            <HStack gap="16" className={cl.actions}>
+              <NotificationButton />
+              <AvatarDropdown />
+            </HStack>
+          </header>
+        }
+        off={
+          <header className={classNames(cl.Navbar, {}, [className])}>
+            <Text
+              className={cl.appName}
+              title="Zhan News"
+              theme={TextTheme.INVERTED}
+            />
+            <AppLink
+              className={cl.createBtn}
+              theme={AppLinkTheme.SECONDARY}
+              to={getRouteArticleCreate()}
+            >
+              {t('Создать статью')}
+            </AppLink>
 
-        <HStack gap="16" className={cl.actions}>
-          <NotificationButton />
-          <AvatarDropdown />
-        </HStack>
-      </header>
+            <HStack gap="16" className={cl.actions}>
+              <NotificationButton />
+              <AvatarDropdown />
+            </HStack>
+          </header>
+        }
+      />
     );
   }
 

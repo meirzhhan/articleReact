@@ -4,11 +4,6 @@
 @import 'themes/dark';
 @import 'themes/orange';
 
-// body {
-//   font: var(--font-m);
-//   color: var(--primary-color);
-// }
-
 .app,
 .app_modal,
 .app_drawer {
@@ -18,6 +13,13 @@
 .app {
   background: var(--bg-color);
   min-height: 100vh;
+}
+
+.app_redesigned {
+  background: var(--bg-redesigned);
+  min-height: 100vh;
+  font: var(--font-m-redesigned);
+  color: var(--text-redesigned);
 }
 
 .content-page {
