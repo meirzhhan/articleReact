@@ -14,7 +14,7 @@ const App = () => {
   const dispatch = useDispatch();
   const initiated = useSelector(getUserInitiated);
 
-  // getting info about user if exists or not
+  // getting info about user(logged or not)
   useEffect(() => {
     dispatch(userActions.initAuthData());
   }, [dispatch]);

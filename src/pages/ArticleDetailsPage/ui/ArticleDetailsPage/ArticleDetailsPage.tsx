@@ -14,7 +14,7 @@ import { VStack } from '@/shared/ui/Stack';
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '@/features/articleRating';
-import { getFeatureFlag, toggleFeatures } from '@/shared/lib/features';
+import { toggleFeatures } from '@/shared/lib/features';
 import { Card } from '@/shared/ui/Card';
 import { useTranslation } from 'react-i18next';
 

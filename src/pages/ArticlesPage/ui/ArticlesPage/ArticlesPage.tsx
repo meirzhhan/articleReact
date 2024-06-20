@@ -14,10 +14,7 @@ import { initArticlesPage } from '../../model/services/initArticlesPage/initArti
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 import { useSearchParams } from 'react-router-dom';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
-import {
-  getArticlesPageInitiated,
-  useArticleItemById,
-} from '../../model/selectors/articlesPageSelectors';
+import { getArticlesPageInitiated } from '../../model/selectors/articlesPageSelectors';
 
 interface ArticlePageProps {
   className?: string;
