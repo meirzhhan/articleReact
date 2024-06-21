@@ -1,4 +1,4 @@
-import { Fragment, ReactNode } from 'react';
+import { Fragment, ReactNode, useMemo } from 'react';
 import { Listbox as HListbox } from '@headlessui/react';
 import cl from './ListBox.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -8,24 +8,24 @@ import { mapDirectionClass } from '../../styles/consts';
 import popupCl from '../../styles/popup.module.scss';
 import { Button } from '../../../Button';
 
-export interface ListBoxItem {
+export interface ListBoxItem<T extends string> {
   value: string;
   content: ReactNode;
   disabled?: boolean;
 }
 
-interface ListBoxProps {
+interface ListBoxProps<T extends string> {
   className?: string;
-  items?: ListBoxItem[];
-  value?: string;
+  items?: ListBoxItem<T>[];
+  value?: T;
   defaultValue?: string;
-  onChange: (value: string) => void;
+  onChange: (value: T) => void;
   readonly?: boolean;
   direction?: DropdownDirection;
   label?: string;
 }
 
-export function ListBox(props: ListBoxProps) {
+export function ListBox<T extends string>(props: ListBoxProps<T>) {
   const {
     className,
     items,
@@ -39,6 +39,10 @@ export function ListBox(props: ListBoxProps) {
 
   const optionsClasses = [mapDirectionClass[direction], popupCl.menu];
 
+  const selectedItem = useMemo(() => {
+    return items?.find((item) => item.value === value);
+  }, [items, value]);
+
   return (
     <HStack gap="4" className={readonly ? cl.readonly : ''}>
       {label && <span>{`${label}>`} </span>}
@@ -50,7 +54,9 @@ export function ListBox(props: ListBoxProps) {
         onChange={onChange}
       >
         <HListbox.Button disabled={readonly} className={cl.trigger}>
-          <Button disabled={readonly}>{value ?? defaultValue}</Button>
+          <Button variant="filled" disabled={readonly}>
+            {selectedItem?.content ?? defaultValue}
+          </Button>
         </HListbox.Button>
 
         <HListbox.Options
@@ -70,12 +76,12 @@ export function ListBox(props: ListBoxProps) {
                     {
                       [popupCl.active]: active,
                       [popupCl.disabled]: item.disabled,
+                      [popupCl.selected]: selected,
                     },
                     [],
                   )}
                 >
                   {item.content}
-                  {selected && '✔'}
                 </li>
               )}
             </HListbox.Option>
