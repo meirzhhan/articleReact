@@ -3,4 +3,9 @@
   max-height: 300px;
   width: 500px;
   overflow-y: auto;
+
+  // TODO:
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }

@@ -4,9 +4,9 @@ import {
   AnimationProvider,
   useAnimationLibs,
 } from '@/shared/lib/components/AnimationProvider';
-import { Overlay } from '../Overlay';
+import { Overlay } from '../../redesigned/Overlay';
 import cl from './Drawer.module.scss';
-import { Portal } from '../Portal';
+import { Portal } from '../../redesigned/Portal';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
 interface DrawerProps {
@@ -18,11 +18,6 @@ interface DrawerProps {
 }
 
 const height = window.innerHeight - 100;
-
-/**
- * new UI kit added
- * @deprecated
- */
 
 export const DrawerContent = memo((props: DrawerProps) => {
   const { Spring, Gesture } = useAnimationLibs();
@@ -110,6 +105,11 @@ const DrawerAsync = (props: DrawerProps) => {
 
   return <DrawerContent {...props} />;
 };
+
+/**
+ * new UI kit added
+ * @deprecated
+ */
 
 export const Drawer = (props: DrawerProps) => {
   return (

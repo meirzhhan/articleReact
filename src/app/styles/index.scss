@@ -10,6 +10,7 @@
   font: var(--font-m);
   color: var(--primary-color);
 }
+
 .app {
   background: var(--bg-color);
   min-height: 100vh;
@@ -20,6 +21,7 @@
   min-height: 100vh;
   font: var(--font-m-redesigned);
   color: var(--text-redesigned);
+  scrollbar-width: 50px;
 }
 
 .content-page {
