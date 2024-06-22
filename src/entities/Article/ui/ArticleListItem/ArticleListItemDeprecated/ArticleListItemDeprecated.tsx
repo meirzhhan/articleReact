@@ -42,6 +42,7 @@ export const ArticleListItemDeprecated = memo((props: ArticleListItemProps) => {
 
     return (
       <div
+        data-testid="ArticleListItem"
         className={classNames(cl.ArticleListItem, {}, [className, cl[view]])}
       >
         <Card className={cl.card}>
@@ -53,7 +54,7 @@ export const ArticleListItemDeprecated = memo((props: ArticleListItemProps) => {
           <Text title={article.title} className={cl.title} />
           {types}
           <AppImage
-            fallback={<Skeleton width={'100%'} height={250} />}
+            fallback={<Skeleton width="100%" height={250} />}
             src={article.img}
             className={cl.img}
             alt={article.title}
@@ -68,7 +69,6 @@ export const ArticleListItemDeprecated = memo((props: ArticleListItemProps) => {
             <AppLink target={target} to={getRouteArticleDetails(article.id)}>
               <Button theme={ButtonTheme.OUTLINE}>{t('Читать далее')}</Button>
             </AppLink>
-
             {views}
           </div>
         </Card>
@@ -78,6 +78,7 @@ export const ArticleListItemDeprecated = memo((props: ArticleListItemProps) => {
 
   return (
     <AppLink
+      data-testid="ArticleListItem"
       target={target}
       to={getRouteArticleDetails(article.id)}
       className={classNames(cl.ArticleListItem, {}, [className, cl[view]])}

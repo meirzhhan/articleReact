@@ -1,12 +1,15 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo } from 'react';
-import cl from './ArticleListItem.module.scss';
+
 import { ArticleView } from '../../model/consts/articleConsts';
+
 import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
 import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
-import { toggleFeatures } from '@/shared/lib/features';
 import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
 import { Card as CardRedesigned } from '@/shared/ui/redesigned/Card';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { toggleFeatures } from '@/shared/lib/features';
+
+import cl from './ArticleListItem.module.scss';
 
 interface ArticleListItemSkeletonProps {
   className?: string;
@@ -17,12 +20,17 @@ export const ArticleListItemSkeleton = memo(
   (props: ArticleListItemSkeletonProps) => {
     const { className, view } = props;
 
+    const mainClass = toggleFeatures({
+      name: 'isAppRedesigned',
+      on: () => cl.ArticleListItemRedesigned,
+      off: () => cl.ArticleListItem,
+    });
+
     const Skeleton = toggleFeatures({
       name: 'isAppRedesigned',
       on: () => SkeletonRedesigned,
       off: () => SkeletonDeprecated,
     });
-
     const Card = toggleFeatures({
       name: 'isAppRedesigned',
       on: () => CardRedesigned,
@@ -31,9 +39,7 @@ export const ArticleListItemSkeleton = memo(
 
     if (view === ArticleView.BIG) {
       return (
-        <div
-          className={classNames(cl.ArticleListItem, {}, [className, cl[view]])}
-        >
+        <div className={classNames(mainClass, {}, [className, cl[view]])}>
           <Card className={cl.card}>
             <div className={cl.header}>
               <Skeleton border="50%" height={30} width={30} />
@@ -51,18 +57,14 @@ export const ArticleListItemSkeleton = memo(
     }
 
     return (
-      <div
-        className={classNames(cl.ArticleListItem, {}, [className, cl[view]])}
-      >
+      <div className={classNames(mainClass, {}, [className, cl[view]])}>
         <Card className={cl.card}>
           <div className={cl.imageWrapper}>
             <Skeleton width={200} height={200} className={cl.img} />
           </div>
-
           <div className={cl.infoWrapper}>
             <Skeleton width={130} height={16} />
           </div>
-
           <Skeleton width={150} height={16} className={cl.title} />
         </Card>
       </div>

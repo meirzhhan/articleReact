@@ -20,14 +20,19 @@ import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { getRouteArticleDetails } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
-import cl from './ArticleListItemRedesigned.module.scss';
 import EyeIcon from '@/shared/assets/icons/eyeNew.svg';
+import cl from './ArticleListItemRedesigned.module.scss';
 
 export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
   const { className, article, view, target } = props;
   const { t } = useTranslation();
 
-  const types = <Text text={article.type.join(', ')} className={cl.types} />;
+  const userInfo = (
+    <>
+      <Avatar size={32} src={article.user.avatar} />
+      <Text bold text={article.user.username} />
+    </>
+  );
   const views = (
     <HStack gap="8">
       <Icon Svg={EyeIcon} />
@@ -44,25 +49,23 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
       <Card
         padding="24"
         max
-        className={classNames(cl.ArticleListItem, {}, [className, cl[view]])}
         data-testid="ArticleListItem"
+        className={classNames(cl.ArticleListItem, {}, [className, cl[view]])}
       >
         <VStack max gap="16">
           <HStack gap="8" max>
-            <Avatar size={32} src={article.user.avatar} />
-            <Text bold text={article.user.username} />
+            {userInfo}
             <Text text={article.createdAt} />
           </HStack>
           <Text title={article.title} bold />
-          <Text title={article.subtitle} bold size="s" />
+          <Text title={article.subtitle} size="s" />
           <AppImage
-            fallback={<Skeleton width={'100%'} height={250} />}
+            fallback={<Skeleton width="100%" height={250} />}
             src={article.img}
             className={cl.img}
             alt={article.title}
           />
-
-          {textBlock.paragraphs && (
+          {textBlock?.paragraphs && (
             <Text
               className={cl.textBlock}
               text={textBlock.paragraphs.slice(0, 2).join(' ')}
@@ -72,7 +75,6 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
             <AppLink target={target} to={getRouteArticleDetails(article.id)}>
               <Button variant="outline">{t('Читать далее')}</Button>
             </AppLink>
-
             {views}
           </HStack>
         </VStack>
@@ -82,25 +84,28 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
 
   return (
     <AppLink
+      data-testid="ArticleListItem"
       target={target}
       to={getRouteArticleDetails(article.id)}
       className={classNames(cl.ArticleListItem, {}, [className, cl[view]])}
     >
-      <Card className={cl.card}>
-        <div className={cl.imageWrapper}>
-          <AppImage
-            fallback={<Skeleton width={200} height={200} />}
-            alt={article.title}
-            src={article.img}
-            className={cl.img}
-          />
-          <Text text={article.createdAt} className={cl.date} />
-        </div>
-        <div className={cl.infoWrapper}>
-          {types}
-          {views}
-        </div>
-        <Text text={article.title} className={cl.title} />
+      <Card className={cl.card} border="round">
+        <AppImage
+          fallback={<Skeleton width={200} height={200} />}
+          alt={article.title}
+          src={article.img}
+          className={cl.img}
+        />
+        <VStack className={cl.info} gap="4">
+          <Text title={article.title} className={cl.title} />
+          <VStack gap="4" className={cl.footer} max>
+            <HStack justify="between" max>
+              <Text text={article.createdAt} className={cl.date} />
+              {views}
+            </HStack>
+            <HStack gap="4">{userInfo}</HStack>
+          </VStack>
+        </VStack>
       </Card>
     </AppLink>
   );
