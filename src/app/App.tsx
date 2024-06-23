@@ -28,7 +28,10 @@ const App = () => {
     <ToggleFeatures
       feature="isAppRedesigned"
       off={
-        <div className={classNames('app', { selected: false }, [theme])}>
+        <div
+          id="app"
+          className={classNames('app', { selected: false }, [theme])}
+        >
           <Suspense fallback="">
             <Navbar />
 
@@ -41,6 +44,7 @@ const App = () => {
       }
       on={
         <div
+          id="app"
           className={classNames('app_redesigned', { selected: false }, [theme])}
         >
           <Suspense fallback="">

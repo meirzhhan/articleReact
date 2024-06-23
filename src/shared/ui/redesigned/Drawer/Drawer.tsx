@@ -4,10 +4,11 @@ import {
   AnimationProvider,
   useAnimationLibs,
 } from '@/shared/lib/components/AnimationProvider';
-import { Overlay } from '../../redesigned/Overlay';
+import { Overlay } from '../Overlay';
 import cl from './Drawer.module.scss';
-import { Portal } from '../../redesigned/Portal';
+import { Portal } from '../Portal';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
+import { toggleFeatures } from '@/shared/lib/features';
 
 interface DrawerProps {
   className?: string;
@@ -79,9 +80,18 @@ export const DrawerContent = memo((props: DrawerProps) => {
   const display = y.to((py) => (py < height ? 'block' : 'none'));
 
   return (
-    <Portal>
+    <Portal element={document.getElementById('app') ?? document.body}>
       <div
-        className={classNames(cl.Drawer, {}, [className, theme, 'app_drawer'])}
+        className={classNames(cl.Drawer, {}, [
+          className,
+          theme,
+          'app_drawer',
+          toggleFeatures({
+            name: 'isAppRedesigned',
+            on: () => cl.drawerNew,
+            off: () => cl.drawerOld,
+          }),
+        ])}
       >
         <Overlay onClick={close} />
         <Spring.a.div
@@ -105,11 +115,6 @@ const DrawerAsync = (props: DrawerProps) => {
 
   return <DrawerContent {...props} />;
 };
-
-/**
- * new UI kit added
- * @deprecated
- */
 
 export const Drawer = (props: DrawerProps) => {
   return (
