@@ -1,4 +1,7 @@
-.title,
+.title {
+  color: var(--text-redesigned);
+}
+
 .text {
   color: var(--text-redesigned);
 }
@@ -14,15 +17,18 @@
 }
 
 .accent {
+  .title {
+    color: var(--accent-redesigned);
+  }
 
-  .title,
   .text {
     color: var(--accent-redesigned);
   }
 }
 
+
 .left {
-  text-align-last: left;
+  text-align: left;
 }
 
 .right {

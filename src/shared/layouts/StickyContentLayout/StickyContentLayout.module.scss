@@ -3,7 +3,9 @@
   grid-template-areas:
     'left content right';
   grid-template-columns: min-content 1fr min-content;
+  // TODO: grid-template-columns: min-content 1fr fit-content;
 }
+
 
 .left {
   grid-area: left;

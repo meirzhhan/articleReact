@@ -1,8 +1,9 @@
+import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cl from './Text.module.scss';
-import { memo } from 'react';
 
 export type TextVariant = 'primary' | 'error' | 'accent';
+
 export type TextAlign = 'right' | 'left' | 'center';
 
 export type TextSize = 's' | 'm' | 'l';
@@ -15,16 +16,15 @@ interface TextProps {
   align?: TextAlign;
   size?: TextSize;
   bold?: boolean;
-
   'data-testid'?: string;
 }
 
 type HeaderTagType = 'h1' | 'h2' | 'h3';
 
 const mapSizeToClass: Record<TextSize, string> = {
-  s: 'h3',
-  m: 'h2',
-  l: 'h1',
+  s: 'size_s',
+  m: 'size_m',
+  l: 'size_l',
 };
 
 const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
@@ -36,23 +36,24 @@ const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
 export const Text = memo((props: TextProps) => {
   const {
     className,
-    title,
     text,
+    title,
     variant = 'primary',
     align = 'left',
     size = 'm',
     bold,
-
     'data-testid': dataTestId = 'Text',
   } = props;
 
-  const HeaderTag = mapSizeToHeaderTag[size]; // get only selected one
+  const HeaderTag = mapSizeToHeaderTag[size];
   const sizeClass = mapSizeToClass[size];
 
-  const additional = [className, cl[variant], cl[align], sizeClass];
+  const additionalClasses = [className, cl[variant], cl[align], sizeClass];
 
   return (
-    <div className={classNames(cl.Text, { [cl.bold]: bold }, additional)}>
+    <div
+      className={classNames(cl.Text, { [cl.bold]: bold }, additionalClasses)}
+    >
       {title && (
         <HeaderTag className={cl.title} data-testid={`${dataTestId}.Header`}>
           {title}
