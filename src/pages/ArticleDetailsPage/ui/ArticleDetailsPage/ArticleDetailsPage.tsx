@@ -14,7 +14,7 @@ import { VStack } from '@/shared/ui/redesigned/Stack';
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '@/features/articleRating';
-import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { Card } from '@/shared/ui/deprecated/Card';
 import { useTranslation } from 'react-i18next';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';

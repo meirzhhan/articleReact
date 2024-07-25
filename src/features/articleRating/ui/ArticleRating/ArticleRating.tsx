@@ -26,7 +26,7 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
     articleId,
   });
 
-  // 1 - function that calls mutation, 2 - object with args
+  // TODO: 1 - function that calls mutation, 2 - object with args
   const [rateArticleMutation, {}] = useRateArticle();
 
   const handleRateArticle = useCallback(
