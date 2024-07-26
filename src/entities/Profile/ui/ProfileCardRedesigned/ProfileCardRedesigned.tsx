@@ -74,6 +74,7 @@ export const ProfileCardRedesigned = memo((props: ProfileCardProps) => {
   return (
     <Card // TODO: Remove VStack, add custom to Card func
       padding="24"
+      border="partial"
       max
       className={className}
     >
