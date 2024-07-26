@@ -11,6 +11,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { PageLoader } from '@/widgets/PageLoader';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { MainLayout } from '@/shared/layouts/MainLayout';
+import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 
 const App = () => {
   const { theme } = useTheme();
@@ -22,7 +23,23 @@ const App = () => {
     dispatch(initAuthData());
   }, [dispatch]);
 
-  if (!initiated) return <PageLoader />;
+  if (!initiated)
+    return (
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <div
+            id="app"
+            className={classNames('app_redesigned', { selected: false }, [
+              theme,
+            ])}
+          >
+            <AppLoaderLayout />
+          </div>
+        }
+        off={<PageLoader />}
+      />
+    );
 
   return (
     <ToggleFeatures
