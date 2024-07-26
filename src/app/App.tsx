@@ -12,11 +12,13 @@ import { PageLoader } from '@/widgets/PageLoader';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
+import { useAppToolbar } from './lib/useAppToolbar';
 
 const App = () => {
   const { theme } = useTheme();
   const dispatch = useAppDispatch();
   const initiated = useSelector(getUserInitiated);
+  const toolbar = useAppToolbar();
 
   // getting info about user(logged or not)
   useEffect(() => {
@@ -69,7 +71,7 @@ const App = () => {
               header={<Navbar />}
               content={<AppRouter />}
               sidebar={<Sidebar />}
-              toolbar={<div></div>}
+              toolbar={toolbar}
             />
           </Suspense>
         </div>
