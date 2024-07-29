@@ -2,7 +2,6 @@ import ReactDOM from 'react-dom/client';
 
 import { StoreProvider } from '@/app/providers/StoreProvider';
 import { BrowserRouter } from 'react-router-dom';
-import { ErrorBoundary } from '@/app/providers/ErrorBoundary';
 import { ThemeProvider } from '@/app/providers/ThemeProvider';
 
 import App from './app/App';
@@ -18,11 +17,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <BrowserRouter>
     <StoreProvider>
-      <ErrorBoundary>
-        <ThemeProvider>
-          <App />
-        </ThemeProvider>
-      </ErrorBoundary>
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
     </StoreProvider>
   </BrowserRouter>,
 );
