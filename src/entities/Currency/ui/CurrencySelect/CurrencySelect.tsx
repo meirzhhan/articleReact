@@ -1,8 +1,6 @@
 import { memo, useCallback } from 'react';
 import { Currency } from '../../model/types/currency';
 import { useTranslation } from 'react-i18next';
-import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups';
-import { ToggleFeatures } from '@/shared/lib/features';
 import { ListBox } from '@/shared/ui/redesigned/Popups';
 
 interface CurrencySelectProps {
@@ -40,11 +38,5 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
     direction: 'top right' as const,
   };
 
-  return (
-    <ToggleFeatures
-      feature="isAppRedesigned"
-      on={<ListBox {...listBoxProps} />}
-      off={<ListBoxDeprecated {...listBoxProps} />}
-    />
-  );
+  return <ListBox {...listBoxProps} />;
 });

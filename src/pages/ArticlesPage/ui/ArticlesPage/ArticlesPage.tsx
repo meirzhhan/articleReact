@@ -11,12 +11,10 @@ import { useSelector } from 'react-redux';
 import { Page } from '@/widgets/Page';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlePage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
-import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 import { useSearchParams } from 'react-router-dom';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 import { getArticlesPageInitiated } from '../../model/selectors/articlesPageSelectors';
 import { ArticlePageGreeting } from '@/features/articlePageGreeting';
-import { ToggleFeatures } from '@/shared/lib/features';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { ViewSelectorContainer } from '../ViewSelectorContainer/ViewSelectorContainer';
 import { FiltersContainer } from '../FiltersContainer/FiltersContainer';
@@ -48,29 +46,14 @@ const ArticlesPage = (props: ArticlePageProps) => {
   }, [dispatch, initiated, searchParams]);
 
   const content = (
-    <ToggleFeatures
-      feature="isAppRedesigned"
-      on={
-        <StickyContentLayout
-          left={<ViewSelectorContainer />}
-          right={<FiltersContainer />}
-          content={
-            <Page
-              onScrollEnd={onLoadNextPart}
-              className={classNames(cl.ArticlesPageRedesigned, {}, [className])}
-            >
-              <ArticleInfiniteList className={cl.list} />
-              <ArticlePageGreeting />
-            </Page>
-          }
-        />
-      }
-      off={
+    <StickyContentLayout
+      left={<ViewSelectorContainer />}
+      right={<FiltersContainer />}
+      content={
         <Page
           onScrollEnd={onLoadNextPart}
-          className={classNames(cl.ArticlesPage, {}, [className])}
+          className={classNames(cl.ArticlesPageRedesigned, {}, [className])}
         >
-          <ArticlesPageFilters />
           <ArticleInfiniteList className={cl.list} />
           <ArticlePageGreeting />
         </Page>

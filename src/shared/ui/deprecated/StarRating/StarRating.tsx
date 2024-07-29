@@ -1,9 +1,7 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo, useState } from 'react';
 import cl from './StarRating.module.scss';
-import { Icon as IconDeprecated } from '../Icon';
 import StarIcon from '@/shared/assets/icons/star.svg';
-import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features';
 import { Icon } from '../../redesigned/Icon';
 
 interface StarRatingProps {
@@ -14,11 +12,6 @@ interface StarRatingProps {
 }
 
 const stars = [1, 2, 3, 4, 5];
-
-/**
- * new UI kit added
- * @deprecated
- */
 
 export const StarRating = memo((props: StarRatingProps) => {
   const { className, onSelect, size = 30, selectedStars = 0 } = props;
@@ -47,17 +40,7 @@ export const StarRating = memo((props: StarRatingProps) => {
   };
 
   return (
-    <div
-      className={classNames(
-        toggleFeatures({
-          name: 'isAppRedesigned',
-          on: () => cl.StarRatingRedesigned,
-          off: () => cl.StarRating,
-        }),
-        {},
-        [className],
-      )}
-    >
+    <div className={classNames(cl.StarRatingRedesigned, {}, [className])}>
       {stars.map((starNumber) => {
         const commonProps = {
           className: classNames(
@@ -76,12 +59,7 @@ export const StarRating = memo((props: StarRatingProps) => {
         };
 
         return (
-          <ToggleFeatures
-            key={starNumber}
-            feature="isAppRedesigned"
-            on={<Icon clickable={!isSelected} {...commonProps} />}
-            off={<IconDeprecated {...commonProps} />}
-          />
+          <Icon key={starNumber} clickable={!isSelected} {...commonProps} />
         );
       })}
     </div>

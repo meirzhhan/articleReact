@@ -8,7 +8,6 @@ import { Overlay } from '../Overlay';
 import cl from './Drawer.module.scss';
 import { Portal } from '../Portal';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
-import { toggleFeatures } from '@/shared/lib/features';
 
 interface DrawerProps {
   className?: string;
@@ -86,11 +85,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
           className,
           theme,
           'app_drawer',
-          toggleFeatures({
-            name: 'isAppRedesigned',
-            on: () => cl.drawerNew,
-            off: () => cl.drawerOld,
-          }),
+          cl.drawerNew,
         ])}
       >
         <Overlay onClick={close} />

@@ -17,7 +17,6 @@ import { uiActions } from '@/features/UI';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
 import { TestProps } from '@/shared/types/tests';
-import { toggleFeatures } from '@/shared/lib/features';
 
 interface PageProps extends TestProps {
   className?: string;
@@ -44,11 +43,7 @@ export const Page = memo((props: PageProps) => {
   useInfiniteScroll({
     callback: onScrollEnd,
     triggerRef,
-    wrapperRef: toggleFeatures({
-      name: 'isAppRedesigned',
-      on: () => undefined,
-      off: () => wrapperRef,
-    }),
+    wrapperRef: undefined,
   });
 
   useEffect(() => {
@@ -68,15 +63,7 @@ export const Page = memo((props: PageProps) => {
   return (
     <main
       ref={wrapperRef}
-      className={classNames(
-        toggleFeatures({
-          name: 'isAppRedesigned',
-          off: () => cl.Page,
-          on: () => cl.PageRedesigned,
-        }),
-        {},
-        [className],
-      )}
+      className={classNames(cl.PageRedesigned, {}, [className])}
       onScroll={onScroll}
       id={PAGE_ID}
       data-testid={props['data-testid'] ?? 'Page'}

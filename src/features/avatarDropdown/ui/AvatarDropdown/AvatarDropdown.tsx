@@ -1,6 +1,5 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
-import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Popups';
 import {
   getRouteAdmin,
   getRouteProfile,
@@ -15,8 +14,6 @@ import {
   isUserManager,
   userActions,
 } from '@/entities/User';
-import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
-import { ToggleFeatures } from '@/shared/lib/features';
 import { Dropdown } from '@/shared/ui/redesigned/Popups';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
 
@@ -66,30 +63,11 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
   ];
 
   return (
-    <ToggleFeatures
-      feature="isAppRedesigned"
-      on={
-        <Dropdown
-          className={classNames('', {}, [className])}
-          direction="bottom left"
-          items={items}
-          trigger={<Avatar size={40} src={authData.avatar} />}
-        />
-      }
-      off={
-        <DropdownDeprecated
-          className={classNames('', {}, [className])}
-          direction="bottom left"
-          items={items}
-          trigger={
-            <AvatarDeprecated
-              fallbackInverted
-              size={30}
-              src={authData.avatar}
-            />
-          }
-        />
-      }
+    <Dropdown
+      className={classNames('', {}, [className])}
+      direction="bottom left"
+      items={items}
+      trigger={<Avatar size={40} src={authData.avatar} />}
     />
   );
 });
