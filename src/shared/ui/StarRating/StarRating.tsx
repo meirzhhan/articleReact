@@ -2,7 +2,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo, useState } from 'react';
 import cl from './StarRating.module.scss';
 import StarIcon from '@/shared/assets/icons/star.svg';
-import { Icon } from '../../redesigned/Icon';
+import { Icon } from '../Icon';
 
 interface StarRatingProps {
   className?: string;

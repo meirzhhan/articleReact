@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import cl from './ArticlesPageFilters.module.scss';
 
-import { Card } from '@/shared/ui/deprecated/Card';
-import { Input } from '@/shared/ui/deprecated/Input';
+import { Card } from '@/shared/ui/Card';
+import { Input } from '@/shared/ui/Input';
 import { ArticleSortSelector } from '@/features/ArticleSortSelector';
 import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
@@ -16,6 +16,7 @@ interface ArticlesPageFiltersProps {
 
 export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
   const { className } = props;
+
   const { t } = useTranslation('articles');
 
   const {

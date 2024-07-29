@@ -7,10 +7,10 @@ import { memo, useCallback, useState } from 'react';
 import { LoginModal } from '@/features/AuthByUsername';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
-import { HStack } from '@/shared/ui/redesigned/Stack';
+import { HStack } from '@/shared/ui/Stack';
 import { NotificationButton } from '@/features/notificationButton';
 import { AvatarDropdown } from '@/features/avatarDropdown';
-import { Button } from '@/shared/ui/redesigned/Button';
+import { Button } from '@/shared/ui/Button';
 
 interface NavbarProps {
   className?: string;

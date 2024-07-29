@@ -15,12 +15,12 @@ import {
   getArticleDetailsError,
   getArticleDetailsIsLoading,
 } from '../../model/selectors/getArticleDetails';
-import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
+import { Skeleton } from '@/shared/ui/Skeleton';
 
-import { VStack } from '@/shared/ui/redesigned/Stack';
+import { VStack } from '@/shared/ui/Stack';
 import { renderArticleBlock } from './renderBlock';
-import { Text } from '@/shared/ui/redesigned/Text';
-import { AppImage } from '@/shared/ui/redesigned/AppImage';
+import { Text } from '@/shared/ui/Text';
+import { AppImage } from '@/shared/ui/AppImage';
 
 interface ArticleDetailsProps {
   className?: string;

@@ -1,5 +1,5 @@
 import { getArticleDetailsData } from '@/entities/Article';
-import { Card } from '@/shared/ui/redesigned/Card';
+import { Card } from '@/shared/ui/Card';
 import { ArticleAdditionalInfo } from '@/widgets/ArticleAdditionalInfo';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';

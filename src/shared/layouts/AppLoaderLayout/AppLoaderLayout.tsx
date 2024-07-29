@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import cl from './AppLoaderLayout.module.scss';
 import { MainLayout } from '../MainLayout';
-import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
-import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { Skeleton } from '@/shared/ui/Skeleton';
 
 export const AppLoaderLayout = memo(() => {
   return (

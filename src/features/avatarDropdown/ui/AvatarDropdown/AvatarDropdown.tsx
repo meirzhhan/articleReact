@@ -14,8 +14,8 @@ import {
   isUserManager,
   userActions,
 } from '@/entities/User';
-import { Dropdown } from '@/shared/ui/redesigned/Popups';
-import { Avatar } from '@/shared/ui/redesigned/Avatar';
+import { Dropdown } from '@/shared/ui/Popups';
+import { Avatar } from '@/shared/ui/Avatar';
 
 interface AvatarDropdownProps {
   className?: string;

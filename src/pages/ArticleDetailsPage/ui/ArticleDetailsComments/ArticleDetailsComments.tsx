@@ -9,8 +9,8 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
-import { VStack } from '@/shared/ui/redesigned/Stack';
-import { Text } from '@/shared/ui/redesigned/Text';
+import { VStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text';
 
 interface ArticleDetailsCommentsProps {
   className?: string;

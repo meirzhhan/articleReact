@@ -4,10 +4,10 @@ import cl from './NotificationButton.module.scss';
 
 import NotificationIcon from '@/shared/assets/icons/notificationNew.svg';
 import { NotificationList } from '@/entities/Notification';
-import { Drawer } from '@/shared/ui/redesigned/Drawer';
+import { Drawer } from '@/shared/ui/Drawer';
 import { BrowserView, MobileView } from 'react-device-detect';
-import { Icon } from '@/shared/ui/redesigned/Icon';
-import { Popover } from '@/shared/ui/redesigned/Popups';
+import { Icon } from '@/shared/ui/Icon';
+import { Popover } from '@/shared/ui/Popups';
 // import { AnimationProvider } from '@/shared/lib/components/AnimationProvider';
 
 interface notificationButtonProps {

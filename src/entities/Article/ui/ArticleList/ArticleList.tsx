@@ -6,8 +6,8 @@ import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cl from './ArticleList.module.scss';
 import { Article } from '../../model/types/article';
 import { ArticleView } from '../../model/consts/articleConsts';
-import { HStack } from '@/shared/ui/redesigned/Stack';
-import { Text } from '@/shared/ui/redesigned/Text';
+import { HStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text';
 
 interface ArticleListProps {
   className?: string;

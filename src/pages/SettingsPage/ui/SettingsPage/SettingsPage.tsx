@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { Text } from '@/shared/ui/redesigned/Text';
+import { Text } from '@/shared/ui/Text';
 import { Page } from '@/widgets/Page';
-import { VStack } from '@/shared/ui/redesigned/Stack';
+import { VStack } from '@/shared/ui/Stack';
 import { UiDesignSwitcher } from '@/features/uiDesignSwitcher';
 
 interface SettingsPageProps {

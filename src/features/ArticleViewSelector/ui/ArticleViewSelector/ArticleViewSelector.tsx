@@ -6,9 +6,9 @@ import ListIcon from '@/shared/assets/icons/burgerNew.svg';
 import TiledIcon from '@/shared/assets/icons/tileNew.svg';
 
 import { ArticleView } from '@/entities/Article';
-import { Icon } from '@/shared/ui/redesigned/Icon';
-import { Card } from '@/shared/ui/redesigned/Card';
-import { HStack } from '@/shared/ui/redesigned/Stack';
+import { Icon } from '@/shared/ui/Icon';
+import { Card } from '@/shared/ui/Card';
+import { HStack } from '@/shared/ui/Stack';
 
 interface ArticleViewSelectorProps {
   className?: string;

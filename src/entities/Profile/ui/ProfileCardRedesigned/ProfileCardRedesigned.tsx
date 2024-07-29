@@ -4,12 +4,12 @@ import { useTranslation } from 'react-i18next';
 import { CountrySelect } from '@/entities/Country';
 import { CurrencySelect } from '@/entities/Currency';
 
-import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
-import { Avatar } from '@/shared/ui/redesigned/Avatar';
-import { Input } from '@/shared/ui/redesigned/Input';
-import { Card } from '@/shared/ui/redesigned/Card';
-import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
-import { Text } from '@/shared/ui/redesigned/Text';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Input } from '@/shared/ui/Input';
+import { Card } from '@/shared/ui/Card';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { Text } from '@/shared/ui/Text';
 
 import { ProfileCardProps } from '../ProfileCard/ProfileCard';
 

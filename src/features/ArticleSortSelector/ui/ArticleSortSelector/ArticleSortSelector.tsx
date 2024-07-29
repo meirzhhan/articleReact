@@ -2,12 +2,11 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useMemo } from 'react';
 import cl from './ArticleSortSelector.module.scss';
-import { SelectOption } from '@/shared/ui/deprecated/Select';
 import { SortOrder } from '@/shared/types/sort';
 import { ArticleSortField } from '@/entities/Article';
-import { ListBox } from '@/shared/ui/redesigned/Popups';
-import { VStack } from '@/shared/ui/redesigned/Stack';
-import { Text } from '@/shared/ui/redesigned/Text';
+import { ListBox } from '@/shared/ui/Popups';
+import { VStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text';
 
 interface ArticleSortSelectorProps {
   className?: string;
@@ -21,7 +20,7 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
   const { className, sort, order, onChangeOrder, onChangeSort } = props;
   const { t } = useTranslation('articles');
 
-  const orderOptions = useMemo<SelectOption<SortOrder>[]>(
+  const orderOptions = useMemo(
     () => [
       {
         value: 'asc',
@@ -35,7 +34,7 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
     [t],
   );
 
-  const sortFieldOptions = useMemo<SelectOption<ArticleSortField>[]>(
+  const sortFieldOptions = useMemo(
     () => [
       {
         value: ArticleSortField.CREATED,

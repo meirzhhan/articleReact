@@ -8,9 +8,9 @@ import { LangSwitcher } from '@/features/LangSwitcher';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { useSelector } from 'react-redux';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
-import { VStack } from '@/shared/ui/redesigned/Stack';
-import { AppLogo } from '@/shared/ui/redesigned/AppLogo';
-import { Icon } from '@/shared/ui/redesigned/Icon';
+import { VStack } from '@/shared/ui/Stack';
+import { AppLogo } from '@/shared/ui/AppLogo';
+import { Icon } from '@/shared/ui/Icon';
 import ArrowIcon from '@/shared/assets/icons/arrow-bottomNew.svg';
 
 interface SidebarProps {

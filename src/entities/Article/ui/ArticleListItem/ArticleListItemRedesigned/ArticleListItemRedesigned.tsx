@@ -8,15 +8,15 @@ import {
   ArticleView,
 } from '../../../model/consts/articleConsts';
 
-import { Icon } from '@/shared/ui/redesigned/Icon';
-import { Text } from '@/shared/ui/redesigned/Text';
-import { Card } from '@/shared/ui/redesigned/Card';
-import { Avatar } from '@/shared/ui/redesigned/Avatar';
-import { Button } from '@/shared/ui/redesigned/Button';
-import { AppLink } from '@/shared/ui/redesigned/AppLink';
-import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
-import { AppImage } from '@/shared/ui/redesigned/AppImage';
-import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
+import { Icon } from '@/shared/ui/Icon';
+import { Text } from '@/shared/ui/Text';
+import { Card } from '@/shared/ui/Card';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Button } from '@/shared/ui/Button';
+import { AppLink } from '@/shared/ui/AppLink';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { AppImage } from '@/shared/ui/AppImage';
+import { HStack, VStack } from '@/shared/ui/Stack';
 import { getRouteArticleDetails } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
