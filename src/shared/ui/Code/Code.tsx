@@ -1,4 +1,4 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { customCl } from '@/shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
 
 import CopyIconNew from '@/shared/assets/icons/copyNew.svg';
@@ -18,7 +18,7 @@ export const Code = memo((props: CodeProps) => {
   }, [text]);
 
   return (
-    <pre className={classNames(cl.CodeRedesigned, {}, [className])}>
+    <pre className={customCl(cl.CodeRedesigned, {}, [className])}>
       <Icon
         clickable
         onClick={onCopy}

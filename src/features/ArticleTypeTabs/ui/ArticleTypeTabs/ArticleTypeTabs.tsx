@@ -1,4 +1,4 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { customCl } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useMemo } from 'react';
 import { ArticleType } from '@/entities/Article';
@@ -46,7 +46,7 @@ export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
   return (
     <Tabs
       direction="column"
-      className={classNames('', {}, [className])}
+      className={customCl('', {}, [className])}
       tabs={typeTabs}
       value={value}
       onTabClick={onTabClick}

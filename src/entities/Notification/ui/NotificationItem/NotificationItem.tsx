@@ -1,4 +1,4 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { customCl } from '@/shared/lib/classNames/classNames';
 import { memo } from 'react';
 import cl from './NotificationItem.module.scss';
 import { Notification } from '../../model/types/notification';
@@ -14,7 +14,7 @@ export const NotificationItem = memo((props: NotificationItemProps) => {
   const { className, item } = props;
 
   const content = (
-    <Card className={classNames(cl.NotificationItem, {}, [className])}>
+    <Card className={customCl(cl.NotificationItem, {}, [className])}>
       <Text title={item.title} text={item.description} />
     </Card>
   );

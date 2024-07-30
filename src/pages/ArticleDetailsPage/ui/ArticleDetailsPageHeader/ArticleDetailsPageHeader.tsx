@@ -1,4 +1,4 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { customCl } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
@@ -31,11 +31,7 @@ export const ArticleDetailsPageHeader = memo(
     }, [article, navigate]);
 
     return (
-      <HStack
-        max
-        justify={'between'}
-        className={classNames('', {}, [className])}
-      >
+      <HStack max justify={'between'} className={customCl('', {}, [className])}>
         <Button variant="outline" onClick={onBackToList}>
           {t('Все статьи')}
         </Button>

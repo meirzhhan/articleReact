@@ -4,7 +4,7 @@ import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
 import { SidebarItemsType } from '../../model/types/sidebar';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { customCl } from '@/shared/lib/classNames/classNames';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Icon } from '@/shared/ui/Icon';
 
@@ -24,7 +24,7 @@ export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
   return (
     <AppLink
       to={item.path}
-      className={classNames(
+      className={customCl(
         cl.itemRedesigned,
         {
           [cl.collapsedRedesigned]: collapsed,

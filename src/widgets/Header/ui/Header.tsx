@@ -1,6 +1,6 @@
 import cl from './Header.module.scss';
 
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { customCl } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 
 import { memo, useCallback, useState } from 'react';
@@ -30,7 +30,7 @@ export const Header = memo(({ className }: NavbarProps) => {
 
   if (authData) {
     return (
-      <header className={classNames(cl.NavbarRedesigned, {}, [className])}>
+      <header className={customCl(cl.NavbarRedesigned, {}, [className])}>
         <HStack gap="16" className={cl.actions}>
           <NotificationButton />
           <AvatarDropdown />
@@ -40,7 +40,7 @@ export const Header = memo(({ className }: NavbarProps) => {
   }
 
   return (
-    <header className={classNames(cl.NavbarRedesigned, {}, [className])}>
+    <header className={customCl(cl.NavbarRedesigned, {}, [className])}>
       <Button variant="clear" className={cl.links} onClick={onShowModal}>
         {t('Войти')}
       </Button>

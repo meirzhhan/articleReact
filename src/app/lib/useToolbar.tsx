@@ -3,7 +3,7 @@ import { Toolbar } from '@/widgets/Toolbar';
 import { ReactElement } from 'react';
 import { useRouteChange } from '@/shared/lib/router/useRouteChange';
 
-export function useAppToolbar() {
+export function useToolbar() {
   const appRoute = useRouteChange();
 
   const toolbarByAppRoute: OptionalRecord<AppRoutes, ReactElement> = {

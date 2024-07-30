@@ -1,4 +1,4 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { customCl } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { ArticleList } from '@/entities/Article';
@@ -24,7 +24,7 @@ export const ArticleRecommendationsList = memo(
     if (isLoading || error || !articles) return null;
 
     return (
-      <VStack gap="8" className={classNames('', {}, [className])}>
+      <VStack gap="8" className={customCl('', {}, [className])}>
         <Text size="l" title={t('Рекомендации')} />
 
         <ArticleList articles={articles} target="_blank" />

@@ -1,4 +1,4 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { customCl } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { Page } from '@/widgets/Page';
@@ -15,7 +15,7 @@ const ArticleEditPage = memo((props: ArticleEditPageProps) => {
   const isEdit = Boolean(id);
 
   return (
-    <Page className={classNames('', {}, [className])}>
+    <Page className={customCl('', {}, [className])}>
       {isEdit
         ? t('Редактирование статьи(id): ') + id
         : t('Создание новой статьи')}

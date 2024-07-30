@@ -1,4 +1,4 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { customCl } from '@/shared/lib/classNames/classNames';
 import { memo } from 'react';
 import cl from './Toolbar.module.scss';
 import { VStack } from '@/shared/ui/Stack';
@@ -16,7 +16,7 @@ export const Toolbar = memo((props: ToolbarProps) => {
       justify="center"
       align="center"
       max
-      className={classNames(cl.Toolbar, {}, [className])}
+      className={customCl(cl.Toolbar, {}, [className])}
     >
       <ScrollToTopButton />
     </VStack>

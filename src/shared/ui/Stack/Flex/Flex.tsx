@@ -1,5 +1,5 @@
 import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { customCl, Mods } from '@/shared/lib/classNames/classNames';
 import cl from './Flex.module.scss';
 
 export type FlexJustify = 'start' | 'center' | 'end' | 'between';
@@ -77,7 +77,7 @@ export const Flex = (props: FlexProps) => {
   };
 
   return (
-    <div className={classNames(cl.Flex, mods, classes)} {...otherProps}>
+    <div className={customCl(cl.Flex, mods, classes)} {...otherProps}>
       {children}
     </div>
   );

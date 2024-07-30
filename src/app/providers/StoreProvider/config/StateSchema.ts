@@ -5,15 +5,19 @@ import {
   UnknownAction,
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
+
+import { ArticlesPageSchema } from '@/pages/ArticlesPage';
+import { ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage';
+
+import { UISchema } from '@/features/UI';
+import { LoginSchema } from '@/features/AuthByUsername';
+import { ProfileSchema } from '@/features/editableProfileCard';
+import { AddCommentFormSchema } from '@/features/addCommentForm';
+
+import { UserSchema } from '@/entities/User';
 import { ArticleDetailsSchema } from '@/entities/Article';
 import { CounterSchema } from '@/entities/CounterForTests';
-import { UserSchema } from '@/entities/User';
-import { LoginSchema } from '@/features/AuthByUsername';
-import { UISchema } from '@/features/UI/model/types/UISchema';
-import { AddCommentFormSchema } from '@/features/addCommentForm';
-import { ProfileSchema } from '@/features/editableProfileCard';
-import { ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage';
-import { ArticlesPageSchema } from '@/pages/ArticlesPage';
+
 import { rtkApi } from '@/shared/api/rtkApi';
 
 export interface StateSchema {
@@ -41,7 +45,7 @@ export interface ReducerManager {
   add: (key: StateSchemaKey, reducer: Reducer) => void;
   remove: (key: StateSchemaKey) => void;
 
-  // true - mounted, false - unmounted or not yet
+  // true — смонтировано, false — размонтировано или еще нет
   getMountedReducers: () => MountedReducers;
 }
 
@@ -49,10 +53,10 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
   reducerManager: ReducerManager;
 }
 
+// дополнительные аргументы для thunk с axios
 export interface ThunkExtraArg {
   api: AxiosInstance;
 }
-
 export interface ThunkConfig<T> {
   rejectValue: T;
   extra: ThunkExtraArg;

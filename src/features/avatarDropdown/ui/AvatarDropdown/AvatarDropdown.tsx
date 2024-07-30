@@ -1,4 +1,4 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { customCl } from '@/shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
 import {
   getRouteAdmin,
@@ -64,7 +64,7 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
 
   return (
     <Dropdown
-      className={classNames('', {}, [className])}
+      className={customCl('', {}, [className])}
       direction="bottom left"
       items={items}
       trigger={<Avatar size={40} src={authData.avatar} />}

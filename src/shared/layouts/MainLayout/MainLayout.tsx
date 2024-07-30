@@ -1,5 +1,5 @@
 import { ReactElement, memo } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { customCl } from '@/shared/lib/classNames/classNames';
 import cl from './MainLayout.module.scss';
 
 interface MainLayoutProps {
@@ -14,7 +14,7 @@ export const MainLayout = memo((props: MainLayoutProps) => {
   const { className, header, content, sidebar, toolbar } = props;
 
   return (
-    <div className={classNames(cl.MainLayout, {}, [className])}>
+    <div className={customCl(cl.MainLayout, {}, [className])}>
       <div className={cl.content}>{content}</div>
       <div className={cl.sidebar}>{sidebar}</div>
       <div className={cl.rightbar}>

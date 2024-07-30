@@ -1,8 +1,9 @@
 import { ReactNode } from 'react';
 import { Provider } from 'react-redux';
+import { ReducersMapObject } from '@reduxjs/toolkit';
+
 import { createReduxStore } from '../config/store';
 import { StateSchema } from '../config/StateSchema';
-import { ReducersMapObject } from '@reduxjs/toolkit';
 
 interface StoreProviderProps {
   children?: ReactNode;
@@ -12,15 +13,13 @@ interface StoreProviderProps {
 
 export const StoreProvider = (props: StoreProviderProps) => {
   const { initialState, asyncReducers, children } = props;
-  // const navigate = useNavigate();
 
+  // Redux store с начальным состоянием и асинхронными редюсерами
   const store = createReduxStore(
     initialState as StateSchema,
     asyncReducers as ReducersMapObject<StateSchema>,
-    // navigate,
   );
 
-  console.log('render');
-
+  // Оборачивание дочерних компонентов в Redux Provider
   return <Provider store={store}>{children}</Provider>;
 };

@@ -1,4 +1,4 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { customCl } from '@/shared/lib/classNames/classNames';
 import { memo } from 'react';
 import { CommentType } from '@/entities/Comment/model/types/comment';
 import { useTranslation } from 'react-i18next';
@@ -17,14 +17,14 @@ export const CommentList = memo((props: CommentListProps) => {
   const { t } = useTranslation('article-details');
 
   if (isLoading)
-    <VStack gap={'16'} max className={classNames('', {}, [className])}>
+    <VStack gap={'16'} max className={customCl('', {}, [className])}>
       <CommentCard isLoading />
       <CommentCard isLoading />
       <CommentCard isLoading />
     </VStack>;
 
   return (
-    <VStack gap={'16'} max className={classNames('', {}, [className])}>
+    <VStack gap={'16'} max className={customCl('', {}, [className])}>
       {comments?.length ? (
         comments.map((comment) => (
           <CommentCard

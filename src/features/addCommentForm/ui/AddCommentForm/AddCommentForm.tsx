@@ -1,4 +1,4 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { customCl } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import cl from './AddCommentForm.module.scss';
@@ -53,7 +53,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
           justify={'between'}
           max
           gap="16"
-          className={classNames(cl.AddCommentFormRedesigned, {}, [className])}
+          className={customCl(cl.AddCommentFormRedesigned, {}, [className])}
         >
           <Input
             className={cl.input}

@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { customCl } from '@/shared/lib/classNames/classNames';
 import { Card } from '@/shared/ui/Card';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { ArticleView } from '../../model/consts/articleConsts';
@@ -31,7 +31,7 @@ export const ArticleListItemSkeleton = memo(
       );
       return (
         <div
-          className={classNames(cl.ArticleListItemRedesigned, {}, [
+          className={customCl(cl.ArticleListItemRedesigned, {}, [
             className,
             cl[view],
           ])}
@@ -55,7 +55,7 @@ export const ArticleListItemSkeleton = memo(
 
     return (
       <div
-        className={classNames(cl.ArticleListItemRedesigned, {}, [
+        className={customCl(cl.ArticleListItemRedesigned, {}, [
           className,
           cl[view],
         ])}

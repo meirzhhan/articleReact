@@ -1,5 +1,5 @@
 import { Menu } from '@headlessui/react';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { customCl } from '@/shared/lib/classNames/classNames';
 
 import cl from './Dropdown.module.scss';
 import { Fragment } from 'react/jsx-runtime';
@@ -31,17 +31,17 @@ export function Dropdown(props: DropdownProps) {
   return (
     <Menu
       as="div"
-      className={classNames(cl.Dropdown, {}, [className, popupCl.popup])}
+      className={customCl(cl.Dropdown, {}, [className, popupCl.popup])}
     >
       <Menu.Button className={popupCl.trigger}>{trigger}</Menu.Button>
-      <Menu.Items className={classNames(cl.menu, {}, menuClasses)}>
+      <Menu.Items className={customCl(cl.menu, {}, menuClasses)}>
         {items.map((item, index) => {
           const content = ({ active }: { active: boolean }) => (
             <button
               type="button"
               disabled={item.disabled}
               onClick={item.onClick}
-              className={classNames(cl.item, { [popupCl.active]: active }, [])}
+              className={customCl(cl.item, { [popupCl.active]: active }, [])}
             >
               {item.content}
             </button>

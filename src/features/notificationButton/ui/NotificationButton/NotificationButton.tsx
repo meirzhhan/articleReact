@@ -1,4 +1,4 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { customCl } from '@/shared/lib/classNames/classNames';
 import { memo, useCallback, useState } from 'react';
 import cl from './NotificationButton.module.scss';
 
@@ -34,7 +34,7 @@ export const NotificationButton = memo((props: notificationButtonProps) => {
     <div>
       <BrowserView>
         <Popover
-          className={classNames(cl.NotificationButton, {}, [className])}
+          className={customCl(cl.NotificationButton, {}, [className])}
           direction="bottom left"
           trigger={trigger}
         >

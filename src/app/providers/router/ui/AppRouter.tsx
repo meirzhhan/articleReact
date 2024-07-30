@@ -1,11 +1,12 @@
-import { Route, Routes } from 'react-router-dom';
 import { Suspense, memo, useCallback } from 'react';
+import { Route, Routes } from 'react-router-dom';
 
 import { AppRoutesProps } from '@/shared/types/router';
+
 import { routeConfig } from '../config/routeConfig';
 import { RequireAuth } from './RequireAuth';
-import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 
+// Основной компонент маршрутизации, который рендерит маршруты с оберткой
 const AppRouter = () => {
   const renderWithWrapper = useCallback((route: AppRoutesProps) => {
     const element = <Suspense fallback={<></>}>{route.element}</Suspense>;
@@ -15,7 +16,7 @@ const AppRouter = () => {
         key={route.path}
         path={route.path}
         element={
-          // If page is authOnly, element renders with Require Auth which redirects to '/'
+          // Если аутентификация нет, перенаправляет на '/'
           route.authOnly ? (
             <RequireAuth roles={route.roles}>{element}</RequireAuth>
           ) : (

@@ -4,6 +4,7 @@ import {
   UnknownAction,
   combineReducers,
 } from '@reduxjs/toolkit';
+
 import {
   MountedReducers,
   ReducerManager,
@@ -11,6 +12,7 @@ import {
   StateSchemaKey,
 } from './StateSchema';
 
+// Функция для создания менеджера редюсеров
 export function createReducerManager(
   initialReducers: ReducersMapObject<StateSchema>,
 ): ReducerManager {
@@ -18,7 +20,7 @@ export function createReducerManager(
 
   let combinedReducer = combineReducers(reducers);
 
-  // Удаление reducer-ов, пример => loginForm
+  // Массив ключей редюсеров, которые нужно удалить
   let keysToRemove: StateSchemaKey[] = [];
 
   const mountedReducers: MountedReducers = {};
@@ -26,7 +28,7 @@ export function createReducerManager(
   return {
     getReducerMap: () => reducers, // Возвращает reducer-ы
     getMountedReducers: () => mountedReducers,
-    // @ts-ignore
+    // @ts-expect-error next
     reduce: (state: StateSchema, action: UnknownAction) => {
       if (keysToRemove.length > 0) {
         // Ключи Reducer-а удаляются
@@ -36,7 +38,7 @@ export function createReducerManager(
         });
         keysToRemove = [];
       }
-      // @ts-ignore
+      // @ts-expect-error next
       return combinedReducer(state, action); // Возвращает reducer без лишних ключей
     },
     add: (key: StateSchemaKey, reducer: Reducer) => {

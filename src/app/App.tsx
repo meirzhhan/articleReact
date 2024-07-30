@@ -1,37 +1,41 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { Suspense, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
-import { AppRouter } from './providers/router';
+import { getUserInitiated, initAuthData } from '@/entities/User';
+
 import { Header } from '@/widgets/Header';
 import { Sidebar } from '@/widgets/Sidebar';
-import { Suspense, useEffect } from 'react';
-import { getUserInitiated, initAuthData } from '@/entities/User';
-import { useSelector } from 'react-redux';
-import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
-import { useAppToolbar } from './lib/useAppToolbar';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { customCl } from '@/shared/lib/classNames/classNames';
+
+import { AppRouter } from './providers/router';
+import { useToolbar } from './lib/useToolbar';
 
 const App = () => {
   const { theme } = useTheme();
   const dispatch = useAppDispatch();
   const initiated = useSelector(getUserInitiated);
-  const toolbar = useAppToolbar();
+  const toolbar = useToolbar();
 
-  // getting info about user(logged or not)
+  // получение информации о пользователе (auth  или нет)
   useEffect(() => {
     dispatch(initAuthData());
   }, [dispatch]);
 
+  // Skeleton
   if (!initiated)
     return (
-      <div id="app" className={classNames('App', { selected: false }, [theme])}>
+      <div id="app" className={customCl('App', {}, [theme])}>
         <AppLoaderLayout />
       </div>
     );
 
   return (
-    <div id="app" className={classNames('App', { selected: false }, [theme])}>
+    <div id="app" className={customCl('App', { selected: false }, [theme])}>
       <Suspense fallback="">
         <MainLayout
           header={<Header />}

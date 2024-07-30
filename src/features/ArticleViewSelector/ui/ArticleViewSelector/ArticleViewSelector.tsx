@@ -1,4 +1,4 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { customCl } from '@/shared/lib/classNames/classNames';
 import { memo } from 'react';
 import cl from './ArticleViewSelector.module.scss';
 
@@ -38,7 +38,7 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
     <Card
       border="partial"
       max
-      className={classNames(cl.ArticleViewSelectorRedesigned, {}, [className])}
+      className={customCl(cl.ArticleViewSelectorRedesigned, {}, [className])}
     >
       <HStack gap="8" justify="center">
         {viewTypes.map((viewType) => (
@@ -47,7 +47,7 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
             onClick={onClick(viewType.view)}
             key={viewType.view}
             Svg={viewType.icon}
-            className={classNames(
+            className={customCl(
               '',
               { [cl.notSelected]: viewType.view !== view },
               [],

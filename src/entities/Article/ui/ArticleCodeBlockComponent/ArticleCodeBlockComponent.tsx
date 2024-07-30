@@ -1,4 +1,4 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { customCl } from '@/shared/lib/classNames/classNames';
 import cl from './ArticleCodeBlockComponent.module.scss';
 import { memo } from 'react';
 import { ArticleCodeBlock } from '../../model/types/article';
@@ -13,9 +13,7 @@ export const ArticleCodeBlockComponent = memo(
   (props: ArticleCodeBlockComponentProps) => {
     const { className, block } = props;
     return (
-      <div
-        className={classNames(cl.ArticleCodeBlockComponent, {}, [className])}
-      >
+      <div className={customCl(cl.ArticleCodeBlockComponent, {}, [className])}>
         <Code text={block.code} />
       </div>
     );

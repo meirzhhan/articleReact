@@ -1,11 +1,13 @@
 import { ReducersMapObject, configureStore } from '@reduxjs/toolkit';
-import { StateSchema, ThunkExtraArg } from './StateSchema';
+
+import { uiReducer } from '@/features/UI';
 import { counterReducer } from '@/entities/CounterForTests';
 import { userReducer } from '@/entities/User';
-import { createReducerManager } from './reducerManager';
 import { $api } from '@/shared/api/api';
-import { uiReducer } from '@/features/UI';
 import { rtkApi } from '@/shared/api/rtkApi';
+
+import { StateSchema, ThunkExtraArg } from './StateSchema';
+import { createReducerManager } from './reducerManager';
 
 export function createReduxStore(
   initialState?: StateSchema,
@@ -19,8 +21,10 @@ export function createReduxStore(
     [rtkApi.reducerPath]: rtkApi.reducer,
   };
 
+  // менеджер редюсеров
   const reducerManager = createReducerManager(rootReducers);
 
+  // Дополнительный аргумент для thunk
   const extraArg: ThunkExtraArg = {
     api: $api,
   };
@@ -37,13 +41,10 @@ export function createReduxStore(
       }).concat(rtkApi.middleware),
   });
 
-  // @ts-ignore
+  // @ts-expect-error next
   store.reducerManager = reducerManager;
 
   return store;
 }
 
 export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];
-
-// export type AppDispatch = typeof store.dispatch;
-// export const useAppDispatch = useDispatch.withTypes<AppDispatch>();

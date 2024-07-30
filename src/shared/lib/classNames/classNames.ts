@@ -1,6 +1,6 @@
 export type Mods = Record<string, boolean | string | undefined>;
 
-export function classNames(
+export function customCl(
   cl: string,
   mods: Mods = {},
   additional: Array<string | undefined>,

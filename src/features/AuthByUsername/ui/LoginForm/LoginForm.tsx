@@ -1,4 +1,4 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { customCl } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import cl from './LoginForm.module.scss';
 
@@ -62,7 +62,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
 
   return (
     <DynamicModuleLoader removeAfterUnmount reducers={initialReducers}>
-      <VStack gap="16" className={classNames(cl.LoginForm, {}, [className])}>
+      <VStack gap="16" className={customCl(cl.LoginForm, {}, [className])}>
         <Text title={t('Форма авторизации')} />
         {error && <Text text={error} variant="error" />}
 

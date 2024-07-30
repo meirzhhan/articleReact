@@ -1,4 +1,4 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { customCl } from '@/shared/lib/classNames/classNames';
 import { ReactNode, memo, useCallback } from 'react';
 import cl from './Tabs.module.scss';
 import { Card } from '../Card';
@@ -34,7 +34,7 @@ export const Tabs = memo((props: TabsProps) => {
       direction={direction}
       gap="8"
       align="start"
-      className={classNames(cl.Tabs, {}, [className])}
+      className={customCl(cl.Tabs, {}, [className])}
     >
       {tabs.map((tab) => {
         const isSelected = tab.value === value;
@@ -42,7 +42,7 @@ export const Tabs = memo((props: TabsProps) => {
         return (
           <Card
             variant={isSelected ? 'light' : 'normal'}
-            className={classNames(cl.tab, { [cl.selected]: isSelected }, [])}
+            className={customCl(cl.tab, { [cl.selected]: isSelected }, [])}
             key={tab.value}
             onClick={clickHandle(tab)}
             border="round"

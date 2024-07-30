@@ -1,4 +1,4 @@
-import { Mods, classNames } from '@/shared/lib/classNames/classNames';
+import { Mods, customCl } from '@/shared/lib/classNames/classNames';
 import cl from './Avatar.module.scss';
 import { CSSProperties, useMemo } from 'react';
 import UserIcon from '../../assets/icons/user-default.svg';
@@ -34,7 +34,7 @@ export const Avatar = (props: AvatarProps) => {
       src={src}
       alt={alt}
       style={styles}
-      className={classNames(cl.Avatar, mods, [className])}
+      className={customCl(cl.Avatar, mods, [className])}
     />
   );
 };

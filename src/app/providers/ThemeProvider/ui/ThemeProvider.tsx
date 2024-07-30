@@ -1,22 +1,24 @@
 import { ReactNode, useEffect, useMemo, useState } from 'react';
+
+import { useJsonSettings } from '@/entities/User';
+
 import { Theme } from '@/shared/const/theme';
+import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localStorage';
 import {
   ThemeContext,
   ThemeContextProps,
 } from '@/shared/lib/context/ThemeContext';
-import { useJsonSettings } from '@/entities/User';
-import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localStorage';
 
 interface ThemeProviderProps {
-  // initialTheme?: Theme;
   children: ReactNode;
 }
 
 const fallbackTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme;
 
 const ThemeProvider = (props: ThemeProviderProps) => {
-  // const { initialTheme, children } = props;
   const { children } = props;
+
+  // тема по умолчанию из пользовательских настроек
   const { theme: defaultTheme } = useJsonSettings();
 
   const [isThemeInit, SetIsThemeInit] = useState(false);
@@ -36,6 +38,7 @@ const ThemeProvider = (props: ThemeProviderProps) => {
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme);
   }, [theme]);
 
+  // Мемоизация объекта контекста для предотвращения лишних перерисовок
   const defaultProps: ThemeContextProps = useMemo(
     () => ({
       theme: theme,

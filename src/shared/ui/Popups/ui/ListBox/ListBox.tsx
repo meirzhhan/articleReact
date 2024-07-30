@@ -1,7 +1,7 @@
 import { Fragment, ReactNode, useMemo } from 'react';
 import { Listbox as HListbox } from '@headlessui/react';
 import cl from './ListBox.module.scss';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { customCl } from '@/shared/lib/classNames/classNames';
 import { HStack } from '../../../Stack';
 import { DropdownDirection } from '@/shared/types/ui';
 import { mapDirectionClass } from '../../styles/consts';
@@ -50,7 +50,7 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
       <HListbox
         disabled={readonly}
         as="div"
-        className={classNames(cl.ListBox, {}, [className, popupCl.popup])}
+        className={customCl(cl.ListBox, {}, [className, popupCl.popup])}
         value={value}
         onChange={onChange}
       >
@@ -63,9 +63,7 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
           {selectedItem?.content ?? defaultValue}
         </HListbox.Button>
 
-        <HListbox.Options
-          className={classNames(cl.options, {}, optionsClasses)}
-        >
+        <HListbox.Options className={customCl(cl.options, {}, optionsClasses)}>
           {items?.map((item) => (
             <HListbox.Option
               key={item.value}
@@ -75,7 +73,7 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
             >
               {({ active, selected }) => (
                 <li
-                  className={classNames(
+                  className={customCl(
                     cl.item,
                     {
                       [popupCl.active]: active,

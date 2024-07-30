@@ -1,4 +1,4 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { customCl } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { getUserAuthData } from '@/entities/User';
@@ -47,7 +47,7 @@ export const EditableProfileCardHeader = memo(
         <HStack
           max
           justify={'between'}
-          className={classNames('', {}, [className])}
+          className={customCl('', {}, [className])}
         >
           <Text title={t('Профиль')} />
           {canEdit && (
