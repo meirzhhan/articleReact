@@ -1,7 +1,7 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import { AppRouter } from './providers/router';
-import { Navbar } from '@/widgets/Navbar';
+import { Header } from '@/widgets/Header';
 import { Sidebar } from '@/widgets/Sidebar';
 import { Suspense, useEffect } from 'react';
 import { getUserInitiated, initAuthData } from '@/entities/User';
@@ -25,22 +25,16 @@ const App = () => {
 
   if (!initiated)
     return (
-      <div
-        id="app"
-        className={classNames('app_redesigned', { selected: false }, [theme])}
-      >
+      <div id="app" className={classNames('App', { selected: false }, [theme])}>
         <AppLoaderLayout />
       </div>
     );
 
   return (
-    <div
-      id="app"
-      className={classNames('app_redesigned', { selected: false }, [theme])}
-    >
+    <div id="app" className={classNames('App', { selected: false }, [theme])}>
       <Suspense fallback="">
         <MainLayout
-          header={<Navbar />}
+          header={<Header />}
           content={<AppRouter />}
           sidebar={<Sidebar />}
           toolbar={toolbar}

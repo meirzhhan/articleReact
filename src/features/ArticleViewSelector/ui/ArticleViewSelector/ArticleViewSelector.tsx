@@ -36,10 +36,11 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
 
   return (
     <Card
-      border="round"
+      border="partial"
+      max
       className={classNames(cl.ArticleViewSelectorRedesigned, {}, [className])}
     >
-      <HStack gap="8">
+      <HStack gap="8" justify="center">
         {viewTypes.map((viewType) => (
           <Icon
             clickable

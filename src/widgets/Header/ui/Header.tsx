@@ -1,4 +1,4 @@
-import cl from './Navbar.module.scss';
+import cl from './Header.module.scss';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
@@ -16,7 +16,7 @@ interface NavbarProps {
   className?: string;
 }
 
-export const Navbar = memo(({ className }: NavbarProps) => {
+export const Header = memo(({ className }: NavbarProps) => {
   const { t } = useTranslation();
   const [isAuthModal, setIsAuthModal] = useState(false);
   const authData = useSelector(getUserAuthData);

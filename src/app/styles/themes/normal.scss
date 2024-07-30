@@ -1,21 +1,13 @@
 :root {
-  --bg-color: #e8e8ea;
-  --inverted-bg-color: #090949;
-  --primary-color: #0232c2;
-  --secondary-color: #0449e0;
-  --inverted-primary-color: #04ff04;
-  --inverted-secondary-color: #049604;
-
-  //redesign
-  --dark-bg-redesigned: #ffffff;
-  --bg-redesigned: #eff5f6;
-  --light-bg-redesigned: #e2eef1;
-  --text-redesigned: #141c1f;
-  --hint-redesigned: #adbcc0;
-  --cancel-redesigned: #ff7777;
-  --save-redesigned: #62de85;
-  --icon-redesigned: #5ed3f3;
-  --accent-redesigned: #00c8ff;
+  --dark-bg: #ffffff;
+  --bg: #eff5f6;
+  --light-bg: #e2eef1;
+  --text: #141c1f;
+  --hint: #adbcc0;
+  --cancel: #ff7777;
+  --save: #62de85;
+  --icon: #5ed3f3;
+  --accent: #00c8ff;
 
   // skeleton
   --skeleton-color: #fff;

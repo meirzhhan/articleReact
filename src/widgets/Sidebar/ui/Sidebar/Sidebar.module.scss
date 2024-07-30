@@ -1,5 +1,5 @@
 .Sidebar {
-  height: calc(100vh - var(--navbar-height));
+  height: calc(100vh - var(--header-height));
   width: var(--sidebar-width);
   background: var(--inverted-bg-color);
 
@@ -31,8 +31,6 @@
   }
 }
 
-
-
 .collapsed {
   width: var(--sidebar-width-collapsed);
 
@@ -47,7 +45,7 @@
 }
 
 .SidebarRedesigned {
-  background: var(--light-bg-redesigned);
+  background: var(--light-bg);
   width: 220px;
   height: 100%;
   border-radius: 32px;

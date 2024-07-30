@@ -1,16 +1,16 @@
 .Button {
   cursor: pointer;
-  color: var(--text-redesigned);
+  color: var(--text);
   padding: 6px 16px;
   display: flex;
   align-items: center;
 
   &:hover {
-    color: var(--accent-redesigned);
+    color: var(--accent);
 
     .addonLeft svg,
     .addonRight svg {
-      color: var(--accent-redesigned);
+      color: var(--accent);
     }
   }
 }
@@ -26,7 +26,7 @@
 
 .addonLeft svg,
 .addonRight svg {
-  color: var(--hint-redesigned);
+  color: var(--hint);
 }
 
 .clear {
@@ -37,7 +37,7 @@
 }
 
 .filled {
-  background: var(--light-bg-redesigned);
+  background: var(--light-bg);
   border: none;
   outline: none;
   border-radius: 34px;
@@ -48,19 +48,19 @@
   border-radius: 34px;
 
   &.normal {
-    border: 2px solid var(--icon-redesigned);
+    border: 2px solid var(--icon);
   }
 
   &.error {
-    border: 2px solid var(--cancel-redesigned);
+    border: 2px solid var(--cancel);
   }
 
   &.success {
-    border: 2px solid var(--save-redesigned);
+    border: 2px solid var(--save);
   }
 
   &:hover {
-    border: 2px solid var(--accent-redesigned);
+    border: 2px solid var(--accent);
   }
 }
 
@@ -84,15 +84,15 @@
 }
 
 .m {
-  font: var(--font-m-redesigned);
+  font: var(--font-m);
 }
 
 .l {
-  font: var(--font-l-redesigned);
+  font: var(--font-l);
 }
 
 .xl {
-  font: var(--font-xl-redesigned);
+  font: var(--font-xl);
 }
 
 .disabled {

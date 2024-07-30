@@ -11,6 +11,8 @@ import { SortOrder } from '@/shared/types/sort';
 import { Input } from '@/shared/ui/Input';
 import SearchIcon from '@/shared/assets/icons/searchNew.svg';
 import { Icon } from '@/shared/ui/Icon';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
+import { useArticleFilters } from '@/pages/ArticlesPage/lib/hooks/useArticleFilters';
 
 interface ArticlesFiltersProps {
   className?: string;
@@ -37,32 +39,36 @@ export const ArticlesFilters = memo((props: ArticlesFiltersProps) => {
     type,
   } = props;
   const { t } = useTranslation();
+  const { view, onChangeView } = useArticleFilters();
 
   return (
-    <Card
-      className={classNames(cl.ArticlesFilters, {}, [className])}
-      padding="24"
-    >
-      <VStack gap="32">
-        <Input
-          onChange={onChangeSearch}
-          value={search}
-          size="s"
-          placeholder={t('Поиск')}
-          addonLeft={<Icon Svg={SearchIcon} />}
-        />
-        <ArticleTypeTabs
-          className={cl.tabs}
-          value={type}
-          onChangeType={onChangeType}
-        />
-        <ArticleSortSelector
-          order={order}
-          sort={sort}
-          onChangeOrder={onChangeOrder}
-          onChangeSort={onChangeSort}
-        />
-      </VStack>
-    </Card>
+    <VStack gap="8">
+      <ArticleViewSelector view={view} onViewClick={onChangeView} />
+      <Card
+        className={classNames(cl.ArticlesFilters, {}, [className])}
+        padding="24"
+      >
+        <VStack gap="32">
+          <Input
+            onChange={onChangeSearch}
+            value={search}
+            size="s"
+            placeholder={t('Поиск')}
+            addonLeft={<Icon Svg={SearchIcon} />}
+          />
+          <ArticleTypeTabs
+            className={cl.tabs}
+            value={type}
+            onChangeType={onChangeType}
+          />
+          <ArticleSortSelector
+            order={order}
+            sort={sort}
+            onChangeOrder={onChangeOrder}
+            onChangeSort={onChangeSort}
+          />
+        </VStack>
+      </Card>
+    </VStack>
   );
 });

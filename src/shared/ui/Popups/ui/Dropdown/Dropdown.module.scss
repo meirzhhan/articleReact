@@ -1,5 +1,5 @@
 .menu {
-  background: var(--dark-bg-redesigned);
+  background: var(--dark-bg);
   position: absolute;
   z-index: 10000;
   display: flex;
@@ -12,6 +12,6 @@
   border: none;
   background: none;
   outline: none;
-  color: var(--text-redesigned);
+  color: var(--text);
   cursor: pointer;
 }

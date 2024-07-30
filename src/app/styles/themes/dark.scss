@@ -1,21 +1,13 @@
 .app_dark_theme {
-  --bg-color: #090949;
-  --inverted-bg-color: #e8e8ea;
-  --primary-color: #04ff04;
-  --secondary-color: #049604;
-  --inverted-primary-color: #0232c2;
-  --inverted-secondary-color: #0452ff;
-
-
-  --dark-bg-redesigned: #090f11;
-  --bg-redesigned: #0c1214;
-  --light-bg-redesigned: #151c1f;
-  --text-redesigned: #dbdbdb;
-  --hint-redesigned: #555555;
-  --cancel-redesigned: #d95757;
-  --save-redesigned: #6cd98b;
-  --icon-redesigned: #74a2b2;
-  --accent-redesigned: #5ed3f3;
+  --dark-bg: #090f11;
+  --bg: #0c1214;
+  --light-bg: #151c1f;
+  --text: #dbdbdb;
+  --hint: #555555;
+  --cancel: #d95757;
+  --save: #6cd98b;
+  --icon: #74a2b2;
+  --accent: #5ed3f3;
 
   // skeleton
   --skeleton-color: #1515ad;
