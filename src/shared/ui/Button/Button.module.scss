@@ -4,12 +4,15 @@
   padding: 6px 16px;
   display: flex;
   align-items: center;
+  &__addOnLeft,
+  &__addOnRight {
+    display: flex;
+  }
 
   &:hover {
     color: var(--accent);
-
-    .addonLeft svg,
-    .addonRight svg {
+    .addOnLeft svg,
+    .addOnRight svg {
       color: var(--accent);
     }
   }
@@ -17,11 +20,6 @@
 
 .withAddon {
   padding: 0 16px;
-}
-
-.addonLeft,
-.addonRight {
-  display: flex;
 }
 
 .addonLeft svg,
@@ -35,7 +33,6 @@
   background: none;
   outline: none;
 }
-
 .filled {
   background: var(--light-bg);
   border: none;
@@ -50,15 +47,12 @@
   &.normal {
     border: 2px solid var(--icon);
   }
-
   &.error {
     border: 2px solid var(--cancel);
   }
-
   &.success {
     border: 2px solid var(--save);
   }
-
   &:hover {
     border: 2px solid var(--accent);
   }
@@ -67,17 +61,14 @@
 .square {
   padding: 0;
 }
-
 .square.m {
   width: var(--font-line-m);
   height: var(--font-line-m);
 }
-
 .square.l {
   width: var(--font-line-l);
   height: var(--font-line-l);
 }
-
 .square.xl {
   width: var(--font-line-xl);
   height: var(--font-line-xl);
@@ -86,11 +77,9 @@
 .m {
   font: var(--font-m);
 }
-
 .l {
   font: var(--font-l);
 }
-
 .xl {
   font: var(--font-xl);
 }

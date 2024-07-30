@@ -25,9 +25,9 @@ export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
     <AppLink
       to={item.path}
       className={useClassName(
-        cl.itemRedesigned,
+        cl.Item,
         {
-          [cl.collapsedRedesigned]: collapsed,
+          [cl.Item__collapsed]: collapsed,
         },
         [],
       )}

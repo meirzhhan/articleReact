@@ -3,15 +3,14 @@ import {
   ForwardedRef,
   ReactNode,
   forwardRef,
-  memo,
 } from 'react';
-import cl from './Button.module.scss';
+
 import { Mods, useClassName } from '@/shared/lib/hooks/useClassName';
+import cl from './Button.module.scss';
 
-export type ButtonVariable = 'clear' | 'outline' | 'filled';
-export type ButtonColor = 'normal' | 'success' | 'error';
-
-export type ButtonSize = 'm' | 'l' | 'xl';
+export type ButtonVariable = 'clear' | 'outline' | 'filled'; // Типы возможных вариантов кнопки.
+export type ButtonColor = 'normal' | 'success' | 'error'; // Типы возможных цветов кнопки.
+export type ButtonSize = 'm' | 'l' | 'xl'; // Типы возможных размеров кнопки.
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
@@ -25,6 +24,14 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   addonLeft?: ReactNode;
   addonRight?: ReactNode;
 }
+
+/**
+ * Компонент `Button` отображает кнопку с возможностью настройки стилей и содержимого.
+ *
+ * @param {ButtonProps} props - Пропсы компонента.
+ * @param {ForwardedRef<HTMLButtonElement>} ref - Ссылка на элемент кнопки.
+ * @returns {JSX.Element} - Рендерит кнопку с заданными стилями, размерами и содержимым.
+ */
 
 export const Button = forwardRef(
   (props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
@@ -62,9 +69,9 @@ export const Button = forwardRef(
         ref={ref}
         {...otherProps}
       >
-        <div className={cl.addonLeft}>{addonLeft}</div>
+        <div className={cl.Button__addOnLeft}>{addonLeft}</div>
         {children}
-        <div className={cl.addonRight}>{addonRight}</div>
+        <div className={cl.Button__addOnRight}>{addonRight}</div>
       </button>
     );
   },

@@ -1,52 +1,40 @@
 .Card {
-  padding: 24px;
   cursor: pointer;
-}
-
-.withoutPaddings {
-  padding: 0;
-}
-
-.normal {
-  background: var(--dark-bg);
-}
-
-.light {
-  background: var(--light-bg);
-}
-
-.outlined {
-  border: 1px solid var(--accent);
-}
-
-.normal {
-  border-radius: 12px;
-}
-
-.round {
-  border-radius: 40px;
-}
-
-.partial {
-  border-radius: 20px;
 }
 
 .max {
   width: 100%;
 }
 
+.normal {
+  background: var(--dark-bg);
+}
+.light {
+  background: var(--light-bg);
+}
+.outlined {
+  border: 1px solid var(--accent);
+}
+
+.default {
+  border-radius: 12px;
+}
+.partial {
+  border-radius: 20px;
+}
+.round {
+  border-radius: 40px;
+}
+
 .gap_0 {
   padding: 0;
 }
-
 .gap_8 {
   padding: 8px;
 }
-
 .gap_16 {
   padding: 16px;
 }
-
 .gap_24 {
   padding: 24px;
 }

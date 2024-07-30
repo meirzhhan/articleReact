@@ -1,10 +1,12 @@
-import { useClassName, Mods } from '@/shared/lib/hooks/useClassName';
 import { ReactNode } from 'react';
+
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
+import { useClassName, Mods } from '@/shared/lib/hooks/useClassName';
+
 import { Overlay } from '../Overlay';
 import { Portal } from '../Portal';
 import cl from './Modal.module.scss';
-import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
 interface ModalProps {
   className?: string;
@@ -15,6 +17,14 @@ interface ModalProps {
 }
 
 const ANIMATION_DELAY = 300;
+
+/**
+ * Компонент модального окна.
+ * Модальное окно может быть лениво загружено (монтироваться только при необходимости)
+ *
+ * @param {ModalProps} props - Пропсы компонента Modal.
+ * @returns {JSX.Element | null} - Возвращает JSX элемент для модального окна или null, если модальное окно должно быть скрыто.
+ */
 
 export const Modal = (props: ModalProps) => {
   const { className, children, isOpen, onClose, lazy } = props;
@@ -43,11 +53,10 @@ export const Modal = (props: ModalProps) => {
           className,
           theme,
           'app_modal',
-          cl.modalNew,
         ])}
       >
         <Overlay onClick={close} />
-        <div className={cl.content}>{children}</div>
+        <div className={cl.Modal__content}>{children}</div>
       </div>
     </Portal>
   );

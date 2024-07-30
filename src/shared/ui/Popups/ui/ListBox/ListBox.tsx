@@ -1,14 +1,17 @@
 import { Fragment, ReactNode, useMemo } from 'react';
 import { Listbox as HListbox } from '@headlessui/react';
-import cl from './ListBox.module.scss';
+
 import { useClassName } from '@/shared/lib/hooks/useClassName';
-import { HStack } from '../../../Stack';
 import { DropdownDirection } from '@/shared/types/ui';
-import { mapDirectionClass } from '../../styles/consts';
-import popupCl from '../../styles/popup.module.scss';
-import { Button } from '../../../Button';
 import ArrowIcon from '@/shared/assets/icons/arrow-bottomNew.svg';
+
+import { HStack } from '../../../Stack';
+import { Button } from '../../../Button';
 import { Icon } from '../../../Icon';
+import { mapDirectionClass } from '../../styles/consts';
+
+import popupCl from '../../styles/popup.module.scss';
+import cl from './ListBox.module.scss';
 export interface ListBoxItem<T extends string> {
   value: string;
   content: ReactNode;
@@ -26,6 +29,14 @@ interface ListBoxProps<T extends string> {
   label?: string;
 }
 
+/**
+ * Компонент ListBox, используемый для создания выпадающего списка с элементами выбора. (Headless UI)
+ *
+ * @param {ListBoxProps<T>} props - Пропсы компонента ListBox.
+ * @returns {JSX.Element} - Возвращает JSX элемент для ListBox.
+ * @template T - Тип значения элемента списка.
+ */
+
 export function ListBox<T extends string>(props: ListBoxProps<T>) {
   const {
     className,
@@ -40,6 +51,7 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
 
   const optionsClasses = [mapDirectionClass[direction], popupCl.menu];
 
+  // Определение выбранного элемента
   const selectedItem = useMemo(() => {
     return items?.find((item) => item.value === value);
   }, [items, value]);
@@ -50,7 +62,7 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
       <HListbox
         disabled={readonly}
         as="div"
-        className={useClassName(cl.ListBox, {}, [className, popupCl.popup])}
+        className={useClassName(popupCl.popup, {}, [className])}
         value={value}
         onChange={onChange}
       >

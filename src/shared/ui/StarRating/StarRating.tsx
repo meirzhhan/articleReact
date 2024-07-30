@@ -1,8 +1,10 @@
-import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { memo, useState } from 'react';
-import cl from './StarRating.module.scss';
-import StarIcon from '@/shared/assets/icons/star.svg';
+
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { Icon } from '../Icon';
+import StarIcon from '@/shared/assets/icons/star.svg';
+
+import cl from './StarRating.module.scss';
 
 interface StarRatingProps {
   className?: string;
@@ -12,6 +14,13 @@ interface StarRatingProps {
 }
 
 const stars = [1, 2, 3, 4, 5];
+
+/**
+ * Компонент StarRating позволяет пользователям выбрать рейтинг с помощью звезд.
+ *
+ * @param {StarRatingProps} props - Свойства для компонента.
+ * @returns {JSX.Element} Отрендеренный компонент.
+ */
 
 export const StarRating = memo((props: StarRatingProps) => {
   const { className, onSelect, size = 30, selectedStars = 0 } = props;
@@ -40,7 +49,7 @@ export const StarRating = memo((props: StarRatingProps) => {
   };
 
   return (
-    <div className={useClassName(cl.StarRatingRedesigned, {}, [className])}>
+    <div className={useClassName(cl.StarRating, {}, [className])}>
       {stars.map((starNumber) => {
         const commonProps = {
           className: useClassName(

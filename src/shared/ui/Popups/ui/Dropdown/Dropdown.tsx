@@ -1,13 +1,14 @@
-import { Menu } from '@headlessui/react';
-import { useClassName } from '@/shared/lib/hooks/useClassName';
-
-import cl from './Dropdown.module.scss';
-import { Fragment } from 'react/jsx-runtime';
 import { ReactNode } from 'react';
+import { Menu } from '@headlessui/react';
+import { Fragment } from 'react/jsx-runtime';
+
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { DropdownDirection } from '@/shared/types/ui';
+
+import { AppLink } from '../../../AppLink';
 import { mapDirectionClass } from '../../styles/consts';
 import popupCl from '../../styles/popup.module.scss';
-import { AppLink } from '../../../AppLink';
+import cl from './Dropdown.module.scss';
 
 export interface DropdownItem {
   disabled?: boolean;
@@ -23,16 +24,20 @@ interface DropdownProps {
   direction?: DropdownDirection;
 }
 
-export function Dropdown(props: DropdownProps) {
+/**
+ * Компонент Dropdown, используемый для создания выпадающего меню с элементами выбора. (Headless UI)
+ *
+ * @param {DropdownProps} props - Пропсы компонента Dropdown.
+ * @returns {JSX.Element} - Возвращает JSX элемент для Dropdown.
+ */
+
+export function Dropdown(props: DropdownProps): JSX.Element {
   const { className, items, trigger, direction = 'bottom right' } = props;
 
   const menuClasses = [mapDirectionClass[direction], popupCl.menu];
 
   return (
-    <Menu
-      as="div"
-      className={useClassName(cl.Dropdown, {}, [className, popupCl.popup])}
-    >
+    <Menu as="div" className={useClassName(popupCl.popup, {}, [className])}>
       <Menu.Button className={popupCl.trigger}>{trigger}</Menu.Button>
       <Menu.Items className={useClassName(cl.menu, {}, menuClasses)}>
         {items.map((item, index) => {

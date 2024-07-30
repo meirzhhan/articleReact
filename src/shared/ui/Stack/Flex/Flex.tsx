@@ -1,12 +1,13 @@
 import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
+
 import { useClassName, Mods } from '@/shared/lib/hooks/useClassName';
 import cl from './Flex.module.scss';
 
-export type FlexJustify = 'start' | 'center' | 'end' | 'between';
-export type FlexAlign = 'start' | 'center' | 'end';
-export type FlexDirection = 'row' | 'column';
-export type FlexWrap = 'nowrap' | 'wrap';
-export type FlexGap = '4' | '8' | '16' | '24' | '32';
+export type FlexJustify = 'start' | 'center' | 'end' | 'between'; // Варианты выравнивания по горизонтали
+export type FlexAlign = 'start' | 'center' | 'end'; // Варианты выравнивания по вертикали.
+export type FlexDirection = 'row' | 'column'; // Варианты направления флекс-контейнера.
+export type FlexWrap = 'nowrap' | 'wrap'; // Варианты обтекания флекс-контейнера.
+export type FlexGap = '4' | '8' | '16' | '24' | '32'; // Варианты отступов между элементами.
 
 const justifyClasses: Record<FlexJustify, string> = {
   start: cl.justifyStart,
@@ -50,7 +51,14 @@ export interface FlexProps extends DivProps {
   max?: boolean;
 }
 
-export const Flex = (props: FlexProps) => {
+/**
+ * Компонент Flex используется для создания флекс-контейнера с настраиваемыми стилями.
+ *
+ * @param {FlexProps} props - Пропсы компонента Flex.
+ * @returns {JSX.Element} - Возвращает флекс-контейнер с дочерними элементами.
+ */
+
+export const Flex = (props: FlexProps): JSX.Element => {
   const {
     className,
     children,

@@ -1,12 +1,12 @@
 import { memo } from 'react';
+
 import { useClassName } from '@/shared/lib/hooks/useClassName';
+
 import cl from './Text.module.scss';
 
-export type TextVariant = 'primary' | 'error' | 'accent';
-
-export type TextAlign = 'right' | 'left' | 'center';
-
-export type TextSize = 's' | 'm' | 'l';
+export type TextVariant = 'primary' | 'error' | 'accent'; // Типы вариантов цвета текста.
+export type TextAlign = 'right' | 'left' | 'center'; // Типы выравнивания текста.
+export type TextSize = 's' | 'm' | 'l'; // Типы размеров текста.
 
 interface TextProps {
   className?: string;
@@ -33,6 +33,13 @@ const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
   l: 'h1',
 };
 
+/**
+ * Компонент Text отображает текстовые элементы с возможностью настройки стилей, выравнивания и размеров.
+ *
+ * @param {TextProps} props - Свойства для компонента.
+ * @returns {JSX.Element} Отрендеренный компонент.
+ */
+
 export const Text = memo((props: TextProps) => {
   const {
     className,
@@ -51,9 +58,7 @@ export const Text = memo((props: TextProps) => {
   const additionalClasses = [className, cl[variant], cl[align], sizeClass];
 
   return (
-    <div
-      className={useClassName(cl.Text, { [cl.bold]: bold }, additionalClasses)}
-    >
+    <div className={useClassName('', { [cl.bold]: bold }, additionalClasses)}>
       {title && (
         <HeaderTag className={cl.title} data-testid={`${dataTestId}.Header`}>
           {title}

@@ -1,8 +1,9 @@
-import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { memo } from 'react';
+
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 import cl from './Icon.module.scss';
 
-// onclick type removes
+// Тип для пропсов SVG, исключая `onClick`
 type SvgProps = Omit<React.SVGProps<SVGSVGElement>, 'onClick'>;
 
 interface IconBaseProps extends SvgProps {
@@ -20,6 +21,15 @@ interface ClickableIconProps extends IconBaseProps {
 }
 
 type IconProps = NotClickableIconProps | ClickableIconProps;
+
+/**
+ * Компонент для отображения иконки.
+ *
+ * В зависимости от пропса `clickable`, иконка может быть отображена как обычный элемент SVG или как кнопка.
+ *
+ * @param {IconProps} props - Пропсы компонента иконки.
+ * @returns {JSX.Element} - Возвращает JSX элемент, который представляет собой иконку.
+ */
 
 export const Icon = memo((props: IconProps) => {
   const {
@@ -41,6 +51,7 @@ export const Icon = memo((props: IconProps) => {
     />
   );
 
+  // Если иконка кликабельна - оборачивается в кнопку
   if (clickable)
     return (
       <button

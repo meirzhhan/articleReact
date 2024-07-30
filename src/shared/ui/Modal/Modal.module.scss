@@ -10,19 +10,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
 
-.content {
-  padding: 20px;
-  border-radius: 12px;
-  transition: 0.3s transform;
-  transform: scale(0.5);
-  max-width: 60%;
-  z-index: var(--modal-z-index);
-}
-
-.modalNew {
-  .content {
+  &__content {
+    padding: 20px;
+    border-radius: 12px;
+    transition: 0.3s transform;
+    transform: scale(0.5);
+    max-width: 60%;
+    z-index: var(--modal-z-index);
     background: var(--light-bg);
   }
 }
@@ -32,13 +27,13 @@
   opacity: 1;
   z-index: var(--modal-z-index);
 
-  .content {
+  .Modal__content {
     transform: scale(1);
   }
 }
 
 .isClosing {
-  .content {
+  .Modal__content {
     transform: scale(0.2);
   }
 }

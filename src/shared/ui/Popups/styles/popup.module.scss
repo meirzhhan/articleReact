@@ -7,7 +7,6 @@
   border: 1px solid var(--accent);
   overflow: hidden;
 }
-
 .trigger {
   background: none;
   outline: none;
@@ -20,27 +19,23 @@
 .active {
   background: var(--light-bg);
 }
+.disabled {
+  opacity: 0.7;
+}
 
 .optionsBottomLeft {
   top: 100%;
   right: 0;
 }
-
 .optionsBottomRight {
   top: 100%;
   left: 0;
 }
-
 .optionsTopRight {
   bottom: 100%;
   left: 0;
 }
-
 .optionsTopLeft {
   bottom: 100%;
   right: 0;
-}
-
-.disabled {
-  opacity: 0.7;
 }

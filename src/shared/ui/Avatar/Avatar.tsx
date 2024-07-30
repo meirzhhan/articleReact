@@ -1,10 +1,12 @@
-import { Mods, useClassName } from '@/shared/lib/hooks/useClassName';
-import cl from './Avatar.module.scss';
 import { CSSProperties, useMemo } from 'react';
-import UserIcon from '../../assets/icons/user-default.svg';
+
+import { Mods, useClassName } from '@/shared/lib/hooks/useClassName';
+
 import { Icon } from '../Icon';
 import { Skeleton } from '../Skeleton';
 import { AppImage } from '../AppImage';
+import UserIcon from '../../assets/icons/user-default.svg';
+import cl from './Avatar.module.scss';
 
 interface AvatarProps {
   className?: string;
@@ -13,9 +15,17 @@ interface AvatarProps {
   alt?: string;
 }
 
+/**
+ * Компонент `Avatar` отображает изображение аватара пользователя.
+ * Использует компонент `AppImage` для обработки загрузки, ошибок и отображения
+ * резервных изображений.
+ *
+ * @param {AvatarProps} props - Пропсы компонента.
+ * @returns {JSX.Element} - Рендерит аватар с заданными размерами, стилями и fallback-изображениями.
+ */
+
 export const Avatar = (props: AvatarProps) => {
   const { className, src, size = 100, alt } = props;
-  const mods: Mods = {};
 
   const styles = useMemo<CSSProperties>(() => {
     return {
@@ -34,7 +44,7 @@ export const Avatar = (props: AvatarProps) => {
       src={src}
       alt={alt}
       style={styles}
-      className={useClassName(cl.Avatar, mods, [className])}
+      className={useClassName(cl.Avatar, {}, [className])}
     />
   );
 };

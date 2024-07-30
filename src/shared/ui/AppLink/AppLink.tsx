@@ -1,9 +1,8 @@
-import { LinkProps } from 'react-router-dom';
-import cl from './AppLink.module.scss';
+import { ReactNode, memo } from 'react';
+import { LinkProps, NavLink } from 'react-router-dom';
 
 import { useClassName } from '@/shared/lib/hooks/useClassName';
-import { ReactNode, memo } from 'react';
-import { NavLink } from 'react-router-dom';
+import cl from './AppLink.module.scss';
 
 export type AppLinkVariant = 'primary' | 'red';
 
@@ -14,6 +13,12 @@ interface AppLinkProps extends LinkProps {
   activeClassName?: string;
 }
 
+/**
+ * Кастомный `AppLink` для навигации с использованием `NavLink`.
+ * @param {AppLinkProps} props - Свойства компонента.
+ * @returns {JSX.Element} - Ссылка с поддержкой активного состояния и варианта стиля.
+ */
+
 export const AppLink = memo((props: AppLinkProps) => {
   const {
     to,
@@ -23,6 +28,7 @@ export const AppLink = memo((props: AppLinkProps) => {
     activeClassName = '',
     ...otherProps
   } = props;
+
   return (
     <NavLink
       to={to}

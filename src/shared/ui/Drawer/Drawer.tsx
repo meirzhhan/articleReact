@@ -1,13 +1,15 @@
-import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { memo, ReactNode, useCallback, useEffect } from 'react';
+
+import { useClassName } from '@/shared/lib/hooks/useClassName';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import {
   AnimationProvider,
   useAnimationLibs,
 } from '@/shared/lib/components/AnimationProvider';
+
 import { Overlay } from '../Overlay';
-import cl from './Drawer.module.scss';
 import { Portal } from '../Portal';
-import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
+import cl from './Drawer.module.scss';
 
 interface DrawerProps {
   className?: string;
@@ -19,12 +21,20 @@ interface DrawerProps {
 
 const height = window.innerHeight - 100;
 
+/**
+ * Основной компонент для отображения модального окна для мобильных устройств.
+ *
+ * @param {DrawerProps} props - Пропсы компонента `DrawerContent`.
+ * @returns {JSX.Element | null} - Возвращает JSX элемент, если `isOpen` равен `true`, иначе возвращает `null`.
+ */
+
 export const DrawerContent = memo((props: DrawerProps) => {
   const { Spring, Gesture } = useAnimationLibs();
   const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
   const { theme } = useTheme();
   const { className, children, onClose, isOpen, lazy } = props;
 
+  // Открывает выдвижное окно с анимацией.
   const openDrawer = useCallback(() => {
     api.start({ y: 0, immediate: false });
   }, [api]);
@@ -43,6 +53,16 @@ export const DrawerContent = memo((props: DrawerProps) => {
       onResolve: onClose,
     });
   };
+
+  /**
+   * Обрабатывает события перетаскивания для открытия и закрытия выдвижного окна.
+   * @param {object} params - Параметры события перетаскивания.
+   * @param {boolean} params.last - Определяет, является ли это последним событием перетаскивания.
+   * @param {number} params.velocity - Скорость перетаскивания.
+   * @param {number} params.direction - Направление перетаскивания.
+   * @param {number} params.movement - Движение перетаскивания.
+   * @param {function} params.cancel - Функция для отмены перетаскивания.
+   */
 
   const bind = Gesture.useDrag(
     ({
@@ -100,6 +120,13 @@ export const DrawerContent = memo((props: DrawerProps) => {
     </Portal>
   );
 });
+
+/**
+ * Асинхронный компонент для отображения выдвижного окна с задержкой загрузки.
+ *
+ * @param {DrawerProps} props - Пропсы компонента `DrawerAsync`.
+ * @returns {JSX.Element | null} - Возвращает `DrawerContent`, если анимационные библиотеки загружены.
+ */
 
 const DrawerAsync = (props: DrawerProps) => {
   const { isLoaded } = useAnimationLibs();

@@ -1,10 +1,12 @@
-import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { HTMLAttributes, ReactNode, memo } from 'react';
+
+import { useClassName } from '@/shared/lib/hooks/useClassName';
+
 import cl from './Card.module.scss';
 
-export type CardVariant = 'normal' | 'outlined' | 'light';
+export type CardVariant = 'normal' | 'outlined' | 'light'; // Варианты оформления карточки
 export type CardPadding = '0' | '8' | '16' | '24';
-export type CardBorder = 'round' | 'normal' | 'partial';
+export type CardBorder = 'round' | 'default' | 'partial';
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
@@ -21,6 +23,13 @@ const mapPaddingToClass: Record<CardPadding, string> = {
   '16': 'gap_16',
   '24': 'gap_24',
 };
+
+/**
+ * Компонент `Card` отображает карточку с возможностью настройки стилей и содержимого.
+ *
+ * @param {CardProps} props - Пропсы компонента.
+ * @returns {JSX.Element} - Рендерит карточку с заданными стилями и содержимым.
+ */
 
 export const Card = memo((props: CardProps) => {
   const {

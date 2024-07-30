@@ -1,5 +1,3 @@
-import { Mods, useClassName } from '@/shared/lib/hooks/useClassName';
-import cl from './Input.module.scss';
 import React, {
   InputHTMLAttributes,
   memo,
@@ -8,9 +6,14 @@ import React, {
   useRef,
   ReactNode,
 } from 'react';
+
+import { Mods, useClassName } from '@/shared/lib/hooks/useClassName';
+
 import { HStack } from '../Stack';
 import { Text } from '../Text';
+import cl from './Input.module.scss';
 
+// Пропсы для компонента Input, исключая value, onChange, readOnly и size.
 type HTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
   'value' | 'onChange' | 'readOnly' | 'size'
@@ -28,6 +31,13 @@ interface InputProps extends HTMLInputProps {
   addonRight?: ReactNode;
   size?: InputSize;
 }
+
+/**
+ * Компонент input с поддержкой метки, дополнительных элементов и различных размеров.
+ *
+ * @param {InputProps} props - Пропсы компонента Input.
+ * @returns {JSX.Element} - Возвращает JSX элемент, представляющий поле ввода.
+ */
 
 export const Input = memo((props: InputProps) => {
   const {
@@ -75,20 +85,20 @@ export const Input = memo((props: InputProps) => {
 
   const input = (
     <div className={useClassName(cl.InputWrapper, mods, [className, cl[size]])}>
-      <div className={cl.addonLeft}>{addonLeft}</div>
+      <div className={cl.InputWrapper__addOnLeft}>{addonLeft}</div>
       <input
+        className={cl.InputWrapper__input}
         ref={ref}
         type={type}
         value={value}
         onChange={onChangeHandler}
-        className={cl.input}
         onFocus={onFocus}
         onBlur={onBlur}
         readOnly={readonly}
         placeholder={placeholder}
         {...otherProps}
       />
-      <div className={cl.addonRight}>{addonRight}</div>
+      <div className={cl.InputWrapper__addOnRight}>{addonRight}</div>
     </div>
   );
 
