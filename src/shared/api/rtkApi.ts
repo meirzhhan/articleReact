@@ -1,21 +1,21 @@
 // RTK query TODO: comments
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
+import { USER_LOCALSTORAGE_KEY } from '@/shared/consts/localStorage';
 
-// Define a service using a base URL and expected endpoints
+// Определение базового URL и ожидаемых эндпоинтов
 export const rtkApi = createApi({
-  reducerPath: 'api', // Reducer path for the API
+  reducerPath: 'api', // Путь для редюсера API
   baseQuery: fetchBaseQuery({
-    baseUrl: __API__, // Base URL for the API
+    baseUrl: __API__, // Базовый URL для API
     prepareHeaders: (headers) => {
-      const token = localStorage.getItem(USER_LOCALSTORAGE_KEY) || ''; // Get token from local storage
+      const token = localStorage.getItem(USER_LOCALSTORAGE_KEY) || ''; // Получение токена из localStorage
       if (token) {
-        headers.set('Authorization', token);
+        headers.set('Authorization', token); // Установка заголовка Authorization с токеном
       }
 
       return headers;
     },
   }),
 
-  endpoints: (_) => ({}),
+  endpoints: () => ({}), // эндпоинты
 });

@@ -4,7 +4,7 @@ import {
   getRouteAbout,
   getRouteAdmin,
   getRouteProfile,
-} from '@/shared/const/router';
+} from '@/shared/consts/router';
 import { screen } from '@testing-library/react';
 import { UserRole } from '@/entities/User';
 

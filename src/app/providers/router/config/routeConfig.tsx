@@ -23,7 +23,7 @@ import {
   getRouteMain,
   getRouteProfile,
   getRouteSettings,
-} from '@/shared/const/router';
+} from '@/shared/consts/router';
 import { AppRoutesProps } from '@/shared/types/router';
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {

@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { ThemeContext } from '../../context/ThemeContext';
-import { Theme } from '../../../const/theme';
+import { Theme } from '../../../consts/theme';
 
 interface UseThemeResult {
   toggleTheme: (saveAction?: (theme: Theme) => void) => void;

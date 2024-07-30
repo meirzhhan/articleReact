@@ -5,7 +5,7 @@ import {
   getRouteArticles,
   getRouteMain,
   getRouteProfile,
-} from '@/shared/const/router';
+} from '@/shared/consts/router';
 import { SidebarItemsType } from '../types/sidebar';
 
 import MainIcon from '@/shared/assets/icons/homeNew.svg';

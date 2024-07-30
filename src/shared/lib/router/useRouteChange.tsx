@@ -1,4 +1,4 @@
-import { AppRouteByPathPattern, AppRoutes } from '@/shared/const/router';
+import { AppRouteByPathPattern, AppRoutes } from '@/shared/consts/router';
 import { useEffect, useState } from 'react';
 import { matchPath, useLocation } from 'react-router-dom';
 

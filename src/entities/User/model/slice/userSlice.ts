@@ -3,7 +3,7 @@ import { User, UserSchema } from '../types/user';
 import {
   LOCAL_STORAGE_LAST_DESIGN_KEY,
   USER_LOCALSTORAGE_KEY,
-} from '@/shared/const/localStorage';
+} from '@/shared/consts/localStorage';
 import { setFeatureFlags } from '@/shared/lib/features';
 import { JsonSettings } from '../types/jsonSettings';
 import { saveJsonSettings } from '../services/saveJsonSettings';

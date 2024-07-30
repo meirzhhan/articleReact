@@ -3,7 +3,7 @@ import { memo } from 'react';
 import cl from './CommentCard.module.scss';
 import { CommentType } from '@/entities/Comment/model/types/comment';
 import { Skeleton } from '@/shared/ui/Skeleton';
-import { getRouteProfile } from '@/shared/const/router';
+import { getRouteProfile } from '@/shared/consts/router';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Card } from '@/shared/ui/Card';
 import { AppLink } from '@/shared/ui/AppLink';

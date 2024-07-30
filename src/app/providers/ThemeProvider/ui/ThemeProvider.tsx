@@ -2,8 +2,8 @@ import { ReactNode, useEffect, useMemo, useState } from 'react';
 
 import { useJsonSettings } from '@/entities/User';
 
-import { Theme } from '@/shared/const/theme';
-import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localStorage';
+import { Theme } from '@/shared/consts/theme';
+import { LOCAL_STORAGE_THEME_KEY } from '@/shared/consts/localStorage';
 import {
   ThemeContext,
   ThemeContextProps,

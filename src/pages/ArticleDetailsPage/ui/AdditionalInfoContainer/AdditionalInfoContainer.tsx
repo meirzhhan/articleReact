@@ -5,7 +5,7 @@ import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import cl from './AdditionalInfoContainer.module.scss';
 import { useNavigate } from 'react-router-dom';
-import { getRouteArticleEdit } from '@/shared/const/router';
+import { getRouteArticleEdit } from '@/shared/consts/router';
 
 export const AdditionalInfoContainer = memo(() => {
   const navigate = useNavigate();

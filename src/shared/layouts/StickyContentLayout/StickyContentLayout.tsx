@@ -1,4 +1,5 @@
 import { memo, ReactElement } from 'react';
+
 import { customCl } from '@/shared/lib/classNames/classNames';
 import cl from './StickyContentLayout.module.scss';
 
@@ -12,9 +13,9 @@ export const StickyContentLayout = memo((props: StickyContentLayoutProps) => {
   const { className, content, right } = props;
 
   return (
-    <div className={customCl(cl.MainLayout, {}, [className])}>
-      <div className={cl.content}>{content}</div>
-      {right && <div className={cl.right}>{right}</div>}
+    <div className={customCl(cl.Sticky, {}, [className])}>
+      <div className={cl.Sticky__content}>{content}</div>
+      {right && <div className={cl.Sticky__right}>{right}</div>}
     </div>
   );
 });

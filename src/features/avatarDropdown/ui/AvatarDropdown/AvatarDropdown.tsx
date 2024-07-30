@@ -4,7 +4,7 @@ import {
   getRouteAdmin,
   getRouteProfile,
   getRouteSettings,
-} from '@/shared/const/router';
+} from '@/shared/consts/router';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';

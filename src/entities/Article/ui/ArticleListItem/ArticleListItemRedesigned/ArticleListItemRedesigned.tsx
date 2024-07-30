@@ -17,7 +17,7 @@ import { AppLink } from '@/shared/ui/AppLink';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { AppImage } from '@/shared/ui/AppImage';
 import { HStack, VStack } from '@/shared/ui/Stack';
-import { getRouteArticleDetails } from '@/shared/const/router';
+import { getRouteArticleDetails } from '@/shared/consts/router';
 import { customCl } from '@/shared/lib/classNames/classNames';
 
 import EyeIcon from '@/shared/assets/icons/eyeNew.svg';
