@@ -1,4 +1,4 @@
-import { customCl } from '@/shared/lib/classNames/classNames';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { memo } from 'react';
 import cl from './ArticlesFilters.module.scss';
 import { Card } from '@/shared/ui/Card';
@@ -45,7 +45,7 @@ export const ArticlesFilters = memo((props: ArticlesFiltersProps) => {
     <VStack gap="8">
       <ArticleViewSelector view={view} onViewClick={onChangeView} />
       <Card
-        className={customCl(cl.ArticlesFilters, {}, [className])}
+        className={useClassName(cl.ArticlesFilters, {}, [className])}
         padding="24"
       >
         <VStack gap="32">

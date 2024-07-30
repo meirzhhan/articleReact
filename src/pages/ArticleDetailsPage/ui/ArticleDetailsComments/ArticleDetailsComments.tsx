@@ -7,7 +7,7 @@ import { getArticleComments } from '../../model/slices/articleDetailsCommentsSli
 import { getArticleCommentsIsLoading } from './../../model/selectors/comments';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { customCl } from '@/shared/lib/classNames/classNames';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
@@ -37,7 +37,7 @@ export const ArticleDetailsComments = memo(
     }, [dispatch, id]);
 
     return (
-      <VStack gap="16" max className={customCl('', {}, [className])}>
+      <VStack gap="16" max className={useClassName('', {}, [className])}>
         <Text size="l" title={t('Комментарии')} />
         <Suspense fallback={<></>}>
           <AddCommentForm onSendComment={onSendComment} />

@@ -1,4 +1,4 @@
-import { customCl } from '@/shared/lib/classNames/classNames';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { memo } from 'react';
 import cl from './Icon.module.scss';
 
@@ -33,7 +33,7 @@ export const Icon = memo((props: IconProps) => {
 
   const icon = (
     <Svg
-      className={customCl(cl.Icon, {}, [className])}
+      className={useClassName(cl.Icon, {}, [className])}
       width={width}
       height={height}
       {...otherProps}

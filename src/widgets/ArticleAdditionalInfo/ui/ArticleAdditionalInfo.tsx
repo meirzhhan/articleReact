@@ -1,4 +1,4 @@
-import { customCl } from '@/shared/lib/classNames/classNames';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import cl from './ArticleAdditionalInfo.module.scss';
@@ -24,7 +24,7 @@ export const ArticleAdditionalInfo = memo(
     return (
       <VStack
         gap="32"
-        className={customCl(cl.ArticleAdditionalInfo, {}, [className])}
+        className={useClassName(cl.ArticleAdditionalInfo, {}, [className])}
       >
         <HStack gap="8">
           <Avatar src={author.avatar} size={32} />

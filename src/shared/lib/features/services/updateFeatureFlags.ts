@@ -1,6 +1,9 @@
-import { ThunkConfig } from '@/app/providers/StoreProvider';
-import { FeatureFlags } from '@/shared/types/featureFlags';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
+import { ThunkConfig } from '@/app/providers/StoreProvider';
+
+import { FeatureFlags } from '@/shared/types/featureFlags';
+
 import { updateFeatureFlagsMutation } from '../api/featureFlagsApi';
 import { getAllFeatureFLags } from './../lib/setGetFeatures';
 
@@ -9,10 +12,11 @@ interface updateFeatureFlagOptions {
   newFeatures: Partial<FeatureFlags>;
 }
 
+// асинхронный thunk для обновления флага фич
 export const updateFeatureFlag = createAsyncThunk<
-  void,
-  updateFeatureFlagOptions,
-  ThunkConfig<string>
+  void, // Тип возвращаемого значения
+  updateFeatureFlagOptions, // Тип параметров
+  ThunkConfig<string> // Тип конфигурации thunk
 >(
   'features/updateFeatureFlagOptions',
   async ({ userId, newFeatures }, thunkApi) => {
@@ -20,6 +24,7 @@ export const updateFeatureFlag = createAsyncThunk<
 
     try {
       await dispatch(
+        // RTK => featureFlagsApi
         updateFeatureFlagsMutation({
           userId,
           features: {

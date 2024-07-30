@@ -1,4 +1,4 @@
-import { customCl } from '@/shared/lib/classNames/classNames';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { memo, useState } from 'react';
 import cl from './StarRating.module.scss';
 import StarIcon from '@/shared/assets/icons/star.svg';
@@ -40,10 +40,10 @@ export const StarRating = memo((props: StarRatingProps) => {
   };
 
   return (
-    <div className={customCl(cl.StarRatingRedesigned, {}, [className])}>
+    <div className={useClassName(cl.StarRatingRedesigned, {}, [className])}>
       {stars.map((starNumber) => {
         const commonProps = {
-          className: customCl(
+          className: useClassName(
             cl.starIcon,
             {
               [cl.selected]: isSelected,

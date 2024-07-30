@@ -1,4 +1,5 @@
 import { ReactElement } from 'react';
+
 import { getFeatureFlag } from '../../lib/setGetFeatures';
 import { FeatureFlags } from '../../../../types/featureFlags';
 
@@ -8,9 +9,11 @@ interface ToggleFeaturesProps {
   off: ReactElement;
 }
 
+// Компонент для переключения children компонента по флагу
 export const ToggleFeatures = (props: ToggleFeaturesProps) => {
   const { on, off, feature } = props;
 
+  // Проверка значения флага функции
   if (getFeatureFlag(feature)) {
     return on;
   }

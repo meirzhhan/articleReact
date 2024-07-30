@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+
 import { ThemeContext } from '../../context/ThemeContext';
 import { Theme } from '../../../consts/theme';
 
@@ -12,6 +13,7 @@ export function useTheme(): UseThemeResult {
 
   const toggleTheme = (saveAction?: (theme: Theme) => void) => {
     let newTheme: Theme;
+
     switch (theme) {
       case Theme.DARK:
         newTheme = Theme.LIGHT;
@@ -22,12 +24,12 @@ export function useTheme(): UseThemeResult {
       case Theme.ORANGE:
         newTheme = Theme.DARK;
         break;
+
       default:
         newTheme = Theme.LIGHT;
     }
 
     setTheme?.(newTheme);
-
     saveAction?.(newTheme);
   };
 

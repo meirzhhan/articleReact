@@ -1,4 +1,4 @@
-import { customCl } from '@/shared/lib/classNames/classNames';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
@@ -114,7 +114,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <VStack gap="16" max className={customCl('', {}, [className])}>
+      <VStack gap="16" max className={useClassName('', {}, [className])}>
         <EditableProfileCardHeader />
 
         {validateErrors?.length &&

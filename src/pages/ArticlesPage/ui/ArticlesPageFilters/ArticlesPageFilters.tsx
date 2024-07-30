@@ -1,4 +1,4 @@
-import { customCl } from '@/shared/lib/classNames/classNames';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import cl from './ArticlesPageFilters.module.scss';
@@ -33,7 +33,7 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
   } = useArticleFilters();
 
   return (
-    <div className={customCl(cl.ArticlesPageFilters, {}, [className])}>
+    <div className={useClassName(cl.ArticlesPageFilters, {}, [className])}>
       <div className={cl.sortWrapper}>
         <ArticleSortSelector
           order={order}

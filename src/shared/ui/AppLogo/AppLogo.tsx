@@ -1,4 +1,4 @@
-import { customCl } from '@/shared/lib/classNames/classNames';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { memo } from 'react';
 import cl from './AppLogo.module.scss';
 import { HStack } from '../Stack';
@@ -16,7 +16,7 @@ export const AppLogo = memo((props: AppLogoProps) => {
     <HStack
       max
       justify="center"
-      className={customCl(cl.appLogoWrapper, {}, [className])}
+      className={useClassName(cl.appLogoWrapper, {}, [className])}
     >
       <AppSvg width={size} height={size} color="black" className={cl.appLogo} />
       <div className={cl.gradientBig} />

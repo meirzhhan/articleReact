@@ -25,11 +25,11 @@ export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
 
   useEffect(() => {
     const mountedReducers = store.reducerManager.getMountedReducers();
-
+    // Итерация по предоставленным редьюсерам и добавление их, если они еще не смонтированы
     Object.entries(reducers).forEach(([name, reducer]) => {
       const mounted = mountedReducers[name as StateSchemaKey];
 
-      // will add if reducer doesn't mount yet or unmounted
+      // добавление, если редюсер еще не смонтирован или не размонтирован
       if (!mounted) {
         store.reducerManager.add(name as StateSchemaKey, reducer);
         dispatch({ type: `@INIT ${name} reducer` });
@@ -37,6 +37,7 @@ export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
     });
 
     return () => {
+      // Функция очистки для удаления редюсеров, если removeAfterUnmount равен true
       if (removeAfterUnmount) {
         Object.entries(reducers).forEach(([name, _]) => {
           store.reducerManager.remove(name as StateSchemaKey);
@@ -44,7 +45,6 @@ export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
         });
       }
     };
-    // eslint-disable-next-line
   }, []);
 
   return <>{children}</>;

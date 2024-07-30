@@ -1,11 +1,19 @@
+import { useMemo } from 'react';
 import {
   CreateSliceOptions,
   SliceCaseReducers,
   bindActionCreators,
   createSlice,
 } from '@reduxjs/toolkit';
+
 import { useAppDispatch } from '../hooks/useAppDispatch/useAppDispatch';
-import { useMemo } from 'react';
+
+/**
+ * Функция `buildSlice` упрощает создание срезов (slices) Redux и предоставляет хук для использования действий (actions).
+ *
+ * @param options - Параметры для создания среза, включая начальное состояние, редюсеры и имя среза.
+ * @returns Объект, содержащий созданный срез и хук для использования действий.
+ */
 
 export function buildSlice<
   State,

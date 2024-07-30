@@ -1,4 +1,5 @@
-import { customCl } from '@/shared/lib/classNames/classNames';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
+
 import { memo } from 'react';
 import cl from './Overlay.module.scss';
 
@@ -11,6 +12,9 @@ export const Overlay = memo((props: OverlayProps) => {
   const { className, onClick } = props;
 
   return (
-    <div onClick={onClick} className={customCl(cl.Overlay, {}, [className])} />
+    <div
+      onClick={onClick}
+      className={useClassName(cl.Overlay, {}, [className])}
+    />
   );
 });

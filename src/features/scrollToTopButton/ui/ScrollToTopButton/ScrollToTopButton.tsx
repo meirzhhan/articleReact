@@ -1,4 +1,4 @@
-import { customCl } from '@/shared/lib/classNames/classNames';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { memo } from 'react';
 import { Icon } from '@/shared/ui/Icon';
 import topButtonIcon from '@/shared/assets/icons/topButton.svg';
@@ -22,7 +22,7 @@ export const ScrollToTopButton = memo((props: scrollToTopButtonProps) => {
       height={32}
       width={32}
       clickable
-      className={customCl(cl.scrollToTopButton, {}, [className])}
+      className={useClassName(cl.scrollToTopButton, {}, [className])}
     />
   );
 });

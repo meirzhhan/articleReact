@@ -6,7 +6,7 @@ import {
   memo,
 } from 'react';
 import cl from './Button.module.scss';
-import { Mods, customCl } from '@/shared/lib/classNames/classNames';
+import { Mods, useClassName } from '@/shared/lib/hooks/useClassName';
 
 export type ButtonVariable = 'clear' | 'outline' | 'filled';
 export type ButtonColor = 'normal' | 'success' | 'error';
@@ -52,7 +52,7 @@ export const Button = forwardRef(
     return (
       <button
         type="button"
-        className={customCl(cl.Button, mods, [
+        className={useClassName(cl.Button, mods, [
           className,
           cl[variant],
           cl[size],

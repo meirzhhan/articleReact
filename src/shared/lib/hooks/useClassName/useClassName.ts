@@ -1,6 +1,6 @@
 export type Mods = Record<string, boolean | string | undefined>;
 
-export function customCl(
+export function useClassName(
   cl: string,
   mods: Mods = {},
   additional: Array<string | undefined>,
@@ -14,5 +14,6 @@ export function customCl(
   ].join(' ');
 }
 
-// classNames('remove-btn', { hovered: true, selectable: true, red: false }, ['pdg']);
+// ПРИМЕР
+// useClassName('remove-btn', { hovered: true, selectable: true, red: false }, ['pdg']);
 // ('remove-btn pdg hovered selectable');

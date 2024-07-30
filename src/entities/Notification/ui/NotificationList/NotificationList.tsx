@@ -1,4 +1,4 @@
-import { customCl } from '@/shared/lib/classNames/classNames';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { memo } from 'react';
 import cl from './NotificationList.module.scss';
 import { useNotifications } from '../../api/notificationApi';
@@ -22,7 +22,7 @@ export const NotificationList = memo((props: NotificationListProps) => {
       <VStack
         gap="16"
         max // skeleton
-        className={customCl(cl.NotificationList, {}, [className])}
+        className={useClassName(cl.NotificationList, {}, [className])}
       >
         <Skeleton width={'100%'} border={'8px'} height={'80px'} />
         <Skeleton width={'100%'} border={'8px'} height={'80px'} />
@@ -35,7 +35,7 @@ export const NotificationList = memo((props: NotificationListProps) => {
     <VStack
       gap="16"
       // max
-      className={customCl(cl.NotificationList, {}, [className])}
+      className={useClassName(cl.NotificationList, {}, [className])}
     >
       {data?.map((item) => (
         <NotificationItem key={item.id} item={item} />

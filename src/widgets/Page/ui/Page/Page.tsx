@@ -1,4 +1,4 @@
-import { customCl } from '@/shared/lib/classNames/classNames';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 import {
   MutableRefObject,
   ReactNode,
@@ -63,7 +63,7 @@ export const Page = memo((props: PageProps) => {
   return (
     <main
       ref={wrapperRef}
-      className={customCl(cl.PageRedesigned, {}, [className])}
+      className={useClassName(cl.PageRedesigned, {}, [className])}
       onScroll={onScroll}
       id={PAGE_ID}
       data-testid={props['data-testid'] ?? 'Page'}

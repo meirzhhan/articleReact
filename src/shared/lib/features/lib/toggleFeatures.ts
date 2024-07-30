@@ -7,6 +7,7 @@ interface ToggleFeaturesOptions<T> {
   off: () => T;
 }
 
+// Функция для отработки определенных сценариев по флагу
 export function toggleFeatures<T>({ name, on, off }: ToggleFeaturesOptions<T>) {
   if (getFeatureFlag(name)) {
     return on();

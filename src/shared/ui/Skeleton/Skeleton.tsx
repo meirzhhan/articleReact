@@ -1,4 +1,4 @@
-import { customCl } from '@/shared/lib/classNames/classNames';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { CSSProperties, memo } from 'react';
 import cl from './Skeleton.module.scss';
 
@@ -19,6 +19,9 @@ export const Skeleton = memo((props: SkeletonProps) => {
   };
 
   return (
-    <div className={customCl(cl.Skeleton, {}, [className])} style={styles} />
+    <div
+      className={useClassName(cl.Skeleton, {}, [className])}
+      style={styles}
+    />
   );
 });

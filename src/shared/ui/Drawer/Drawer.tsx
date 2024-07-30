@@ -1,4 +1,4 @@
-import { customCl } from '@/shared/lib/classNames/classNames';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { memo, ReactNode, useCallback, useEffect } from 'react';
 import {
   AnimationProvider,
@@ -81,7 +81,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
   return (
     <Portal element={document.getElementById('app') ?? document.body}>
       <div
-        className={customCl(cl.Drawer, {}, [
+        className={useClassName(cl.Drawer, {}, [
           className,
           theme,
           'app_drawer',

@@ -1,4 +1,4 @@
-import { customCl } from '@/shared/lib/classNames/classNames';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 import cl from './ArticleCodeBlockComponent.module.scss';
 import { memo } from 'react';
 import { ArticleCodeBlock } from '../../model/types/article';
@@ -13,7 +13,9 @@ export const ArticleCodeBlockComponent = memo(
   (props: ArticleCodeBlockComponentProps) => {
     const { className, block } = props;
     return (
-      <div className={customCl(cl.ArticleCodeBlockComponent, {}, [className])}>
+      <div
+        className={useClassName(cl.ArticleCodeBlockComponent, {}, [className])}
+      >
         <Code text={block.code} />
       </div>
     );

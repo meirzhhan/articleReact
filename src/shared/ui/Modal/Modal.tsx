@@ -1,4 +1,4 @@
-import { customCl, Mods } from '@/shared/lib/classNames/classNames';
+import { useClassName, Mods } from '@/shared/lib/hooks/useClassName';
 import { ReactNode } from 'react';
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
 import { Overlay } from '../Overlay';
@@ -39,7 +39,7 @@ export const Modal = (props: ModalProps) => {
   return (
     <Portal element={document.getElementById('app') ?? document.body}>
       <div
-        className={customCl(cl.Modal, mods, [
+        className={useClassName(cl.Modal, mods, [
           className,
           theme,
           'app_modal',

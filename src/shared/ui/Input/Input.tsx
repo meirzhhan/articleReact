@@ -1,4 +1,4 @@
-import { Mods, customCl } from '@/shared/lib/classNames/classNames';
+import { Mods, useClassName } from '@/shared/lib/hooks/useClassName';
 import cl from './Input.module.scss';
 import React, {
   InputHTMLAttributes,
@@ -74,7 +74,7 @@ export const Input = memo((props: InputProps) => {
   };
 
   const input = (
-    <div className={customCl(cl.InputWrapper, mods, [className, cl[size]])}>
+    <div className={useClassName(cl.InputWrapper, mods, [className, cl[size]])}>
       <div className={cl.addonLeft}>{addonLeft}</div>
       <input
         ref={ref}

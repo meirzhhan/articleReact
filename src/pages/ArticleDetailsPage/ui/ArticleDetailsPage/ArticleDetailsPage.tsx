@@ -1,4 +1,4 @@
-import { customCl } from '@/shared/lib/classNames/classNames';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 import cl from './ArticleDetailsPage.module.scss';
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
@@ -34,7 +34,9 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <StickyContentLayout
         content={
-          <Page className={customCl(cl.ArticleDetailsPage, {}, [className])}>
+          <Page
+            className={useClassName(cl.ArticleDetailsPage, {}, [className])}
+          >
             <VStack gap={'16'} max>
               <DetailsContainer />
               <ArticleRating articleId={id} />

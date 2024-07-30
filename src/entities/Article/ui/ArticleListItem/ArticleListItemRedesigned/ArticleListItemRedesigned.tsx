@@ -18,7 +18,7 @@ import { Skeleton } from '@/shared/ui/Skeleton';
 import { AppImage } from '@/shared/ui/AppImage';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { getRouteArticleDetails } from '@/shared/consts/router';
-import { customCl } from '@/shared/lib/classNames/classNames';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 
 import EyeIcon from '@/shared/assets/icons/eyeNew.svg';
 import cl from './ArticleListItemRedesigned.module.scss';
@@ -50,7 +50,7 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
         padding="24"
         max
         data-testid="ArticleListItem"
-        className={customCl(cl.ArticleListItem, {}, [className, cl[view]])}
+        className={useClassName(cl.ArticleListItem, {}, [className, cl[view]])}
       >
         <VStack max gap="16">
           <HStack gap="8" max>
@@ -87,7 +87,7 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
       data-testid="ArticleListItem"
       target={target}
       to={getRouteArticleDetails(article.id)}
-      className={customCl(cl.ArticleListItem, {}, [className, cl[view]])}
+      className={useClassName(cl.ArticleListItem, {}, [className, cl[view]])}
     >
       <Card className={cl.card} border="partial" padding="0">
         <AppImage

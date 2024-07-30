@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { customCl } from '@/shared/lib/classNames/classNames';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 import cl from './Text.module.scss';
 
 export type TextVariant = 'primary' | 'error' | 'accent';
@@ -51,7 +51,9 @@ export const Text = memo((props: TextProps) => {
   const additionalClasses = [className, cl[variant], cl[align], sizeClass];
 
   return (
-    <div className={customCl(cl.Text, { [cl.bold]: bold }, additionalClasses)}>
+    <div
+      className={useClassName(cl.Text, { [cl.bold]: bold }, additionalClasses)}
+    >
       {title && (
         <HeaderTag className={cl.title} data-testid={`${dataTestId}.Header`}>
           {title}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { customCl } from '@/shared/lib/classNames/classNames';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 import cl from './NotFoundPage.module.scss';
 import { Page } from '@/widgets/Page';
 
@@ -13,7 +13,7 @@ const NotFoundPage = ({ className }: NotFoundPageProps) => {
   return (
     <Page
       data-testid="NotFoundPage"
-      className={customCl(cl.NotFoundPage, {}, [className])}
+      className={useClassName(cl.NotFoundPage, {}, [className])}
     >
       {t('Страница не найдена')}
     </Page>

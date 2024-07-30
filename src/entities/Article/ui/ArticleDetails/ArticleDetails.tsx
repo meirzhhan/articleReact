@@ -1,4 +1,4 @@
-import { customCl } from '@/shared/lib/classNames/classNames';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { useTranslation } from 'react-i18next';
 import cl from './ArticleDetails.module.scss';
 import {
@@ -89,7 +89,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
       <VStack
         gap={'16'}
         max
-        className={customCl(cl.ArticleDetails, {}, [className])}
+        className={useClassName(cl.ArticleDetails, {}, [className])}
       >
         {content}
       </VStack>

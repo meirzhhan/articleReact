@@ -13,6 +13,7 @@ export function useModal(props: UseModalProps) {
   const [isMounted, setIsMounted] = useState(false);
   const timeRef = useRef<ReturnType<typeof setTimeout>>();
 
+  // Если модальное окно открыто, флаг монтирования = true
   useEffect(() => {
     if (isOpen) {
       setIsMounted(true);
@@ -20,7 +21,7 @@ export function useModal(props: UseModalProps) {
   }, [isOpen]);
 
   const close = useCallback(() => {
-    // Если onClose передан по пропсу
+    // Если передана onClose, выполняется при закрытии
     if (onClose) {
       setIsClosing(true);
       timeRef.current = setTimeout(() => {
@@ -30,6 +31,7 @@ export function useModal(props: UseModalProps) {
     }
   }, [animationDelay, onClose]);
 
+  // Закрытие модального окна при нажатии на Escape
   const onKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (e.key === 'Escape') {

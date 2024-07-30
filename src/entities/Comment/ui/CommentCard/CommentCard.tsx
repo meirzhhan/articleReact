@@ -1,4 +1,4 @@
-import { customCl } from '@/shared/lib/classNames/classNames';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { memo } from 'react';
 import cl from './CommentCard.module.scss';
 import { CommentType } from '@/entities/Comment/model/types/comment';
@@ -24,7 +24,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
       <VStack
         gap="8"
         max
-        className={customCl(cl.CommentCard, {}, [className, cl.loading])}
+        className={useClassName(cl.CommentCard, {}, [className, cl.loading])}
       >
         <div className={cl.header}>
           <Skeleton width={30} height={30} border="50%" />
@@ -42,7 +42,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
       <VStack
         max
         gap={'8'}
-        className={customCl(cl.CommentCardRedesigned, {}, [className])}
+        className={useClassName(cl.CommentCardRedesigned, {}, [className])}
       >
         <AppLink to={getRouteProfile(comment.user.id)}>
           <HStack gap="8">

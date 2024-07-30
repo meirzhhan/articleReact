@@ -1,7 +1,7 @@
 import { useState, useMemo, memo } from 'react';
 import cl from './Sidebar.module.scss';
 
-import { customCl } from '@/shared/lib/classNames/classNames';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { LangSwitcher } from '@/features/LangSwitcher';
 
@@ -35,7 +35,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
   return (
     <aside
       data-testid="sidebar"
-      className={customCl(
+      className={useClassName(
         cl.SidebarRedesigned,
         { [cl.collapsedRedesigned]: collapsed },
         [className],

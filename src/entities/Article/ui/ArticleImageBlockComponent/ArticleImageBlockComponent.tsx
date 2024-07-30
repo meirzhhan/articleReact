@@ -1,4 +1,4 @@
-import { customCl } from '@/shared/lib/classNames/classNames';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { memo } from 'react';
 import { ArticleImageBlock } from '../../model/types/article';
 import { Text } from '@/shared/ui/Text';
@@ -13,7 +13,9 @@ export const ArticleImageBlockComponent = memo(
   (props: ArticleImageBlockComponentProps) => {
     const { className, block } = props;
     return (
-      <div className={customCl(cl.ArticleImageBlockComponent, {}, [className])}>
+      <div
+        className={useClassName(cl.ArticleImageBlockComponent, {}, [className])}
+      >
         <img src={block.src} alt={block.title} className={cl.img} />
         {block.title && <Text text={block.title} align="center" />}
       </div>

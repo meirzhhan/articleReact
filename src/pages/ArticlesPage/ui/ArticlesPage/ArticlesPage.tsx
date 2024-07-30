@@ -1,4 +1,4 @@
-import { customCl } from '@/shared/lib/classNames/classNames';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 import cl from './ArticlesPage.module.scss';
 import { memo, useCallback, useEffect } from 'react';
 import {
@@ -50,7 +50,7 @@ const ArticlesPage = (props: ArticlePageProps) => {
       content={
         <Page
           onScrollEnd={onLoadNextPart}
-          className={customCl(cl.ArticlesPageRedesigned, {}, [className])}
+          className={useClassName(cl.ArticlesPageRedesigned, {}, [className])}
         >
           <ArticleInfiniteList className={cl.list} />
           <ArticlePageGreeting />

@@ -20,7 +20,7 @@ interface AnimationContextPayload {
 const AnimationContext = createContext<AnimationContextPayload>({});
 
 const getAsyncAnimationModules = () => {
-  // lazy imports. works parallel not queue
+  // импорты библиотеки анимации. Использует Promise.all для параллельного импорта
   return Promise.all([
     import('@react-spring/web'),
     import('@use-gesture/react'),

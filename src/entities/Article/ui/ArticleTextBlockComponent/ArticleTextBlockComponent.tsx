@@ -1,4 +1,4 @@
-import { customCl } from '@/shared/lib/classNames/classNames';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { memo } from 'react';
 import cl from './ArticleTextBlockComponent.module.scss';
 import { ArticleTextBlock } from '../../model/types/article';
@@ -13,7 +13,9 @@ export const ArticleTextBlockComponent = memo(
   (props: ArticleTextBlockComponentProps) => {
     const { className, block } = props;
     return (
-      <div className={customCl(cl.ArticleTextBlockComponent, {}, [className])}>
+      <div
+        className={useClassName(cl.ArticleTextBlockComponent, {}, [className])}
+      >
         {block.title && <Text title={block.title} className={cl.title} />}
 
         {block.paragraphs.map((paragraph, index) => (

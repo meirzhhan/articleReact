@@ -1,4 +1,4 @@
-import { customCl } from '@/shared/lib/classNames/classNames';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 import cl from './LoginModal.module.scss';
 import { Modal } from '@/shared/ui/Modal';
 import { Suspense } from 'react';
@@ -13,7 +13,7 @@ interface LoginModalProps {
 export const LoginModal = ({ className, isOpen, onClose }: LoginModalProps) => {
   return (
     <Modal
-      className={customCl(cl.LoginModal, {}, [className])}
+      className={useClassName(cl.LoginModal, {}, [className])}
       isOpen={isOpen}
       onClose={onClose}
       lazy

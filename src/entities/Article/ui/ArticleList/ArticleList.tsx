@@ -1,4 +1,4 @@
-import { customCl } from '@/shared/lib/classNames/classNames';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { useTranslation } from 'react-i18next';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
@@ -36,7 +36,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
   if (!isLoading && !articles.length) {
     return (
-      <div className={customCl(cl.ArticleList, {}, [className, cl[view]])}>
+      <div className={useClassName(cl.ArticleList, {}, [className, cl[view]])}>
         <Text size="l" title={t('Статьи не найдены')} />
       </div>
     );
@@ -46,7 +46,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     <HStack
       wrap="wrap"
       gap="16"
-      className={customCl(cl.ArticleListRedesigned, {}, [])}
+      className={useClassName(cl.ArticleListRedesigned, {}, [])}
       data-testid="ArticleList"
     >
       {articles.map((item) => (

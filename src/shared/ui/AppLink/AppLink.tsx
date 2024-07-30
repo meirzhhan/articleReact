@@ -1,7 +1,7 @@
 import { LinkProps } from 'react-router-dom';
 import cl from './AppLink.module.scss';
 
-import { customCl } from '@/shared/lib/classNames/classNames';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { ReactNode, memo } from 'react';
 import { NavLink } from 'react-router-dom';
 
@@ -27,7 +27,7 @@ export const AppLink = memo((props: AppLinkProps) => {
     <NavLink
       to={to}
       className={({ isActive }) =>
-        customCl(cl.AppLink, { [activeClassName]: isActive }, [
+        useClassName(cl.AppLink, { [activeClassName]: isActive }, [
           className,
           cl[variant],
         ])

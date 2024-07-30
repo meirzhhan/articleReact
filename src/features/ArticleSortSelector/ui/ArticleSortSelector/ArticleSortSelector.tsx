@@ -1,4 +1,4 @@
-import { customCl } from '@/shared/lib/classNames/classNames';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { useTranslation } from 'react-i18next';
 import { memo, useMemo } from 'react';
 import cl from './ArticleSortSelector.module.scss';
@@ -54,7 +54,9 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
 
   return (
     <div
-      className={customCl(cl.ArticleSortSelectorRedesigned, {}, [className])}
+      className={useClassName(cl.ArticleSortSelectorRedesigned, {}, [
+        className,
+      ])}
     >
       <VStack gap="8">
         <Text text={t('Сортировка по')} />
