@@ -37,7 +37,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
           <Page
             className={useClassName(cl.ArticleDetailsPage, {}, [className])}
           >
-            <VStack gap={'16'} max>
+            <VStack gap={'16'} maxWidth>
               <DetailsContainer />
               <ArticleRating articleId={id} />
               <ArticleRecommendationsList />

@@ -51,7 +51,7 @@ const Redesigned = () => {
 
 export const ArticleDetailsSkeleton = () => {
   return (
-    <VStack gap="16" max>
+    <VStack gap="16" maxWidth>
       <Skeleton className={cl.avatar} width={200} height={200} border={'50%'} />
       <Skeleton className={cl.title} width={300} height={32} />
       <Skeleton className={cl.skeleton} width={600} height={24} />
@@ -88,7 +88,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <VStack
         gap={'16'}
-        max
+        maxWidth
         className={useClassName(cl.ArticleDetails, {}, [className])}
       >
         {content}

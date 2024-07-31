@@ -17,7 +17,7 @@ export const ProfileCardRedesignedError = () => {
   const { t } = useTranslation('profile');
 
   return (
-    <HStack justify={'center'} max>
+    <HStack justify={'center'} maxWidth>
       <Text
         variant="error"
         title={t('Произошла ошибка при загрузке профиля')}
@@ -32,18 +32,18 @@ export const ProfileCardRedesignedSkeleton = () => {
   return (
     <Card padding="24" max>
       <VStack gap="32">
-        <HStack max justify="center">
+        <HStack maxWidth justify="center">
           <Skeleton border="100%" width={128} height={128} />
         </HStack>
-        <HStack gap="32" max>
-          <VStack gap="16" max>
+        <HStack gap="32" maxWidth>
+          <VStack gap="16" maxWidth>
             <Skeleton width="100%" height={38} />
             <Skeleton width="100%" height={38} />
             <Skeleton width="100%" height={38} />
             <Skeleton width="100%" height={38} />
           </VStack>
 
-          <VStack gap="16" max>
+          <VStack gap="16" maxWidth>
             <Skeleton width="100%" height={38} />
             <Skeleton width="100%" height={38} />
             <Skeleton width="100%" height={38} />
@@ -80,13 +80,13 @@ export const ProfileCardRedesigned = memo((props: ProfileCardProps) => {
     >
       <VStack gap="32">
         {data?.avatar && (
-          <HStack justify={'center'} max>
+          <HStack justify={'center'} maxWidth>
             <Avatar size={128} src={data?.avatar} />
           </HStack>
         )}
 
-        <HStack gap="24" max>
-          <VStack gap="16" max>
+        <HStack gap="24" maxWidth>
+          <VStack gap="16" maxWidth>
             <Input
               value={data?.first}
               label={t('Имя')}
@@ -114,7 +114,7 @@ export const ProfileCardRedesigned = memo((props: ProfileCardProps) => {
               readonly={readonly}
             />
           </VStack>
-          <VStack gap="16" max>
+          <VStack gap="16" maxWidth>
             <Input
               value={data?.username}
               label={t('Имя пользователя')}

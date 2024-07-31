@@ -23,7 +23,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
     return (
       <VStack
         gap="8"
-        max
+        maxWidth
         className={useClassName(cl.CommentCard, {}, [className, cl.loading])}
       >
         <div className={cl.header}>
@@ -40,7 +40,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
   return (
     <Card padding="24" border="partial" max>
       <VStack
-        max
+        maxWidth
         gap={'8'}
         className={useClassName(cl.CommentCardRedesigned, {}, [className])}
       >

@@ -2,11 +2,10 @@
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 0 16px;
+  padding: 4px 16px;
 
-  &__collapsed {
+  &.collapsed {
     padding: 0 8px;
-
     .link {
       opacity: 0;
       width: 0;

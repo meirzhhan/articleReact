@@ -32,7 +32,7 @@ export const ArticleDetailsPageHeader = memo(
 
     return (
       <HStack
-        max
+        maxWidth
         justify={'between'}
         className={useClassName('', {}, [className])}
       >

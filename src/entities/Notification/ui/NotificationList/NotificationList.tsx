@@ -21,7 +21,7 @@ export const NotificationList = memo((props: NotificationListProps) => {
     return (
       <VStack
         gap="16"
-        max // skeleton
+        maxWidth // skeleton
         className={useClassName(cl.NotificationList, {}, [className])}
       >
         <Skeleton width={'100%'} border={'12px'} height={'80px'} />

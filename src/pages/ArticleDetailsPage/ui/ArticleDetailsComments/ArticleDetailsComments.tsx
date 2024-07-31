@@ -37,7 +37,7 @@ export const ArticleDetailsComments = memo(
     }, [dispatch, id]);
 
     return (
-      <VStack gap="16" max className={useClassName('', {}, [className])}>
+      <VStack gap="16" maxWidth className={useClassName('', {}, [className])}>
         <Text size="l" title={t('Комментарии')} />
         <Suspense fallback={<></>}>
           <AddCommentForm onSendComment={onSendComment} />

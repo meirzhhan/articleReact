@@ -73,7 +73,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
 
   const content = (
     <>
-      <VStack align="center" gap="8" max>
+      <VStack align="center" gap="8" maxWidth>
         <Text title={starsCount ? t('Спасибо за оценку') : title} />
 
         <StarRating
@@ -85,10 +85,10 @@ export const RatingCard = memo((props: RatingCardProps) => {
 
       <BrowserView>
         <Modal isOpen={isModalOpen} lazy>
-          <VStack gap="32" max>
+          <VStack gap="32" maxWidth>
             {modalContent}
 
-            <HStack max gap="16" justify="between">
+            <HStack maxWidth gap="16" justify="between">
               <Button onClick={cancelHandle}>{t('Закрыть')}</Button>
               <Button onClick={acceptHandle}>{t('Отправить')}</Button>
             </HStack>

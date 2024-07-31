@@ -17,14 +17,14 @@ export const CommentList = memo((props: CommentListProps) => {
   const { t } = useTranslation('article-details');
 
   if (isLoading)
-    <VStack gap={'16'} max className={useClassName('', {}, [className])}>
+    <VStack gap={'16'} maxWidth className={useClassName('', {}, [className])}>
       <CommentCard isLoading />
       <CommentCard isLoading />
       <CommentCard isLoading />
     </VStack>;
 
   return (
-    <VStack gap={'16'} max className={useClassName('', {}, [className])}>
+    <VStack gap={'16'} maxWidth className={useClassName('', {}, [className])}>
       {comments?.length ? (
         comments.map((comment) => (
           <CommentCard

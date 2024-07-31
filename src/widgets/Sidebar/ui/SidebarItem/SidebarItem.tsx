@@ -1,17 +1,28 @@
-import { useTranslation } from 'react-i18next';
-import cl from './SidebarItem.module.scss';
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+
 import { getUserAuthData } from '@/entities/User';
-import { SidebarItemsType } from '../../model/types/sidebar';
-import { useClassName } from '@/shared/lib/hooks/useClassName';
+
 import { AppLink } from '@/shared/ui/AppLink';
 import { Icon } from '@/shared/ui/Icon';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
+
+import { SidebarItemsType } from '../../model/types/sidebar';
+import cl from './SidebarItem.module.scss';
 
 interface SidebarItemProps {
   item: SidebarItemsType;
   collapsed: boolean;
 }
+
+/**
+ * Компонент SidebarItem отображает элемент боковой панели навигации.
+ * Если элемент доступен только для авторизованных пользователей и пользователь не авторизован, компонент не будет отображен.
+ *
+ * @param {SidebarItemProps} props - Свойства для компонента.
+ * @returns {JSX.Element | null} Отрендеренный элемент боковой панели или null.
+ */
 
 export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
   const { t } = useTranslation('sidebar');
@@ -27,7 +38,7 @@ export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
       className={useClassName(
         cl.Item,
         {
-          [cl.Item__collapsed]: collapsed,
+          [cl.collapsed]: collapsed,
         },
         [],
       )}

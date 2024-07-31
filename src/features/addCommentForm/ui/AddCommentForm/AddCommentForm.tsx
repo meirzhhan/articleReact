@@ -51,7 +51,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
       <Card padding="24" border="partial" max>
         <HStack
           justify={'between'}
-          max
+          maxWidth
           gap="16"
           className={useClassName(cl.AddCommentFormRedesigned, {}, [className])}
         >

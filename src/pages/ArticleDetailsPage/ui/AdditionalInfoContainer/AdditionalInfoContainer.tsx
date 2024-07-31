@@ -1,6 +1,6 @@
 import { getArticleDetailsData } from '@/entities/Article';
 import { Card } from '@/shared/ui/Card';
-import { ArticleAdditionalInfo } from '@/widgets/ArticleAdditionalInfo';
+import { ArticleAside } from '@/widgets/ArticleAside';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import cl from './AdditionalInfoContainer.module.scss';
@@ -19,7 +19,7 @@ export const AdditionalInfoContainer = memo(() => {
 
   return (
     <Card padding="24" border="partial" className={cl.card}>
-      <ArticleAdditionalInfo
+      <ArticleAside
         onEdit={onEditArticle}
         author={article.user}
         createdAt={article.createdAt}
