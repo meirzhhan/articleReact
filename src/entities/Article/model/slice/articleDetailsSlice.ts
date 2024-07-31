@@ -1,13 +1,18 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+
+import { Article } from '../types/article';
 import { ArticleDetailsSchema } from '../types/articleDetailsSchema';
 import { fetchArticleById } from '../services/fetchArticleById/fetchArticleById';
-import { Article } from '../types/article';
 
 const initialState: ArticleDetailsSchema = {
   isLoading: false,
   error: undefined,
   data: undefined,
 };
+
+/**
+ * Slice для получения деталей статьи по ID.
+ */
 
 const articleDetailsSlice = createSlice({
   name: 'articleDetails',

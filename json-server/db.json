@@ -599,6 +599,12 @@
       "userId": "1",
       "text": "1",
       "id": "gIKTQJR"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "test",
+      "id": "axKp8lO"
     }
   ],
   "users": [
@@ -615,7 +621,7 @@
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_light_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpen": false,
         "isArticlesPageWasOpened": true

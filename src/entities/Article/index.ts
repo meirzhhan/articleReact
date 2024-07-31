@@ -1,4 +1,4 @@
-export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
+export { ArticleInfo } from './ui/ArticleInfo/ArticleInfo';
 
 export type { Article } from './model/types/article';
 export {

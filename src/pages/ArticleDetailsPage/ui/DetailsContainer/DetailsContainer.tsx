@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { ArticleDetails } from '@/entities/Article';
+import { ArticleInfo } from '@/entities/Article';
 import { useParams } from 'react-router-dom';
 import { Card } from '@/shared/ui/Card';
 
@@ -12,8 +12,8 @@ export const DetailsContainer = memo((props: DetailsContainerProps) => {
   const { id } = useParams<{ id: string }>();
 
   return (
-    <Card max border="partial" className={className} padding="24">
-      <ArticleDetails id={id} />
+    <Card border="partial" className={className} padding="24">
+      <ArticleInfo id={id} />
     </Card>
   );
 });

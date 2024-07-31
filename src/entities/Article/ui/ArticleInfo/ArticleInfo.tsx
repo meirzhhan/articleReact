@@ -1,26 +1,29 @@
-import { useClassName } from '@/shared/lib/hooks/useClassName';
+import { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import cl from './ArticleDetails.module.scss';
+import { useSelector } from 'react-redux';
+
+import { VStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text';
+import { AppImage } from '@/shared/ui/AppImage';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 import {
   DynamicModuleLoader,
   ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
-import { memo, useEffect } from 'react';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+
+import { RenderBlocks } from '../RenderBlocks/RenderBlocks';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
-import { useSelector } from 'react-redux';
+import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import {
   getArticleDetailsData,
   getArticleDetailsError,
   getArticleDetailsIsLoading,
 } from '../../model/selectors/getArticleDetails';
-import { Skeleton } from '@/shared/ui/Skeleton';
 
-import { VStack } from '@/shared/ui/Stack';
-import { renderArticleBlock } from './renderBlock';
-import { Text } from '@/shared/ui/Text';
-import { AppImage } from '@/shared/ui/AppImage';
+import cl from './ArticleInfo.module.scss';
+import { ArticleSkeletonBig } from './ArticleSkeleton';
 
 interface ArticleDetailsProps {
   className?: string;
@@ -31,7 +34,7 @@ const reducers: ReducersList = {
   articleDetails: articleDetailsReducer,
 };
 
-const Redesigned = () => {
+const Info = () => {
   const article = useSelector(getArticleDetailsData);
 
   return (
@@ -44,24 +47,19 @@ const Redesigned = () => {
         src={article?.img}
       />
 
-      {article?.blocks.map(renderArticleBlock)}
+      {article?.blocks.map(RenderBlocks)}
     </>
   );
 };
 
-export const ArticleDetailsSkeleton = () => {
-  return (
-    <VStack gap="16" maxWidth>
-      <Skeleton className={cl.avatar} width={200} height={200} border={'50%'} />
-      <Skeleton className={cl.title} width={300} height={32} />
-      <Skeleton className={cl.skeleton} width={600} height={24} />
-      <Skeleton className={cl.skeleton} width="100%" height={200} />
-      <Skeleton className={cl.skeleton} width="100%" height={200} />
-    </VStack>
-  );
-};
+/**
+ * Компонент, отображающий детали статьи.
+ *
+ * @param {ArticleDetailsProps}  props - Свойства компонента.
+ * @returns {JSX.Element} Компонент.
+ */
 
-export const ArticleDetails = memo((props: ArticleDetailsProps) => {
+export const ArticleInfo = memo((props: ArticleDetailsProps) => {
   const { className, id } = props;
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
@@ -75,14 +73,12 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   let content;
 
   if (isLoading) {
-    content = <ArticleDetailsSkeleton />;
+    content = ArticleSkeletonBig;
   } else if (error) {
     content = (
       <Text align="center" title={t('Произошла ошибка при загрузке статьи.')} />
     );
-  } else {
-    content = <Redesigned />;
-  }
+  } else content = <Info />;
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
