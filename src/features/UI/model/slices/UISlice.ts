@@ -5,6 +5,7 @@ const initialState: UISchema = {
   scroll: {},
 };
 
+// TODO: Сохранение места скролла
 export const uiSlice = createSlice({
   name: 'ui',
   initialState,

@@ -16,6 +16,7 @@ import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList'
 import { getArticlesPageInitiated } from '../../model/selectors/articlesPageSelectors';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { FiltersContainer } from '../FiltersContainer/FiltersContainer';
+import { uiActions } from '@/features/UI';
 
 interface ArticlePageProps {
   className?: string;
@@ -34,6 +35,25 @@ const ArticlesPage = (props: ArticlePageProps) => {
 
   // const articleItem = useArticleItemById('2'); // TODO: Should use this instead useSelector
   // console.log(articleItem);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY; // Get current scroll position
+      dispatch(
+        uiActions.setScrollPosition({
+          path: 'articles',
+          position: scrollPosition,
+        }),
+      );
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [dispatch]);
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlesPage());

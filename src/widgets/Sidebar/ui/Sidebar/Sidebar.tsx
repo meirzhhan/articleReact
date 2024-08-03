@@ -1,7 +1,7 @@
 import { useState, useMemo, memo } from 'react';
 import { useSelector } from 'react-redux';
 
-import { ThemeSwitcher } from '@/features/ThemeSwitcher';
+import { ThemeSwitch } from '@/features/themeSwitch';
 import { LangSwitch } from '@/features/langSwitch';
 
 import { VStack } from '@/shared/ui/Stack';
@@ -62,7 +62,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
         clickable
       />
       <div className={cl.switchers}>
-        <ThemeSwitcher />
+        <ThemeSwitch />
         <LangSwitch short={collapsed} className={cl.lang} />
       </div>
     </aside>

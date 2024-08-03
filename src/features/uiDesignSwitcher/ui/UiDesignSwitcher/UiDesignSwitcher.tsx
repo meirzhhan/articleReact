@@ -13,6 +13,8 @@ interface UiDesignSwitcherProps {
   className?: string;
 }
 
+// TODO: isAppRedesigned => language
+
 export const UiDesignSwitcher = memo((props: UiDesignSwitcherProps) => {
   const { className } = props;
   const { t } = useTranslation();
