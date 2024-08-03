@@ -9,7 +9,7 @@ import {
 import { Page } from '@/widgets/Page';
 import { articleDetailsPageReducer } from '../../model/slices';
 import { VStack } from '@/shared/ui/Stack';
-import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
+import { ArticleRecommendation } from '@/features/articleRecommendation';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '@/features/articleRating';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
@@ -37,10 +37,10 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
           <Page
             className={useClassName(cl.ArticleDetailsPage, {}, [className])}
           >
-            <VStack gap={'16'} maxWidth>
+            <VStack gap={'24'}>
               <DetailsContainer />
               <ArticleRating articleId={id} />
-              <ArticleRecommendationsList />
+              <ArticleRecommendation />
               <ArticleDetailsComments id={id} />
             </VStack>
           </Page>
