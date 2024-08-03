@@ -1,13 +1,15 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { User, UserSchema } from '../types/user';
+
+import { setFeatureFlags } from '@/shared/lib/features';
 import {
   LOCAL_STORAGE_LAST_DESIGN_KEY,
   USER_LOCALSTORAGE_KEY,
 } from '@/shared/consts/localStorage';
-import { setFeatureFlags } from '@/shared/lib/features';
-import { JsonSettings } from '../types/jsonSettings';
-import { saveJsonSettings } from '../services/saveJsonSettings';
+
 import { initAuthData } from '../services/initAuthData';
+import { saveJsonSettings } from '../services/saveJsonSettings';
+import { User, UserSchema } from '../types/user';
+import { JsonSettings } from '../types/jsonSettings';
 
 const initialState: UserSchema = {
   _initiated: false,
@@ -17,7 +19,12 @@ const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setAuthData: (state, action: PayloadAction<User>) => {
+    /**
+     * Устанавливает данные аутентификации пользователя.
+     * @param {UserSchema} state - Текущее состояние.
+     * @param {PayloadAction<User>} action - Данные аутентификации пользователя.
+     */
+    setAuthData: (state: UserSchema, action: PayloadAction<User>) => {
       state.authData = action.payload;
       setFeatureFlags(action.payload.features);
       localStorage.setItem(USER_LOCALSTORAGE_KEY, action.payload.id);
@@ -26,7 +33,12 @@ const userSlice = createSlice({
         action.payload.features?.isAppRedesigned ? 'new' : 'old',
       );
     },
-    logout: (state) => {
+
+    /**
+     * Осуществляет выход пользователя из системы.
+     * @param {UserSchema} state - Текущее состояние.
+     */
+    logout: (state: UserSchema) => {
       state.authData = undefined;
       localStorage.removeItem(USER_LOCALSTORAGE_KEY);
     },

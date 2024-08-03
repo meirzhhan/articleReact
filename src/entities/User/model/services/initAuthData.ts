@@ -1,16 +1,26 @@
-// TODO: Comment
-import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getUserDataByIdQuery } from '../../api/userApi';
-import { User } from '../types/user';
+
+import { ThunkConfig } from '@/app/providers/StoreProvider';
 import {
   LOCAL_STORAGE_LAST_DESIGN_KEY,
   USER_LOCALSTORAGE_KEY,
 } from '@/shared/consts/localStorage';
 
+import { getUserDataByIdQuery } from '../../api/userApi';
+import { User } from '../types/user';
+
+/**
+ * Инициализирует данные аутентификации пользователя.
+ *
+ * @async @function
+ * @param {void} - Функция не принимает аргументы.
+ * @returns {Promise<User>} Возвращает объект пользователя при успешном выполнении.
+ * @throws {string} Возвращает ошибку при неудаче.
+ */
+
 export const initAuthData = createAsyncThunk<
-  User, // return value
-  void, // input value
+  User, // return
+  void, // param
   ThunkConfig<string> // extra, state and <rejectValue>
 >('user/initAuthData', async (_, ThunkApi) => {
   const { rejectWithValue, dispatch } = ThunkApi;
@@ -24,7 +34,7 @@ export const initAuthData = createAsyncThunk<
 
     localStorage.setItem(
       LOCAL_STORAGE_LAST_DESIGN_KEY,
-      response.features?.isAppRedesigned ? 'new' : 'old',
+      response.features?.isAppRedesigned ? 'new' : 'old', // FIXME: Remove
     );
 
     return response;

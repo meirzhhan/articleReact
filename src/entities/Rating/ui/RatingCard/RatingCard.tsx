@@ -1,10 +1,10 @@
-import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useState } from 'react';
-import { HStack, VStack } from '@/shared/ui/Stack';
-import { StarRating } from '@/shared/ui/StarRating';
-import { Modal } from '@/shared/ui/Modal';
-
+import { useTranslation } from 'react-i18next';
 import { BrowserView, MobileView } from 'react-device-detect';
+
+import { StarRating } from '@/shared/ui/StarRating';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { Modal } from '@/shared/ui/Modal';
 import { Drawer } from '@/shared/ui/Drawer';
 import { Text } from '@/shared/ui/Text';
 import { Input } from '@/shared/ui/Input';
@@ -20,6 +20,13 @@ interface RatingCardProps {
   onAccept?: (starsCount: number, feedback?: string) => void;
   rate?: number;
 }
+
+/**
+ * Компонент для оценки с возможностью по пяти бальной шкале.
+ *
+ * @param {RatingCardProps} props - Свойства компонента.
+ * @returns {JSX.Element} JSX-элемент, представляющий карточку для оценки.
+ */
 
 export const RatingCard = memo((props: RatingCardProps) => {
   const {
@@ -37,6 +44,13 @@ export const RatingCard = memo((props: RatingCardProps) => {
   const [starsCount, setStarsCount] = useState(rate);
   const [feedback, setFeedback] = useState('');
 
+  /**
+   * Обработчик выбора количества звезд.
+   * Открывает модальное окно для отзыва, если это предусмотрено, иначе вызывает onAccept.
+   *
+   * @param {number} selectedStarsCount - Количество выбранных звезд.
+   */
+
   const onSelectStars = useCallback(
     (selectedStarsCount: number) => {
       setStarsCount(selectedStarsCount);
@@ -50,16 +64,25 @@ export const RatingCard = memo((props: RatingCardProps) => {
     [hasFeedback, onAccept],
   );
 
+  /**
+   * Обработчик подтверждения оценки и отзыва.
+   * Закрывает модальное окно и вызывает onAccept с текущим количеством звезд и отзывом.
+   */
   const acceptHandle = useCallback(() => {
     setIsModalOpen(false);
     onAccept?.(starsCount, feedback);
   }, [feedback, onAccept, starsCount]);
 
+  /**
+   * Обработчик отмены оценки.
+   * Закрывает модальное окно и вызывает onCancel с текущим количеством звезд.
+   */
   const cancelHandle = useCallback(() => {
     setIsModalOpen(false);
     onCancel?.(starsCount);
   }, [onCancel, starsCount]);
 
+  // контент Modal-ки для браузера и для мобилки
   const modalContent = (
     <>
       <Text title={feedbackTitle} />
@@ -89,8 +112,12 @@ export const RatingCard = memo((props: RatingCardProps) => {
             {modalContent}
 
             <HStack maxWidth gap="16" justify="between">
-              <Button onClick={cancelHandle}>{t('Закрыть')}</Button>
-              <Button onClick={acceptHandle}>{t('Отправить')}</Button>
+              <Button size="m" onClick={cancelHandle}>
+                {t('Закрыть')}
+              </Button>
+              <Button onClick={acceptHandle} color="success">
+                {t('Отправить')}
+              </Button>
             </HStack>
           </VStack>
         </Modal>
@@ -98,10 +125,10 @@ export const RatingCard = memo((props: RatingCardProps) => {
 
       <MobileView>
         <Drawer isOpen={isModalOpen} lazy onClose={cancelHandle}>
-          <VStack gap="32">
+          <VStack gap="24">
             {modalContent}
 
-            <Button fullWidth onClick={acceptHandle} size="l">
+            <Button fullWidth onClick={acceptHandle} size="m">
               {t('Отправить')}
             </Button>
           </VStack>

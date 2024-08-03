@@ -1,14 +1,25 @@
-// TODO: Comment
-import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
+import { ThunkConfig } from '@/app/providers/StoreProvider';
+
 import { JsonSettings } from '../types/jsonSettings';
 import { getUserAuthData } from '../selectors/getUserAuthData/getUserAuthData';
 import { getJsonSettings } from '../selectors/jsonSettings';
 import { setJsonSettingsMutation } from '../../api/userApi';
 
+/**
+ * Сохраняет JSON-настройки пользователя.
+ *
+ * @async
+ * @function
+ * @param {JsonSettings} newJsonSettings - Новые JSON-настройки для сохранения.
+ * @returns {Promise<JsonSettings>} Возвращает обновленные JSON-настройки при успешном выполнении.
+ * @throws {string} Возвращает ошибку при неудаче.
+ */
+
 export const saveJsonSettings = createAsyncThunk<
-  JsonSettings, // return value
-  JsonSettings, // input value
+  JsonSettings, // return
+  JsonSettings, // param
   ThunkConfig<string> // extra, state and <rejectValue>
 >('user/saveJsonSettings', async (newJsonSettings, ThunkApi) => {
   const { rejectWithValue, getState, dispatch } = ThunkApi;
@@ -36,3 +47,5 @@ export const saveJsonSettings = createAsyncThunk<
     return rejectWithValue('');
   }
 });
+
+//dispatch(saveJsonSettings({ theme: 'dark', language: 'en' }));

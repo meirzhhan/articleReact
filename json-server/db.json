@@ -732,6 +732,40 @@
       "articleId": "7",
       "rate": 2,
       "id": "LGT8EL6"
+    },
+    {
+      "userId": "1",
+      "articleId": "18",
+      "rate": 0,
+      "feedback": "12",
+      "id": "Y94ehxJ"
+    },
+    {
+      "userId": "1",
+      "articleId": "18",
+      "rate": 0,
+      "feedback": "12",
+      "id": "G5Dvhmg"
+    },
+    {
+      "userId": "1",
+      "articleId": "18",
+      "rate": 5,
+      "feedback": "12",
+      "id": "8DVAYzR"
+    },
+    {
+      "userId": "1",
+      "articleId": "18",
+      "rate": 5,
+      "id": "AZ_o4x_"
+    },
+    {
+      "userId": "1",
+      "articleId": "19",
+      "rate": 2,
+      "feedback": "ad",
+      "id": "jUMcF69"
     }
   ],
   "profile-ratings": [
