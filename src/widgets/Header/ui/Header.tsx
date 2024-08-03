@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import { LoginModal } from '@/features/authentication';
-import { NotificationButton } from '@/features/notificationButton';
+import { NotificationTrigger } from '@/features/notificationTrigger';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 
 import { getUserAuthData } from '@/entities/User';
@@ -43,7 +43,7 @@ export const Header = memo(({ className }: NavbarProps) => {
       <header className={useClassName(cl.Header, {}, [className])}>
         <Card variant="light" className={cl.actions} border="round">
           <AvatarDropdown />
-          <NotificationButton />
+          <NotificationTrigger />
         </Card>
       </header>
     );

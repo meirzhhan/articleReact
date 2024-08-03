@@ -1,27 +1,36 @@
-import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { memo, useCallback, useState } from 'react';
-import cl from './NotificationButton.module.scss';
+import { BrowserView, MobileView } from 'react-device-detect';
 
-import NotificationIcon from '@/shared/assets/icons/notificationNew.svg';
+import { Popover } from '@/shared/ui/Popups';
 import { NotificationList } from '@/entities/Notification';
 import { Drawer } from '@/shared/ui/Drawer';
-import { BrowserView, MobileView } from 'react-device-detect';
 import { Icon } from '@/shared/ui/Icon';
-import { Popover } from '@/shared/ui/Popups';
-// import { AnimationProvider } from '@/shared/lib/components/AnimationProvider';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
+import NotificationIcon from '@/shared/assets/icons/notificationNew.svg';
 
-interface notificationButtonProps {
+import cl from './NotificationTrigger.module.scss';
+
+interface NotificationTriggerProps {
   className?: string;
 }
 
-export const NotificationButton = memo((props: notificationButtonProps) => {
+/**
+ * Кнопка для отображения уведомлений.
+ *
+ * @param {NotificationButtonProps} props - Свойства компонента. *
+ * @returns {JSX.Element} Компонент кнопки уведомлений с выпадающим списком уведомлений.
+ */
+
+export const NotificationTrigger = memo((props: NotificationTriggerProps) => {
   const { className } = props;
 
-  const [isOpen, setIsOpen] = useState(false); // test
+  const [isOpen, setIsOpen] = useState(false);
 
+  // Открывает панель уведомлений. && Закрывает панель уведомлений.
   const onOpenDrawer = useCallback(() => {
     setIsOpen(true);
   }, []);
+
   const onCloseDrawer = useCallback(() => {
     setIsOpen(false);
   }, []);
@@ -31,7 +40,7 @@ export const NotificationButton = memo((props: notificationButtonProps) => {
   );
 
   return (
-    <div>
+    <>
       <BrowserView>
         <Popover
           className={useClassName(cl.NotificationButton, {}, [className])}
@@ -48,6 +57,6 @@ export const NotificationButton = memo((props: notificationButtonProps) => {
           <NotificationList />
         </Drawer>
       </MobileView>
-    </div>
+    </>
   );
 });

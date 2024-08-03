@@ -1,8 +1,7 @@
 import { memo } from 'react';
 
-import { ScrollToTopButton } from '@/features/scrollToTopButton/ui/ScrollToTopButton/ScrollToTopButton';
-
 import { VStack } from '@/shared/ui/Stack';
+import { ScrollToTopTrigger } from '@/features/scrollToTopTrigger';
 
 interface ToolbarProps {
   className?: string;
@@ -19,7 +18,7 @@ export const Toolbar = memo((props: ToolbarProps) => {
       maxWidth
       maxHeight
     >
-      <ScrollToTopButton />
+      <ScrollToTopTrigger />
     </VStack>
   );
 });
