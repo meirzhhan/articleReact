@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ArticleSortSelector } from '@/features/ArticleSortSelector';
-import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
+import { ArticleSortListBox } from '@/features/articleSortListBox';
+import { ArticleTypeTabs } from '@/features/articleTypeTabs';
 import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 import { useArticleFilters } from '@/pages/ArticlesPage/lib/hooks/useArticleFilters';
 
@@ -78,7 +78,7 @@ export const ArticlesFilters = memo((props: ArticlesFiltersProps) => {
           value={type}
           onChangeType={onChangeType}
         />
-        <ArticleSortSelector
+        <ArticleSortListBox
           order={order}
           sort={sort}
           onChangeOrder={onChangeOrder}

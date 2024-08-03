@@ -1,19 +1,26 @@
-import { useClassName } from '@/shared/lib/hooks/useClassName';
-import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import { ArticleType } from '@/entities/Article';
+
 import { TabItem, Tabs } from '@/shared/ui/Tabs';
 
 interface ArticleTypeTabsProps {
   className?: string;
-  value: ArticleType;
+  value: ArticleType; // 'ALL' | 'IT' | 'SCIENCE' | 'ECONOMICS'
   onChangeType: (type: ArticleType) => void;
 }
 
+/**
+ * Компонент вкладок для фильтрации статей по типу.
+ * @param {ArticleTypeTabsProps} props - Свойства компонента.
+ * @returns {JSX.Element} - Возвращает JSX элемент.
+ */
 export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
   const { className, value, onChangeType } = props;
   const { t } = useTranslation('articles');
 
+  // Опции для типов фильтрации статей
   const typeTabs = useMemo<TabItem[]>(
     () => [
       {
@@ -22,7 +29,7 @@ export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
       },
       {
         value: ArticleType.IT,
-        content: t('ИТ'),
+        content: t('АйТи'),
       },
       {
         value: ArticleType.SCIENCE,
@@ -36,6 +43,7 @@ export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
     [t],
   );
 
+  // Обработчик клика
   const onTabClick = useCallback(
     (tab: TabItem) => {
       onChangeType(tab.value as ArticleType);
@@ -45,8 +53,8 @@ export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
 
   return (
     <Tabs
+      className={className}
       direction="column"
-      className={useClassName('', {}, [className])}
       tabs={typeTabs}
       value={value}
       onTabClick={onTabClick}

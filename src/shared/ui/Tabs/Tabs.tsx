@@ -51,7 +51,7 @@ export const Tabs = memo((props: TabsProps) => {
   return (
     <Flex
       direction={direction}
-      gap="8"
+      gap="32"
       align="start"
       className={useClassName(cl.Tabs, {}, [className])}
     >
@@ -60,9 +60,9 @@ export const Tabs = memo((props: TabsProps) => {
 
         return (
           <Card
+            key={tab.value}
             variant={isSelected ? 'light' : 'normal'}
             className={useClassName(cl.tab, { [cl.selected]: isSelected }, [])}
-            key={tab.value}
             onClick={clickHandle(tab)}
             border="round"
           >
