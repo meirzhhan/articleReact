@@ -1,35 +1,48 @@
-import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { memo, useCallback } from 'react';
-import {
-  getRouteAdmin,
-  getRouteProfile,
-  getRouteSettings,
-} from '@/shared/consts/router';
-import { useTranslation } from 'react-i18next';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+
 import {
   getUserAuthData,
   isUserAdmin,
   isUserManager,
   userActions,
 } from '@/entities/User';
-import { Dropdown } from '@/shared/ui/Popups';
+
 import { Avatar } from '@/shared/ui/Avatar';
+import { Dropdown } from '@/shared/ui/Popups';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import {
+  getRouteAdmin,
+  getRouteProfile,
+  getRouteSettings,
+} from '@/shared/consts/router';
 
 interface AvatarDropdownProps {
   className?: string;
 }
 
+/**
+ * Компонент `AvatarDropdown` отображает выпадающее меню для пользователя.
+ * В меню включены ссылки на админку, профиль, настройки и возможность выхода из системы.
+ *
+ * @param {AvatarDropdownProps} props - Свойства компонента.
+ * @param {string} [props.className] - Дополнительный класс для стилизации компонента.
+ * @returns {JSX.Element | null} - Возвращает элемент меню или null, если нет данных авторизации.
+ */
+
 export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
   const { className } = props;
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
+
   const isAdmin = useSelector(isUserAdmin);
   const isManager = useSelector(isUserManager);
 
   const authData = useSelector(getUserAuthData);
 
+  //  Обработчик выхода из системы. Dispatch действие выхода из системы.
   const onLogout = useCallback(() => {
     dispatch(userActions.logout());
   }, [dispatch]);
@@ -42,7 +55,6 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
     ...(isAdminPanelAvailable
       ? [
           {
-            // content: t('Админка', { $Dictionary: 's' }), // TODO: t('')
             content: t('Админка'),
             href: getRouteAdmin(),
           },

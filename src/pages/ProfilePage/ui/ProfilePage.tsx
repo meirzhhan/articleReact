@@ -1,7 +1,7 @@
 import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { Page } from '@/widgets/Page';
 import { VStack } from '@/shared/ui/Stack';
-import { EditableProfileCard } from '@/features/editableProfileCard';
+import { EditableProfile } from '@/features/editableProfile';
 import { useParams } from 'react-router-dom';
 
 interface ProfilePageProps {
@@ -17,7 +17,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
       className={useClassName('', {}, [className])}
     >
       <VStack maxWidth gap={'16'}>
-        <EditableProfileCard id={id} />
+        <EditableProfile id={id} />
       </VStack>
     </Page>
   );

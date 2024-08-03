@@ -1,15 +1,25 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+
+import { Profile } from '@/entities/Profile';
+
 import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { ProfileSchema } from '../types/editableProfileCardSchema';
-import { Profile } from '@/entities/Profile';
 
 const initialState: ProfileSchema = {
-  readonly: true,
-  isLoading: false,
-  error: undefined,
-  data: undefined,
+  readonly: true, // Флаг: доступен ли профиль только для чтения.
+  isLoading: false, //Флаг: загружаются ли данные профиля.
+  error: undefined, // Сообщение об ошибке, если она произошла.
+  data: undefined, // Данные профиля.
+  form: undefined, // Данные профиля для редактирования
+  validateErrors: undefined, // Ошибки валидации профиля.
 };
+
+/**
+ * Slice для управления состоянием профиля.
+ *
+ *
+ */
 
 const profileSlice = createSlice({
   name: 'profile',

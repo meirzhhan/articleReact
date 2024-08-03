@@ -1,5 +1,5 @@
 import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
-import { EditableProfileCard } from './EditableProfileCard';
+import { EditableProfile } from './EditableProfile';
 import { Profile } from '@/entities/Profile';
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
@@ -40,7 +40,7 @@ const options = {
 
 describe('EditableProfileCard', () => {
   test('toggle read only mode (false)', async () => {
-    componentRender(<EditableProfileCard id="1" />, options);
+    componentRender(<EditableProfile id="1" />, options);
 
     await userEvent.click(
       screen.getByTestId('EditableProfileCardHeader.EditButton'),
@@ -51,7 +51,7 @@ describe('EditableProfileCard', () => {
   });
 
   test('if cancel, the values should be reset ', async () => {
-    componentRender(<EditableProfileCard id="1" />, options);
+    componentRender(<EditableProfile id="1" />, options);
 
     const errorElement = await screen.findByText(
       'Произошла ошибка при загрузке профиля',
@@ -82,7 +82,7 @@ describe('EditableProfileCard', () => {
   });
 
   test('error should appear when clicking SaveButton if the input filled incorrectly', async () => {
-    componentRender(<EditableProfileCard id="1" />, options);
+    componentRender(<EditableProfile id="1" />, options);
 
     const errorElement = await screen.findByText(
       'Произошла ошибка при загрузке профиля',
@@ -107,7 +107,7 @@ describe('EditableProfileCard', () => {
   });
 
   test('should work PUT request and fill into input if inputs filled correctly', async () => {
-    componentRender(<EditableProfileCard id="1" />, options);
+    componentRender(<EditableProfile id="1" />, options);
     const mockPutReq = jest.spyOn($api, 'put'); // mocked put
 
     const errorElement = await screen.findByText(

@@ -1,38 +1,52 @@
-import { useClassName } from '@/shared/lib/hooks/useClassName';
-import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useTranslation } from 'react-i18next';
 
+import { ValidateProfileError } from '@/features/editableProfile/model/consts/consts';
+
+import { ProfileCard } from '@/entities/Profile';
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
+
+import { VStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text';
+import {
+  DynamicModuleLoader,
+  ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+
+import { EditableProfileHeader } from '../EditableProfileHeader/EditableProfileHeader';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
-import { ValidateProfileError } from '@/features/editableProfileCard/model/consts/consts';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
-import { ProfileCard } from '@/entities/Profile';
-import {
-  DynamicModuleLoader,
-  ReducersList,
-} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
-import { VStack } from '@/shared/ui/Stack';
-import { Text } from '@/shared/ui/Text';
 
-interface EditableProfileCardProps {
+interface EditableProfileProps {
   className?: string;
   id?: string;
 }
 
+/**
+ * Список reducer-ов для динамической загрузки для DynamicModuleLoader.
+ */
 const reducers: ReducersList = {
   profile: profileReducer,
 };
 
-export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
+/**
+ * Компонент `EditableProfileCard` отображает редактируемую карточку профиля пользователя.
+ * Компонент загружает данные профиля и позволяет пользователю обновлять информацию о себе.
+ *
+ * @param {EditableProfileProps} props - Свойства компонента.
+ * @param {string} [props.id] - Идентификатор профиля для загрузки данных.
+ * @returns {JSX.Element} - Возвращает элемент редактируемой карточки профиля.
+ */
+
+export const EditableProfile = memo((props: EditableProfileProps) => {
   const { className, id } = props;
   const { t } = useTranslation('profile');
 
@@ -44,6 +58,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   const readonly = useSelector(getProfileReadonly);
   const validateErrors = useSelector(getProfileValidateErrors);
 
+  // Возможные варианты ошибки валидации при вводе
   const validateErrorsTranslates = {
     [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка'),
     [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректная страна'),
@@ -56,71 +71,74 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     if (id) dispatch(fetchProfileData(id));
   }, [dispatch, id]);
 
+  // Обработчик изменения имени.
   const onChangeFirstname = useCallback(
-    (value?: string) => {
-      dispatch(profileActions.updateProfile({ first: value || '' }));
+    (newFirstname?: string) => {
+      dispatch(profileActions.updateProfile({ first: newFirstname || '' }));
     },
     [dispatch],
   );
 
+  // Обработчик изменения фамилии.
   const onChangeLastname = useCallback(
-    (value?: string) => {
-      dispatch(profileActions.updateProfile({ lastname: value || '' }));
+    (newLastname?: string) => {
+      dispatch(profileActions.updateProfile({ lastname: newLastname || '' }));
     },
     [dispatch],
   );
 
+  // Обработчик изменения города.
   const onChangeCity = useCallback(
-    (value?: string) => {
-      dispatch(profileActions.updateProfile({ city: value || '' }));
+    (newCity?: string) => {
+      dispatch(profileActions.updateProfile({ city: newCity || '' }));
     },
     [dispatch],
   );
 
+  // Обработчик изменения возраста.
   const onChangeAge = useCallback(
-    (value?: string) => {
-      dispatch(profileActions.updateProfile({ age: Number(value || 0) }));
+    (newAge?: string) => {
+      dispatch(profileActions.updateProfile({ age: Number(newAge || 0) }));
     },
     [dispatch],
   );
 
+  // Обработчик изменения login-a.
   const onChangeUsername = useCallback(
-    (value?: string) => {
-      dispatch(profileActions.updateProfile({ username: value || '' }));
+    (newUsername?: string) => {
+      dispatch(profileActions.updateProfile({ username: newUsername || '' }));
     },
     [dispatch],
   );
 
+  // Обработчик изменения аватара.
   const onChangeAvatar = useCallback(
-    (value?: string) => {
-      dispatch(profileActions.updateProfile({ avatar: value || '' }));
+    (newAvatar?: string) => {
+      dispatch(profileActions.updateProfile({ avatar: newAvatar || '' }));
     },
     [dispatch],
   );
 
+  // Обработчик изменения валюты.
   const onChangeCurrency = useCallback(
-    (currency?: Currency) => {
-      dispatch(profileActions.updateProfile({ currency }));
+    (newCurrency?: Currency) => {
+      dispatch(profileActions.updateProfile({ currency: newCurrency }));
     },
     [dispatch],
   );
 
+  // Обработчик изменения страны.
   const onChangeCountry = useCallback(
-    (country?: Country) => {
-      dispatch(profileActions.updateProfile({ country }));
+    (newCountry?: Country) => {
+      dispatch(profileActions.updateProfile({ country: newCountry }));
     },
     [dispatch],
   );
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <VStack
-        gap="16"
-        maxWidth
-        className={useClassName('', {}, [className])}
-        align="center"
-      >
-        <EditableProfileCardHeader />
+      <VStack gap="16" maxWidth className={className} align="center">
+        <EditableProfileHeader />
 
         {validateErrors?.length &&
           validateErrors.map((err) => (

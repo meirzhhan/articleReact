@@ -11,7 +11,7 @@ import { ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage';
 
 import { UISchema } from '@/features/UI';
 import { LoginSchema } from '@/features/authentication';
-import { ProfileSchema } from '@/features/editableProfileCard';
+import { ProfileSchema } from '@/features/editableProfile';
 import { AddCommentFormSchema } from '@/features/addCommentForm';
 
 import { UserSchema } from '@/entities/User';
