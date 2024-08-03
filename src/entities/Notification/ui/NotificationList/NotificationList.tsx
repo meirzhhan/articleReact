@@ -1,44 +1,37 @@
-import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { memo } from 'react';
-import cl from './NotificationList.module.scss';
-import { useNotifications } from '../../api/notificationApi';
+
 import { VStack } from '@/shared/ui/Stack';
-import { NotificationItem } from '../NotificationItem/NotificationItem';
-import { Skeleton } from '@/shared/ui/Skeleton';
 
-interface NotificationListProps {
-  className?: string;
-}
+import { useNotifications } from '../../api/notificationApi';
+import { NotificationCard } from '../NotificationItem/NotificationCard';
 
-export const NotificationList = memo((props: NotificationListProps) => {
-  const { className } = props;
+/**
+ * Компонент для отображения списка уведомлений.
+ *
+ * @param {NotificationListProps} props - Свойства компонента.
+ * @returns {JSX.Element} JSX-элемент, представляющий список уведомлений.
+ */
 
+export const NotificationList = memo(({ className }: { className: string }) => {
   const { data, isLoading } = useNotifications(null, {
     pollingInterval: 5000,
   });
 
+  // Отображение скелетонов при загрузке
   if (isLoading) {
     return (
-      <VStack
-        gap="16"
-        maxWidth // skeleton
-        className={useClassName(cl.NotificationList, {}, [className])}
-      >
-        <Skeleton width={'100%'} border={'12px'} height={'80px'} />
-        <Skeleton width={'100%'} border={'12px'} height={'80px'} />
-        <Skeleton width={'100%'} border={'12px'} height={'80px'} />
+      <VStack gap="16" className={className}>
+        {[1, 2, 3, 4].map((index) => (
+          <NotificationCard key={index} isLoading />
+        ))}
       </VStack>
     );
   }
 
   return (
-    <VStack
-      gap="16"
-      // max
-      className={useClassName(cl.NotificationList, {}, [className])}
-    >
+    <VStack gap="16" className={className}>
       {data?.map((item) => (
-        <NotificationItem key={item.id} item={item} />
+        <NotificationCard key={item.id} item={item} isLoading={isLoading} />
       ))}
     </VStack>
   );

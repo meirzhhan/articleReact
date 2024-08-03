@@ -6,11 +6,6 @@
   border: 2px solid var(--icon);
   width: 100%;
 
-  &__addOnLeft,
-  &__addOnRight {
-    display: flex;
-  }
-
   &__input {
     border: none;
     outline: none;
@@ -21,6 +16,11 @@
     &::placeholder {
       color: var(--hint);
     }
+  }
+
+  &__addOnLeft,
+  &__addOnRight {
+    display: flex;
   }
 }
 

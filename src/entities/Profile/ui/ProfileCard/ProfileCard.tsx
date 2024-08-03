@@ -1,12 +1,14 @@
-import { Currency } from '@/entities/Currency';
-import { Country } from '@/entities/Country';
+import { Currency, CurrencySelect } from '@/entities/Currency';
+import { Country, CountrySelect } from '@/entities/Country';
 import { Profile } from '../../model/types/profile';
 
-import {
-  ProfileCardRedesigned,
-  ProfileCardRedesignedError,
-  ProfileCardRedesignedSkeleton,
-} from '../ProfileCardRedesigned/ProfileCardRedesigned';
+import { Card } from '@/shared/ui/Card';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { Text } from '@/shared/ui/Text';
+import { useTranslation } from 'react-i18next';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Input } from '@/shared/ui/Input';
 
 export interface ProfileCardProps {
   className?: string;
@@ -24,16 +26,136 @@ export interface ProfileCardProps {
   onChangeCountry?: (country?: Country) => void;
 }
 
-export const ProfileCard = (props: ProfileCardProps) => {
-  const { isLoading, error } = props;
+const SkeletonForInput = () => (
+  <Skeleton width="100%" height={38} border="20px" />
+);
 
-  if (isLoading) {
-    return <ProfileCardRedesignedSkeleton />;
-  }
+/**
+ * Компонент ProfileCard для отображения и редактирования профиля пользователя.
+ *
+ * @param {ProfileCardProps} props - Свойства компонента.
+ * @returns {JSX.Element} JSX-элемент, представляющий карточку профиля.
+ */
 
-  if (error) {
-    return <ProfileCardRedesignedError />;
-  }
+export const ProfileCard = (props: ProfileCardProps): JSX.Element => {
+  const {
+    isLoading,
+    error,
+    className,
+    data,
+    readonly,
+    onChangeFirstname,
+    onChangeLastname,
+    onChangeAge,
+    onChangeCity,
+    onChangeUsername,
+    onChangeAvatar,
+    onChangeCurrency,
+    onChangeCountry,
+  } = props;
+  const { t } = useTranslation('profile');
 
-  return <ProfileCardRedesigned {...props} />;
+  const ProfileSkeleton = (
+    <Card padding="24" border="partial" max columnGap="32">
+      <HStack maxWidth justify="center">
+        <Skeleton border="50%" width={128} height={128} />
+      </HStack>
+
+      <HStack gap="24" maxWidth>
+        {[1, 2].map((index) => (
+          <VStack key={index} gap="16" maxWidth>
+            {[1, 2, 3, 4].map((index) => (
+              <SkeletonForInput key={index} />
+            ))}
+          </VStack>
+        ))}
+      </HStack>
+    </Card>
+  );
+
+  const ProfileError = (
+    <HStack justify={'center'} maxWidth>
+      <Text
+        variant="error"
+        title={t('Произошла ошибка при загрузке профиля')}
+        text={t('Попробуйте обновить страницу')}
+        align="center"
+      />
+    </HStack>
+  );
+
+  if (isLoading) return ProfileSkeleton;
+  if (error) return ProfileError;
+
+  return (
+    <Card
+      padding="24"
+      border="partial"
+      max
+      className={className}
+      columnGap="32"
+    >
+      {data?.avatar && (
+        <HStack justify={'center'} maxWidth>
+          <Avatar size={128} src={data?.avatar} />
+        </HStack>
+      )}
+
+      <HStack gap="24" maxWidth>
+        <VStack gap="16" maxWidth>
+          <Input
+            value={data?.first}
+            label={t('Имя')}
+            onChange={onChangeFirstname}
+            readonly={readonly}
+            data-testid="ProfileCard.firstname"
+          />
+          <Input
+            value={data?.lastname}
+            label={t('Фамилия')}
+            onChange={onChangeLastname}
+            readonly={readonly}
+            data-testid={'ProfileCard.lastname'}
+          />
+          <Input
+            value={data?.age}
+            label={t('Возраст')}
+            onChange={onChangeAge}
+            readonly={readonly}
+          />
+          <Input
+            value={data?.city}
+            label={t('Город')}
+            onChange={onChangeCity}
+            readonly={readonly}
+          />
+        </VStack>
+
+        <VStack gap="16" maxWidth>
+          <Input
+            value={data?.username}
+            label={t('Логин')}
+            onChange={onChangeUsername}
+            readonly={readonly}
+          />
+          <Input
+            value={data?.avatar}
+            label={t('Аватар')}
+            onChange={onChangeAvatar}
+            readonly={readonly}
+          />
+          <CurrencySelect
+            value={data?.currency}
+            onChange={onChangeCurrency}
+            readonly={readonly}
+          />
+          <CountrySelect
+            value={data?.country}
+            onChange={onChangeCountry}
+            readonly={readonly}
+          />
+        </VStack>
+      </HStack>
+    </Card>
+  );
 };
