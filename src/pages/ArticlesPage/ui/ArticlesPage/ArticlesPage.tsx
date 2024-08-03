@@ -14,7 +14,6 @@ import { initArticlesPage } from '../../model/services/initArticlesPage/initArti
 import { useSearchParams } from 'react-router-dom';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 import { getArticlesPageInitiated } from '../../model/selectors/articlesPageSelectors';
-import { ArticlePageGreeting } from '@/features/articlePageGreeting';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { FiltersContainer } from '../FiltersContainer/FiltersContainer';
 
@@ -53,7 +52,6 @@ const ArticlesPage = (props: ArticlePageProps) => {
           className={useClassName(cl.ArticlesPageRedesigned, {}, [className])}
         >
           <ArticleInfiniteList className={cl.list} />
-          <ArticlePageGreeting />
         </Page>
       }
     />

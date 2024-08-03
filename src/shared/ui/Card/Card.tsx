@@ -7,7 +7,8 @@ import cl from './Card.module.scss';
 export type CardVariant = 'normal' | 'outlined' | 'light'; // Варианты оформления карточки
 export type CardPadding = '0' | '8' | '16' | '24';
 export type CardBorder = 'round' | 'default' | 'partial';
-export type ColumnGap = '0' | '8' | '16' | '32';
+export type FlexColumnGap = '0' | '8' | '16' | '32';
+export type FlexRowGap = '0' | '8' | '16' | '32';
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
@@ -16,8 +17,8 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   max?: boolean;
   padding?: CardPadding;
   border?: CardBorder;
-  columnGap?: ColumnGap;
-  //
+  columnGap?: FlexColumnGap;
+  rowGap?: FlexRowGap;
   cursorPointer?: boolean;
 }
 
@@ -28,11 +29,18 @@ const mapPaddingToClass: Record<CardPadding, string> = {
   '24': 'padding_24',
 };
 
-const mapColumnGapToClass: Record<ColumnGap, string> = {
-  '0': 'gap_0',
-  '8': 'gap_8',
-  '16': 'gap_16',
-  '32': 'gap_32',
+const mapFlexColumnGapToClass: Record<FlexColumnGap, string> = {
+  '0': 'column_gap_0',
+  '8': 'column_gap_8',
+  '16': 'column_gap_16',
+  '32': 'column_gap_32',
+};
+
+const mapFlexRowGapToClass: Record<FlexRowGap, string> = {
+  '0': 'row_gap_0',
+  '8': 'row_gap_8',
+  '16': 'row_gap_16',
+  '32': 'row_gap_32',
 };
 
 /**
@@ -52,11 +60,13 @@ export const Card = memo((props: CardProps) => {
     border = 'normal',
     columnGap = '0',
     cursorPointer,
+    rowGap = '0',
     ...otherProps
   } = props;
 
   const paddingClass = mapPaddingToClass[padding];
-  const columnGapClass = mapColumnGapToClass[columnGap];
+  const columnGapClass = mapFlexColumnGapToClass[columnGap];
+  const rowGapClass = mapFlexRowGapToClass[rowGap];
 
   return (
     <div
@@ -69,6 +79,7 @@ export const Card = memo((props: CardProps) => {
           cl[paddingClass],
           cl[border],
           cl[columnGapClass],
+          cl[rowGapClass],
         ],
       )}
       {...otherProps}

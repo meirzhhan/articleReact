@@ -39,18 +39,34 @@
   padding: 24px;
 }
 
-.gap_8 {
+.column_gap_8 {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
-.gap_16 {
+.column_gap_16 {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-.gap_32 {
+.column_gap_32 {
   display: flex;
   flex-direction: column;
+  gap: 32px;
+}
+
+.row_gap_8 {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+.row_gap_16 {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+.row_gap_32 {
+  display: flex;
+  flex-direction: row;
   gap: 32px;
 }

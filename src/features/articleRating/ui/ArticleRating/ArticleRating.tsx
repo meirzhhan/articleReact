@@ -1,19 +1,27 @@
-// TODO: add new feature ProfileRating
-import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+
+import { getUserAuthData } from '@/entities/User';
 import { RatingCard } from '@/entities/Rating';
+
+import { Skeleton } from '@/shared/ui/Skeleton';
+
 import {
   useGetArticleRating,
   useRateArticle,
 } from '../../api/articleRatingApi';
-import { useSelector } from 'react-redux';
-import { getUserAuthData } from '@/entities/User';
-import { Skeleton } from '@/shared/ui/Skeleton';
 
 export interface ArticleRatingProps {
   className?: string;
-  articleId: string;
+  articleId: string; // ID статьи для оценки.
 }
+
+/**
+ * feature для оценки статьи, из entity RatingCard.
+ * @param props - Пропсы компонента.
+ * @returns JSX элемент.
+ */
 
 const ArticleRating = memo((props: ArticleRatingProps) => {
   const { className, articleId } = props;
@@ -26,9 +34,14 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
     articleId,
   });
 
-  // TODO: 1 - function that calls mutation, 2 - object with args
+  // [Функция, которая вызывает мутацию, объект с аргументами] TODO:
   const [rateArticleMutation, {}] = useRateArticle();
 
+  /**
+   * Обработчик для отправки оценки статьи.
+   * @param starsCount - Количество звезд.
+   * @param feedback - Отзыв (необязательно).
+   */
   const handleRateArticle = useCallback(
     (starsCount: number, feedback?: string) => {
       try {
@@ -45,6 +58,11 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
     [articleId, rateArticleMutation, userData?.id],
   );
 
+  /**
+   * Обработчик для принятия оценки.
+   * @param starsCount - Количество звезд.
+   * @param feedback - Отзыв (необязательно).
+   */
   const onAccept = useCallback(
     (starsCount: number, feedback?: string) => {
       handleRateArticle(starsCount, feedback);
@@ -52,6 +70,10 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
     [handleRateArticle],
   );
 
+  /**
+   * Обработчик для отмены оценки.
+   * @param starsCount - Количество звезд.
+   */
   const onCancel = useCallback(
     (starsCount: number) => {
       handleRateArticle(starsCount);
@@ -72,7 +94,7 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
       rate={rating?.rate}
       className={className}
       title={t('Оцените статью')}
-      feedbackTitle={t('Оставьте свой отзыв, это нам очень поможет')}
+      feedbackTitle={t('Оставьте свой отзыв')}
       hasFeedback
     />
   );
