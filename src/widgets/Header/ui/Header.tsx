@@ -2,7 +2,7 @@ import { memo, useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
-import { LoginModal } from '@/features/AuthByUsername';
+import { LoginModal } from '@/features/authentication';
 import { NotificationButton } from '@/features/notificationButton';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 

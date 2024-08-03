@@ -5,7 +5,6 @@ import { CommentType } from '@/entities/Comment/model/types/comment';
 
 import { VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
-import { useClassName } from '@/shared/lib/hooks/useClassName';
 
 import { CommentCard } from '../CommentCard/CommentCard';
 

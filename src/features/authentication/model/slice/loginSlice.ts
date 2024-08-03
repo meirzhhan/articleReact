@@ -1,12 +1,20 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { LoginSchema } from '../types/loginSchema';
+
 import { loginByUsername } from '../services/loginByUsername/loginByUsername';
+import { LoginSchema } from '../types/loginSchema';
 
 const initialState: LoginSchema = {
   isLoading: false,
   username: '',
   password: '',
 };
+
+/**
+ * Slice состояния для управления авторизацией.
+ * @property {boolean} isLoading - Флаг загрузки
+ * @property {string} username - Имя пользователя
+ * @property {string} password - Пароль пользователя
+ */
 
 const loginSlice = createSlice({
   name: 'login',

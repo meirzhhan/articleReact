@@ -30,6 +30,9 @@ interface ArticleDetailsProps {
   id?: string;
 }
 
+/**
+ * Список reducer-ов для динамической загрузки для DynamicModuleLoader.
+ */
 const reducers: ReducersList = {
   articleDetails: articleDetailsReducer,
 };
