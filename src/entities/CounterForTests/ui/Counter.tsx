@@ -2,6 +2,8 @@ import { Button } from '@/shared/ui/Button';
 import { useCounterActions } from '../model/slice/counterSlice';
 import { useCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
 
+// Для теса новых фичей, нет логики
+
 export const Counter = () => {
   const counterValue = useCounterValue();
 

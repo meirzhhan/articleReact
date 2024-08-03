@@ -1,61 +1,62 @@
-import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { memo } from 'react';
-import cl from './CommentCard.module.scss';
+
 import { CommentType } from '@/entities/Comment/model/types/comment';
-import { Skeleton } from '@/shared/ui/Skeleton';
-import { getRouteProfile } from '@/shared/consts/router';
+
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Card } from '@/shared/ui/Card';
 import { AppLink } from '@/shared/ui/AppLink';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Text } from '@/shared/ui/Text';
+import { getRouteProfile } from '@/shared/consts/router';
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 
 interface CommentCardProps {
   className?: string;
-  comment?: CommentType;
-  isLoading?: boolean;
+  comment?: CommentType; // Данные комментария
+  isLoading?: boolean; // Флаг загрузки данных комментария.
 }
+
+/**
+ * Компонент для отображения карточки комментария.
+ *
+ * @param {CommentCardProps} props Свойства компонента.
+ * @returns {JSX.Element | null} JSX-элемент, представляющий карточку комментария.
+ */
 
 export const CommentCard = memo((props: CommentCardProps) => {
   const { className, comment, isLoading } = props;
 
+  // Если данные комментария загружаются, отображается Skeleton
   if (isLoading) {
     return (
-      <VStack
-        gap="8"
-        maxWidth
-        className={useClassName(cl.CommentCard, {}, [className, cl.loading])}
-      >
-        <div className={cl.header}>
+      <Card padding="24" max border="partial" columnGap="8">
+        <HStack gap="8">
           <Skeleton width={30} height={30} border="50%" />
-          <Skeleton width={100} height={16} className={cl.username} />
-        </div>
-        <Skeleton className={cl.text} width={'100%'} height={50} />
-      </VStack>
+          <Skeleton width={150} height={16} border="12px" />
+        </HStack>
+        <Skeleton border="12px" height={30} />
+      </Card>
     );
   }
 
+  // Если комментарий отсутствует, возвращает null.
   if (!comment) return null;
 
+  // Отображение комментария.
   return (
-    <Card padding="24" border="partial" max>
-      <VStack
-        maxWidth
-        gap={'8'}
-        className={useClassName(cl.CommentCardRedesigned, {}, [className])}
-      >
-        <AppLink to={getRouteProfile(comment.user.id)}>
-          <HStack gap="8">
-            {comment?.user.avatar ? (
-              <Avatar size={30} src={comment.user.avatar} />
-            ) : null}
+    <Card className={className} padding="24" border="partial" max columnGap="8">
+      <AppLink to={getRouteProfile(comment.user.id)}>
+        <HStack gap="8">
+          {comment?.user.avatar ? (
+            <Avatar size={30} src={comment.user.avatar} />
+          ) : null}
 
-            <Text text={comment?.user.username} bold />
-          </HStack>
-        </AppLink>
+          <Text text={comment?.user.username} bold />
+        </HStack>
+      </AppLink>
 
-        <Text text={comment?.text} />
-      </VStack>
+      <Text text={comment?.text} />
     </Card>
   );
 });

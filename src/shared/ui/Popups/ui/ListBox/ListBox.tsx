@@ -37,7 +37,7 @@ interface ListBoxProps<T extends string> {
  * @template T - Тип значения элемента списка.
  */
 
-export function ListBox<T extends string>(props: ListBoxProps<T>) {
+export function ListBox<T extends string>(props: ListBoxProps<T>): JSX.Element {
   const {
     className,
     items,
@@ -58,7 +58,7 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
 
   return (
     <HStack gap="4" className={readonly ? cl.readonly : ''}>
-      {label && <span>{`${label}>`} </span>}
+      {label && <span>{`${label}`} </span>}
       <HListbox
         disabled={readonly}
         as="div"

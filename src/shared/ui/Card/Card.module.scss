@@ -1,4 +1,4 @@
-.Card {
+.cursor {
   cursor: pointer;
 }
 
@@ -26,15 +26,26 @@
   border-radius: 40px;
 }
 
-.gap_0 {
+.padding_0 {
   padding: 0;
 }
-.gap_8 {
+.padding_8 {
   padding: 8px;
 }
-.gap_16 {
+.padding_16 {
   padding: 16px;
 }
-.gap_24 {
+.padding_24 {
   padding: 24px;
+}
+
+.gap_8 {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.gap_16 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
