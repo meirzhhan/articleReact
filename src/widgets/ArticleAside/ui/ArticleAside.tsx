@@ -1,17 +1,21 @@
 import { memo } from 'react';
+import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
-import { User } from '@/entities/User';
+import { getUserAuthData, User } from '@/entities/User';
 
 import { Avatar } from '@/shared/ui/Avatar';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 import { Button } from '@/shared/ui/Button';
+import EyeIcon from '@/shared/assets/icons/eyeNew.svg';
+import { Icon } from '@/shared/ui/Icon';
+import { AppLink } from '@/shared/ui/AppLink';
+import { getRouteProfile } from '@/shared/consts/router';
 
 interface ArticleAsideProps {
   className?: string;
   author: User;
-  createdAt: string;
   views: number;
   onEdit: () => void;
 }
@@ -25,19 +29,25 @@ interface ArticleAsideProps {
  */
 
 export const ArticleAside = memo((props: ArticleAsideProps) => {
-  const { className, author, createdAt, views, onEdit } = props;
+  const { className, author, views, onEdit } = props;
   const { t } = useTranslation();
 
-  return (
-    <VStack className={className} gap="32">
-      <HStack gap="8">
-        <Avatar src={author.avatar} size={32} />
-        <Text text={author.username} bold />
-        <Text text={createdAt} />
-      </HStack>
+  const authData = useSelector(getUserAuthData);
 
-      <Button onClick={onEdit}>{t('Редактировать')}</Button>
-      <Text text={t('{{count}} просмотров', { count: views })} />
+  return (
+    <VStack className={className} gap="32" align="center">
+      <AppLink to={getRouteProfile(author.id)}>
+        <HStack gap="8">
+          <Avatar src={author.avatar} size={32} />
+          <Text text={author.username} bold />
+          <Icon Svg={EyeIcon} />
+          <Text text={String(views)} />
+        </HStack>
+      </AppLink>
+
+      {authData?.id === author.id && (
+        <Button onClick={onEdit}>{t('Редактировать')}</Button>
+      )}
     </VStack>
   );
 });

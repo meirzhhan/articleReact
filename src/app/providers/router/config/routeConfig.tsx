@@ -7,7 +7,7 @@ import { SettingsPage } from '@/pages/SettingsPage';
 import { ForbiddenPage } from '@/pages/ForbiddenPage';
 import { AdminPanelPage } from '@/pages/AdminPanelPage';
 import { ArticleEditPage } from '@/pages/ArticleEditPage';
-import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
+import { ArticleInfoPage } from '@/pages/ArticleInfoPage';
 
 import { UserRole } from '@/entities/User';
 
@@ -51,7 +51,7 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   },
   [AppRoutes.ARTICLE_DETAILS]: {
     path: getRouteArticleDetails(':id'),
-    element: <ArticleDetailsPage />,
+    element: <ArticleInfoPage />,
     authOnly: true,
   },
   [AppRoutes.ARTICLE_CREATE]: {

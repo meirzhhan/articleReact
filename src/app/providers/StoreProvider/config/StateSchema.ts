@@ -7,7 +7,7 @@ import {
 import { AxiosInstance } from 'axios';
 
 import { ArticlesPageSchema } from '@/pages/ArticlesPage';
-import { ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage';
+import { ArticleDetailsPageSchema } from '@/pages/ArticleInfoPage';
 
 import { UISchema } from '@/features/UI';
 import { LoginSchema } from '@/features/authentication';

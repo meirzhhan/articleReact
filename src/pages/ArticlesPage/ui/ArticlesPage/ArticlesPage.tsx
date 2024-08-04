@@ -14,7 +14,7 @@ import { initArticlesPage } from '../../model/services/initArticlesPage/initArti
 import { useSearchParams } from 'react-router-dom';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 import { getArticlesPageInitiated } from '../../model/selectors/articlesPageSelectors';
-import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
+import { StickyLayout } from '@/shared/layouts/StickyLayout';
 import { FiltersContainer } from '../FiltersContainer/FiltersContainer';
 import { uiActions } from '@/features/UI';
 
@@ -64,7 +64,7 @@ const ArticlesPage = (props: ArticlePageProps) => {
   }, [dispatch, initiated, searchParams]);
 
   const content = (
-    <StickyContentLayout
+    <StickyLayout
       right={<FiltersContainer />}
       content={
         <Page
