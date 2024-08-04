@@ -39,6 +39,11 @@
   padding: 24px;
 }
 
+.column_gap_4 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
 .column_gap_8 {
   display: flex;
   flex-direction: column;
@@ -55,6 +60,11 @@
   gap: 32px;
 }
 
+.row_gap_4 {
+  display: flex;
+  flex-direction: row;
+  grid-area: 4px;
+}
 .row_gap_8 {
   display: flex;
   flex-direction: row;

@@ -1,7 +1,7 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { HStack, VStack } from '@/shared/ui/Stack';
+import { HStack } from '@/shared/ui/Stack';
 import { Card } from '@/shared/ui/Card';
 import { AppImage } from '@/shared/ui/AppImage';
 import { Skeleton } from '@/shared/ui/Skeleton';
@@ -41,7 +41,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
   const userInfo = (
     <>
-      <Avatar size={32} src={article.user.avatar} className={cl.avatar} />
+      <Avatar size={32} src={article.user.avatar} />
       <Text bold text={article.user.username} />
     </>
   );
@@ -60,11 +60,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
     return (
       <Card
+        className={useClassName(cl.ArticleListItem, {}, [className, cl[view]])}
         padding="24"
         border="partial"
         max
         data-testid="ArticleListItem"
-        className={useClassName('', {}, [className, cl[view]])}
+        columnGap="8"
       >
         <HStack gap="8" maxWidth>
           {userInfo}
@@ -78,8 +79,9 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
           fallback={<Skeleton width="100%" height={390} border="12px" />}
           errorFallback={<Skeleton width={'100%'} height={390} border="12px" />}
           src={article.img}
-          className={cl.img}
           alt={article.title}
+          height={420}
+          width={'100%'}
         />
         {textT?.paragraphs && (
           <Text
@@ -102,27 +104,26 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
       data-testid="ArticleListItem"
       target={target}
       to={getRouteArticleDetails(article.id)}
-      className={useClassName('', {}, [className, cl[view]])}
+      className={cl[view]}
     >
-      <Card className={cl.card} border="partial" padding="0">
+      <Card className={cl.card} border="partial" padding="0" columnGap="8">
         <AppImage
-          fallback={<Skeleton width={'100%'} height={260} />}
-          errorFallback={<Skeleton width={'100%'} height={270} />}
+          height={180}
+          width={'100%'}
+          fallback={<Skeleton width={'100%'} height={180} />}
+          errorFallback={<Skeleton width={'100%'} height={180} />}
           alt={article.title}
           src={article.img}
-          className={cl.img}
         />
 
-        <VStack className={cl.info} gap="4">
+        <Card className={cl.info} columnGap="4">
           <Text title={article.title} className={cl.title} />
-          <VStack gap="4" className={cl.footer} maxWidth>
-            <HStack justify="between" maxWidth>
-              <Text text={article.createdAt} className={cl.date} />
-              {views}
-            </HStack>
-            <HStack gap="4">{userInfo}</HStack>
-          </VStack>
-        </VStack>
+          <HStack justify="between" maxWidth>
+            <Text text={article.createdAt} />
+            {views}
+          </HStack>
+          <HStack gap="4">{userInfo}</HStack>
+        </Card>
       </Card>
     </AppLink>
   );

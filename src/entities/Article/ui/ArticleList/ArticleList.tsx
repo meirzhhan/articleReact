@@ -3,13 +3,11 @@ import { useTranslation } from 'react-i18next';
 
 import { Text } from '@/shared/ui/Text';
 import { HStack } from '@/shared/ui/Stack';
-import { useClassName } from '@/shared/lib/hooks/useClassName';
 
-import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
-import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
+import { ArticleListItemSkeleton } from '../Skeletons/Skeletons';
 import { Article } from '../../model/types/article';
 import { ArticleView } from '../../model/consts/articleConsts';
-import cl from './ArticleList.module.scss';
+import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 
 interface ArticleListProps {
   className?: string;
@@ -29,9 +27,7 @@ interface ArticleListProps {
 const getSkeletons = (view: ArticleView): JSX.Element[] =>
   new Array(view === ArticleView.SMALL ? 9 : 3)
     .fill(0)
-    .map((_, index) => (
-      <ArticleListItemSkeleton className={cl.card} key={index} view={view} />
-    ));
+    .map((_, index) => <ArticleListItemSkeleton key={index} view={view} />);
 
 /**
  * Компонент для отображения списка статей.
@@ -51,22 +47,22 @@ export const ArticleList = memo((props: ArticleListProps) => {
   const { t } = useTranslation();
 
   if (!isLoading && !articles.length) {
-    return (
-      <div className={useClassName('', {}, [className, cl[view]])}>
-        <Text size="l" title={t('Статьи не найдены')} />
-      </div>
-    );
+    return <Text size="l" title={t('Статьи не найдены')} />;
   }
 
   return (
-    <HStack wrap="wrap" gap="16" data-testid="ArticleList">
+    <HStack
+      className={className}
+      wrap="wrap"
+      gap="16"
+      data-testid="ArticleList"
+    >
       {articles.map((item) => (
         <ArticleListItem
           article={item}
           view={view}
           target={target}
           key={item.id}
-          className={cl.card}
         />
       ))}
       {isLoading && getSkeletons(view)}

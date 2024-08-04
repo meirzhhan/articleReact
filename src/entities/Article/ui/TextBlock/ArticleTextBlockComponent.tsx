@@ -3,7 +3,6 @@ import { memo } from 'react';
 import { Text } from '@/shared/ui/Text';
 
 import { ArticleTextBlock } from '../../model/types/article';
-import cl from './ArticleTextBlockComponent.module.scss';
 
 interface TextBlockProps {
   className?: string;
@@ -22,10 +21,10 @@ export const TextBlock = memo((props: TextBlockProps) => {
 
   return (
     <>
-      {block.title && <Text title={block.title} className={cl.title} />}
+      {block.title && <Text title={block.title} />}
 
       {block.paragraphs.map((paragraph, index) => (
-        <Text key={index} text={paragraph} className={cl.paragraph} />
+        <Text key={index} text={paragraph} />
       ))}
     </>
   );

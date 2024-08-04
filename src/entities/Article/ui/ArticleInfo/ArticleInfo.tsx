@@ -2,7 +2,7 @@ import { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { VStack } from '@/shared/ui/Stack';
+import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 import { AppImage } from '@/shared/ui/AppImage';
 import { Skeleton } from '@/shared/ui/Skeleton';
@@ -21,9 +21,9 @@ import {
   getArticleDetailsError,
   getArticleDetailsIsLoading,
 } from '../../model/selectors/getArticleDetails';
+import { ArticleInfoSkeleton } from '../Skeletons/Skeletons';
 
 import cl from './ArticleInfo.module.scss';
-import { ArticleSkeletonBig } from './ArticleSkeleton';
 
 interface ArticleDetailsProps {
   className?: string;
@@ -39,6 +39,7 @@ const reducers: ReducersList = {
 
 const Info = () => {
   const article = useSelector(getArticleDetailsData);
+  if (!article) return null;
 
   return (
     <>
@@ -46,8 +47,9 @@ const Info = () => {
       <Text title={article?.subtitle} />
       <AppImage
         className={cl.img}
-        fallback={<Skeleton width={'100%'} height={420} border="16px" />}
+        fallback={<Skeleton width={'100%'} height={420} />}
         src={article?.img}
+        height={420}
       />
 
       {article?.blocks.map(RenderBlocks)}
@@ -76,7 +78,7 @@ export const ArticleInfo = memo((props: ArticleDetailsProps) => {
   let content;
 
   if (isLoading) {
-    content = ArticleSkeletonBig;
+    content = <ArticleInfoSkeleton />;
   } else if (error) {
     content = (
       <Text align="center" title={t('Произошла ошибка при загрузке статьи.')} />
@@ -86,9 +88,9 @@ export const ArticleInfo = memo((props: ArticleDetailsProps) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <VStack
+        className={useClassName(cl.ArticleDetails, {}, [className])}
         gap={'16'}
         maxWidth
-        className={useClassName(cl.ArticleDetails, {}, [className])}
       >
         {content}
       </VStack>

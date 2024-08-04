@@ -7,8 +7,8 @@ import cl from './Card.module.scss';
 export type CardVariant = 'normal' | 'outlined' | 'light'; // Варианты оформления карточки
 export type CardPadding = '0' | '8' | '16' | '24';
 export type CardBorder = 'round' | 'default' | 'partial';
-export type FlexColumnGap = '0' | '8' | '16' | '32';
-export type FlexRowGap = '0' | '8' | '16' | '32';
+export type FlexColumnGap = '0' | '4' | '8' | '16' | '32';
+export type FlexRowGap = '0' | '4' | '8' | '16' | '32';
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
@@ -31,6 +31,7 @@ const mapPaddingToClass: Record<CardPadding, string> = {
 
 const mapFlexColumnGapToClass: Record<FlexColumnGap, string> = {
   '0': 'column_gap_0',
+  '4': 'column_gap_4',
   '8': 'column_gap_8',
   '16': 'column_gap_16',
   '32': 'column_gap_32',
@@ -38,6 +39,7 @@ const mapFlexColumnGapToClass: Record<FlexColumnGap, string> = {
 
 const mapFlexRowGapToClass: Record<FlexRowGap, string> = {
   '0': 'row_gap_0',
+  '4': 'row_gap_4',
   '8': 'row_gap_8',
   '16': 'row_gap_16',
   '32': 'row_gap_32',
