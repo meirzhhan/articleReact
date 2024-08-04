@@ -4,7 +4,7 @@ import { useClassName } from '@/shared/lib/hooks/useClassName';
 
 import cl from './Card.module.scss';
 
-export type CardVariant = 'normal' | 'outlined' | 'light'; // Варианты оформления карточки
+export type CardVariant = 'normal' | 'outlined' | 'light' | 'transparent'; // Варианты оформления карточки
 export type CardPadding = '0' | '8' | '16' | '24';
 export type CardBorder = 'round' | 'default' | 'partial';
 export type FlexColumnGap = '0' | '4' | '8' | '16' | '32';
@@ -20,6 +20,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   columnGap?: FlexColumnGap;
   rowGap?: FlexRowGap;
   cursorPointer?: boolean;
+  headersStyle?: boolean;
 }
 
 const mapPaddingToClass: Record<CardPadding, string> = {
@@ -30,7 +31,7 @@ const mapPaddingToClass: Record<CardPadding, string> = {
 };
 
 const mapFlexColumnGapToClass: Record<FlexColumnGap, string> = {
-  '0': 'column_gap_0',
+  '0': '',
   '4': 'column_gap_4',
   '8': 'column_gap_8',
   '16': 'column_gap_16',
@@ -38,7 +39,7 @@ const mapFlexColumnGapToClass: Record<FlexColumnGap, string> = {
 };
 
 const mapFlexRowGapToClass: Record<FlexRowGap, string> = {
-  '0': 'row_gap_0',
+  '0': '',
   '4': 'row_gap_4',
   '8': 'row_gap_8',
   '16': 'row_gap_16',
@@ -63,6 +64,7 @@ export const Card = memo((props: CardProps) => {
     columnGap = '0',
     cursorPointer,
     rowGap = '0',
+    headersStyle: headersBorder,
     ...otherProps
   } = props;
 
@@ -74,7 +76,11 @@ export const Card = memo((props: CardProps) => {
     <div
       className={useClassName(
         cl.Card,
-        { [cl.max]: max, [cl.cursor]: cursorPointer },
+        {
+          [cl.max]: max,
+          [cl.cursor]: cursorPointer,
+          [cl.header]: headersBorder,
+        },
         [
           className,
           cl[variant],

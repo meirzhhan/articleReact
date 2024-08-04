@@ -1,30 +1,29 @@
 import { memo } from 'react';
 
-import { HStack, VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui/Stack';
 import { Skeleton } from '@/shared/ui/Skeleton';
 
 import { MainLayout } from '../MainLayout';
-import cl from './AppLoaderLayout.module.scss';
+import { Card } from '@/shared/ui/Card';
 
 export const AppLoaderLayout = memo(() => {
   return (
     <MainLayout
       header={
-        <HStack className={cl.header}>
-          <Skeleton width={40} height={40} border="50%" />
-        </HStack>
-      }
-      content={
-        <VStack gap="16" style={{ height: '100%' }}>
-          <Skeleton width="70%" height={32} border="16px" />
-          <Skeleton width="40%" height={20} border="16px" />
-          <Skeleton width="50%" height={20} border="16px" />
-          <Skeleton width="30%" height={32} border="16px" />
-          <Skeleton width="80%" height="40%" border="16px" />
-          <Skeleton width="80%" height="40%" border="16px" />
+        <VStack align="end">
+          <Card padding="16" headersStyle columnGap="8">
+            <Skeleton width={40} height={40} border="50%" />
+            <Skeleton width={24} height={40} border="12px" />
+          </Card>
         </VStack>
       }
-      sidebar={<Skeleton border="32px" width={220} height="100%" />}
+      content={
+        // <VStack gap="16">
+        //   <Skeleton width="100%" height={500} border="16px" />
+        // </VStack>
+        <></>
+      }
+      sidebar={<Skeleton border="40px" width={180} height={500} />}
     />
   );
 });

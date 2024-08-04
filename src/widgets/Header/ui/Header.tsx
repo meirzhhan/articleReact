@@ -9,10 +9,9 @@ import { AvatarDropdown } from '@/features/avatarDropdown';
 import { getUserAuthData } from '@/entities/User';
 
 import { Button } from '@/shared/ui/Button';
-import { useClassName } from '@/shared/lib/hooks/useClassName';
 
-import cl from './Header.module.scss';
 import { Card } from '@/shared/ui/Card';
+import { VStack } from '@/shared/ui/Stack';
 
 interface NavbarProps {
   className?: string;
@@ -40,17 +39,17 @@ export const Header = memo(({ className }: NavbarProps) => {
 
   if (authData) {
     return (
-      <header className={useClassName(cl.Header, {}, [className])}>
-        <Card variant="light" className={cl.actions} border="round">
+      <VStack align="end">
+        <Card padding="16" headersStyle columnGap="4">
           <AvatarDropdown />
           <NotificationTrigger />
         </Card>
-      </header>
+      </VStack>
     );
   }
 
   return (
-    <header className={useClassName(cl.Header, {}, [className])}>
+    <>
       <Button variant="filled" onClick={onShowModal}>
         {t('Войти')}
       </Button>
@@ -58,6 +57,6 @@ export const Header = memo(({ className }: NavbarProps) => {
       {isAuthModal && (
         <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
       )}
-    </header>
+    </>
   );
 });

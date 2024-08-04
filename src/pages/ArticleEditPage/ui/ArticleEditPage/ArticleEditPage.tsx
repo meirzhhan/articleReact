@@ -1,14 +1,15 @@
-import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { useTranslation } from 'react-i18next';
-import { memo } from 'react';
-import { Page } from '@/widgets/Page';
 import { useParams } from 'react-router-dom';
+
+import { Page } from '@/widgets/Page';
+
+import { useClassName } from '@/shared/lib/hooks/useClassName';
 
 interface ArticleEditPageProps {
   className?: string;
 }
 
-const ArticleEditPage = memo((props: ArticleEditPageProps) => {
+const ArticleEditPage = (props: ArticleEditPageProps) => {
   const { className } = props;
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
@@ -21,6 +22,6 @@ const ArticleEditPage = memo((props: ArticleEditPageProps) => {
         : t('Создание новой статьи')}
     </Page>
   );
-});
+};
 
 export default ArticleEditPage;
