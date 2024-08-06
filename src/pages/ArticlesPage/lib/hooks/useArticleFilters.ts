@@ -1,4 +1,12 @@
+import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
+
+import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
+
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
+import { SortOrder } from '@/shared/types/sort';
+
 import {
   getArticlesPageOrder,
   getArticlesPageSearch,
@@ -6,28 +14,29 @@ import {
   getArticlesPageType,
   getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useCallback } from 'react';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
-import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
-import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
 import { articlePageActions } from '../../model/slices/articlesPageSlice';
-import { SortOrder } from '@/shared/types/sort';
+
+/**
+ * Кастомный hook для управления фильтрами статей.
+ */
 
 export function useArticleFilters() {
+  const dispatch = useAppDispatch();
+
+  // Получение всех фильтров
   const view = useSelector(getArticlesPageView);
   const sort = useSelector(getArticlesPageSort);
   const order = useSelector(getArticlesPageOrder);
   const search = useSelector(getArticlesPageSearch);
   const type = useSelector(getArticlesPageType);
 
-  const dispatch = useAppDispatch();
-
   const fetchData = useCallback(() => {
     dispatch(fetchArticlesList({ replace: true }));
   }, [dispatch]);
 
-  const debouncedFetchData = useDebounce(fetchData, 500);
+  // Debounce для запроса
+  const debouncedFetchData = useDebounce(fetchData, 350);
 
   const onChangeView = useCallback(
     (view: ArticleView) => {

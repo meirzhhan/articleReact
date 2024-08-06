@@ -1,9 +1,10 @@
-import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import { Page } from '@/widgets/Page';
 
 import { useClassName } from '@/shared/lib/hooks/useClassName';
+import { Text } from '@/shared/ui/Text';
 
 interface ArticleEditPageProps {
   className?: string;
@@ -17,9 +18,13 @@ const ArticleEditPage = (props: ArticleEditPageProps) => {
 
   return (
     <Page className={useClassName('', {}, [className])}>
-      {isEdit
-        ? t('Редактирование статьи(id): ') + id
-        : t('Создание новой статьи')}
+      <Text
+        title={
+          isEdit
+            ? t('Редактирование статьи(id): ') + id
+            : t('Создание новой статьи')
+        }
+      />
     </Page>
   );
 };

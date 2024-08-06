@@ -1,32 +1,43 @@
 import {
+  EntityAdapter,
   PayloadAction,
   createEntityAdapter,
   createSelector,
   createSlice,
 } from '@reduxjs/toolkit';
+
 import { StateSchema } from '@/app/providers/StoreProvider';
+
 import {
   Article,
   ArticleView,
   ArticleSortField,
   ArticleType,
 } from '@/entities/Article';
-import { ArticlesPageSchema } from '../types/articlesPageSchema';
-import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
+
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from '@/shared/consts/localStorage';
 import { SortOrder } from '@/shared/types/sort';
 
-// Нормализация entity adapter
-const articlesAdapter = createEntityAdapter({
+import { ArticlesPageSchema } from '../types/articlesPageSchema';
+import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
+
+/**
+ * Адаптер для нормализации Статьей.
+ * @type {EntityAdapter<Article, string>}
+ */
+const articlesAdapter: EntityAdapter<Article, string> = createEntityAdapter({
   selectId: (article: Article) => article.id,
 });
 
-// export const getArticles = articlesAdapter.getSelectors<StateSchema>(
-//   (state) => state.articlesPage || articlesAdapter.getInitialState(),
-// ); old
-
+/**
+ * Селектор состояния статьей.
+ */
 const SelectArticlesPageState = (state: StateSchema) => state.articlesPage;
 
+/**
+ * Селектор для получения всех статьей.
+ * @param {StateSchema} state - Состояние хранилища.
+ */
 const selectAllArticles = createSelector(
   [SelectArticlesPageState],
   (articlePageState) =>
@@ -39,6 +50,9 @@ export const getArticles = {
   selectAll: selectAllArticles,
 };
 
+/**
+ * Slice для управления состоянием страницы статей.
+ */
 const articlesPageSlice = createSlice({
   name: 'articlesPageSlice',
   initialState: articlesAdapter.getInitialState<ArticlesPageSchema>({
@@ -58,19 +72,24 @@ const articlesPageSlice = createSlice({
   }),
 
   reducers: {
+    // Устанавливает режим просмотра страницы (Плитка | Список) статей и сохраняет его в localStorage.
     setView: (state, action: PayloadAction<ArticleView>) => {
       state.view = action.payload;
       localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, action.payload);
     },
+    // Устанавливает текущий номер страницы для нумерации страниц.
     setPage: (state, action: PayloadAction<number>) => {
       state.page = action.payload;
     },
+    // asc | desc
     setOrder: (state, action: PayloadAction<SortOrder>) => {
       state.order = action.payload;
     },
+    // date | views | name
     setSort: (state, action: PayloadAction<ArticleSortField>) => {
       state.sort = action.payload;
     },
+    // Устанавливает тип отображаемых статей (IT | Science, ...).
     setType: (state, action: PayloadAction<ArticleType>) => {
       state.type = action.payload;
     },
@@ -78,6 +97,7 @@ const articlesPageSlice = createSlice({
       state.search = action.payload;
     },
 
+    // Инициализация
     initState: (state) => {
       const view = localStorage.getItem(
         ARTICLES_VIEW_LOCALSTORAGE_KEY,
@@ -95,14 +115,14 @@ const articlesPageSlice = createSlice({
         state.error = undefined;
         state.isLoading = true;
 
-        if (action.meta.arg.replace) articlesAdapter.removeAll(state); // If search params change
+        if (action.meta.arg.replace) articlesAdapter.removeAll(state); // Если параметры поиска меняются, сброс
       })
       .addCase(fetchArticlesList.fulfilled, (state, action) => {
         state.isLoading = false;
         state.hasMore = action.payload.length >= state.limit;
 
         if (action.meta.arg.replace)
-          // If search params change
+          // Если параметры поиска меняются
           articlesAdapter.setAll(state, action.payload);
         else articlesAdapter.addMany(state, action.payload);
       })
