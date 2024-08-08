@@ -42,7 +42,9 @@
       "views": 18930,
       "createdAt": "12.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -72,7 +74,9 @@
           "id": "4",
           "type": "TEXT",
           "title": "",
-          "paragraphs": ["Мы сможем писать:"]
+          "paragraphs": [
+            "Мы сможем писать:"
+          ]
         },
         {
           "id": "5",
@@ -146,7 +150,9 @@
       "views": 7300,
       "createdAt": "07.06.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -250,7 +256,9 @@
       "views": 9230,
       "createdAt": "26.02.2024",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -375,7 +383,6 @@
         }
       ]
     },
-
     {
       "id": "4",
       "title": "Валенсия устала от туристов",
@@ -384,7 +391,9 @@
       "views": 6700,
       "createdAt": "02.08.24",
       "userId": "1",
-      "type": ["BUSINESS"],
+      "type": [
+        "BUSINESS"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -425,7 +434,9 @@
       "views": 21200,
       "createdAt": "30.07.2024",
       "userId": "1",
-      "type": ["BUSINESS"],
+      "type": [
+        "BUSINESS"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -460,7 +471,9 @@
       "views": "3400",
       "createdAt": "18.06.2024",
       "userId": "1",
-      "type": ["BUSINESS"],
+      "type": [
+        "BUSINESS"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -496,7 +509,9 @@
       "views": 300,
       "createdAt": "13.06.2024",
       "userId": "1",
-      "type": ["BUSINESS"],
+      "type": [
+        "BUSINESS"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -529,7 +544,6 @@
         }
       ]
     },
-
     {
       "id": "8",
       "title": "Ватикан подключится к энергии солнца",
@@ -538,7 +552,9 @@
       "views": 1750,
       "createdAt": "28.05.2024",
       "userId": "1",
-      "type": ["GREEN"],
+      "type": [
+        "GREEN"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -582,7 +598,9 @@
       "views": 2312,
       "createdAt": "21.03.24",
       "userId": "1",
-      "type": ["GREEN"],
+      "type": [
+        "GREEN"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -643,7 +661,9 @@
       "views": 5213,
       "createdAt": "12.02.24",
       "userId": "1",
-      "type": ["GREEN"],
+      "type": [
+        "GREEN"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -685,7 +705,9 @@
       "views": 870,
       "createdAt": "11.07.23",
       "userId": "1",
-      "type": ["GREEN"],
+      "type": [
+        "GREEN"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -718,7 +740,6 @@
         }
       ]
     },
-
     {
       "id": "12",
       "title": "YouTube и X не справились с противодействием дезинформации ",
@@ -727,7 +748,9 @@
       "views": 12520,
       "createdAt": "03.05.24",
       "userId": "1",
-      "type": ["TECHNOLOGIES"],
+      "type": [
+        "TECHNOLOGIES"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -786,7 +809,9 @@
       "views": 4321,
       "createdAt": "25.05.2024",
       "userId": "1",
-      "type": ["TECHNOLOGIES"],
+      "type": [
+        "TECHNOLOGIES"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -841,7 +866,9 @@
       "views": 15773,
       "createdAt": "17.04.24",
       "userId": "1",
-      "type": ["TECHNOLOGIES"],
+      "type": [
+        "TECHNOLOGIES"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -896,7 +923,9 @@
       "views": 8121,
       "createdAt": "07.05.24",
       "userId": "1",
-      "type": ["TECHNOLOGIES"],
+      "type": [
+        "TECHNOLOGIES"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -925,7 +954,6 @@
         }
       ]
     },
-
     {
       "id": "16",
       "title": "Украинские удары по российским НПЗ",
@@ -934,7 +962,9 @@
       "views": 10232,
       "createdAt": "03.04.24",
       "userId": "1",
-      "type": ["ECONOMICS"],
+      "type": [
+        "ECONOMICS"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -994,7 +1024,9 @@
       "views": 983,
       "createdAt": "15.03.24",
       "userId": "1",
-      "type": ["ECONOMICS"],
+      "type": [
+        "ECONOMICS"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1083,7 +1115,9 @@
       "views": 16302,
       "createdAt": "12.03.24",
       "userId": "1",
-      "type": ["ECONOMICS"],
+      "type": [
+        "ECONOMICS"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1162,7 +1196,9 @@
       "views": "3242",
       "createdAt": "30.05.24",
       "userId": "1",
-      "type": ["ECONOMICS"],
+      "type": [
+        "ECONOMICS"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1219,7 +1255,6 @@
       ]
     }
   ],
-
   "comments": [
     {
       "id": "1",
@@ -1305,7 +1340,9 @@
       "id": "1",
       "username": "meirzhhan",
       "password": "123",
-      "roles": ["ADMIN"],
+      "roles": [
+        "ADMIN"
+      ],
       "features": {
         "isArticleRatingEnabled": true,
         "isCounterEnabled": true,
@@ -1323,7 +1360,9 @@
       "id": "2",
       "username": "user",
       "password": "123",
-      "roles": ["USER"],
+      "roles": [
+        "USER"
+      ],
       "features": {
         "isArticleRatingEnabled": false,
         "isCounterEnabled": false,
@@ -1341,7 +1380,9 @@
       "id": "3",
       "username": "manager",
       "password": "123",
-      "roles": ["MANAGER"],
+      "roles": [
+        "MANAGER"
+      ],
       "features": {
         "isArticleRatingEnabled": false,
         "isCounterEnabled": true

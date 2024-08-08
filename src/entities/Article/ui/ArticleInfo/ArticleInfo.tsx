@@ -21,7 +21,7 @@ import {
   getArticleDetailsError,
   getArticleDetailsIsLoading,
 } from '../../model/selectors/getArticleDetails';
-import { ArticleInfoSkeleton } from '../Skeletons/Skeletons';
+import { ArticleInfoSkeleton } from '../ArticleSkeletons/ArticleSkeletons';
 
 import cl from './ArticleInfo.module.scss';
 

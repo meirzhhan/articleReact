@@ -58,6 +58,6 @@ export const ArticleListItemSkeleton = memo(
         </Card>
       );
     }
-    return <Skeleton width={240} height={300} border="20px" />;
+    return <Skeleton width={250} height={350} border="20px" />;
   },
 );

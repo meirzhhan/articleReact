@@ -2,7 +2,6 @@ import { memo } from 'react';
 
 import { Icon } from '@/shared/ui/Icon';
 import topButtonIcon from '@/shared/assets/icons/topButton.svg';
-import { useClassName } from '@/shared/lib/hooks/useClassName';
 
 interface ScrollToTopTriggerProps {
   className?: string;

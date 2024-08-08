@@ -106,7 +106,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
       to={getRouteArticleDetails(article.id)}
       className={cl[view]}
     >
-      <Card className={cl.card} border="partial" padding="0" columnGap="8">
+      <Card className={cl.card} border="partial" padding="0">
         <AppImage
           height={180}
           width={'100%'}
@@ -115,14 +115,16 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
           alt={article.title}
           src={article.img}
         />
+        <Card>
+          <Text text={article.title} className={cl.title} />
 
-        <Card className={cl.info} columnGap="4">
-          <Text title={article.title} className={cl.title} />
-          <HStack justify="between" maxWidth>
-            <Text text={article.createdAt} />
-            {views}
-          </HStack>
-          <HStack gap="4">{userInfo}</HStack>
+          <div className={cl.textWrapper}>
+            <HStack justify="between">
+              <Text text={article.createdAt} />
+              {views}
+            </HStack>
+            <HStack gap="4">{userInfo}</HStack>
+          </div>
         </Card>
       </Card>
     </AppLink>

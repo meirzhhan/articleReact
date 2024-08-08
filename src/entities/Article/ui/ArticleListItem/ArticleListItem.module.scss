@@ -6,8 +6,17 @@
 }
 .SMALL {
   .card {
-    width: 240px;
-    height: 300px;
+    position: relative;
+    width: 250px;
+    height: 350px;
     overflow: hidden;
+  }
+  .title {
+    max-height: 72px;
+    overflow: hidden;
+  }
+  .textWrapper {
+    position: absolute;
+    bottom: 12px;
   }
 }

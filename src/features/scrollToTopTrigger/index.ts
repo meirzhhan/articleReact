@@ -1,1 +1,2 @@
-export { ScrollToTopTrigger } from './ui/ScrollToTopTrigger/ScrollToTopTrigger.js';
+import { ScrollToTopTrigger } from './ui/ScrollToTopTrigger/ScrollToTopTrigger';
+export { ScrollToTopTrigger };

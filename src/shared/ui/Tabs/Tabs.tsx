@@ -5,6 +5,7 @@ import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { Flex, FlexDirection } from '../Stack/Flex/Flex';
 import { Card } from '../Card';
 import cl from './Tabs.module.scss';
+import { Text } from '../Text';
 
 export interface TabItem {
   value: string;
@@ -51,7 +52,7 @@ export const Tabs = memo((props: TabsProps) => {
   return (
     <Flex
       direction={direction}
-      gap="32"
+      gap="8"
       align="start"
       className={useClassName(cl.Tabs, {}, [className])}
     >
@@ -60,6 +61,7 @@ export const Tabs = memo((props: TabsProps) => {
 
         return (
           <Card
+            cursorPointer
             key={tab.value}
             variant={isSelected ? 'light' : 'normal'}
             className={useClassName(cl.tab, { [cl.selected]: isSelected }, [])}
