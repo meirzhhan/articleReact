@@ -5,6 +5,8 @@ import CopyIconNew from '@/shared/assets/icons/copyNew.svg';
 
 import { Icon } from '../Icon';
 import cl from './Code.module.scss';
+import { VStack } from '../Stack';
+import { Card } from '../Card';
 
 interface CodeProps {
   className?: string;
@@ -26,14 +28,16 @@ export const Code = memo((props: CodeProps) => {
   }, [text]);
 
   return (
-    <pre className={useClassName(cl.Code, {}, [className])}>
-      <code>{text}</code>
-      <Icon
-        clickable
-        onClick={onCopy}
-        className={cl.Code__copyBtn}
-        Svg={CopyIconNew}
-      />
-    </pre>
+    <Card padding="0" variant="light">
+      <pre className={useClassName(cl.Code, {}, [className])}>
+        <code>{text}</code>
+        <Icon
+          clickable
+          onClick={onCopy}
+          className={cl.Code__copyBtn}
+          Svg={CopyIconNew}
+        />
+      </pre>
+    </Card>
   );
 });

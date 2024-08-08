@@ -18,6 +18,7 @@ interface ImageBlockProps {
  * @returns {JSX.Element} - Компонент для отображения блока изображения.
  */
 
+const x = '/s';
 export const ImageBlock = memo((props: ImageBlockProps) => {
   const { className, block } = props;
 

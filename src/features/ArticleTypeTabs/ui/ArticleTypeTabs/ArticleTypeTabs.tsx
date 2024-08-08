@@ -28,12 +28,20 @@ export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
         content: t('Все статьи'),
       },
       {
+        value: ArticleType.BUSINESS,
+        content: t('Бизнес'),
+      },
+      {
+        value: ArticleType.GREEN,
+        content: t('Природа'),
+      },
+      {
         value: ArticleType.IT,
         content: t('АйТи'),
       },
       {
-        value: ArticleType.SCIENCE,
-        content: t('Наука'),
+        value: ArticleType.TECHNOLOGIES,
+        content: t('Технологии'),
       },
       {
         value: ArticleType.ECONOMICS,

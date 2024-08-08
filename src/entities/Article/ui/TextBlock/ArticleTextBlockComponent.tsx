@@ -21,7 +21,7 @@ export const TextBlock = memo((props: TextBlockProps) => {
 
   return (
     <>
-      {block.title && <Text title={block.title} />}
+      {block.title && <Text title={block.title} bold />}
 
       {block.paragraphs.map((paragraph, index) => (
         <Text key={index} text={paragraph} />

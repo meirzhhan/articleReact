@@ -1,14 +1,25 @@
-import { useClassName } from '@/shared/lib/hooks/useClassName';
-import { Page } from '@/widgets/Page';
-import { VStack } from '@/shared/ui/Stack';
-import { EditableProfile } from '@/features/editableProfile';
 import { useParams } from 'react-router-dom';
+
+import { Page } from '@/widgets/Page';
+
+import { EditableProfile } from '@/features/editableProfile';
+
+import { useClassName } from '@/shared/lib/hooks/useClassName';
+import { VStack } from '@/shared/ui/Stack';
 
 interface ProfilePageProps {
   className?: string;
 }
 
-const ProfilePage = ({ className }: ProfilePageProps) => {
+/**
+ * Компонент страницы профиля пользователя.
+ *
+ * @returns {JSX.Element} - Разметка страницы профиля пользователя.
+ * Использует `useParams` для получения параметра `id` из URL и передает его в компонент `EditableProfile`.
+ */
+
+const ProfilePage = (props: ProfilePageProps) => {
+  const { className } = props;
   const { id } = useParams<{ id: string }>();
 
   return (
