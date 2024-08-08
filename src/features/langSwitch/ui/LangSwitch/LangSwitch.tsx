@@ -22,9 +22,11 @@ export const LangSwitch = memo(({ className, short }: LangSwitchProps) => {
     i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
   };
 
+  const label = short ? t('Короткий язык') : t('Язык');
+
   return (
     <Button className={className} variant="clear" onClick={toggle}>
-      {t(short ? 'Короткий язык' : 'Язык')}
+      {label}
     </Button>
   );
 });
