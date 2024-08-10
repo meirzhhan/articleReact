@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkarticle_react=self.webpackChunkarticle_react||[]).push([[117],{7117:function(e,t,a){a.r(t);var r=a(4848),c=a(2389),n=a(7443),i=a(3361);t.default=function(){var e=(0,c.Bd)().t;return(0,r.jsx)(n.Y,{"data-testid":"AdminPanelPage",children:(0,r.jsx)(i.E,{title:e("Админ панель"),bold:!0})})}}}]);
