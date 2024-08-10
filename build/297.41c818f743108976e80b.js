@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkarticle_react=self.webpackChunkarticle_react||[]).push([[297],{2297:function(t,e,a){a.r(e);var r=a(4848),c=a(2389),u=a(7443),i=a(3361);e.default=function(){var t=(0,c.Bd)("about").t;return(0,r.jsx)(u.Y,{"data-testid":"AboutPage",children:(0,r.jsx)(i.E,{title:t("О сайте"),bold:!0})})}}}]);
