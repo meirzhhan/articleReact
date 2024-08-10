@@ -1,10 +1,11 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ArticleSortListBox } from '@/features/articleSortListBox';
-import { ArticleTypeTabs } from '@/features/articleTypeTabs';
-import { ArticleViewSelector } from '@/features/articleViewSelector';
 import { useArticleFilters } from '@/pages/ArticlesPage/lib/hooks/useArticleFilters';
+
+import { ArticleSortListBox } from '@/features/articleSortListBox';
+import { ArticleTypes } from '@/features/articleTypes';
+import { ArticleViews } from '@/features/articleViews';
 
 import { ArticleSortField, ArticleType } from '@/entities/Article';
 
@@ -63,7 +64,7 @@ export const ArticlesFilters = memo((props: ArticlesFiltersProps) => {
 
   return (
     <VStack gap="24">
-      <ArticleViewSelector view={view} onViewClick={onChangeView} />
+      <ArticleViews view={view} onViewClick={onChangeView} />
 
       <Card className={cl.card} padding="24" border="partial">
         <Input
@@ -73,7 +74,7 @@ export const ArticlesFilters = memo((props: ArticlesFiltersProps) => {
           placeholder={t('Поиск')}
           addonLeft={<Icon Svg={SearchIcon} />}
         />
-        <ArticleTypeTabs
+        <ArticleTypes
           className={cl.tabs}
           value={type}
           onChangeType={onChangeType}

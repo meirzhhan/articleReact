@@ -16,7 +16,7 @@ interface ArticleTypeTabsProps {
  * @param {ArticleTypeTabsProps} props - Свойства компонента.
  * @returns {JSX.Element} - Возвращает JSX элемент.
  */
-export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
+export const ArticleTypes = memo((props: ArticleTypeTabsProps) => {
   const { className, value, onChangeType } = props;
   const { t } = useTranslation('articles');
 

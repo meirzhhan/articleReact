@@ -8,7 +8,7 @@ import { useClassName } from '@/shared/lib/hooks/useClassName';
 import ListIcon from '@/shared/assets/icons/burgerNew.svg';
 import TiledIcon from '@/shared/assets/icons/tileNew.svg';
 
-import cl from './ArticleView.module.scss';
+import cl from './ArticleViews.module.scss';
 
 interface ArticleViewProps {
   className?: string;
@@ -34,7 +34,7 @@ const viewTypes = [
  * @returns {JSX.Element} - Возвращает JSX элемент.
  */
 
-export const ArticleViewSelector = memo((props: ArticleViewProps) => {
+export const ArticleViews = memo((props: ArticleViewProps) => {
   const { className, view, onViewClick } = props;
 
   // Функция для обработки клика по типу отображения
