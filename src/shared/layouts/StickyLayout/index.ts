@@ -1,1 +1,2 @@
-export { StickyLayout } from './StickyLayout';
+import { StickyLayout } from './StickyLayout';
+export { StickyLayout };

@@ -1,1 +1,2 @@
-export { ArticleSortListBox } from './ui/ArticleSortListBox/ArticleSortListBox';
+import { ArticleSortListBox } from './ui/ArticleSortListBox/ArticleSortListBox';
+export { ArticleSortListBox };

@@ -8,7 +8,7 @@ import {
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { Article } from '@/entities/Article';
 
-import { articlePageRecommendationsSchema } from '../types/articlePageRecommendationsSchema';
+import { ArticlePageRecommendationsSchema } from '../types/articlePageRecommendationsSchema';
 import { fetchArticleRecommendations } from '../services/fetchArticleRecommendations/fetchArticleRecommendations';
 
 // Адаптер для нормализации состояния рекомендаций
@@ -47,7 +47,7 @@ export const getArticleRecommendations = {
 const articleRecommendationsSlice = createSlice({
   name: 'articleDetailsPageRecommendationsSlice',
   initialState:
-    recommendationsAdapter.getInitialState<articlePageRecommendationsSchema>({
+    recommendationsAdapter.getInitialState<ArticlePageRecommendationsSchema>({
       isLoading: false,
       error: undefined,
       ids: [],

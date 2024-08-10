@@ -1,1 +1,2 @@
-export { default as ThemeProvider } from './ui/ThemeProvider';
+import ThemeProvider from './ui/ThemeProvider';
+export { ThemeProvider };

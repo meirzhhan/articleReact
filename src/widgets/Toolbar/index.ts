@@ -1,1 +1,2 @@
-export { Toolbar } from './ui/Toolbar/Toolbar';
+import { Toolbar } from './ui/Toolbar/Toolbar';
+export { Toolbar };

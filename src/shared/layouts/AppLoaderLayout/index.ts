@@ -1,1 +1,2 @@
-export { AppLoaderLayout } from './AppLoaderLayout';
+import { AppLoaderLayout } from './AppLoaderLayout';
+export { AppLoaderLayout };

@@ -1,2 +1,5 @@
-export { CommentList } from './ui/CommentList/CommentList';
-export type { CommentType } from './model/types/comment';
+import { CommentList } from './ui/CommentList/CommentList';
+import { CommentType } from './model/types/comment';
+
+export { CommentList };
+export type { CommentType };

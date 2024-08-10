@@ -11,7 +11,7 @@ import { StateSchema } from '@/app/providers/StoreProvider';
 import { CommentType } from '@/entities/Comment';
 
 import { fetchCommentsByArticleId } from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { articleCommentsSchema } from '../types/articleCommentsSchema';
+import { ArticleCommentsSchema } from '../types/articleCommentsSchema';
 
 /**
  * Адаптер для нормализации комментариев.
@@ -49,12 +49,12 @@ export const getArticleComments = {
 
 /**
  * Slice для управления состоянием комментариев статьи.
- * @type {Slice<articleCommentsSchema>}
+ * @type {Slice<ArticleCommentsSchema>}
  */
 
-const articleCommentsSlice: Slice<articleCommentsSchema> = createSlice({
+const articleCommentsSlice: Slice<ArticleCommentsSchema> = createSlice({
   name: 'articleDetailsCommentsSlice',
-  initialState: commentsAdapter.getInitialState<articleCommentsSchema>({
+  initialState: commentsAdapter.getInitialState<ArticleCommentsSchema>({
     isLoading: false,
     error: undefined,
     ids: [],

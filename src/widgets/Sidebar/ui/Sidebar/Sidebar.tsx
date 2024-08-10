@@ -44,9 +44,13 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
   return (
     <aside
       data-testid="sidebar"
-      className={useClassName(cl.Sidebar, { [cl.collapsed]: collapsed }, [
-        className,
-      ])}
+      className={useClassName(
+        cl.Sidebar,
+        {
+          [cl.collapsed]: collapsed,
+        },
+        [className],
+      )}
     >
       <AppLogo size={collapsed ? 30 : 50} className={cl.appLogo} />
 

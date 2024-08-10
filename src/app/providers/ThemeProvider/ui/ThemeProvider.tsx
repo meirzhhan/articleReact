@@ -15,7 +15,18 @@ interface ThemeProviderProps {
 
 const fallbackTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme;
 
-const ThemeProvider = (props: ThemeProviderProps) => {
+/**
+ * Компонент провайдера темы приложения.
+ * Этот компонент отвечает за управление темой на уровне приложения.
+ * Тема берется из пользовательских настроек или из локального хранилища.
+ *
+ * @param {ThemeProviderProps} props - Свойства компонента.
+ * @param {ReactNode} props.children - Дочерние элементы, которые будут обернуты провайдером.
+ *
+ * @returns {JSX.Element} Компонент провайдера темы.
+ */
+
+const ThemeProvider = (props: ThemeProviderProps): JSX.Element => {
   const { children } = props;
 
   // тема по умолчанию из пользовательских настроек

@@ -11,6 +11,17 @@ interface StoreProviderProps {
   asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>;
 }
 
+/**
+ * Компонент `StoreProvider` оборачивает дочерние компоненты в Redux `Provider` и предоставляет доступ к Redux store.
+ *
+ * @param {StoreProviderProps} props - Свойства, передаваемые в компонент.
+ * @param {ReactNode} props.children - Дочерние элементы, которые будут обернуты в `Provider`.
+ * @param {DeepPartial<StateSchema>} [props.initialState] - Начальное состояние Redux store.
+ * @param {DeepPartial<ReducersMapObject<StateSchema>>} [props.asyncReducers] - Асинхронные редюсеры, которые могут быть добавлены в store.
+ *
+ * @returns {JSX.Element} Компонент `StoreProvider`, который предоставляет Redux store дочерним компонентам.
+ */
+
 export const StoreProvider = (props: StoreProviderProps) => {
   const { initialState, asyncReducers, children } = props;
 

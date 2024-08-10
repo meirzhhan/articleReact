@@ -1,5 +1,11 @@
-export { ArticleInfoPageAsync as ArticleInfoPage } from './ui/ArticleInfoPage/ArticleInfoPage.async';
+import { ArticleInfoPageAsync } from './ui/ArticleInfoPage/ArticleInfoPage.async';
+import { ArticleCommentsSchema } from './model/types/articleCommentsSchema';
+import { ArticlePageRecommendationsSchema } from './model/types/articlePageRecommendationsSchema';
+import { ArticleDetailsPageSchema } from './model/types/index';
 
-export type { articleCommentsSchema as ArticleDetailsCommentsSchema } from './model/types/articleCommentsSchema';
-export type { articlePageRecommendationsSchema as articleDetailsPageRecommendationsSchema } from './model/types/articlePageRecommendationsSchema';
-export type { ArticleDetailsPageSchema } from './model/types/index';
+export { ArticleInfoPageAsync as ArticleInfoPage };
+export type {
+  ArticleCommentsSchema,
+  ArticlePageRecommendationsSchema,
+  ArticleDetailsPageSchema,
+};

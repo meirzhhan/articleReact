@@ -1,1 +1,2 @@
-export { NotificationTrigger } from './ui/NotificationTrigger/NotificationTrigger';
+import { NotificationTrigger } from './ui/NotificationTrigger/NotificationTrigger';
+export { NotificationTrigger };

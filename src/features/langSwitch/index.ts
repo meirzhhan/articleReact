@@ -1,1 +1,2 @@
-export { LangSwitch } from './ui/LangSwitch/LangSwitch';
+import { LangSwitch } from './ui/LangSwitch/LangSwitch';
+export { LangSwitch };

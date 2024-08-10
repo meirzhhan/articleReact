@@ -6,7 +6,13 @@ import { AppRoutesProps } from '@/shared/types/router';
 import { routeConfig } from '../config/routeConfig';
 import { RequireAuth } from './RequireAuth';
 
-// Основной компонент маршрутизации, который рендерит маршруты с оберткой
+/**
+ * Основной компонент маршрутизации приложения.
+ *
+ * Этот компонент оборачивает маршруты в компонент `Suspense` для поддержки ленивой загрузки и
+ * проверяет необходимость аутентификации с помощью `RequireAuth`.
+ * @returns {JSX.Element} - Рендерит маршруты с оберткой, используя конфигурацию маршрутов.
+ */
 const AppRouter = () => {
   const renderWithWrapper = useCallback((route: AppRoutesProps) => {
     const element = <Suspense fallback={<></>}>{route.element}</Suspense>;

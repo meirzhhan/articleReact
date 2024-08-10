@@ -1,17 +1,30 @@
-export { userActions, userReducer } from './model/slice/userSlice';
-
-export {
+import { initAuthData } from './model/services/initAuthData';
+import { saveJsonSettings } from './model/services/saveJsonSettings';
+import { userActions, userReducer } from './model/slice/userSlice';
+import {
   getUserRoles,
   isUserAdmin,
   isUserManager,
 } from './model/selectors/roleSelectors';
+import { getUserAuthData } from './model/selectors/getUserAuthData/getUserAuthData';
+import { getUserInitiated } from './model/selectors/getUserInitiated/getUserInitiated';
+import { useJsonSettings } from './model/selectors/jsonSettings';
 
-export { getUserAuthData } from './model/selectors/getUserAuthData/getUserAuthData';
-export { getUserInitiated } from './model/selectors/getUserInitiated/getUserInitiated';
+import { UserRole } from './model/consts/userConsts';
+import { UserSchema, User } from './model/types/user';
 
-export { UserRole } from './model/consts/userConsts';
-export type { UserSchema, User } from './model/types/user';
+export {
+  initAuthData,
+  saveJsonSettings,
+  userActions,
+  userReducer,
+  getUserRoles,
+  isUserAdmin,
+  isUserManager,
+  getUserAuthData,
+  getUserInitiated,
+  useJsonSettings,
+  UserRole,
+};
 
-export { useJsonSettings } from './model/selectors/jsonSettings';
-export { saveJsonSettings } from './model/services/saveJsonSettings';
-export { initAuthData } from './model/services/initAuthData';
+export type { UserSchema, User };

@@ -2,12 +2,13 @@
   display: grid;
   grid-template-areas: 'content right';
   grid-template-columns: 1fr min-content;
+  gap: 16px;
   &__content {
     grid-area: content;
-    max-width: 1200px;
-    justify-self: center;
-    padding: 0 16px;
-    width: 100%;
+    // max-width: 1200px;
+    // justify-self: center;
+    // padding: 0 16px;
+    // width: 100%;
   }
   &__right {
     grid-area: right;

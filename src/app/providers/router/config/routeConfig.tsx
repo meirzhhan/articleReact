@@ -26,6 +26,15 @@ import {
 } from '@/shared/consts/router';
 import { AppRoutesProps } from '@/shared/types/router';
 
+/**
+ * Конфигурация маршрутов приложения.
+ *
+ * Данный объект `routeConfig` используется для определения маршрутов в приложении.
+ *
+ * Ключи объекта - это константы из `AppRoutes`, которые соответствуют различным страницам приложения.
+ * @type {Record<AppRoutes, AppRoutesProps>}
+ */
+
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.MAIN]: {
     path: getRouteMain(),
