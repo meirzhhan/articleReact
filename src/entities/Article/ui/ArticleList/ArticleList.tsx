@@ -44,7 +44,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     isLoading,
     target,
   } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation('articles');
 
   if (!isLoading && !articles.length) {
     return <Text size="l" title={t('Статьи не найдены')} />;

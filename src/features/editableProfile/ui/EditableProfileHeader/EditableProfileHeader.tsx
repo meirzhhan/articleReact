@@ -14,6 +14,7 @@ import { updateProfileData } from '../../model/services/updateProfileData/update
 import { profileActions } from '../../model/slice/profileSlice';
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface EditableProfileHeaderProps {
   className?: string;
@@ -67,34 +68,40 @@ export const EditableProfileHeader = memo(
       <Card padding="24" max border="partial">
         <HStack justify={'between'} className={className}>
           <Text title={t('Профиль')} />
-          {canEdit && (
-            <>
-              {readonly ? (
-                <Button
-                  onClick={onEdit}
-                  data-testid={'EditableProfileCardHeader.EditButton'}
-                >
-                  {t('Редактировать')}
-                </Button>
-              ) : (
-                <HStack gap={'8'}>
-                  <Button
-                    onClick={onCancelEdit}
-                    data-testid={'EditableProfileCardHeader.CancelButton'}
-                  >
-                    {t('Отменить')}
-                  </Button>
-                  <Button
-                    onClick={onSave}
-                    color="success"
-                    data-testid={'EditableProfileCardHeader.SaveButton'}
-                  >
-                    {t('Сохранить')}
-                  </Button>
-                </HStack>
-              )}
-            </>
-          )}
+          <ToggleFeatures
+            feature="isProfileEditEnabled"
+            on={
+              canEdit && (
+                <>
+                  {readonly ? (
+                    <Button
+                      onClick={onEdit}
+                      data-testid={'EditableProfileCardHeader.EditButton'}
+                    >
+                      {t('Редактировать')}
+                    </Button>
+                  ) : (
+                    <HStack gap={'8'}>
+                      <Button
+                        onClick={onCancelEdit}
+                        data-testid={'EditableProfileCardHeader.CancelButton'}
+                      >
+                        {t('Отменить')}
+                      </Button>
+                      <Button
+                        onClick={onSave}
+                        color="success"
+                        data-testid={'EditableProfileCardHeader.SaveButton'}
+                      >
+                        {t('Сохранить')}
+                      </Button>
+                    </HStack>
+                  )}
+                </>
+              )
+            }
+            off={<Text text="Редактирование отключено" />}
+          />
         </HStack>
       </Card>
     );

@@ -1333,6 +1333,30 @@
       "userId": "1",
       "text": "I AM AM I AM IAM I AM AM I AM IAMI AM AM I AM IAMI AM AM I AM IAMI AM AM I AM IAMI AM AM I AM IAMI AM AM I AM IAMI AM AM I AM IAMI AM AM I AM IAMI AM AM I AM IAM",
       "id": "stccj4Q"
+    },
+    {
+      "articleId": "11",
+      "userId": "1",
+      "text": "",
+      "id": "B2X9za6"
+    },
+    {
+      "articleId": "11",
+      "userId": "1",
+      "text": "",
+      "id": "GSgCOyt"
+    },
+    {
+      "articleId": "11",
+      "userId": "1",
+      "text": "",
+      "id": "7Qxq5-a"
+    },
+    {
+      "articleId": "11",
+      "userId": "1",
+      "text": "",
+      "id": "req-U3N"
     }
   ],
   "users": [
@@ -1345,14 +1369,12 @@
       ],
       "features": {
         "isArticleRatingEnabled": true,
-        "isCounterEnabled": true,
-        "isAppRedesigned": true
+        "isProfileEditEnabled": false,
+        "isAddCommentEnabled": false,
+        "isAppRedesigned": false
       },
       "jsonSettings": {
-        "theme": "app_light_theme",
-        "isFirstVisit": true,
-        "settingsPageHasBeenOpen": false,
-        "isArticlesPageWasOpened": true
+        "theme": "app_orange_theme"
       },
       "avatar": "https://2.downloader.disk.yandex.kz/preview/922bcc92ea05b45a13e5b947e8d857df60015823b224a2c9377f84971ece80e2/inf/xy2aN4qiyJBaIw9tdaKubWYPatbyEq8mOAOgg9FdCQqsZt6zC-us8AA5W85y7o7TCw0frz_3KS7XwxGn4w0McQ%3D%3D?uid=1397265792&filename=2.JPG&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=1397265792&tknv=v2&size=1920x970"
     },
@@ -1488,6 +1510,13 @@
       "rate": 2,
       "feedback": "ad",
       "id": "jUMcF69"
+    },
+    {
+      "userId": "1",
+      "articleId": "18",
+      "rate": 4,
+      "feedback": "top",
+      "id": "SjGurqj"
     }
   ],
   "profile-ratings": [

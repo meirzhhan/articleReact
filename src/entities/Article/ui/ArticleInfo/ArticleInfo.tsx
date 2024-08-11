@@ -66,7 +66,7 @@ const Info = () => {
 
 export const ArticleInfo = memo((props: ArticleDetailsProps) => {
   const { className, id } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation('article-info');
   const dispatch = useAppDispatch();
   const isLoading = useSelector(getArticleDetailsIsLoading);
   const error = useSelector(getArticleDetailsError);

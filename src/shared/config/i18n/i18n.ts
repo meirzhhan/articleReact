@@ -9,8 +9,8 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: 'ru',
-    // debug: __IS_DEV__, // debug работает только если тру
-    debug: false,
+    debug: __IS_DEV__, // debug работает только если тру
+    // debug: false
 
     interpolation: {
       escapeValue: false,

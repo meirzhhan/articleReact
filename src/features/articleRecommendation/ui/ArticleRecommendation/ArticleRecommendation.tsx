@@ -22,7 +22,7 @@ interface ArticleRecommendationProps {
 export const ArticleRecommendation = memo(
   (props: ArticleRecommendationProps) => {
     const { className } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('article-info');
 
     // Хук для получения списка рекомендуемых статей, ограничение до 3 статей.
     const {

@@ -1,6 +1,5 @@
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
-import { useTranslation } from 'react-i18next';
 
 import { getUserAuthData } from '@/entities/User';
 
@@ -25,7 +24,6 @@ interface SidebarItemProps {
  */
 
 export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
-  const { t } = useTranslation('sidebar');
   const isAuth = useSelector(getUserAuthData);
 
   if (item.authOnly && !isAuth) {
@@ -45,7 +43,7 @@ export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
       activeClassName={cl.active}
     >
       <Icon Svg={item.Icon} />
-      <span className={cl.link}>{t(item.text)}</span>
+      <span className={cl.link}>{item.text}</span>
     </AppLink>
   );
 });

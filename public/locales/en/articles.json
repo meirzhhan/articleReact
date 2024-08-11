@@ -1,14 +1,16 @@
 {
-  "Поиск": "Search",
+  "Все статьи": "All articles",
+  "Бизнес": "Business",
+  "Технологии": "Technologies",
+  "Экономика": "Economy",
+  "Природа": "Green",
+  "АйТи": "IT",
   "возрастанию": "ascending",
   "убыванию": "descending",
-  "по": "by",
-  "Сортировка по": "Sorting by",
   "дате создания": "date",
   "названию": "name",
   "просмотрам": "views",
-  "Все статьи": "All",
-  "ИТ": "IT",
-  "Наука": "Science",
-  "Экономика": "Economics"
+  "Сортировка по": "Sorting by",
+  "Статьи не найдены": "No articles found",
+  "Читать далее": "Read more"
 }

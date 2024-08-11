@@ -18,6 +18,7 @@ import {
   addCommentFormActions,
   addCommentFormReducer,
 } from '../../model/slice/addCommentFormSlice';
+import { toggleFeatures } from '@/shared/lib/features';
 
 export interface AddCommentFormProps {
   className?: string;
@@ -43,6 +44,12 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
   const text = useSelector(getAddCommentFormText);
   const dispatch = useAppDispatch();
 
+  const isCommentAvailable = toggleFeatures({
+    name: 'isAddCommentEnabled',
+    on: () => true,
+    off: () => false,
+  });
+
   // Обработчик изменения текста комментария.
   const onCommentTextChange = useCallback(
     (value: string) => {
@@ -53,7 +60,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 
   // Обработчик отправки комментария.
   const onSendHandler = useCallback(() => {
-    onSendComment(text || '');
+    onSendComment(text);
     onCommentTextChange('');
   }, [onCommentTextChange, onSendComment, text]);
 
@@ -61,11 +68,18 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
     <DynamicModuleLoader reducers={reducers}>
       <Card className={className} padding="24" border="partial" rowGap="16" max>
         <Input
-          placeholder={t('Введите текст комментария')}
+          placeholder={
+            isCommentAvailable
+              ? t('Введите текст комментария')
+              : t('Комментирование отключено. Можете включить в настройках')
+          }
           value={text}
           onChange={onCommentTextChange}
+          disabled={!isCommentAvailable}
         />
-        <Button onClick={onSendHandler}>{t('Отправить')}</Button>
+        <Button disabled={!isCommentAvailable} onClick={onSendHandler}>
+          {t('Отправить')}
+        </Button>
       </Card>
     </DynamicModuleLoader>
   );

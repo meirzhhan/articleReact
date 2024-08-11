@@ -1,21 +1,26 @@
 {
+  "Серверная ошибка": "Server error",
+  "Некорректный возраст": "Incorrect age",
+  "Некорректная страна": "Incorrect country",
+  "Данные не указаны": "Data not provided",
+  "Имя и фамилия обязательны": "First and last name are required",
+
   "Профиль": "Profile",
   "Редактировать": "Edit",
   "Отменить": "Cancel",
   "Сохранить": "Save",
 
-  "Имя": "First name",
-  "Фамилия": "Last name",
+  "Произошла ошибка при загрузке профиля": "An error occurred while uploading the profile",
+  "Попробуйте обновить страницу": "Try refreshing the page",
+  "Имя": "First",
+  "Фамилия": "Last",
   "Возраст": "Age",
   "Город": "City",
-  "Имя пользователя": "Username",
-  "Ссылка на аватар": "Avatar link",
-  "Укажите валюту": "Specify currency",
-  "Укажите страну": "Specify country",
+  "Логин": "Username",
+  "Аватар": "Avatar",
+  "Валюта": "Currency",
+  "Страна": "Country",
 
-  "Серверная ошибка": "Server error",
-  "Некорректный возраст": "Incorrect age",
-  "Некорректная страна": "Incorrect country",
-  "Данные не указаны": "Data not provided",
-  "Имя и фамилия обязательны": "First and last name are required"
+  "Укажите страну": "Choose country",
+  "Укажите валюту": "Choose currency"
 }

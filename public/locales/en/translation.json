@@ -1,13 +1,18 @@
 {
+  "Форма авторизации": "Authorization form",
+  "Введите логин": "Enter login",
+  "Введите пароль": "Enter password",
+  "Войти": "Sign in",
+
+  "Админка": "Admin",
+  "Профиль": "Profile",
+  "Настройки": "Settings",
+  "Выйти": "Log out",
+
   "Перевод": "Translate",
   "Язык": "English",
   "Страница не найдена": "Page not found",
   "Короткий язык": "En",
-  "Войти": "Sign in",
-  "Введите логин": "Enter login",
-  "Введите пароль": "Enter password",
-  "Форма авторизации": "Authorization form",
   "Вы ввели неверный логин или пароль": "You entered an incorrect username or password",
-  "Выйти": "Log out",
   "Создать статью": "Create an article"
 }

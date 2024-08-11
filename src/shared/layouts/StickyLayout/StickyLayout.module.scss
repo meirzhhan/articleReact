@@ -5,15 +5,17 @@
   gap: 16px;
   &__content {
     grid-area: content;
-    // max-width: 1200px;
-    // justify-self: center;
-    // padding: 0 16px;
-    // width: 100%;
   }
   &__right {
     grid-area: right;
     position: sticky;
     top: 32px;
     height: fit-content;
+  }
+  @media (max-width: 1400px) {
+    gap: 8px;
+    &__right {
+      top: 12px;
+    }
   }
 }
