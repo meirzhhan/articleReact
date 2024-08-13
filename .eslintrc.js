@@ -40,6 +40,11 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
     'react/display-name': 'off',
   },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
   globals: {
     __IS_DEV__: true,
     __API__: true,

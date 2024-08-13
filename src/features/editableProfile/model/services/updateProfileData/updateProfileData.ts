@@ -7,7 +7,6 @@ import { Profile } from '@/entities/Profile';
 import { ValidateProfileError } from '../../consts/consts';
 import { validateProfileData } from '../validateProfileData/validateProfileData';
 import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm';
-import { getRouteProfile } from '@/shared/consts/router';
 
 // TODO: REMEMBER THIS!
 /**

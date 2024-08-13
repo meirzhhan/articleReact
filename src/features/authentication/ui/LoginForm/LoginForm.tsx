@@ -10,7 +10,7 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useClassName } from '@/shared/lib/hooks/useClassName';
+import { customCl } from '@/shared/lib/hooks/useClassName';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
@@ -41,7 +41,7 @@ const reducers: ReducersList = {
  * @returns {JSX.Element} - Возвращает JSX элемент.
  */
 const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('');
 
   const dispatch = useAppDispatch();
   const username = useSelector(getLoginUsername);
@@ -76,7 +76,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
 
   return (
     <DynamicModuleLoader removeAfterUnmount reducers={reducers}>
-      <VStack gap="24" className={useClassName(cl.LoginForm, {}, [className])}>
+      <VStack gap="24" className={customCl(cl.LoginForm, {}, [className])}>
         <Text title={t('Форма авторизации')} />
         {error && <Text text={error} variant="error" />}
 

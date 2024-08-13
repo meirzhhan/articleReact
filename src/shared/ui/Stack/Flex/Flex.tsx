@@ -1,6 +1,6 @@
 import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 
-import { useClassName, Mods } from '@/shared/lib/hooks/useClassName';
+import { customCl, Mods } from '@/shared/lib/hooks/useClassName';
 import cl from './Flex.module.scss';
 
 export type FlexJustify = 'start' | 'center' | 'end' | 'between'; // Варианты выравнивания по горизонтали
@@ -88,7 +88,7 @@ export const Flex = (props: FlexProps): JSX.Element => {
   };
 
   return (
-    <div className={useClassName(cl.Flex, mods, classes)} {...otherProps}>
+    <div className={customCl(cl.Flex, mods, classes)} {...otherProps}>
       {children}
     </div>
   );

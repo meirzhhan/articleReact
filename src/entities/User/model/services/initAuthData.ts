@@ -32,10 +32,10 @@ export const initAuthData = createAsyncThunk<
   try {
     const response = await dispatch(getUserDataByIdQuery(userId)).unwrap();
 
-    localStorage.setItem(
-      LOCAL_STORAGE_LAST_DESIGN_KEY,
-      response.features?.isAppRedesigned ? 'new' : 'old', // FIXME: Remove
-    );
+    // localStorage.setItem(
+    //   LOCAL_STORAGE_LAST_DESIGN_KEY,
+    //   // response.features?.isAppRedesigned ? 'new' : 'old', // FIXME: Remove
+    // );
 
     return response;
   } catch (e) {

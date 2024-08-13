@@ -4,7 +4,7 @@ import { ArticleView } from '@/entities/Article';
 
 import { Card } from '@/shared/ui/Card';
 import { Icon } from '@/shared/ui/Icon';
-import { useClassName } from '@/shared/lib/hooks/useClassName';
+import { customCl } from '@/shared/lib/hooks/useClassName';
 import ListIcon from '@/shared/assets/icons/burgerNew.svg';
 import TiledIcon from '@/shared/assets/icons/tileNew.svg';
 
@@ -42,26 +42,28 @@ export const ArticleViews = memo((props: ArticleViewProps) => {
     onViewClick?.(newView);
   }; // Возвращает функцию для вызова с новым типом отображения
 
+  // Создаем массив иконок с соответствующими классами
+
   return (
     <Card
       border="partial"
       max
-      className={useClassName(cl.Main, {}, [className])}
+      className={customCl(cl.Main, {}, [className])}
       rowGap="8"
     >
-      {viewTypes.map((type) => (
-        <Icon
-          key={type.view}
-          clickable
-          onClick={onClick(type.view)}
-          Svg={type.icon}
-          className={useClassName(
-            '',
-            { [cl.notSelected]: type.view !== view },
-            [],
-          )}
-        />
-      ))}
+      {viewTypes.map((type) => {
+        const IconClassName = type.view !== view && cl.notSelected;
+
+        return (
+          <Icon
+            key={type.view}
+            clickable
+            onClick={onClick(type.view)}
+            Svg={type.icon}
+            className={IconClassName}
+          />
+        );
+      })}
     </Card>
   );
 });

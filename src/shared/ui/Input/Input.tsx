@@ -7,7 +7,7 @@ import React, {
   ReactNode,
 } from 'react';
 
-import { Mods, useClassName } from '@/shared/lib/hooks/useClassName';
+import { Mods, customCl } from '@/shared/lib/hooks/useClassName';
 
 import { HStack } from '../Stack';
 import { Text } from '../Text';
@@ -84,7 +84,7 @@ export const Input = memo((props: InputProps) => {
   };
 
   const input = (
-    <div className={useClassName(cl.InputWrapper, mods, [className, cl[size]])}>
+    <div className={customCl(cl.InputWrapper, mods, [className, cl[size]])}>
       <div className={cl.InputWrapper__addOnLeft}>{addonLeft}</div>
       <input
         className={cl.InputWrapper__input}

@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
 import AppSvg from '@/shared/assets/icons/app-logo.svg';
-import { useClassName } from '@/shared/lib/hooks/useClassName';
+import { customCl } from '@/shared/lib/hooks/useClassName';
 
 import { HStack } from '../Stack';
 import cl from './AppLogo.module.scss';
@@ -26,7 +26,7 @@ export const AppLogo = memo((props: AppLogoProps) => {
     <HStack
       maxWidth
       justify="center"
-      className={useClassName(cl.wrapper, {}, [className])}
+      className={customCl(cl.wrapper, {}, [className])}
     >
       <AppSvg width={size} height={size} className={cl.appLogo} />
       <div className={cl.gradientBig} />

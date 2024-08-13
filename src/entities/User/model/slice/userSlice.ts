@@ -28,10 +28,10 @@ const userSlice = createSlice({
       state.authData = action.payload;
       setFeatureFlags(action.payload.features);
       localStorage.setItem(USER_LOCALSTORAGE_KEY, action.payload.id);
-      localStorage.setItem(
-        LOCAL_STORAGE_LAST_DESIGN_KEY,
-        action.payload.features?.isAppRedesigned ? 'new' : 'old',
-      );
+      // localStorage.setItem(
+      //   LOCAL_STORAGE_LAST_DESIGN_KEY,
+      //   action.payload.features?.isAppRedesigned ? 'new' : 'old',
+      // );
     },
 
     /**
@@ -44,15 +44,16 @@ const userSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    builder.addCase(
+      saveJsonSettings.fulfilled,
+      (state, { payload }: PayloadAction<JsonSettings>) => {
+        if (state.authData) {
+          state.authData.jsonSettings = payload;
+          console.log(1);
+        }
+      },
+    );
     builder
-      .addCase(
-        saveJsonSettings.fulfilled,
-        (state, { payload }: PayloadAction<JsonSettings>) => {
-          if (state.authData) {
-            state.authData.jsonSettings = payload;
-          }
-        },
-      )
       .addCase(
         initAuthData.fulfilled,
         (state, { payload }: PayloadAction<User>) => {

@@ -2,11 +2,11 @@ import { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { HStack, VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 import { AppImage } from '@/shared/ui/AppImage';
 import { Skeleton } from '@/shared/ui/Skeleton';
-import { useClassName } from '@/shared/lib/hooks/useClassName';
+import { customCl } from '@/shared/lib/hooks/useClassName';
 import {
   DynamicModuleLoader,
   ReducersList,
@@ -88,7 +88,7 @@ export const ArticleInfo = memo((props: ArticleDetailsProps) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <VStack
-        className={useClassName(cl.ArticleDetails, {}, [className])}
+        className={customCl(cl.ArticleDetails, {}, [className])}
         gap={'16'}
         maxWidth
       >

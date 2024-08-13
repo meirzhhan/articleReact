@@ -73,7 +73,7 @@ const profileSlice = createSlice({
           state.validateErrors = undefined;
         },
       )
-      .addCase(updateProfileData.rejected, (state, action) => {
+      .addCase(updateProfileData.rejected, (state) => {
         state.isLoading = false;
         // state.validateErrors = action.payload;
       });

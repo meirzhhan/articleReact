@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { Popover as HPopover } from '@headlessui/react';
 
-import { useClassName } from '@/shared/lib/hooks/useClassName';
+import { customCl } from '@/shared/lib/hooks/useClassName';
 import { DropdownDirection } from '@/shared/types/ui';
 
 import { mapDirectionClass } from '../../styles/consts';
@@ -37,12 +37,12 @@ export function Popover(props: PopoverProps) {
   const menuClasses = [mapDirectionClass[direction], popupCl.menu];
 
   return (
-    <HPopover className={useClassName(popupCl.popup, {}, [className])}>
+    <HPopover className={customCl(popupCl.popup, {}, [className])}>
       <HPopover.Button as="div" className={popupCl.trigger}>
         {trigger}
       </HPopover.Button>
 
-      <HPopover.Panel className={useClassName(cl.panel, {}, menuClasses)}>
+      <HPopover.Panel className={customCl(cl.panel, {}, menuClasses)}>
         {children}
       </HPopover.Panel>
     </HPopover>

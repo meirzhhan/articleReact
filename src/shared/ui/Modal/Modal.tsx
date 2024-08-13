@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
-import { useClassName, Mods } from '@/shared/lib/hooks/useClassName';
+import { customCl, Mods } from '@/shared/lib/hooks/useClassName';
 
 import { Overlay } from '../Overlay';
 import { Portal } from '../Portal';
@@ -49,11 +49,7 @@ export const Modal = (props: ModalProps) => {
   return (
     <Portal element={document.getElementById('app') ?? document.body}>
       <div
-        className={useClassName(cl.Modal, mods, [
-          className,
-          theme,
-          'app_modal',
-        ])}
+        className={customCl(cl.Modal, mods, [className, theme, 'app_modal'])}
       >
         <Overlay onClick={close} />
         <div className={cl.Modal__content}>{children}</div>

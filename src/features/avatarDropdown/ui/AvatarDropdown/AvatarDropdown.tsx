@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { forwardRef, memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
@@ -11,13 +11,13 @@ import {
 
 import { Avatar } from '@/shared/ui/Avatar';
 import { Dropdown } from '@/shared/ui/Popups';
-import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
   getRouteAdmin,
   getRouteProfile,
   getRouteSettings,
 } from '@/shared/consts/router';
+import { forwardRefWithAs } from '@headlessui/react/dist/utils/render';
 
 interface AvatarDropdownProps {
   className?: string;
@@ -32,7 +32,11 @@ interface AvatarDropdownProps {
  * @returns {JSX.Element | null} - Возвращает элемент меню или null, если нет данных авторизации.
  */
 
+// export const Button = forwardRef(
+//   (props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
+
 export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
+  // export const AvatarDropdown = forwardRef(props: AvatarDropdownProps, ref: ForwardedRef<HTML>) => {
   const { className } = props;
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
@@ -76,7 +80,7 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
 
   return (
     <Dropdown
-      className={useClassName('', {}, [className])}
+      className={className}
       direction="bottom left"
       items={items}
       trigger={<Avatar size={40} src={authData.avatar} />}

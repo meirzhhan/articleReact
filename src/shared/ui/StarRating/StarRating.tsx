@@ -1,6 +1,6 @@
 import { memo, useState } from 'react';
 
-import { useClassName } from '@/shared/lib/hooks/useClassName';
+import { customCl } from '@/shared/lib/hooks/useClassName';
 import { Icon } from '../Icon';
 import StarIcon from '@/shared/assets/icons/star.svg';
 
@@ -49,10 +49,10 @@ export const StarRating = memo((props: StarRatingProps) => {
   };
 
   return (
-    <div className={useClassName(cl.StarRating, {}, [className])}>
+    <div className={customCl(cl.StarRating, {}, [className])}>
       {stars.map((starNumber) => {
         const commonProps = {
-          className: useClassName(
+          className: customCl(
             cl.starIcon,
             {
               [cl.selected]: isSelected,

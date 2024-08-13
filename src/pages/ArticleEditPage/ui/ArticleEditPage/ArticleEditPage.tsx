@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Page } from '@/widgets/Page';
 
-import { useClassName } from '@/shared/lib/hooks/useClassName';
+import { customCl } from '@/shared/lib/hooks/useClassName';
 import { Text } from '@/shared/ui/Text';
 
 interface ArticleEditPageProps {
@@ -17,7 +17,7 @@ const ArticleEditPage = (props: ArticleEditPageProps) => {
   const isEdit = Boolean(id);
 
   return (
-    <Page className={useClassName('', {}, [className])}>
+    <Page className={customCl('', {}, [className])}>
       <Text
         title={
           isEdit

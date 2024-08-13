@@ -2,14 +2,13 @@ import { memo } from 'react';
 
 import { CommentType } from '@/entities/Comment/model/types/comment';
 
-import { HStack, VStack } from '@/shared/ui/Stack';
+import { HStack } from '@/shared/ui/Stack';
 import { Card } from '@/shared/ui/Card';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Text } from '@/shared/ui/Text';
 import { getRouteProfile } from '@/shared/consts/router';
-import { useClassName } from '@/shared/lib/hooks/useClassName';
 
 interface CommentCardProps {
   className?: string;

@@ -1,6 +1,6 @@
 import { HTMLAttributes, ReactNode, memo } from 'react';
 
-import { useClassName } from '@/shared/lib/hooks/useClassName';
+import { customCl } from '@/shared/lib/hooks/useClassName';
 
 import cl from './Card.module.scss';
 
@@ -74,7 +74,7 @@ export const Card = memo((props: CardProps) => {
 
   return (
     <div
-      className={useClassName(
+      className={customCl(
         cl.Card,
         {
           [cl.max]: max,

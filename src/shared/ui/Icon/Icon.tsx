@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import { useClassName } from '@/shared/lib/hooks/useClassName';
+import { customCl } from '@/shared/lib/hooks/useClassName';
 import cl from './Icon.module.scss';
 
 // Тип для пропсов SVG, исключая `onClick`
@@ -43,7 +43,7 @@ export const Icon = memo((props: IconProps) => {
 
   const icon = (
     <Svg
-      className={useClassName(cl.Icon, {}, [className])}
+      className={customCl(cl.Icon, {}, [className])}
       width={width}
       height={height}
       {...otherProps}

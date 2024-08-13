@@ -9,7 +9,6 @@ import { CommentList } from '@/entities/Comment';
 import { VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useClassName } from '@/shared/lib/hooks/useClassName';
 
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
@@ -40,7 +39,7 @@ export const ArticleComments = memo((props: ArticleCommentsProps) => {
   // Загрузка всех комментариев
   useEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
-  }, []);
+  }, [dispatch, id]);
 
   // Функция для добавления комментария, передается пропсом в <AddCommentForm />
   const onSendComment = useCallback(

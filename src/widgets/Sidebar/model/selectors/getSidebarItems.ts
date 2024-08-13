@@ -26,18 +26,16 @@ import SettingsIcon from '@/shared/assets/icons/kebabNew.svg';
  */
 
 export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
-  const { t } = useTranslation('sidebar');
-
   const sidebarItemsList: SidebarItemsType[] = [
     {
       path: getRouteMain(),
       Icon: MainIcon,
-      text: t('Главная'),
+      text: 'Главная',
     },
     {
       path: getRouteAbout(),
       Icon: AboutIcon,
-      text: t('О сайте'),
+      text: 'О сайте',
     },
   ];
 
@@ -46,19 +44,19 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
       {
         path: getRouteProfile(userData.id),
         Icon: ProfileIcon,
-        text: t('Профиль'),
+        text: 'Профиль',
         authOnly: true,
       },
       {
         path: getRouteArticles(),
         Icon: ArticleIcon,
-        text: t('Статьи'),
+        text: 'Статьи',
         authOnly: true,
       },
       {
         path: getRouteSettings(),
         Icon: SettingsIcon,
-        text: t('Настройки'),
+        text: 'Настройки',
         authOnly: true,
       },
     );

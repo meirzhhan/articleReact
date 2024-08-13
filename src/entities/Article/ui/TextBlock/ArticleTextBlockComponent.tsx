@@ -21,10 +21,10 @@ export const TextBlock = memo((props: TextBlockProps) => {
 
   return (
     <>
-      {block.title && <Text title={block.title} bold />}
+      {block.title && <Text className={className} title={block.title} bold />}
 
       {block.paragraphs.map((paragraph, index) => (
-        <Text key={index} text={paragraph} />
+        <Text className={className} key={index} text={paragraph} />
       ))}
     </>
   );

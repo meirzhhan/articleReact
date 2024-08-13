@@ -5,6 +5,7 @@ import { Theme } from '../../../consts/theme';
 
 interface UseThemeResult {
   toggleTheme: (saveAction?: (theme: Theme) => void) => void;
+  // toggleTheme: (saveAction?: (theme: Theme) => void) => void;
   theme: Theme;
 }
 

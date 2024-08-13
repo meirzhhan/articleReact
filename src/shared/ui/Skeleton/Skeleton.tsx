@@ -1,6 +1,6 @@
 import { CSSProperties, memo } from 'react';
 
-import { useClassName } from '@/shared/lib/hooks/useClassName';
+import { customCl } from '@/shared/lib/hooks/useClassName';
 import cl from './Skeleton.module.scss';
 
 interface SkeletonProps {
@@ -27,9 +27,6 @@ export const Skeleton = memo((props: SkeletonProps) => {
   };
 
   return (
-    <div
-      className={useClassName(cl.Skeleton, {}, [className])}
-      style={styles}
-    />
+    <div className={customCl(cl.Skeleton, {}, [className])} style={styles} />
   );
 });

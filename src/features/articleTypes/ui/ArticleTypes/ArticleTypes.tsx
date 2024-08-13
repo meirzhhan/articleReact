@@ -6,7 +6,6 @@ import { ArticleType } from '@/entities/Article';
 import { TabItem, Tabs } from '@/shared/ui/Tabs';
 
 interface ArticleTypeTabsProps {
-  className?: string;
   value: ArticleType; // 'ALL' | 'IT' | 'SCIENCE' | 'ECONOMICS'
   onChangeType: (type: ArticleType) => void;
 }
@@ -17,7 +16,7 @@ interface ArticleTypeTabsProps {
  * @returns {JSX.Element} - Возвращает JSX элемент.
  */
 export const ArticleTypes = memo((props: ArticleTypeTabsProps) => {
-  const { className, value, onChangeType } = props;
+  const { value, onChangeType } = props;
   const { t } = useTranslation('articles');
 
   // Опции для типов фильтрации статей
@@ -61,7 +60,6 @@ export const ArticleTypes = memo((props: ArticleTypeTabsProps) => {
 
   return (
     <Tabs
-      className={className}
       direction="column"
       tabs={typeTabs}
       value={value}

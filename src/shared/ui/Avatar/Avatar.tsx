@@ -1,6 +1,6 @@
 import { CSSProperties, useMemo } from 'react';
 
-import { Mods, useClassName } from '@/shared/lib/hooks/useClassName';
+import { customCl } from '@/shared/lib/hooks/useClassName';
 
 import { Icon } from '../Icon';
 import { Skeleton } from '../Skeleton';
@@ -44,7 +44,7 @@ export const Avatar = (props: AvatarProps) => {
       src={src}
       alt={alt}
       style={styles}
-      className={useClassName(cl.Avatar, {}, [className])}
+      className={customCl(cl.Avatar, {}, [className])}
     />
   );
 };

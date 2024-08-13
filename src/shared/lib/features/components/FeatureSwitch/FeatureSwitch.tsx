@@ -1,6 +1,6 @@
-import { memo, useCallback } from 'react';
+import { memo } from 'react';
 import { ListBox } from '@/shared/ui/Popups';
-import { getFeatureFlag } from '@/shared/lib/features';
+// import { getFeatureFlag } from '@/shared/lib/features';
 import { HStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 import { FeatureFlags } from './../../../../types/featureFlags';
@@ -15,10 +15,10 @@ interface FeatureSwitchProps {
 }
 
 export const FeatureSwitch = memo((props: FeatureSwitchProps) => {
-  const { className, feature, featureLabel, onChangeFeature, isLoading } =
-    props;
+  const { className, featureLabel, isLoading } = props;
 
-  const isFeatureEnabled = getFeatureFlag(feature);
+  // const isFeatureEnabled = getFeatureFlag(feature);
+  const isFeatureEnabled = false;
 
   const items = [
     {
@@ -31,11 +31,12 @@ export const FeatureSwitch = memo((props: FeatureSwitchProps) => {
     },
   ];
 
-  const onChange = useCallback((value: string) => {
-    onChangeFeature(value, feature);
-  }, []);
+  // const onChange = useCallback((value: string) => {
+  //   onChangeFeature(value, feature);
+  // }, []);
+  const onChange = () => {}; // временно ничего не делает
 
-  if (1) {
+  if (isLoading) {
     return (
       <HStack gap="16">
         <Skeleton width={205} height={32} border="12px" />

@@ -1,12 +1,11 @@
 import { memo, useCallback } from 'react';
 
-import { useClassName } from '@/shared/lib/hooks/useClassName';
+import { customCl } from '@/shared/lib/hooks/useClassName';
 import CopyIconNew from '@/shared/assets/icons/copyNew.svg';
 
 import { Icon } from '../Icon';
-import cl from './Code.module.scss';
-import { VStack } from '../Stack';
 import { Card } from '../Card';
+import cl from './Code.module.scss';
 
 interface CodeProps {
   className?: string;
@@ -29,7 +28,7 @@ export const Code = memo((props: CodeProps) => {
 
   return (
     <Card padding="0" variant="light">
-      <pre className={useClassName(cl.Code, {}, [className])}>
+      <pre className={customCl(cl.Code, {}, [className])}>
         <code>{text}</code>
         <Icon
           clickable

@@ -10,7 +10,7 @@ import { Text } from '@/shared/ui/Text';
 import { Icon } from '@/shared/ui/Icon';
 import { Button } from '@/shared/ui/Button';
 import { AppLink } from '@/shared/ui/AppLink';
-import { useClassName } from '@/shared/lib/hooks/useClassName';
+import { customCl } from '@/shared/lib/hooks/useClassName';
 import { getRouteArticleDetails } from '@/shared/consts/router';
 import EyeIcon from '@/shared/assets/icons/eyeNew.svg';
 
@@ -39,6 +39,8 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   const { className, article, view, target } = props;
   const { t } = useTranslation('articles');
 
+  const mainClassName = customCl(cl.ArticleListItem, {}, [className, cl[view]]);
+
   const userInfo = (
     <>
       <Avatar size={32} src={article.user.avatar} />
@@ -60,7 +62,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
     return (
       <Card
-        className={useClassName(cl.ArticleListItem, {}, [className, cl[view]])}
+        className={mainClassName}
         padding="24"
         border="partial"
         max

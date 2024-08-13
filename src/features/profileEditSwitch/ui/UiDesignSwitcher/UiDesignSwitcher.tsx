@@ -4,21 +4,19 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { getUserAuthData } from '@/entities/User';
 import { useSelector } from 'react-redux';
 import { FeatureSwitch } from '@/shared/lib/features/components/FeatureSwitch/FeatureSwitch';
-import { Skeleton } from '@/shared/ui/Skeleton';
 import { useTranslation } from 'react-i18next';
 import { FeatureFlags } from '@/shared/types/featureFlags';
 import { VStack } from '@/shared/ui/Stack';
 import { Card } from '@/shared/ui/Card';
 import { Text } from '@/shared/ui/Text';
 
-interface UiDesignSwitcherProps {
-  className?: string;
-}
+// interface UiDesignSwitcherProps {
+//   className?: string;
+// }
 
 // TODO: isAppRedesigned => language
 
-export const UiDesignSwitcher = memo((props: UiDesignSwitcherProps) => {
-  const { className } = props;
+export const UiDesignSwitcher = memo(() => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const authData = useSelector(getUserAuthData);
@@ -57,8 +55,9 @@ export const UiDesignSwitcher = memo((props: UiDesignSwitcherProps) => {
       <Text title={t('Настройки пользователя')} />
 
       <VStack gap="24">
-        {s.map((xd) => (
+        {s.map((xd, index) => (
           <FeatureSwitch
+            key={index}
             isLoading={isLoading}
             feature={xd.feature}
             featureLabel={xd.featureLabel}

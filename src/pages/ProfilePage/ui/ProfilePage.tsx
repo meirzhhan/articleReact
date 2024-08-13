@@ -4,7 +4,7 @@ import { Page } from '@/widgets/Page';
 
 import { EditableProfile } from '@/features/editableProfile';
 
-import { useClassName } from '@/shared/lib/hooks/useClassName';
+import { customCl } from '@/shared/lib/hooks/useClassName';
 import { VStack } from '@/shared/ui/Stack';
 
 interface ProfilePageProps {
@@ -23,10 +23,7 @@ const ProfilePage = (props: ProfilePageProps) => {
   const { id } = useParams<{ id: string }>();
 
   return (
-    <Page
-      data-testid="ProfilePage"
-      className={useClassName('', {}, [className])}
-    >
+    <Page data-testid="ProfilePage" className={customCl('', {}, [className])}>
       <VStack maxWidth gap={'16'}>
         <EditableProfile id={id} />
       </VStack>

@@ -5,7 +5,7 @@ import { getUserAuthData } from '@/entities/User';
 
 import { AppLink } from '@/shared/ui/AppLink';
 import { Icon } from '@/shared/ui/Icon';
-import { useClassName } from '@/shared/lib/hooks/useClassName';
+import { customCl } from '@/shared/lib/hooks/useClassName';
 
 import { SidebarItemsType } from '../../model/types/sidebar';
 import cl from './SidebarItem.module.scss';
@@ -25,23 +25,14 @@ interface SidebarItemProps {
 
 export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
   const isAuth = useSelector(getUserAuthData);
+  const className = customCl(cl.Item, { [cl.collapsed]: collapsed }, []);
 
   if (item.authOnly && !isAuth) {
     return null;
   }
 
   return (
-    <AppLink
-      to={item.path}
-      className={useClassName(
-        cl.Item,
-        {
-          [cl.collapsed]: collapsed,
-        },
-        [],
-      )}
-      activeClassName={cl.active}
-    >
+    <AppLink to={item.path} className={className} activeClassName={cl.active}>
       <Icon Svg={item.Icon} />
       <span className={cl.link}>{item.text}</span>
     </AppLink>

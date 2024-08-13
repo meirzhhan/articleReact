@@ -1,7 +1,7 @@
 import { Fragment, ReactNode, useMemo } from 'react';
 import { Listbox as HListbox } from '@headlessui/react';
 
-import { useClassName } from '@/shared/lib/hooks/useClassName';
+import { customCl } from '@/shared/lib/hooks/useClassName';
 import { DropdownDirection } from '@/shared/types/ui';
 import ArrowIcon from '@/shared/assets/icons/arrow-bottomNew.svg';
 
@@ -13,7 +13,7 @@ import { mapDirectionClass } from '../../styles/consts';
 import popupCl from '../../styles/popup.module.scss';
 import cl from './ListBox.module.scss';
 export interface ListBoxItem<T extends string> {
-  value: string;
+  value: T;
   content: ReactNode;
   disabled?: boolean;
 }
@@ -62,7 +62,7 @@ export function ListBox<T extends string>(props: ListBoxProps<T>): JSX.Element {
       <HListbox
         disabled={readonly}
         as="div"
-        className={useClassName(popupCl.popup, {}, [className])}
+        className={customCl(popupCl.popup, {}, [className])}
         value={value}
         onChange={onChange}
       >
@@ -74,9 +74,7 @@ export function ListBox<T extends string>(props: ListBoxProps<T>): JSX.Element {
           {selectedItem?.content ?? defaultValue}
         </HListbox.Button>
 
-        <HListbox.Options
-          className={useClassName(cl.options, {}, optionsClasses)}
-        >
+        <HListbox.Options className={customCl(cl.options, {}, optionsClasses)}>
           {items?.map((item) => (
             <HListbox.Option
               key={item.value}
@@ -86,7 +84,7 @@ export function ListBox<T extends string>(props: ListBoxProps<T>): JSX.Element {
             >
               {({ active, selected }) => (
                 <li
-                  className={useClassName(
+                  className={customCl(
                     cl.item,
                     {
                       [popupCl.active]: active,

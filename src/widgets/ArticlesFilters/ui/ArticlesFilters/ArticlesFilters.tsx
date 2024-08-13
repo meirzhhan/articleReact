@@ -63,7 +63,7 @@ export const ArticlesFilters = memo((props: ArticlesFiltersProps) => {
   const { view, onChangeView } = useArticleFilters();
 
   return (
-    <VStack gap="24">
+    <VStack className={className} gap="24">
       <ArticleViews view={view} onViewClick={onChangeView} />
 
       <Card className={cl.card} padding="24" border="partial">
@@ -74,11 +74,7 @@ export const ArticlesFilters = memo((props: ArticlesFiltersProps) => {
           placeholder={t('Поиск')}
           addonLeft={<Icon Svg={SearchIcon} />}
         />
-        <ArticleTypes
-          className={cl.tabs}
-          value={type}
-          onChangeType={onChangeType}
-        />
+        <ArticleTypes value={type} onChangeType={onChangeType} />
         <ArticleSortListBox
           order={order}
           sort={sort}

@@ -14,7 +14,7 @@ import { StateSchema } from '@/app/providers/StoreProvider';
 import { uiActions } from '@/features/UI';
 import { getUIScrollByPath } from '@/features/UI/model/selectors/ui';
 
-import { useClassName } from '@/shared/lib/hooks/useClassName';
+import { customCl } from '@/shared/lib/hooks/useClassName';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
@@ -73,7 +73,7 @@ export const Page = memo((props: PageProps) => {
   return (
     <main
       ref={wrapperRef}
-      className={useClassName(cl.Page, {}, [className])}
+      className={customCl(cl.Page, {}, [className])}
       onScroll={onScroll}
       id={PAGE_ID}
       data-testid={props['data-testid'] ?? 'Page'}

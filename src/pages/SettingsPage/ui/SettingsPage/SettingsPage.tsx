@@ -10,8 +10,8 @@ const SettingsPage = memo((props: SettingsPageProps) => {
   const { className } = props;
 
   return (
-    <Page>
-      <UiDesignSwitcher />
+    <Page className={className}>
+      <UiDesignSwitcher />{' '}
     </Page>
   );
 });

@@ -1,6 +1,6 @@
 import { memo, ReactNode, useCallback, useEffect } from 'react';
 
-import { useClassName } from '@/shared/lib/hooks/useClassName';
+import { customCl } from '@/shared/lib/hooks/useClassName';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import {
   AnimationProvider,
@@ -32,7 +32,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
   const { Spring, Gesture } = useAnimationLibs();
   const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
   const { theme } = useTheme();
-  const { className, children, onClose, isOpen, lazy } = props;
+  const { className, children, onClose, isOpen } = props;
 
   // Открывает выдвижное окно с анимацией.
   const openDrawer = useCallback(() => {
@@ -101,7 +101,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
   return (
     <Portal element={document.getElementById('app') ?? document.body}>
       <div
-        className={useClassName(cl.Drawer, {}, [
+        className={customCl(cl.Drawer, {}, [
           className,
           theme,
           'app_drawer',

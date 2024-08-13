@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
 import { Code } from '@/shared/ui/Code';
-import { useClassName } from '@/shared/lib/hooks/useClassName';
+import { customCl } from '@/shared/lib/hooks/useClassName';
 
 import { ArticleCodeBlock } from '../../model/types/article';
 import cl from './CodeBlock.module.scss';
@@ -22,7 +22,7 @@ export const CodeBlock = memo((props: CodeBlockProps) => {
   const { className, block } = props;
 
   return (
-    <div className={useClassName(cl.Code, {}, [className])}>
+    <div className={customCl(cl.Code, {}, [className])}>
       <Code text={block.code} />
     </div>
   );

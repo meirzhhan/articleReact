@@ -19,7 +19,7 @@ export const ThemeSwitch = memo(({ className }: { className?: string }) => {
   const dispatch = useAppDispatch();
 
   // Обработчик для переключения темы. Обновляет тему и сохраняет её в настройках пользователя.
-  const onToggleHandler = useCallback(() => {
+  const onToggleHandler = useCallback(async () => {
     toggleTheme((newTheme) => {
       dispatch(saveJsonSettings({ theme: newTheme }));
     });

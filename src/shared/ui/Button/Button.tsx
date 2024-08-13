@@ -5,7 +5,7 @@ import {
   forwardRef,
 } from 'react';
 
-import { Mods, useClassName } from '@/shared/lib/hooks/useClassName';
+import { Mods, customCl } from '@/shared/lib/hooks/useClassName';
 import cl from './Button.module.scss';
 
 export type ButtonVariable = 'clear' | 'outline' | 'filled'; // Типы возможных вариантов кнопки.
@@ -59,7 +59,7 @@ export const Button = forwardRef(
     return (
       <button
         type="button"
-        className={useClassName(cl.Button, mods, [
+        className={customCl(cl.Button, mods, [
           className,
           cl[variant],
           cl[size],

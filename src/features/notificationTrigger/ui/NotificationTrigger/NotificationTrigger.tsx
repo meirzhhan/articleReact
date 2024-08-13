@@ -5,7 +5,7 @@ import { Popover } from '@/shared/ui/Popups';
 import { NotificationList } from '@/entities/Notification';
 import { Drawer } from '@/shared/ui/Drawer';
 import { Icon } from '@/shared/ui/Icon';
-import { useClassName } from '@/shared/lib/hooks/useClassName';
+import { customCl } from '@/shared/lib/hooks/useClassName';
 import NotificationIcon from '@/shared/assets/icons/notificationNew.svg';
 
 import cl from './NotificationTrigger.module.scss';
@@ -43,7 +43,7 @@ export const NotificationTrigger = memo((props: NotificationTriggerProps) => {
     <>
       <BrowserView>
         <Popover
-          className={useClassName(cl.NotificationButton, {}, [className])}
+          className={customCl(cl.NotificationButton, {}, [className])}
           direction="bottom left"
           trigger={trigger}
         >

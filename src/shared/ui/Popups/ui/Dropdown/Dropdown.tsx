@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import { Menu } from '@headlessui/react';
 import { Fragment } from 'react/jsx-runtime';
 
-import { useClassName } from '@/shared/lib/hooks/useClassName';
+import { customCl } from '@/shared/lib/hooks/useClassName';
 import { DropdownDirection } from '@/shared/types/ui';
 
 import { AppLink } from '../../../AppLink';
@@ -37,20 +37,16 @@ export function Dropdown(props: DropdownProps): JSX.Element {
   const menuClasses = [mapDirectionClass[direction], popupCl.menu];
 
   return (
-    <Menu as="div" className={useClassName(popupCl.popup, {}, [className])}>
+    <Menu as="div" className={customCl(popupCl.popup, {}, [className])}>
       <Menu.Button className={popupCl.trigger}>{trigger}</Menu.Button>
-      <Menu.Items className={useClassName(cl.menu, {}, menuClasses)}>
+      <Menu.Items className={customCl(cl.menu, {}, menuClasses)}>
         {items.map((item, index) => {
           const content = ({ active }: { active: boolean }) => (
             <button
               type="button"
               disabled={item.disabled}
               onClick={item.onClick}
-              className={useClassName(
-                cl.item,
-                { [popupCl.active]: active },
-                [],
-              )}
+              className={customCl(cl.item, { [popupCl.active]: active }, [])}
             >
               {item.content}
             </button>

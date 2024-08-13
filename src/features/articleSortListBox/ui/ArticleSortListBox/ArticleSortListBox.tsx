@@ -6,7 +6,6 @@ import { ArticleSortField } from '@/entities/Article';
 import { VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 import { ListBox } from '@/shared/ui/Popups';
-import { useClassName } from '@/shared/lib/hooks/useClassName';
 import { SortOrder } from '@/shared/types/sort';
 
 interface ArticleSortListBoxProps {

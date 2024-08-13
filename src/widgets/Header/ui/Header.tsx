@@ -39,7 +39,7 @@ export const Header = memo(({ className }: NavbarProps) => {
 
   if (authData) {
     return (
-      <VStack align="end">
+      <VStack className={className} align="end">
         <Card padding="16" max headersStyle columnGap="4" variant="light">
           <AvatarDropdown />
           <NotificationTrigger />

@@ -10,7 +10,7 @@ import { MainLayout } from '@/shared/layouts/MainLayout';
 import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useClassName } from '@/shared/lib/hooks/useClassName';
+import { customCl } from '@/shared/lib/hooks/useClassName';
 
 import { AppRouter } from './providers/router';
 import { useToolbar } from './lib/useToolbar';
@@ -29,14 +29,14 @@ const App = () => {
   // Skeleton
   if (!initiated)
     return (
-      <div id="app" className={useClassName('App', {}, [theme])}>
+      <div id="app" className={customCl('App', {}, [theme])}>
         <AppLoaderLayout />
       </div>
     );
 
   return (
-    <div id="app" className={useClassName('App', { selected: false }, [theme])}>
-      <Suspense fallback="">
+    <div id="app" className={customCl('App', { example: false }, [theme])}>
+      <Suspense fallback={<></>}>
         <MainLayout
           header={<Header />}
           content={<AppRouter />}

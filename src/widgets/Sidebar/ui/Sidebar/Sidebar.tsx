@@ -7,7 +7,7 @@ import { LangSwitch } from '@/features/langSwitch';
 import { VStack } from '@/shared/ui/Stack';
 import { AppLogo } from '@/shared/ui/AppLogo';
 import { Icon } from '@/shared/ui/Icon';
-import { useClassName } from '@/shared/lib/hooks/useClassName';
+import { customCl } from '@/shared/lib/hooks/useClassName';
 import ArrowIcon from '@/shared/assets/icons/arrow-bottomNew.svg';
 
 import { SidebarItem } from '../SidebarItem/SidebarItem';
@@ -44,7 +44,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
   return (
     <aside
       data-testid="sidebar"
-      className={useClassName(
+      className={customCl(
         cl.Sidebar,
         {
           [cl.collapsed]: collapsed,
