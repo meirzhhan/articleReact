@@ -9,7 +9,7 @@ import { VStack } from '@/shared/ui/Stack';
 import { Card } from '@/shared/ui/Card';
 import { Text } from '@/shared/ui/Text';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { FeatureFlags } from '@/shared/types/featureFlags';
+import { FeatureFlags, FeatureProps } from '@/shared/types/featureFlags';
 
 /**
  * Компонент `SettingsFeatures` отображает интерфейс для переключения feature.
@@ -24,14 +24,16 @@ export const SettingsFeatures = memo(() => {
   const authData = useSelector(getUserAuthData);
   const [isLoading, setIsLoading] = useState(false);
 
-  const s: { feature: keyof FeatureFlags; featureLabel: string }[] = [
+  const features: FeatureProps[] = [
     {
-      feature: 'isProfileEditEnabled',
+      featureKey: 'isProfileEditEnabled',
       featureLabel: t('Редактирование профиля'),
+      readonly: true,
     },
     {
-      feature: 'isAddCommentEnabled',
+      featureKey: 'isAddCommentEnabled',
       featureLabel: t('Комментирование статьи'),
+      readonly: false,
     },
   ];
 
@@ -66,13 +68,14 @@ export const SettingsFeatures = memo(() => {
       <Text title={t('Настройки пользователя')} />
 
       <VStack gap="24">
-        {s.map((xd, index) => (
+        {features.map((obj, index) => (
           <FeatureSwitch
             key={index}
             isLoading={isLoading}
-            featureKey={xd.feature}
-            featureLabel={xd.featureLabel}
+            featureKey={obj.featureKey}
+            featureLabel={obj.featureLabel}
             onChangeFeature={onChangeFeature}
+            readonly={obj.readonly}
           />
         ))}
       </VStack>

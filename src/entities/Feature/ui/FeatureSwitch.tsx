@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ListBox } from '@/shared/ui/Popups';
+import { ListBox, ListBoxItem } from '@/shared/ui/Popups';
 import { HStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 import { Skeleton } from '@/shared/ui/Skeleton';
@@ -24,13 +24,19 @@ interface FeatureSwitchProps extends FeatureProps {
  */
 
 export const FeatureSwitch = memo((props: FeatureSwitchProps) => {
-  const { className, featureLabel, isLoading, featureKey, onChangeFeature } =
-    props;
+  const {
+    className,
+    featureLabel,
+    isLoading,
+    featureKey,
+    onChangeFeature,
+    readonly,
+  } = props;
   const { t } = useTranslation('settings');
 
   const isFeatureEnabled = getFeatureFlag(featureKey);
 
-  const items = [
+  const items: ListBoxItem<string>[] = [
     {
       content: t('Включено'),
       value: 'enable',
@@ -65,6 +71,7 @@ export const FeatureSwitch = memo((props: FeatureSwitchProps) => {
         items={items}
         value={isFeatureEnabled ? 'enable' : 'disable'}
         className={className}
+        readonly={readonly}
       />
     </HStack>
   );

@@ -1,4 +1,4 @@
-import { forwardRef, memo, useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
@@ -17,7 +17,6 @@ import {
   getRouteProfile,
   getRouteSettings,
 } from '@/shared/consts/router';
-import { forwardRefWithAs } from '@headlessui/react/dist/utils/render';
 
 interface AvatarDropdownProps {
   className?: string;

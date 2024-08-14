@@ -30,7 +30,7 @@ interface ArticleAsideProps {
 
 export const ArticleAside = memo((props: ArticleAsideProps) => {
   const { className, author, views, onEdit } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation('article-info');
 
   const authData = useSelector(getUserAuthData);
 

@@ -30,7 +30,7 @@ interface ArticleCommentsProps {
 export const ArticleComments = memo((props: ArticleCommentsProps) => {
   const { className, id } = props;
 
-  const { t } = useTranslation();
+  const { t } = useTranslation('article-info');
   const dispatch = useAppDispatch();
 
   const comments = useSelector(getArticleComments.selectAll);

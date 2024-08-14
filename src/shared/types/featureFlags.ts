@@ -7,4 +7,5 @@ export interface FeatureFlags {
 export interface FeatureProps {
   featureKey: keyof FeatureFlags;
   featureLabel: string;
+  readonly?: boolean;
 }

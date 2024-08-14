@@ -23,7 +23,7 @@ interface CommentListProps {
 
 export const CommentList = memo((props: CommentListProps) => {
   const { className, comments, isLoading } = props;
-  const { t } = useTranslation('article-details');
+  const { t } = useTranslation('article-info');
 
   // Если комментарии загружаются, передача флага isLoading для отображения скелетона
   // if (1)

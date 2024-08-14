@@ -1,4 +1,4 @@
-import { ForwardedRef, ReactNode, forwardRef, memo } from 'react';
+import { ForwardedRef, ReactNode, forwardRef } from 'react';
 import { LinkProps, NavLink } from 'react-router-dom';
 
 import { customCl } from '@/shared/lib/hooks/useClassName';
