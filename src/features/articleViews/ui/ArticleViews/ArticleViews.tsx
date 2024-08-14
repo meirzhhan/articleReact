@@ -52,7 +52,7 @@ export const ArticleViews = memo((props: ArticleViewProps) => {
       rowGap="8"
     >
       {viewTypes.map((type) => {
-        const IconClassName = type.view !== view && cl.notSelected;
+        const IconClassName = (type.view !== view && cl.notSelected) || '';
 
         return (
           <Icon

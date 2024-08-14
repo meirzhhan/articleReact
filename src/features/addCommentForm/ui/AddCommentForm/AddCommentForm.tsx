@@ -58,8 +58,10 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 
   // Обработчик отправки комментария.
   const onSendHandler = useCallback(() => {
-    onSendComment(text);
-    onCommentTextChange('');
+    if (text.length > 4) {
+      onSendComment(text);
+      onCommentTextChange('');
+    }
   }, [onCommentTextChange, onSendComment, text]);
 
   return (
@@ -68,7 +70,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
         <Input
           placeholder={
             isCommentAvailable
-              ? t('Введите текст комментария')
+              ? t('Введите текст комментария, не менее 5 символов')
               : t('Комментирование отключено. Можете включить в настройках')
           }
           value={text}

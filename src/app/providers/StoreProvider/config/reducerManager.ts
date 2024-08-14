@@ -40,6 +40,7 @@ export function createReducerManager(
     // Возвращает объект смонтированных редюсеров, где ключ указывает на смонтированный редюсер.
     getMountedReducers: () => mountedReducers,
     // Основной редюсер, который используется в Redux store. При наличии ключей редюсеров, которые нужно удалить, они удаляются перед выполнением редюсера.
+    // @ts-ignore
     reduce: (state: StateSchema, action: UnknownAction) => {
       if (keysToRemove.length > 0) {
         // Удаление ключей редюсеров из состояния
@@ -49,6 +50,7 @@ export function createReducerManager(
         });
         keysToRemove = [];
       }
+      // @ts-ignore
       return combinedReducer(state, action); // Возвращает reducer без лишних ключей
     },
 

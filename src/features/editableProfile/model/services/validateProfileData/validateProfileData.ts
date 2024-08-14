@@ -11,7 +11,9 @@ import { ValidateProfileError } from '../../consts/consts';
  * @returns {ValidateProfileError[]} Массив ошибок проверки. Если ошибок нет, массив будет пустым.
  */
 
-export const validateProfileData = (profile?: Profile) => {
+export const validateProfileData = (
+  profile?: Profile,
+): ValidateProfileError[] => {
   if (!profile) return [ValidateProfileError.NO_DATA];
 
   const { first, lastname, age, country } = profile;

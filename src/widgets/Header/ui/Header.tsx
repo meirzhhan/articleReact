@@ -50,9 +50,11 @@ export const Header = memo(({ className }: NavbarProps) => {
 
   return (
     <>
-      <Button variant="filled" onClick={onShowModal}>
-        {t('Войти')}
-      </Button>
+      <Card padding="16" headersStyle max variant="light">
+        <Button variant="clear" onClick={onShowModal}>
+          {t('Войти')}
+        </Button>
+      </Card>
 
       {isAuthModal && (
         <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />

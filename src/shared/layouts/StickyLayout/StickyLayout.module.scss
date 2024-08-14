@@ -12,10 +12,4 @@
     top: 32px;
     height: fit-content;
   }
-  @media (max-width: 1400px) {
-    gap: 8px;
-    &__right {
-      top: 12px;
-    }
-  }
 }

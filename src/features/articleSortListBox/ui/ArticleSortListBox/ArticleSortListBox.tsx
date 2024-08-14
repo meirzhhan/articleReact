@@ -5,7 +5,7 @@ import { ArticleSortField } from '@/entities/Article';
 
 import { VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
-import { ListBox } from '@/shared/ui/Popups';
+import { ListBox, ListBoxItem } from '@/shared/ui/Popups';
 import { SortOrder } from '@/shared/types/sort';
 
 interface ArticleSortListBoxProps {
@@ -27,7 +27,7 @@ export const ArticleSortListBox = memo((props: ArticleSortListBoxProps) => {
   const { t } = useTranslation('articles');
 
   // Опции для порядка сортировки
-  const orderOptions = useMemo(
+  const orderOptions: ListBoxItem<SortOrder>[] = useMemo(
     () => [
       {
         value: 'asc',
@@ -42,7 +42,7 @@ export const ArticleSortListBox = memo((props: ArticleSortListBoxProps) => {
   );
 
   // Опции для поля сортировки
-  const sortFieldOptions = useMemo(
+  const sortFieldOptions: ListBoxItem<ArticleSortField>[] = useMemo(
     () => [
       {
         value: ArticleSortField.CREATED,

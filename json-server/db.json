@@ -1258,111 +1258,363 @@
   "comments": [
     {
       "id": "1",
-      "text": "some comment",
+      "text": "Great article!",
       "articleId": "1",
       "userId": "1"
     },
     {
       "id": "2",
-      "text": "some comment 2",
-      "articleId": "1",
-      "userId": "1"
-    },
-    {
-      "id": "3",
-      "text": "some comment 3",
+      "text": "Interesting read, thanks!",
       "articleId": "1",
       "userId": "2"
     },
     {
+      "id": "3",
+      "text": "Could use more examples.",
       "articleId": "1",
-      "userId": "2",
-      "text": "test comment",
-      "id": "frP9COa"
+      "userId": "3"
     },
     {
-      "articleId": "1",
-      "userId": "1",
-      "text": "fqfqwfwfq",
-      "id": "juJhz--"
+      "id": "4",
+      "text": "Very informative.",
+      "articleId": "2",
+      "userId": "1"
     },
     {
-      "articleId": "1",
-      "userId": "1",
-      "text": "",
-      "id": "vRf7-0b"
+      "id": "5",
+      "text": "I learned a lot from this.",
+      "articleId": "2",
+      "userId": "2"
     },
     {
+      "id": "6",
+      "text": "Well written!",
+      "articleId": "2",
+      "userId": "3"
+    },
+    {
+      "id": "7",
+      "text": "Not very clear.",
       "articleId": "3",
-      "userId": "1",
-      "text": "test",
-      "id": "CZtfROj"
+      "userId": "1"
     },
     {
+      "id": "8",
+      "text": "Could be more concise.",
+      "articleId": "3",
+      "userId": "2"
+    },
+    {
+      "id": "9",
+      "text": "Great insight.",
+      "articleId": "3",
+      "userId": "3"
+    },
+    {
+      "id": "10",
+      "text": "Helpful content.",
+      "articleId": "4",
+      "userId": "1"
+    },
+    {
+      "id": "11",
+      "text": "I found this very useful.",
+      "articleId": "4",
+      "userId": "2"
+    },
+    {
+      "id": "12",
+      "text": "Nice job!",
+      "articleId": "4",
+      "userId": "3"
+    },
+    {
+      "id": "13",
+      "text": "Clear and to the point.",
+      "articleId": "5",
+      "userId": "1"
+    },
+    {
+      "id": "14",
+      "text": "A bit too long, but informative.",
+      "articleId": "5",
+      "userId": "2"
+    },
+    {
+      "id": "15",
+      "text": "Very detailed.",
+      "articleId": "5",
+      "userId": "3"
+    },
+    {
+      "id": "16",
+      "text": "Excellent article!",
+      "articleId": "6",
+      "userId": "1"
+    },
+    {
+      "id": "17",
+      "text": "Really enjoyed this.",
+      "articleId": "6",
+      "userId": "2"
+    },
+    {
+      "id": "18",
+      "text": "Well researched.",
+      "articleId": "6",
+      "userId": "3"
+    },
+    {
+      "id": "19",
+      "text": "Good job!",
       "articleId": "7",
-      "userId": "1",
-      "text": "test",
-      "id": "CahYGQi"
+      "userId": "1"
     },
     {
+      "id": "20",
+      "text": "Found this very engaging.",
       "articleId": "7",
-      "userId": "1",
-      "text": "comment",
-      "id": "vh8QJue"
+      "userId": "2"
     },
     {
-      "articleId": "1",
-      "userId": "1",
-      "text": "1",
-      "id": "gIKTQJR"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "test",
-      "id": "axKp8lO"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ",
-      "id": "3y3n0kI"
-    },
-    {
+      "id": "21",
+      "text": "Great examples.",
       "articleId": "7",
-      "userId": "1",
-      "text": "I AM AM I AM IAM I AM AM I AM IAMI AM AM I AM IAMI AM AM I AM IAMI AM AM I AM IAMI AM AM I AM IAMI AM AM I AM IAMI AM AM I AM IAMI AM AM I AM IAMI AM AM I AM IAM",
-      "id": "stccj4Q"
+      "userId": "3"
     },
     {
-      "articleId": "11",
-      "userId": "1",
-      "text": "",
-      "id": "B2X9za6"
+      "id": "22",
+      "text": "Informative read.",
+      "articleId": "8",
+      "userId": "1"
     },
     {
-      "articleId": "11",
-      "userId": "1",
-      "text": "",
-      "id": "GSgCOyt"
+      "id": "23",
+      "text": "I appreciate the depth.",
+      "articleId": "8",
+      "userId": "2"
     },
     {
-      "articleId": "11",
-      "userId": "1",
-      "text": "",
-      "id": "7Qxq5-a"
+      "id": "24",
+      "text": "Very helpful.",
+      "articleId": "8",
+      "userId": "3"
     },
     {
+      "id": "25",
+      "text": "A bit technical, but useful.",
+      "articleId": "9",
+      "userId": "1"
+    },
+    {
+      "id": "26",
+      "text": "Great content, though complex.",
+      "articleId": "9",
+      "userId": "2"
+    },
+    {
+      "id": "27",
+      "text": "Well explained.",
+      "articleId": "9",
+      "userId": "3"
+    },
+    {
+      "id": "28",
+      "text": "Very engaging.",
+      "articleId": "10",
+      "userId": "1"
+    },
+    {
+      "id": "29",
+      "text": "I enjoyed the read.",
+      "articleId": "10",
+      "userId": "2"
+    },
+    {
+      "id": "30",
+      "text": "Could use more details.",
+      "articleId": "10",
+      "userId": "3"
+    },
+    {
+      "id": "31",
+      "text": "Nice overview.",
       "articleId": "11",
-      "userId": "1",
-      "text": "",
-      "id": "req-U3N"
+      "userId": "1"
+    },
+    {
+      "id": "32",
+      "text": "Very informative.",
+      "articleId": "11",
+      "userId": "2"
+    },
+    {
+      "id": "33",
+      "text": "Well presented.",
+      "articleId": "11",
+      "userId": "3"
+    },
+    {
+      "id": "34",
+      "text": "Good insights.",
+      "articleId": "12",
+      "userId": "1"
+    },
+    {
+      "id": "35",
+      "text": "Clear and concise.",
+      "articleId": "12",
+      "userId": "2"
+    },
+    {
+      "id": "36",
+      "text": "Very useful.",
+      "articleId": "12",
+      "userId": "3"
+    },
+    {
+      "id": "37",
+      "text": "Well explained.",
+      "articleId": "13",
+      "userId": "1"
+    },
+    {
+      "id": "38",
+      "text": "Great examples.",
+      "articleId": "13",
+      "userId": "2"
+    },
+    {
+      "id": "39",
+      "text": "Informative read.",
+      "articleId": "13",
+      "userId": "3"
+    },
+    {
+      "id": "40",
+      "text": "Very detailed.",
+      "articleId": "14",
+      "userId": "1"
+    },
+    {
+      "id": "41",
+      "text": "Nice job!",
+      "articleId": "14",
+      "userId": "2"
+    },
+    {
+      "id": "42",
+      "text": "Good read.",
+      "articleId": "14",
+      "userId": "3"
+    },
+    {
+      "id": "43",
+      "text": "Helpful content.",
+      "articleId": "15",
+      "userId": "1"
+    },
+    {
+      "id": "44",
+      "text": "Enjoyed the details.",
+      "articleId": "15",
+      "userId": "2"
+    },
+    {
+      "id": "45",
+      "text": "Well researched.",
+      "articleId": "15",
+      "userId": "3"
+    },
+    {
+      "id": "46",
+      "text": "Interesting perspective.",
+      "articleId": "16",
+      "userId": "1"
+    },
+    {
+      "id": "47",
+      "text": "Engaging content.",
+      "articleId": "16",
+      "userId": "2"
+    },
+    {
+      "id": "48",
+      "text": "Could be clearer.",
+      "articleId": "16",
+      "userId": "3"
+    },
+    {
+      "id": "49",
+      "text": "Great article!",
+      "articleId": "17",
+      "userId": "1"
+    },
+    {
+      "id": "50",
+      "text": "Very informative.",
+      "articleId": "17",
+      "userId": "2"
+    },
+    {
+      "id": "51",
+      "text": "Well written.",
+      "articleId": "17",
+      "userId": "3"
+    },
+    {
+      "id": "52",
+      "text": "Great insights.",
+      "articleId": "18",
+      "userId": "1"
+    },
+    {
+      "id": "53",
+      "text": "Good content.",
+      "articleId": "18",
+      "userId": "2"
+    },
+    {
+      "id": "54",
+      "text": "Useful information.",
+      "articleId": "18",
+      "userId": "3"
+    },
+    {
+      "id": "55",
+      "text": "Very detailed article.",
+      "articleId": "19",
+      "userId": "1"
+    },
+    {
+      "id": "56",
+      "text": "Enjoyed the content.",
+      "articleId": "19",
+      "userId": "2"
+    },
+    {
+      "id": "57",
+      "text": "Well explained.",
+      "articleId": "19",
+      "userId": "3"
     },
     {
       "articleId": "4",
-      "userId": "1",
-      "text": "test",
-      "id": "htcLtbO"
+      "userId": "3",
+      "text": "Test1",
+      "id": "FP-M_M_"
+    },
+    {
+      "articleId": "1",
+      "userId": "3",
+      "text": "for test",
+      "id": "QV07sg_"
+    },
+    {
+      "articleId": "1",
+      "userId": "3",
+      "text": "qweqrt",
+      "id": "XTiaB2v"
     }
   ],
   "users": [
@@ -1416,12 +1668,12 @@
         "isCounterEnabled": true
       },
       "jsonSettings": {
-        "theme": "app_dark_theme",
+        "theme": "app_orange_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpen": false,
         "isArticlesPageWasOpened": true
       },
-      "avatar": "https://avatars.dzeninfra.ru/get-zen_doc/5327700/pub_634d11eb9de7f5753f556834_634d1e2f9853e80abd26a73f/scale_1200"
+      "avatar": "https://cdn.pixabay.com/photo/2023/11/10/02/30/woman-8378634_1280.jpg"
     }
   ],
   "profile": [
@@ -1445,7 +1697,18 @@
       "country": "Belarus",
       "city": "Minsk",
       "username": "someone",
-      "avatar": "https://avatars.dzeninfra.ru/get-zen_doc/5327700/pub_634d11eb9de7f5753f556834_634d1e2f9853e80abd26a73f/scale_1200"
+      "avatar": "https://cdn.pixabay.com/photo/2016/06/20/04/30/asian-man-1468032_1280.jpg"
+    },
+    {
+      "id": "3",
+      "first": "Sabina",
+      "lastname": "Nabi",
+      "age": 27,
+      "currency": "KZT",
+      "country": "Kazakhstan",
+      "city": "Shymkent",
+      "username": "manager",
+      "avatar": "https://cdn.pixabay.com/photo/2023/11/10/02/30/woman-8378634_1280.jpg"
     }
   ],
   "article-ratings": [
@@ -1523,22 +1786,6 @@
       "rate": 4,
       "feedback": "top",
       "id": "SjGurqj"
-    }
-  ],
-  "profile-ratings": [
-    {
-      "id": "1",
-      "rate": 4,
-      "feedback": "Отличная статья",
-      "userId": "1",
-      "profileId": "1"
-    },
-    {
-      "id": "2",
-      "rate": 4,
-      "feedback": "Отличная статья",
-      "userId": "1",
-      "profileId": "2"
     }
   ]
 }

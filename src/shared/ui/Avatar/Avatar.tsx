@@ -24,7 +24,7 @@ interface AvatarProps {
  * @returns {JSX.Element} - Рендерит аватар с заданными размерами, стилями и fallback-изображениями.
  */
 
-export const Avatar = (props: AvatarProps) => {
+export const Avatar = (props: AvatarProps): JSX.Element => {
   const { className, src, size = 100, alt } = props;
 
   const styles = useMemo<CSSProperties>(() => {

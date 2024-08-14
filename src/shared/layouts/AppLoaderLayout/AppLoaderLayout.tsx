@@ -3,8 +3,10 @@ import { memo } from 'react';
 import { VStack } from '@/shared/ui/Stack';
 import { Skeleton } from '@/shared/ui/Skeleton';
 
-import { MainLayout } from '../MainLayout';
 import { Card } from '@/shared/ui/Card';
+
+import { MainLayout } from '../MainLayout';
+import cl from './AppLoaderLayout.module.scss';
 
 export const AppLoaderLayout = memo(() => {
   return (
@@ -23,7 +25,7 @@ export const AppLoaderLayout = memo(() => {
         // </VStack>
         <></>
       }
-      sidebar={<Skeleton border="40px" width={180} height={500} />}
+      sidebar={<Skeleton className={cl.skeleton} width={180} height={'100%'} />}
     />
   );
 });

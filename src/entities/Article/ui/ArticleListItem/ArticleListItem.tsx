@@ -84,6 +84,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
           alt={article.title}
           height={420}
           width={'100%'}
+          className={cl.img}
         />
         {textT?.paragraphs && (
           <Text
@@ -116,6 +117,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
           errorFallback={<Skeleton width={'100%'} height={180} />}
           alt={article.title}
           src={article.img}
+          className={cl.img}
         />
         <Card>
           <Text text={article.title} className={cl.title} />

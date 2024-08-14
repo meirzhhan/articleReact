@@ -71,34 +71,36 @@ export const EditableProfileHeader = memo(
           <ToggleFeatures
             feature="isProfileEditEnabled"
             on={
-              canEdit && (
-                <>
-                  {readonly ? (
-                    <Button
-                      onClick={onEdit}
-                      data-testid={'EditableProfileCardHeader.EditButton'}
-                    >
-                      {t('Редактировать')}
-                    </Button>
-                  ) : (
-                    <HStack gap={'8'}>
+              <>
+                {canEdit && (
+                  <>
+                    {readonly ? (
                       <Button
-                        onClick={onCancelEdit}
-                        data-testid={'EditableProfileCardHeader.CancelButton'}
+                        onClick={onEdit}
+                        data-testid={'EditableProfileCardHeader.EditButton'}
                       >
-                        {t('Отменить')}
+                        {t('Редактировать')}
                       </Button>
-                      <Button
-                        onClick={onSave}
-                        color="success"
-                        data-testid={'EditableProfileCardHeader.SaveButton'}
-                      >
-                        {t('Сохранить')}
-                      </Button>
-                    </HStack>
-                  )}
-                </>
-              )
+                    ) : (
+                      <HStack gap={'8'}>
+                        <Button
+                          onClick={onCancelEdit}
+                          data-testid={'EditableProfileCardHeader.CancelButton'}
+                        >
+                          {t('Отменить')}
+                        </Button>
+                        <Button
+                          onClick={onSave}
+                          color="success"
+                          data-testid={'EditableProfileCardHeader.SaveButton'}
+                        >
+                          {t('Сохранить')}
+                        </Button>
+                      </HStack>
+                    )}
+                  </>
+                )}
+              </>
             }
             off={<Text text="Редактирование отключено" />}
           />

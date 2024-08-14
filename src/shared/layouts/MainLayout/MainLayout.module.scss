@@ -36,17 +36,3 @@
     height: 100vh;
   }
 }
-@media (max-width: 1400px) {
-  .Main {
-    // grid-template-columns: min-content 1fr 50px;
-    &__content {
-      padding-top: 12px;
-    }
-    &__sidebar {
-      padding: 12px 0;
-    }
-    &__rightbar {
-      padding-top: 12px;
-    }
-  }
-}

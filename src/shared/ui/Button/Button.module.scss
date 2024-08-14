@@ -4,6 +4,8 @@
   padding: 6px 16px;
   display: flex;
   align-items: center;
+  transition: all 0.1s ease-in-out;
+
   &__addOnLeft,
   &__addOnRight {
     display: flex;
