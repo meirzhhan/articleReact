@@ -1,6 +1,7 @@
 import { memo } from 'react';
+
 import { Page } from '@/widgets/Page';
-import { UiDesignSwitcher } from '@/features/profileEditSwitch';
+import { SettingsFeatures } from '@/features/settingsFeatures';
 
 interface SettingsPageProps {
   className?: string;
@@ -11,7 +12,7 @@ const SettingsPage = memo((props: SettingsPageProps) => {
 
   return (
     <Page className={className}>
-      <UiDesignSwitcher />{' '}
+      <SettingsFeatures />
     </Page>
   );
 });

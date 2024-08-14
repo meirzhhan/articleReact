@@ -1,40 +1,52 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import { ListBox } from '@/shared/ui/Popups';
-// import { getFeatureFlag } from '@/shared/lib/features';
 import { HStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
-import { FeatureFlags } from './../../../../types/featureFlags';
 import { Skeleton } from '@/shared/ui/Skeleton';
 
-interface FeatureSwitchProps {
+import { FeatureFlags, FeatureProps } from './../../../../types/featureFlags';
+import { getFeatureFlag } from '../../lib/setGetFeatures';
+
+interface FeatureSwitchProps extends FeatureProps {
   className?: string;
-  feature: keyof FeatureFlags;
-  featureLabel: string;
   isLoading: boolean;
   onChangeFeature: (value: string, feature: keyof FeatureFlags) => void;
 }
 
-export const FeatureSwitch = memo((props: FeatureSwitchProps) => {
-  const { className, featureLabel, isLoading } = props;
+/**
+ * Компонент `FeatureSwitch` отображает переключатель для функции, который позволяет пользователю
+ * включать или отключать feature.
+ *
+ * @param {FeatureSwitchProps} props - Свойства компонента.
+ * @returns {JSX.Element} Компонент переключателя функции.
+ */
 
-  // const isFeatureEnabled = getFeatureFlag(feature);
-  const isFeatureEnabled = false;
+export const FeatureSwitch = memo((props: FeatureSwitchProps) => {
+  const { className, featureLabel, isLoading, featureKey, onChangeFeature } =
+    props;
+  const { t } = useTranslation('settings');
+
+  const isFeatureEnabled = getFeatureFlag(featureKey);
 
   const items = [
     {
-      content: 'Включить',
-      value: 'new',
+      content: t('Включить'),
+      value: 'enable',
     },
     {
-      content: 'Отключить',
-      value: 'old',
+      content: t('Отключить'),
+      value: 'disable',
     },
   ];
 
-  // const onChange = useCallback((value: string) => {
-  //   onChangeFeature(value, feature);
-  // }, []);
-  const onChange = () => {}; // временно ничего не делает
+  const onChangeHandler = useCallback(
+    (value: string) => {
+      onChangeFeature(value, featureKey);
+    },
+    [featureKey, onChangeFeature],
+  );
 
   if (isLoading) {
     return (
@@ -49,9 +61,9 @@ export const FeatureSwitch = memo((props: FeatureSwitchProps) => {
       <Text text={featureLabel} bold />
       <ListBox
         direction="bottom left"
-        onChange={onChange}
+        onChange={onChangeHandler}
         items={items}
-        value={isFeatureEnabled ? 'new' : 'old'}
+        value={isFeatureEnabled ? 'enable' : 'disable'}
         className={className}
       />
     </HStack>
