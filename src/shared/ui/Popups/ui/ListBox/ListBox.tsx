@@ -3,7 +3,7 @@ import { Listbox as HListbox } from '@headlessui/react';
 
 import { customCl } from '@/shared/lib/hooks/useClassName';
 import { DropdownDirection } from '@/shared/types/ui';
-import ArrowIcon from '@/shared/assets/icons/arrow-bottomNew.svg';
+import ArrowIcon from '@/shared/assets/icons/arrow.svg';
 
 import { HStack } from '../../../Stack';
 import { Button } from '../../../Button';

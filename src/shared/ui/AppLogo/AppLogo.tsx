@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import AppSvg from '@/shared/assets/icons/app-logo.svg';
+import AppSvg from '@/shared/assets/icons/appLogo.svg';
 import { customCl } from '@/shared/lib/hooks/useClassName';
 
 import { HStack } from '../Stack';

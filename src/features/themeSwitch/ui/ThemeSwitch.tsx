@@ -5,7 +5,7 @@ import { saveJsonSettings } from '@/entities/User';
 import { Icon } from '@/shared/ui/Icon';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
-import ThemeIcon from '@/shared/assets/icons/themeNew.svg';
+import ThemeIcon from '@/shared/assets/icons/theme.svg';
 
 /**
  * Компонент переключателя темы. Позволяет изменять текущую тему и сохранять её в настройках пользователя.

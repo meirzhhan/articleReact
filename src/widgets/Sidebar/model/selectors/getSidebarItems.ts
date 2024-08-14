@@ -1,5 +1,4 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { useTranslation } from 'react-i18next';
 
 import { getUserAuthData } from '@/entities/User';
 import {
@@ -11,11 +10,11 @@ import {
 } from '@/shared/consts/router';
 import { SidebarItemsType } from '../types/sidebar';
 
-import MainIcon from '@/shared/assets/icons/homeNew.svg';
-import AboutIcon from '@/shared/assets/icons/infoNew.svg';
-import ProfileIcon from '@/shared/assets/icons/avatarNew.svg';
-import ArticleIcon from '@/shared/assets/icons/articleNew.svg';
-import SettingsIcon from '@/shared/assets/icons/kebabNew.svg';
+import MainIcon from '@/shared/assets/icons/home.svg';
+import AboutIcon from '@/shared/assets/icons/info.svg';
+import ProfileIcon from '@/shared/assets/icons/avatar.svg';
+import ArticleIcon from '@/shared/assets/icons/article.svg';
+import SettingsIcon from '@/shared/assets/icons/settings.svg';
 
 /**
  * Селектор getSidebarItems возвращает список элементов боковой панели навигации.

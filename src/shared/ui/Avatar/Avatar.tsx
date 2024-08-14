@@ -5,7 +5,7 @@ import { customCl } from '@/shared/lib/hooks/useClassName';
 import { Icon } from '../Icon';
 import { Skeleton } from '../Skeleton';
 import { AppImage } from '../AppImage';
-import UserIcon from '../../assets/icons/user-default.svg';
+import UserIcon from '../../assets/icons/avatar.svg';
 import cl from './Avatar.module.scss';
 
 interface AvatarProps {

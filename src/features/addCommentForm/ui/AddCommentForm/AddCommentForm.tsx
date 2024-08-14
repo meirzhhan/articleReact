@@ -8,15 +8,15 @@ import { Card } from '@/shared/ui/Card';
 import {
   DynamicModuleLoader,
   ReducersList,
-} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+} from '@/shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { toggleFeatures } from '@/shared/lib/hooks/useToggleFeatures';
 
 import { getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
 import {
   addCommentFormActions,
   addCommentFormReducer,
 } from '../../model/slice/addCommentFormSlice';
-import { toggleFeatures } from '@/shared/lib/features';
 
 export interface AddCommentFormProps {
   className?: string;

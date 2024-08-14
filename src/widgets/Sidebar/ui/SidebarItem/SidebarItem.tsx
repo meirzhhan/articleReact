@@ -9,6 +9,7 @@ import { customCl } from '@/shared/lib/hooks/useClassName';
 
 import { SidebarItemsType } from '../../model/types/sidebar';
 import cl from './SidebarItem.module.scss';
+import { useTranslation } from 'react-i18next';
 
 interface SidebarItemProps {
   item: SidebarItemsType;
@@ -24,6 +25,7 @@ interface SidebarItemProps {
  */
 
 export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
+  const { t } = useTranslation('sidebar');
   const isAuth = useSelector(getUserAuthData);
   const className = customCl(cl.Item, { [cl.collapsed]: collapsed }, []);
 
@@ -34,7 +36,7 @@ export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
   return (
     <AppLink to={item.path} className={className} activeClassName={cl.active}>
       <Icon Svg={item.Icon} />
-      <span className={cl.link}>{item.text}</span>
+      <span className={cl.link}>{t(item.text)}</span>
     </AppLink>
   );
 });

@@ -8,7 +8,7 @@ import { VStack } from '@/shared/ui/Stack';
 import { AppLogo } from '@/shared/ui/AppLogo';
 import { Icon } from '@/shared/ui/Icon';
 import { customCl } from '@/shared/lib/hooks/useClassName';
-import ArrowIcon from '@/shared/assets/icons/arrow-bottomNew.svg';
+import ArrowIcon from '@/shared/assets/icons/arrow.svg';
 
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';

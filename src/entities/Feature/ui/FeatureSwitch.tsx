@@ -5,9 +5,9 @@ import { ListBox } from '@/shared/ui/Popups';
 import { HStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 import { Skeleton } from '@/shared/ui/Skeleton';
+import { FeatureFlags, FeatureProps } from '@/shared/types/featureFlags';
 
-import { FeatureFlags, FeatureProps } from './../../../../types/featureFlags';
-import { getFeatureFlag } from '../../lib/setGetFeatures';
+import { getFeatureFlag } from '../model/services/setGetFeatures';
 
 interface FeatureSwitchProps extends FeatureProps {
   className?: string;
@@ -32,11 +32,11 @@ export const FeatureSwitch = memo((props: FeatureSwitchProps) => {
 
   const items = [
     {
-      content: t('Включить'),
+      content: t('Включено'),
       value: 'enable',
     },
     {
-      content: t('Отключить'),
+      content: t('Отключено'),
       value: 'disable',
     },
   ];

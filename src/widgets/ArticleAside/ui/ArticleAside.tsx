@@ -8,10 +8,10 @@ import { Avatar } from '@/shared/ui/Avatar';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 import { Button } from '@/shared/ui/Button';
-import EyeIcon from '@/shared/assets/icons/eyeNew.svg';
 import { Icon } from '@/shared/ui/Icon';
 import { AppLink } from '@/shared/ui/AppLink';
 import { getRouteProfile } from '@/shared/consts/router';
+import EyeIcon from '@/shared/assets/icons/eye.svg';
 
 interface ArticleAsideProps {
   className?: string;

@@ -12,7 +12,7 @@ import { Button } from '@/shared/ui/Button';
 import { AppLink } from '@/shared/ui/AppLink';
 import { customCl } from '@/shared/lib/hooks/useClassName';
 import { getRouteArticleDetails } from '@/shared/consts/router';
-import EyeIcon from '@/shared/assets/icons/eyeNew.svg';
+import EyeIcon from '@/shared/assets/icons/eye.svg';
 
 import { Article, ArticleTextBlock } from '../../model/types/article';
 import {

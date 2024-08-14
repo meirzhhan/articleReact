@@ -11,7 +11,7 @@ import { StickyLayout } from '@/shared/layouts/StickyLayout';
 import {
   DynamicModuleLoader,
   ReducersList,
-} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+} from '@/shared/lib/components/DynamicModuleLoader';
 
 import { ArticleAsideContainer } from '../ArticleAsideContainer/ArticleAsideContainer';
 import { ArticleComments } from '../ArticleComments/ArticleComments';

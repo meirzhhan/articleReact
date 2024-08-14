@@ -3,13 +3,12 @@ import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import { getUserAuthData } from '@/entities/User';
+import { FeatureSwitch, updateFeatureFlag } from '@/entities/Feature';
 
 import { VStack } from '@/shared/ui/Stack';
 import { Card } from '@/shared/ui/Card';
 import { Text } from '@/shared/ui/Text';
-import { updateFeatureFlag } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { FeatureSwitch } from '@/shared/lib/features/components/FeatureSwitch/FeatureSwitch';
 import { FeatureFlags } from '@/shared/types/featureFlags';
 
 /**
@@ -20,7 +19,7 @@ import { FeatureFlags } from '@/shared/types/featureFlags';
  */
 
 export const SettingsFeatures = memo(() => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('settings');
   const dispatch = useAppDispatch();
   const authData = useSelector(getUserAuthData);
   const [isLoading, setIsLoading] = useState(false);

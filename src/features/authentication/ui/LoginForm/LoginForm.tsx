@@ -9,7 +9,7 @@ import { Button } from '@/shared/ui/Button';
 import {
   DynamicModuleLoader,
   ReducersList,
-} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+} from '@/shared/lib/components/DynamicModuleLoader';
 import { customCl } from '@/shared/lib/hooks/useClassName';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 

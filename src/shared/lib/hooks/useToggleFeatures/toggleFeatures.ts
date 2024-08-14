@@ -1,5 +1,5 @@
 import { FeatureFlags } from '@/shared/types/featureFlags';
-import { getFeatureFlag } from './setGetFeatures';
+import { getFeatureFlag } from '../../../../entities/Feature/model/services/setGetFeatures';
 
 interface ToggleFeaturesOptions<T> {
   name: keyof FeatureFlags;

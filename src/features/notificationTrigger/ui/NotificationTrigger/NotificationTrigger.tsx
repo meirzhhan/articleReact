@@ -6,7 +6,7 @@ import { NotificationList } from '@/entities/Notification';
 import { Drawer } from '@/shared/ui/Drawer';
 import { Icon } from '@/shared/ui/Icon';
 import { customCl } from '@/shared/lib/hooks/useClassName';
-import NotificationIcon from '@/shared/assets/icons/notificationNew.svg';
+import NotificationIcon from '@/shared/assets/icons/notification.svg';
 
 import cl from './NotificationTrigger.module.scss';
 

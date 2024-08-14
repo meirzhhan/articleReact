@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 
 import { customCl } from '@/shared/lib/hooks/useClassName';
-import CopyIconNew from '@/shared/assets/icons/copyNew.svg';
+import CopyIconNew from '@/shared/assets/icons/copyButton.svg';
 
 import { Icon } from '../Icon';
 import { Card } from '../Card';

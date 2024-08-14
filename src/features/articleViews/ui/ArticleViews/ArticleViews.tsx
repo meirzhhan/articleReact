@@ -5,8 +5,8 @@ import { ArticleView } from '@/entities/Article';
 import { Card } from '@/shared/ui/Card';
 import { Icon } from '@/shared/ui/Icon';
 import { customCl } from '@/shared/lib/hooks/useClassName';
-import ListIcon from '@/shared/assets/icons/burgerNew.svg';
-import TiledIcon from '@/shared/assets/icons/tileNew.svg';
+import ListIcon from '@/shared/assets/icons/list.svg';
+import TiledIcon from '@/shared/assets/icons/tile.svg';
 
 import cl from './ArticleViews.module.scss';
 

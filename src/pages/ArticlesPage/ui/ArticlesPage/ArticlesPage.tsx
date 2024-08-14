@@ -10,7 +10,7 @@ import { StickyLayout } from '@/shared/layouts/StickyLayout';
 import {
   DynamicModuleLoader,
   ReducersList,
-} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+} from '@/shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 import { articlesPageReducer } from '../../model/slices/articlesPageSlice';

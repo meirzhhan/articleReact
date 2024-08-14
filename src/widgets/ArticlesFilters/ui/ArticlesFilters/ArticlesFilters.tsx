@@ -14,7 +14,7 @@ import { Card } from '@/shared/ui/Card';
 import { VStack } from '@/shared/ui/Stack';
 import { Input } from '@/shared/ui/Input';
 import { SortOrder } from '@/shared/types/sort';
-import SearchIcon from '@/shared/assets/icons/searchNew.svg';
+import SearchIcon from '@/shared/assets/icons/search.svg';
 
 import cl from './ArticlesFilters.module.scss';
 
@@ -59,7 +59,7 @@ export const ArticlesFilters = memo((props: ArticlesFiltersProps) => {
     type,
   } = props;
 
-  const { t } = useTranslation();
+  const { t } = useTranslation('articles');
   const { view, onChangeView } = useArticleFilters();
 
   return (
