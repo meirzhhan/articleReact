@@ -48,6 +48,7 @@ export const Page = memo((props: PageProps) => {
   const scrollPosition = useSelector((state: StateSchema) =>
     getUIScrollByPath(state, pathname),
   );
+
   // Обработка бесконечной прокрутки, работает если callback передан
   useInfiniteScroll({
     callback: onScrollEnd,

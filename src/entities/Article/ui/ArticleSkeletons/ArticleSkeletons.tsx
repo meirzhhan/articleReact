@@ -20,12 +20,12 @@ interface ArticleListItemSkeletonProps {
 export const ArticleInfoSkeleton = (): JSX.Element => {
   return (
     <>
-      <Skeleton width={450} height={40} border={'12px'} />
-      <Skeleton width={550} height={32} border={'12px'} />
-      <Skeleton width={768} height={420} border="12px" />
-      <Skeleton width={300} height={32} border="12px" />
-      <Skeleton width={768} height={150} border="12px" />
-      <Skeleton width={768} height={250} border="12px" />
+      <Skeleton width={500} height={40} border={'12px'} />
+      <Skeleton width={600} height={32} border={'12px'} />
+      <Skeleton width={885} height={420} border="12px" />
+      <Skeleton width={885} height={96} border="12px" />
+      <Skeleton width={885} height={150} border="12px" />
+      <Skeleton width={885} height={250} border="12px" />
     </>
   );
 };

@@ -28,12 +28,17 @@ export const SettingsFeatures = memo(() => {
     {
       featureKey: 'isProfileEditEnabled',
       featureLabel: t('Редактирование профиля'),
-      readonly: true,
+      readonly: false,
     },
     {
       featureKey: 'isAddCommentEnabled',
       featureLabel: t('Комментирование статьи'),
       readonly: false,
+    },
+    {
+      featureKey: 'isArticleRatingEnabled',
+      featureLabel: t('Рейтинг для статьей'),
+      readonly: true,
     },
   ];
 
