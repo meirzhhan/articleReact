@@ -8,9 +8,9 @@ import { AppImage } from '@/shared/ui/AppImage';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { customCl } from '@/shared/lib/hooks/useClassName';
 import {
-  DynamicModuleLoader,
+  DynamicReducer,
   ReducersList,
-} from '@/shared/lib/components/DynamicModuleLoader';
+} from '@/shared/lib/components/DynamicReducer';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 import { RenderBlocks } from '../RenderBlocks/RenderBlocks';
@@ -86,7 +86,7 @@ export const ArticleInfo = memo((props: ArticleDetailsProps) => {
   } else content = <Info />;
 
   return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+    <DynamicReducer reducers={reducers} removeAfterUnmount>
       <VStack
         className={customCl(cl.ArticleDetails, {}, [className])}
         gap={'16'}
@@ -94,6 +94,6 @@ export const ArticleInfo = memo((props: ArticleDetailsProps) => {
       >
         {content}
       </VStack>
-    </DynamicModuleLoader>
+    </DynamicReducer>
   );
 });

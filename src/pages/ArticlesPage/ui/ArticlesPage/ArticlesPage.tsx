@@ -8,9 +8,9 @@ import { uiActions } from '@/features/UI';
 
 import { StickyLayout } from '@/shared/layouts/StickyLayout';
 import {
-  DynamicModuleLoader,
+  DynamicReducer,
   ReducersList,
-} from '@/shared/lib/components/DynamicModuleLoader';
+} from '@/shared/lib/components/DynamicReducer';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
@@ -92,9 +92,9 @@ const ArticlesPage = (props: ArticlePageProps): JSX.Element => {
   );
 
   return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
+    <DynamicReducer reducers={reducers} removeAfterUnmount={false}>
       {content}
-    </DynamicModuleLoader>
+    </DynamicReducer>
   );
 };
 

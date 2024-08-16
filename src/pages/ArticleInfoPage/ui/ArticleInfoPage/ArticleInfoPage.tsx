@@ -9,9 +9,9 @@ import { ArticleRating } from '@/features/articleRating';
 import { VStack } from '@/shared/ui/Stack';
 import { StickyLayout } from '@/shared/layouts/StickyLayout';
 import {
-  DynamicModuleLoader,
+  DynamicReducer,
   ReducersList,
-} from '@/shared/lib/components/DynamicModuleLoader';
+} from '@/shared/lib/components/DynamicReducer';
 
 import { ArticleAsideContainer } from '../ArticleAsideContainer/ArticleAsideContainer';
 import { ArticleComments } from '../ArticleComments/ArticleComments';
@@ -39,7 +39,7 @@ const ArticleInfoPage = (props: { className?: string }): JSX.Element | null => {
   if (!id) return null;
 
   return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+    <DynamicReducer reducers={reducers} removeAfterUnmount>
       <StickyLayout
         content={
           <Page className={className}>
@@ -53,7 +53,7 @@ const ArticleInfoPage = (props: { className?: string }): JSX.Element | null => {
         }
         right={<ArticleAsideContainer />}
       />
-    </DynamicModuleLoader>
+    </DynamicReducer>
   );
 };
 

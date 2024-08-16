@@ -6,9 +6,9 @@ import { Button } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
 import { Card } from '@/shared/ui/Card';
 import {
-  DynamicModuleLoader,
+  DynamicReducer,
   ReducersList,
-} from '@/shared/lib/components/DynamicModuleLoader';
+} from '@/shared/lib/components/DynamicReducer';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { toggleFeatures } from '@/shared/lib/hooks/useToggleFeatures';
 
@@ -65,7 +65,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
   }, [onCommentTextChange, onSendComment, text]);
 
   return (
-    <DynamicModuleLoader reducers={reducers}>
+    <DynamicReducer reducers={reducers}>
       <Card
         className={className}
         padding="24"
@@ -88,7 +88,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
           {t('Отправить')}
         </Button>
       </Card>
-    </DynamicModuleLoader>
+    </DynamicReducer>
   );
 });
 

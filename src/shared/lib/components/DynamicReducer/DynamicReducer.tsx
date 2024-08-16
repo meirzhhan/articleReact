@@ -1,24 +1,33 @@
 import { ReactNode, useEffect } from 'react';
 import { useStore } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { Reducer } from '@reduxjs/toolkit';
+
 import {
   ReduxStoreWithManager,
   StateSchema,
   StateSchemaKey,
 } from '@/app/providers/StoreProvider';
-import { useDispatch } from 'react-redux';
-import { Reducer } from '@reduxjs/toolkit';
 
+// Каждый ключ соответствует ключу схемы состояния, а значение — это редюсер Redux.
 export type ReducersList = {
   [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;
 };
 
-interface DynamicModuleLoaderProps {
-  reducers: ReducersList;
-  removeAfterUnmount?: boolean;
+interface DynamicReducerProps {
+  reducers: ReducersList; // редюсеры для динамической загрузки.
+  removeAfterUnmount?: boolean; // Флаг для удаления редюсера после размонтирования компонента. По умолчанию true.
   children?: ReactNode;
 }
 
-export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
+/**
+ * Компонент, который динамически загружает и выгружает редюсеры Redux.
+ *
+ * @param {DynamicReducerProps} props - Свойства для этого компонента.
+ * @returns {JSX.Element} - Отображаемый компонент обертка.
+ */
+
+export const DynamicReducer = (props: DynamicReducerProps): JSX.Element => {
   const { children, reducers, removeAfterUnmount = true } = props;
   const store = useStore() as ReduxStoreWithManager;
   const dispatch = useDispatch();

@@ -7,9 +7,9 @@ import { Text } from '@/shared/ui/Text';
 import { Input } from '@/shared/ui/Input';
 import { Button } from '@/shared/ui/Button';
 import {
-  DynamicModuleLoader,
+  DynamicReducer,
   ReducersList,
-} from '@/shared/lib/components/DynamicModuleLoader';
+} from '@/shared/lib/components/DynamicReducer';
 import { customCl } from '@/shared/lib/hooks/useClassName';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
@@ -75,7 +75,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
   }, [onSuccess, dispatch, password, username]);
 
   return (
-    <DynamicModuleLoader removeAfterUnmount reducers={reducers}>
+    <DynamicReducer removeAfterUnmount reducers={reducers}>
       <VStack gap="24" className={customCl(cl.LoginForm, {}, [className])}>
         <Text title={t('Форма авторизации')} />
         {error && <Text text={error} variant="error" />}
@@ -101,7 +101,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
           {t('Войти')}
         </Button>
       </VStack>
-    </DynamicModuleLoader>
+    </DynamicReducer>
   );
 });
 

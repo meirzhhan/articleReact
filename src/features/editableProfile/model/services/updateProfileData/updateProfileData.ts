@@ -8,7 +8,6 @@ import { ValidateProfileError } from '../../consts/consts';
 import { validateProfileData } from '../validateProfileData/validateProfileData';
 import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm';
 
-// TODO: REMEMBER THIS!
 /**
  * Асинхронный thunk для обновления данных профиля.
  *

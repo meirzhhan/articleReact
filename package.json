@@ -4,18 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "concurrently \"npm start\" \"npm run start:dev:server\"",
-    "start:dev:vite": "concurrently \"npm run start:vite\" \"npm run start:dev:server\"",
+    "start:dev:webpack": "concurrently \"npm start\" \"npm run start:server\"",
+    "start:dev:vite": "concurrently \"npm run start:vite\" \"npm run start:server\"",
+    "start:server": "node ./json-server/index.js",
     "start": "webpack serve --env port=3000",
     "start:vite": "vite",
-    "start:dev:server": "node ./json-server/index.js",
     "build:prod": "webpack --env mode=production apiUrl=https://backend-for-articles.vercel.app/",
     "build:dev": "webpack --env mode=development",
     "unit": "jest --config ./config/jest/jest.config.ts",
     "lint": " eslint \"**/*.{ts,tsx}\""
   },
   "keywords": [],
-  "author": "",
+  "author": "meirzhhan",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.24.0",

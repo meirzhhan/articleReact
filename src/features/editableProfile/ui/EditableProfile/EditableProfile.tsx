@@ -11,9 +11,9 @@ import { Country } from '@/entities/Country';
 import { VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 import {
-  DynamicModuleLoader,
+  DynamicReducer,
   ReducersList,
-} from '@/shared/lib/components/DynamicModuleLoader';
+} from '@/shared/lib/components/DynamicReducer';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 import { EditableProfileHeader } from '../EditableProfileHeader/EditableProfileHeader';
@@ -136,7 +136,7 @@ export const EditableProfile = memo((props: EditableProfileProps) => {
   );
 
   return (
-    <DynamicModuleLoader reducers={reducers}>
+    <DynamicReducer reducers={reducers} removeAfterUnmount={false}>
       <VStack gap="16" maxWidth className={className} align="center">
         <EditableProfileHeader />
 
@@ -165,6 +165,6 @@ export const EditableProfile = memo((props: EditableProfileProps) => {
           onChangeCountry={onChangeCountry}
         />
       </VStack>
-    </DynamicModuleLoader>
+    </DynamicReducer>
   );
 });
