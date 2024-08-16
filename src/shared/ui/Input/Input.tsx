@@ -22,14 +22,14 @@ type HTMLInputProps = Omit<
 type InputSize = 's' | 'm' | 'l';
 interface InputProps extends HTMLInputProps {
   className?: string;
-  value?: string | number;
-  label?: string;
+  value?: string | number; // поле ввода.
+  label?: string; // Отображается перед полем ввода№
   onChange?: (value: string) => void;
-  autofocus?: boolean;
-  readonly?: boolean;
-  addonLeft?: ReactNode;
-  addonRight?: ReactNode;
-  size?: InputSize;
+  autofocus?: boolean; // Флаг, определяющий, автоматическое фокусирование на поле ввода при монтировании компонента.
+  readonly?: boolean; // Флаг, определяющий, является ли поле ввода только для чтения.
+  addonLeft?: ReactNode; // Дополнительный элемент, отображаемый слева от поля ввода и внутри контейнера.
+  addonRight?: ReactNode; // Дополнительный элемент, отображаемый справа от поля ввода и внутри контейнера.
+  size?: InputSize; // Размер поля ввода.
 }
 
 /**
@@ -85,9 +85,9 @@ export const Input = memo((props: InputProps) => {
 
   const input = (
     <div className={customCl(cl.InputWrapper, mods, [className, cl[size]])}>
-      <div className={cl.InputWrapper__addOnLeft}>{addonLeft}</div>
+      <div className={cl.addOnLeft}>{addonLeft}</div>
       <input
-        className={cl.InputWrapper__input}
+        className={cl.input}
         ref={ref}
         type={type}
         value={value}
@@ -98,7 +98,7 @@ export const Input = memo((props: InputProps) => {
         placeholder={placeholder}
         {...otherProps}
       />
-      <div className={cl.InputWrapper__addOnRight}>{addonRight}</div>
+      <div className={cl.addOnRight}>{addonRight}</div>
     </div>
   );
 

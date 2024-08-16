@@ -65,7 +65,7 @@ export const EditableProfileHeader = memo(
     }, [dispatch]);
 
     return (
-      <Card padding="24" max border="partial">
+      <Card padding="24" maxWidth border="partial">
         <HStack justify={'between'} className={className}>
           <Text title={t('Профиль')} />
           <ToggleFeatures
@@ -78,18 +78,22 @@ export const EditableProfileHeader = memo(
                       <Button
                         onClick={onEdit}
                         data-testid={'EditableProfileCardHeader.EditButton'}
+                        variant="filled"
                       >
                         {t('Редактировать')}
                       </Button>
                     ) : (
                       <HStack gap={'8'}>
                         <Button
+                          variant="filled"
                           onClick={onCancelEdit}
+                          color="error"
                           data-testid={'EditableProfileCardHeader.CancelButton'}
                         >
                           {t('Отменить')}
                         </Button>
                         <Button
+                          variant="filled"
                           onClick={onSave}
                           color="success"
                           data-testid={'EditableProfileCardHeader.SaveButton'}

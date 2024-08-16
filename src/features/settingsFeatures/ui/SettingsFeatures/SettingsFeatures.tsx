@@ -64,7 +64,7 @@ export const SettingsFeatures = memo(() => {
   };
 
   return (
-    <Card padding="24" border="partial" columnGap="32">
+    <Card padding="24" border="partial" flexColumn gap="32">
       <Text title={t('Настройки пользователя')} />
 
       <VStack gap="24">

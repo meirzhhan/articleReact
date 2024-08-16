@@ -15,10 +15,11 @@ interface AppLinkProps extends LinkProps {
 
 /**
  * Кастомный `AppLink` для навигации с использованием `NavLink`.
- * @param {AppLinkProps} props - Свойства компонента.
+ * Поддерживает разные стили и активное состояние ссылки.
+ *
+ * @param {ForwardedRef<HTMLAnchorElement>} ref - Ссылка на элемент `a`.
  * @returns {JSX.Element} - Ссылка с поддержкой активного состояния и варианта стиля.
  */
-// ЧЕКПОНЙНт
 export const AppLink = forwardRef(
   (props: AppLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => {
     const {

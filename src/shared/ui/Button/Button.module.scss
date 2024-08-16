@@ -1,95 +1,73 @@
 .Button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 16px;
   cursor: pointer;
   color: var(--text);
-  padding: 6px 16px;
-  display: flex;
-  align-items: center;
-  transition: all 0.1s ease-in-out;
+  transition: all 0.2s ease-in-out;
 
-  &__addOnLeft,
-  &__addOnRight {
+  &.disabled {
+    opacity: 0.5;
+  }
+  &.fullWidth {
+    width: 100%;
+  }
+  &.withAddon {
+    padding: 0 16px;
+  }
+
+  &.clear {
+    padding: 0;
+  }
+  &.outline {
+    border-radius: 40px;
+    border: 2px solid var(--icon);
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+    &:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+  }
+  &.filled {
+    background: var(--bg);
+    border-radius: 40px;
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+    &:hover {
+      background: var(--light-bg);
+    }
+  }
+
+  &.m {
+    font: var(--font-m);
+  }
+  &.l {
+    font: var(--font-l);
+  }
+  &.xl {
+    font: var(--font-xl);
+  }
+
+  &.success:hover {
+    background: var(--save);
+  }
+  &.error:hover {
+    background: var(--cancel);
+  }
+
+  .addOnLeft,
+  .addOnRight {
     display: flex;
+  }
+  .addOnLeft svg,
+  .addOnRight svg {
+    color: var(--hint);
   }
 
   &:hover {
-    color: var(--accent);
     .addOnLeft svg,
     .addOnRight svg {
       color: var(--accent);
     }
   }
-}
-
-.withAddon {
-  padding: 0 16px;
-}
-
-.addonLeft svg,
-.addonRight svg {
-  color: var(--hint);
-}
-
-.clear {
-  padding: 0;
-  border: none;
-  background: none;
-  outline: none;
-}
-.filled {
-  background: var(--light-bg);
-  border: none;
-  outline: none;
-  border-radius: 34px;
-}
-
-.outline {
-  background: none;
-  border-radius: 34px;
-
-  &.normal {
-    border: 2px solid var(--icon);
-  }
-  &.error {
-    border: 2px solid var(--cancel);
-  }
-  &.success {
-    border: 2px solid var(--save);
-  }
-  &:hover {
-    border: 2px solid var(--accent);
-  }
-}
-
-.square {
-  padding: 0;
-}
-.square.m {
-  width: var(--font-line-m);
-  height: var(--font-line-m);
-}
-.square.l {
-  width: var(--font-line-l);
-  height: var(--font-line-l);
-}
-.square.xl {
-  width: var(--font-line-xl);
-  height: var(--font-line-xl);
-}
-
-.m {
-  font: var(--font-m);
-}
-.l {
-  font: var(--font-l);
-}
-.xl {
-  font: var(--font-xl);
-}
-
-.disabled {
-  opacity: 0.5;
-}
-
-.fullWidth {
-  width: 100%;
 }

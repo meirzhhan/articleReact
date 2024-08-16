@@ -24,7 +24,7 @@ export const NotificationCard = memo((props: NotificationCardProps) => {
 
   if (isLoading) {
     return (
-      <Card border="partial" max columnGap="8">
+      <Card border="partial" maxWidth flexColumn gap="8" noShadow>
         <Skeleton border="12px" height={24} width={'70%'} />
         <Skeleton border="12px" height={16} width={'100%'} />
       </Card>
@@ -33,7 +33,13 @@ export const NotificationCard = memo((props: NotificationCardProps) => {
 
   // Контент карточки с уведомлением
   const content = (
-    <Card className={className} border="partial" max>
+    <Card
+      className={className}
+      border="partial"
+      maxWidth
+      noShadow
+      variant="light"
+    >
       <Text title={item?.title} text={item?.description} />
     </Card>
   );
@@ -41,7 +47,12 @@ export const NotificationCard = memo((props: NotificationCardProps) => {
   // Если есть ссылка переданная по пропсу, оборачивает в <a>
   if (item?.href)
     return (
-      <a target="_blank" href={item.href} rel="noreferrer">
+      <a
+        target="_blank"
+        href={item.href}
+        rel="noreferrer"
+        style={{ width: '100%' }}
+      >
         {content}
       </a>
     );

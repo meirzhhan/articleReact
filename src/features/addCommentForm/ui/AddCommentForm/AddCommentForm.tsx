@@ -66,7 +66,14 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <Card className={className} padding="24" border="partial" rowGap="16" max>
+      <Card
+        className={className}
+        padding="24"
+        border="partial"
+        flexRow
+        gap="16"
+        maxWidth
+      >
         <Input
           placeholder={
             isCommentAvailable

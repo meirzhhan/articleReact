@@ -13,7 +13,7 @@ export const AppLoaderLayout = memo(() => {
     <MainLayout
       header={
         <VStack align="end">
-          <Card padding="16" headersStyle columnGap="8">
+          <Card padding="16" headersStyle flexColumn gap="8">
             <Skeleton width={40} height={40} border="50%" />
             <Skeleton width={24} height={40} border="12px" />
           </Card>

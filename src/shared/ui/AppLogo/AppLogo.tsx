@@ -18,7 +18,6 @@ interface AppLogoProps {
  * @param {AppLogoProps} props - Пропсы компонента.
  * @returns {JSX.Element} - Рендерит логотип приложения с заданными размерами и стилями.
  */
-
 export const AppLogo = memo((props: AppLogoProps) => {
   const { className, size = 50 } = props;
 

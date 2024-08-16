@@ -40,7 +40,14 @@ export const Header = memo(({ className }: NavbarProps) => {
   if (authData) {
     return (
       <VStack className={className} align="end">
-        <Card padding="16" max headersStyle columnGap="4" variant="light">
+        <Card
+          padding="16"
+          maxWidth
+          headersStyle
+          flexColumn
+          gap="4"
+          variant="light"
+        >
           <AvatarDropdown />
           <NotificationTrigger />
         </Card>
@@ -50,7 +57,7 @@ export const Header = memo(({ className }: NavbarProps) => {
 
   return (
     <>
-      <Card padding="16" headersStyle max variant="light">
+      <Card padding="16" headersStyle maxWidth variant="light">
         <Button variant="clear" onClick={onShowModal}>
           {t('Войти')}
         </Button>

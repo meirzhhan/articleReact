@@ -10,6 +10,6 @@ type HStackProps = Omit<FlexProps, 'direction'>;
  * @returns {JSX.Element} - Возвращает флекс-контейнер с вертикальным направлением.
  */
 
-export const HStack = (props: HStackProps) => {
+export const HStack = (props: HStackProps): JSX.Element => {
   return <Flex direction={'row'} {...props} />;
 };

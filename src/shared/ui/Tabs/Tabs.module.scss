@@ -1,12 +1,12 @@
 .tab {
   transition: padding 0.5s ease-in-out, background-color 0.15s;
-  line-height: 16px;
-  border: 1px solid var(--hint);
+  padding: 6px 10px !important;
+
+  &.selected {
+    padding: 6px 20px !important;
+  }
 
   &:hover {
     background-color: var(--light-bg);
   }
-}
-.selected {
-  padding: 8px 20px;
 }

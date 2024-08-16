@@ -65,9 +65,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         className={mainClassName}
         padding="24"
         border="partial"
-        max
+        maxWidth
         data-testid="ArticleListItem"
-        columnGap="8"
+        flexColumn
+        gap="8"
       >
         <HStack gap="8" maxWidth>
           {userInfo}
@@ -94,7 +95,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         )}
         <HStack maxWidth justify="between">
           <AppLink target={target} to={getRouteArticleDetails(article.id)}>
-            <Button variant="outline">{t('Читать далее')}</Button>
+            <Button variant="filled">{t('Читать далее')}</Button>
           </AppLink>
           {views}
         </HStack>
@@ -119,7 +120,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
           src={article.img}
           className={cl.img}
         />
-        <Card>
+        <Card noShadow>
           <Text text={article.title} className={cl.title} />
 
           <div className={cl.textWrapper}>

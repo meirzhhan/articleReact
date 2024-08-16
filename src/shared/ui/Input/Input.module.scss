@@ -1,53 +1,49 @@
 .InputWrapper {
   display: flex;
   align-items: center;
-  border-radius: 48px;
+  border-radius: 40px;
   padding: 8px 16px;
   border: 2px solid var(--icon);
   width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
 
-  &__input {
-    border: none;
-    outline: none;
+  .addOnLeft,
+  .addOnRight {
+    display: flex;
+  }
+  .input {
     width: 100%;
     color: var(--text);
-    background: none;
-
     &::placeholder {
       color: var(--hint);
     }
   }
 
-  &__addOnLeft,
-  &__addOnRight {
-    display: flex;
+  &.s {
+    height: 32px;
   }
-}
-
-.s {
-  height: 32px;
-}
-.m {
-  height: 38px;
-}
-.l {
-  gap: 44px;
-}
-
-.withAddonLeft {
-  padding-left: 8px;
-}
-.withAddonRight {
-  padding-right: 8px;
-}
-
-.focused {
-  border: 2px solid var(--accent);
-  .InputWrapper__addOnLeft svg,
-  .InputWrapper__addOnRight svg {
-    color: var(--accent);
+  &.m {
+    height: 38px;
   }
-}
-.readonly {
-  opacity: 0.7;
+  &.l {
+    height: 44px;
+  }
+
+  &.withAddonLeft {
+    padding-left: 8px;
+  }
+  &.withAddonRight {
+    padding-right: 8px;
+  }
+
+  &.focused {
+    border: 2px solid var(--accent);
+    .addOnLeft svg,
+    .addOnRight svg {
+      color: var(--accent);
+    }
+  }
+  &.readonly {
+    opacity: 0.7;
+  }
 }

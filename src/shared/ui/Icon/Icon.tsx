@@ -8,13 +8,15 @@ type SvgProps = Omit<React.SVGProps<SVGSVGElement>, 'onClick'>;
 
 interface IconBaseProps extends SvgProps {
   className?: string;
-  Svg: React.FC<React.SVGProps<SVGSVGElement>>;
+  Svg: React.FC<React.SVGProps<SVGSVGElement>>; // Компонент SVG, который будет использоваться для отображения иконки.
 }
 
+// Не кликабельная иконка кликабельна. (button)
 interface NotClickableIconProps extends IconBaseProps {
   clickable?: false;
 }
 
+// Кликабельная иконка кликабельна.
 interface ClickableIconProps extends IconBaseProps {
   clickable?: true;
   onClick: () => void;
@@ -24,7 +26,6 @@ type IconProps = NotClickableIconProps | ClickableIconProps;
 
 /**
  * Компонент для отображения иконки.
- *
  * В зависимости от пропса `clickable`, иконка может быть отображена как обычный элемент SVG или как кнопка.
  *
  * @param {IconProps} props - Пропсы компонента иконки.

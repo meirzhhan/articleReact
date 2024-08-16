@@ -1,12 +1,12 @@
 import { ReactNode } from 'react';
 
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
-import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { customCl, Mods } from '@/shared/lib/hooks/useClassName';
 
 import { Overlay } from '../Overlay';
 import { Portal } from '../Portal';
 import cl from './Modal.module.scss';
+import { Card } from '../Card';
 
 interface ModalProps {
   className?: string;
@@ -19,14 +19,16 @@ interface ModalProps {
 const ANIMATION_DELAY = 300;
 
 /**
- * Компонент модального окна.
- * Модальное окно может быть лениво загружено (монтироваться только при необходимости)
+ * Компонент модального окна, который отображает всплывающее окно поверх основного содержимого.
+ * Модальное окно может быть лениво загружено, т.е. монтироваться только при необходимости.
  *
- * @param {ModalProps} props - Пропсы компонента Modal.
- * @returns {JSX.Element | null} - Возвращает JSX элемент для модального окна или null, если модальное окно должно быть скрыто.
+ * @param {boolean} [props.isOpen=false] - Флаг, определяющий, открыто ли модальное окно. По умолчанию `false`.
+ * @param {() => void} [props.onClose] - Функция обратного вызова, которая вызывается при закрытии модального окна.
+ * @param {boolean} [props.lazy=false] - Флаг, указывающий, должно ли модальное окно загружаться лениво.
+ *
+ * @returns {JSX.Element | null} - Возвращает JSX элемент для модального окна, если оно открыто. Если `lazy` равно `true` и модальное окно не смонтировано, возвращает `null`.
  */
-
-export const Modal = (props: ModalProps) => {
+export const Modal = (props: ModalProps): JSX.Element | null => {
   const { className, children, isOpen, onClose, lazy } = props;
 
   const { close, isClosing, isMounted } = useModal({
@@ -35,11 +37,9 @@ export const Modal = (props: ModalProps) => {
     isOpen,
   });
 
-  const { theme } = useTheme();
-
   const mods: Mods = {
-    [cl.opened]: isOpen,
-    [cl.isClosing]: isClosing,
+    [cl.open]: isOpen,
+    [cl.closing]: isClosing,
   };
 
   if (lazy && !isMounted) {
@@ -48,11 +48,11 @@ export const Modal = (props: ModalProps) => {
 
   return (
     <Portal element={document.getElementById('app') ?? document.body}>
-      <div
-        className={customCl(cl.Modal, mods, [className, theme, 'app_modal'])}
-      >
+      <div className={customCl(cl.Modal, mods, [className, 'app_modal'])}>
         <Overlay onClick={close} />
-        <div className={cl.Modal__content}>{children}</div>
+        <Card className={cl.content} padding="24" border="round">
+          {children}
+        </Card>
       </div>
     </Portal>
   );

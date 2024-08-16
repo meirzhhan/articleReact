@@ -1,91 +1,82 @@
-.cursor {
-  cursor: pointer;
-}
+.Card {
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
 
-.max {
-  width: 100%;
-}
+  &.maxWidth {
+    width: 100%;
+  }
+  &.cursor {
+    cursor: pointer;
+  }
+  &.headersStyle {
+    border-bottom-left-radius: 40px;
+    border-top-left-radius: 40px;
+    align-items: center;
+  }
+  &.noShadow {
+    box-shadow: none;
+  }
 
-.normal {
-  background: var(--dark-bg);
-}
-.light {
-  background: var(--light-bg);
-}
-.outlined {
-  border: 1px solid var(--accent);
-}
-.transparent {
-  background: transparent;
-}
+  &.normal {
+    background: var(--dark-bg);
+  }
+  &.light {
+    background: var(--light-bg);
+  }
+  &.outlined {
+    border: 1px solid var(--hint);
+  }
+  &.transparent {
+    background: transparent;
+  }
 
-.default {
-  border-radius: 12px;
-}
-.partial {
-  border-radius: 20px;
-}
-.round {
-  border-radius: 40px;
-}
+  &.padding_0 {
+    padding: 0;
+  }
+  &.padding_8 {
+    padding: 8px;
+  }
+  &.padding_16 {
+    padding: 16px;
+  }
+  &.padding_24 {
+    padding: 24px;
+  }
 
-.padding_0 {
-  padding: 0;
-}
-.padding_8 {
-  padding: 8px;
-}
-.padding_16 {
-  padding: 16px;
-}
-.padding_24 {
-  padding: 24px;
-}
+  &.default {
+    border-radius: 12px;
+  }
+  &.partial {
+    border-radius: 20px;
+  }
+  &.round {
+    border-radius: 40px;
+  }
 
-.column_gap_4 {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.column_gap_8 {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.column_gap_16 {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.column_gap_32 {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
+  &.flexColumn {
+    display: flex;
+    flex-direction: column;
+  }
+  &.flexRow {
+    display: flex;
+    flex-direction: row;
+  }
 
-.row_gap_4 {
-  display: flex;
-  flex-direction: row;
-  grid-area: 4px;
-}
-.row_gap_8 {
-  display: flex;
-  flex-direction: row;
-  gap: 8px;
-}
-.row_gap_16 {
-  display: flex;
-  flex-direction: row;
-  gap: 16px;
-}
-.row_gap_32 {
-  display: flex;
-  flex-direction: row;
-  gap: 32px;
-}
-
-.header {
-  border-bottom-left-radius: 40px;
-  border-top-left-radius: 40px;
-  align-items: center;
+  &.gap_0 {
+    gap: 0;
+  }
+  &.gap_4 {
+    gap: 4px;
+  }
+  &.gap_8 {
+    gap: 8px;
+  }
+  &.gap_16 {
+    gap: 16px;
+  }
+  &.gap_24 {
+    gap: 24px;
+  }
+  &.gap_32 {
+    gap: 32px;
+  }
 }

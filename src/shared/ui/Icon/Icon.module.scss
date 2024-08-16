@@ -1,16 +1,9 @@
 .Icon {
   color: var(--icon);
-  transition: all 0.1s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
-
 .button {
-  margin: 0;
-  padding: 0;
-  border: none;
-  outline: none;
-  background: none;
   cursor: pointer;
-
   &:hover .Icon {
     color: var(--accent);
   }

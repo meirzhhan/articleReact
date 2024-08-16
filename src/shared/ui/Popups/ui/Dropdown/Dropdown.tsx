@@ -1,5 +1,5 @@
-import { ReactNode } from 'react';
 import { Menu } from '@headlessui/react';
+import { ReactNode } from 'react';
 import { Fragment } from 'react/jsx-runtime';
 
 import { customCl } from '@/shared/lib/hooks/useClassName';
@@ -11,17 +11,17 @@ import popupCl from '../../styles/popup.module.scss';
 import cl from './Dropdown.module.scss';
 
 export interface DropdownItem {
-  disabled?: boolean;
+  disabled?: boolean; // Определяет, доступен ли элемент меню для взаимодействия.
   content?: ReactNode;
   onClick?: () => void;
-  href?: string;
+  href?: string; // URL, к которому будет производиться переход при выборе элемента меню.
 }
 
 interface DropdownProps {
   className?: string;
   items: DropdownItem[];
-  trigger?: ReactNode;
-  direction?: DropdownDirection;
+  trigger?: ReactNode; // Элемент, который вызывает выпадающее меню при взаимодействии.
+  direction?: DropdownDirection; // Направление отображения
 }
 
 /**

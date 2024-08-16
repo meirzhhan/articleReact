@@ -29,7 +29,7 @@ interface TabsProps {
 }
 
 /**
- * Компонент Tabs отображает набор вкладок, позволяющих пользователю переключаться между различными секциями.
+ * Компонент Tabs отображает набор вкладок, позволяющих пользователю переключаться между различными секциями | toggler.
  *
  * @param {TabsProps} props - Свойства для компонента.
  * @returns {JSX.Element} Отрендеренный компонент.
@@ -48,20 +48,14 @@ export const Tabs = memo((props: TabsProps) => {
   );
 
   return (
-    <Flex
-      direction={direction}
-      gap="8"
-      align="start"
-      className={customCl(cl.Tabs, {}, [])}
-    >
+    <Flex direction={direction} gap="8" align="start">
       {tabs.map((tab) => {
         const isSelected = tab.value === value;
-        const className = `${cl.tab} ${isSelected ? cl.selected : ''}`;
 
         return (
           <Card
             key={tab.value}
-            className={className}
+            className={customCl(cl.tab, { [cl.selected]: isSelected }, [])}
             cursorPointer
             variant={isSelected ? 'light' : 'normal'}
             onClick={clickHandle(tab)}

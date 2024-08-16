@@ -1,16 +1,16 @@
 import { memo, useState } from 'react';
 
 import { customCl } from '@/shared/lib/hooks/useClassName';
-import { Icon } from '../Icon';
 import StarIcon from '@/shared/assets/icons/star.svg';
 
+import { Icon } from '../Icon';
 import cl from './StarRating.module.scss';
 
 interface StarRatingProps {
   className?: string;
-  onSelect?: (starsCount: number) => void;
-  size?: number;
-  selectedStars?: number;
+  onSelect?: (starsCount: number) => void; // Функция для выбора оценки (звезда)
+  size?: number; // Размер SVG
+  selectedStars?: number; // Выбранная оценка
 }
 
 const stars = [1, 2, 3, 4, 5];

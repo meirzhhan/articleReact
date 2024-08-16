@@ -1,39 +1,22 @@
+@import '/src/app/styles/variables/global.scss';
 .Modal {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
+  @include ModalAndOverlay;
   opacity: 0;
   pointer-events: none;
-  z-index: 100;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
-  &__content {
-    padding: 20px;
-    border-radius: 12px;
-    transition: 0.3s transform;
-    transform: scale(0.5);
-    max-width: 60%;
+  &.open {
+    pointer-events: auto;
+    opacity: 1;
+    .content {
+      transform: scale(1);
+    }
+  }
+  &.closing .content {
+    transform: scale(0.6);
+  }
+
+  .content {
+    transition: 0.3s transform ease-in-out;
     z-index: var(--modal-z-index);
-    background: var(--light-bg);
-  }
-}
-
-.opened {
-  pointer-events: auto;
-  opacity: 1;
-  z-index: var(--modal-z-index);
-
-  .Modal__content {
-    transform: scale(1);
-  }
-}
-
-.isClosing {
-  .Modal__content {
-    transform: scale(0.2);
   }
 }

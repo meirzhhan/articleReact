@@ -29,7 +29,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
   // Если данные комментария загружаются, отображается Skeleton
   if (isLoading) {
     return (
-      <Card padding="24" max border="partial" columnGap="8">
+      <Card padding="24" maxWidth border="partial" flexColumn gap="8">
         <HStack gap="8">
           <Skeleton width={30} height={30} border="50%" />
           <Skeleton width={150} height={16} border="12px" />
@@ -44,7 +44,14 @@ export const CommentCard = memo((props: CommentCardProps) => {
 
   // Отображение комментария.
   return (
-    <Card className={className} padding="24" border="partial" max columnGap="8">
+    <Card
+      className={className}
+      padding="24"
+      border="partial"
+      maxWidth
+      flexColumn
+      gap="8"
+    >
       <AppLink to={getRouteProfile(comment.user.id)}>
         <HStack gap="8">
           {comment?.user.avatar ? (

@@ -3,6 +3,7 @@
   align-items: center;
   width: 100%;
   padding: 4px 16px;
+  transition: all 0.15s ease-in-out;
 
   &.collapsed {
     padding: 0 8px;
@@ -18,9 +19,7 @@
 .Item:hover {
   background: linear-gradient(
     90deg,
-    rgba(94, 211, 243, 0.3) 1.15%,
-    rgba(94, 211, 243, 0) 100%
+    rgba(var(--icon-r), var(--icon-g), var(--icon-b), 0.3) 1.15%,
+    rgba(var(--icon-r), var(--icon-g), var(--icon-b), 0) 100%
   );
-
-  border-left: 2px solid var(--accent);
 }

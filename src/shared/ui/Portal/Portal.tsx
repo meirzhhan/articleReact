@@ -13,7 +13,7 @@ interface PortalProps {
  * @returns {React.ReactPortal} - Возвращает React портал, который рендерит дочерние элементы в указанный DOM элемент.
  */
 
-export const Portal = (props: PortalProps) => {
+export const Portal = (props: PortalProps): React.ReactPortal => {
   const { children, element = document.body } = props;
 
   return createPortal(children, element);

@@ -1,7 +1,6 @@
 import { memo, ReactNode, useCallback, useEffect } from 'react';
 
 import { customCl } from '@/shared/lib/hooks/useClassName';
-import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import {
   AnimationProvider,
   useAnimationLibs,
@@ -22,16 +21,17 @@ interface DrawerProps {
 const height = window.innerHeight - 100;
 
 /**
- * Основной компонент для отображения модального окна для мобильных устройств.
+ * Основной компонент для отображения выдвижного окна для мобильных устройств.
+ * Компонент использует анимации для открытия и закрытия.
  *
- * @param {DrawerProps} props - Пропсы компонента `DrawerContent`.
- * @returns {JSX.Element | null} - Возвращает JSX элемент, если `isOpen` равен `true`, иначе возвращает `null`.
+ * @param {boolean} [props.isOpen=false] - Флаг, определяющий, открыто ли выдвижное окно. По умолчанию `false`.
+ * @param {boolean} [props.lazy=false] - Флаг, указывающий, должно ли выдвижное окно загружаться лениво. По умолчанию `false`.
+ *
+ * @returns {JSX.Element | null} - Возвращает JSX элемент, если `isOpen` равен `true`. Иначе возвращает `null`.
  */
-
 export const DrawerContent = memo((props: DrawerProps) => {
   const { Spring, Gesture } = useAnimationLibs();
   const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
-  const { theme } = useTheme();
   const { className, children, onClose, isOpen } = props;
 
   // Открывает выдвижное окно с анимацией.
@@ -100,14 +100,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
 
   return (
     <Portal element={document.getElementById('app') ?? document.body}>
-      <div
-        className={customCl(cl.Drawer, {}, [
-          className,
-          theme,
-          'app_drawer',
-          cl.drawerNew,
-        ])}
-      >
+      <div className={customCl('app_drawer', {}, [className])}>
         <Overlay onClick={close} />
         <Spring.a.div
           className={cl.sheet}

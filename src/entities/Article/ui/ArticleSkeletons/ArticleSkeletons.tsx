@@ -44,7 +44,7 @@ export const ArticleListItemSkeleton = memo(
 
     if (view === ArticleView.BIG) {
       return (
-        <Card padding="24" border="partial" max columnGap="8">
+        <Card padding="24" border="partial" maxWidth flexColumn gap="8">
           <HStack gap="8">
             <Skeleton width={32} height={32} border="50%" />
             <Skeleton width={180} height={24} border="20px" />

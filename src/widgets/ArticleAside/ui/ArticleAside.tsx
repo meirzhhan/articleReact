@@ -46,7 +46,9 @@ export const ArticleAside = memo((props: ArticleAsideProps) => {
       </AppLink>
 
       {authData?.id === author.id && (
-        <Button onClick={onEdit}>{t('Редактировать')}</Button>
+        <Button onClick={onEdit} variant="filled" fullWidth>
+          {t('Редактировать')}
+        </Button>
       )}
     </VStack>
   );

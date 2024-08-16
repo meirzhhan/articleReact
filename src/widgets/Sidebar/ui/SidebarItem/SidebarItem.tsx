@@ -27,14 +27,17 @@ interface SidebarItemProps {
 export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
   const { t } = useTranslation('sidebar');
   const isAuth = useSelector(getUserAuthData);
-  const className = customCl(cl.Item, { [cl.collapsed]: collapsed }, []);
 
   if (item.authOnly && !isAuth) {
     return null;
   }
 
   return (
-    <AppLink to={item.path} className={className} activeClassName={cl.active}>
+    <AppLink
+      to={item.path}
+      className={customCl(cl.Item, { [cl.collapsed]: collapsed }, [])}
+      activeClassName={cl.active}
+    >
       <Icon Svg={item.Icon} />
       <span className={cl.link}>{t(item.text)}</span>
     </AppLink>

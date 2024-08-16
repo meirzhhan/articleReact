@@ -56,7 +56,7 @@ export const ProfileCard = (props: ProfileCardProps): JSX.Element => {
   const { t } = useTranslation('profile');
 
   const ProfileSkeleton = (
-    <Card padding="24" border="partial" max columnGap="32">
+    <Card padding="24" border="partial" maxWidth flexColumn gap="32">
       <HStack maxWidth justify="center">
         <Skeleton border="50%" width={128} height={128} />
       </HStack>
@@ -91,9 +91,10 @@ export const ProfileCard = (props: ProfileCardProps): JSX.Element => {
     <Card
       padding="24"
       border="partial"
-      max
+      maxWidth
       className={className}
-      columnGap="32"
+      flexColumn
+      gap="32"
     >
       {data?.avatar && (
         <HStack justify={'center'} maxWidth>

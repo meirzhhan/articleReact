@@ -9,7 +9,7 @@ import cl from './Code.module.scss';
 
 interface CodeProps {
   className?: string;
-  text: string;
+  text: string; // Код
 }
 
 /**
@@ -27,13 +27,13 @@ export const Code = memo((props: CodeProps) => {
   }, [text]);
 
   return (
-    <Card padding="0" variant="light">
+    <Card padding="16" variant="light" border="default">
       <pre className={customCl(cl.Code, {}, [className])}>
         <code>{text}</code>
         <Icon
           clickable
           onClick={onCopy}
-          className={cl.Code__copyBtn}
+          className={cl.copyBtn}
           Svg={CopyIconNew}
         />
       </pre>

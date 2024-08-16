@@ -66,13 +66,19 @@ export const ArticlesFilters = memo((props: ArticlesFiltersProps) => {
     <VStack className={className} gap="24">
       <ArticleViews view={view} onViewClick={onChangeView} />
 
-      <Card className={cl.card} padding="24" border="partial">
+      <Card
+        className={cl.card}
+        padding="24"
+        border="partial"
+        flexColumn
+        gap="24"
+      >
         <Input
           onChange={onChangeSearch}
           value={search}
           size="s"
           placeholder={t('Поиск')}
-          addonLeft={<Icon Svg={SearchIcon} />}
+          addonRight={<Icon Svg={SearchIcon} />}
         />
         <ArticleTypes value={type} onChangeType={onChangeType} />
         <ArticleSortListBox

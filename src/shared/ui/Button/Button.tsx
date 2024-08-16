@@ -9,20 +9,19 @@ import { Mods, customCl } from '@/shared/lib/hooks/useClassName';
 import cl from './Button.module.scss';
 
 export type ButtonVariable = 'clear' | 'outline' | 'filled'; // Типы возможных вариантов кнопки.
-export type ButtonColor = 'normal' | 'success' | 'error'; // Типы возможных цветов кнопки.
-export type ButtonSize = 'm' | 'l' | 'xl'; // Типы возможных размеров кнопки.
+export type ButtonColor = 'normal' | 'success' | 'error'; // Цветовые варианты кнопки.
+export type ButtonSize = 'm' | 'l' | 'xl'; // Размеры кнопки.
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   variant?: ButtonVariable;
   color?: ButtonColor;
-  square?: boolean;
   size?: ButtonSize;
-  disabled?: boolean;
+  disabled?: boolean; // Флаг для недоступности взаимодействия с кнопкой.
   children?: ReactNode;
-  fullWidth?: boolean;
-  addonLeft?: ReactNode;
-  addonRight?: ReactNode;
+  fullWidth?: boolean; // Флаг для максимальной ширины кнопки.
+  addonLeft?: ReactNode; // Элемент, отображаемый слева от текста кнопки.
+  addonRight?: ReactNode; // Элемент, отображаемый справа от текста кнопки.
 }
 
 /**
@@ -38,7 +37,6 @@ export const Button = forwardRef(
     const {
       className,
       variant = 'outline',
-      square,
       size = 'm',
       disabled,
       children,
@@ -50,28 +48,24 @@ export const Button = forwardRef(
     } = props;
 
     const mods: Mods = {
-      [cl.square]: square,
       [cl.disabled]: disabled,
       [cl.fullWidth]: fullWidth,
       [cl.withAddon]: Boolean(addonLeft) || Boolean(addonRight),
     };
 
+    const additionalClasses = [className, cl[variant], cl[size], cl[color]];
+
     return (
       <button
         type="button"
-        className={customCl(cl.Button, mods, [
-          className,
-          cl[variant],
-          cl[size],
-          cl[color],
-        ])}
+        className={customCl(cl.Button, mods, additionalClasses)}
         disabled={disabled}
         ref={ref}
         {...otherProps}
       >
-        <div className={cl.Button__addOnLeft}>{addonLeft}</div>
+        {addonLeft && <div className={cl.addOnLeft}>{addonLeft}</div>}
         {children}
-        <div className={cl.Button__addOnRight}>{addonRight}</div>
+        {addonRight && <div className={cl.addOnRight}>{addonRight}</div>}
       </button>
     );
   },

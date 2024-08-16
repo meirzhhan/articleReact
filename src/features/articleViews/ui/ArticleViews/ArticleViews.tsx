@@ -47,9 +47,10 @@ export const ArticleViews = memo((props: ArticleViewProps) => {
   return (
     <Card
       border="partial"
-      max
+      maxWidth
       className={customCl(cl.Main, {}, [className])}
-      rowGap="8"
+      flexRow
+      gap="8"
     >
       {viewTypes.map((type) => {
         const IconClassName = (type.view !== view && cl.notSelected) || '';

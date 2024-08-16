@@ -10,15 +10,14 @@ import cl from './Avatar.module.scss';
 
 interface AvatarProps {
   className?: string;
-  src?: string;
-  size?: number;
+  src?: string; // URL изображения для аватара
+  size?: number; // Размер аватара в пикселях.
   alt?: string;
 }
 
 /**
  * Компонент `Avatar` отображает изображение аватара пользователя.
- * Использует компонент `AppImage` для обработки загрузки, ошибок и отображения
- * резервных изображений.
+ * Использует компонент `AppImage` для обработки загрузки, ошибок и отображения резервных изображений.
  *
  * @param {AvatarProps} props - Пропсы компонента.
  * @returns {JSX.Element} - Рендерит аватар с заданными размерами, стилями и fallback-изображениями.

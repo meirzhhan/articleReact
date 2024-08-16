@@ -7,7 +7,7 @@ interface SkeletonProps {
   className?: string;
   height?: string | number;
   width?: string | number;
-  border?: string;
+  border?: string; // Радиус скелетона
 }
 
 /**

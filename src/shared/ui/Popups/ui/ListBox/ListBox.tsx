@@ -9,31 +9,31 @@ import { HStack } from '../../../Stack';
 import { Button } from '../../../Button';
 import { Icon } from '../../../Icon';
 import { mapDirectionClass } from '../../styles/consts';
-
 import popupCl from '../../styles/popup.module.scss';
 import cl from './ListBox.module.scss';
+
 export interface ListBoxItem<T extends string> {
-  value: T;
-  content: ReactNode;
-  disabled?: boolean;
+  value: T; // Значение элемента списка.
+  content: ReactNode; // Содержимое элемента списка, отображаемое пользователю.
+  disabled?: boolean; // Определяет, доступен ли элемент для выбора.
 }
 
 interface ListBoxProps<T extends string> {
   className?: string;
   items?: ListBoxItem<T>[];
-  value?: T;
-  defaultValue?: string;
+  value?: T; // Текущее выбранное значение.
+  defaultValue?: string; // Значение по умолчанию
   onChange: (value: T) => void;
-  readonly?: boolean;
-  direction?: DropdownDirection;
-  label?: string;
+  readonly?: boolean; // Определяет, доступен ли компонент для редактирования
+  direction?: DropdownDirection; // Направление
+  label?: string; // Метка, отображаемая перед элементами списка.
 }
 
 /**
- * Компонент ListBox, используемый для создания выпадающего списка с элементами выбора. (Headless UI)
+ * Компонент `ListBox` используется для создания выпадающего списка с элементами выбора с использованием библиотеки Headless UI.
  *
- * @param {ListBoxProps<T>} props - Пропсы компонента ListBox.
- * @returns {JSX.Element} - Возвращает JSX элемент для ListBox.
+ * @param {ListBoxProps<T>} props - Пропсы компонента `ListBox`.
+ * @returns {JSX.Element} - Возвращает JSX элемент для `ListBox`.
  * @template T - Тип значения элемента списка.
  */
 
@@ -57,7 +57,10 @@ export function ListBox<T extends string>(props: ListBoxProps<T>): JSX.Element {
   }, [items, value]);
 
   return (
-    <HStack gap="4" className={readonly ? cl.readonly : ''}>
+    <HStack
+      gap="4"
+      className={customCl(cl.ListBox, { [cl.readonly]: readonly }, [])}
+    >
       {label && <span>{`${label}`} </span>}
       <HListbox
         disabled={readonly}

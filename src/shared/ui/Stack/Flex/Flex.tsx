@@ -43,19 +43,19 @@ type DivProps = DetailedHTMLProps<
 export interface FlexProps extends DivProps {
   className?: string;
   children: ReactNode;
-  justify?: FlexJustify;
-  align?: FlexAlign;
-  direction: FlexDirection;
-  wrap?: FlexWrap;
-  gap?: FlexGap;
-  maxWidth?: boolean;
-  maxHeight?: boolean;
+  justify?: FlexJustify; // Выравнивание по горизонтали.
+  align?: FlexAlign; // Выравнивание по вертикали.
+  direction: FlexDirection; // Направление флекс-контейнера.
+  wrap?: FlexWrap; // Обтекание элементов внутри контейнера.
+  gap?: FlexGap; // Gap между элементами.
+  maxWidth?: boolean; // Максимальная ширина контейнера.
+  maxHeight?: boolean; // Максимальная высота контейнера.
 }
 
 /**
- * Компонент Flex используется для создания флекс-контейнера с настраиваемыми стилями.
+ * Компонент `Flex` используется для создания флекс-контейнера с настраиваемыми стилями.
  *
- * @param {FlexProps} props - Пропсы компонента Flex.
+ * @param {FlexProps} props - Пропсы компонента `Flex`.
  * @returns {JSX.Element} - Возвращает флекс-контейнер с дочерними элементами.
  */
 
