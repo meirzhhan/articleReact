@@ -25,10 +25,6 @@ const userSlice = createSlice({
       state.authData = action.payload;
       setFeatureFlags(action.payload.features);
       localStorage.setItem(USER_LOCALSTORAGE_KEY, action.payload.id);
-      // localStorage.setItem(
-      //   LOCAL_STORAGE_LAST_DESIGN_KEY,
-      //   action.payload.features?.isAppRedesigned ? 'new' : 'old',
-      // );
     },
 
     /**

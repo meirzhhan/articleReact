@@ -9,6 +9,7 @@ import { Text } from '@/shared/ui/Text';
 import { useTranslation } from 'react-i18next';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Input } from '@/shared/ui/Input';
+import { toggleFeatures } from '@/shared/lib/hooks/useToggleFeatures';
 
 export interface ProfileCardProps {
   className?: string;
@@ -137,13 +138,21 @@ export const ProfileCard = (props: ProfileCardProps): JSX.Element => {
             value={data?.username}
             label={t('Логин')}
             onChange={onChangeUsername}
-            readonly={readonly}
+            readonly={toggleFeatures({
+              name: 'isEditLoginEnabled',
+              on: () => readonly,
+              off: () => true,
+            })}
           />
           <Input
             value={data?.avatar}
             label={t('Аватар')}
             onChange={onChangeAvatar}
-            readonly={readonly}
+            readonly={toggleFeatures({
+              name: 'isEditAvatarEnabled',
+              on: () => readonly,
+              off: () => true,
+            })}
           />
           <CurrencySelect
             value={data?.currency}

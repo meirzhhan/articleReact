@@ -1,4 +1,5 @@
 import { memo, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
@@ -14,6 +15,7 @@ import { Dropdown } from '@/shared/ui/Popups';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
   getRouteAdmin,
+  getRouteMain,
   getRouteProfile,
   getRouteSettings,
 } from '@/shared/consts/router';
@@ -35,20 +37,21 @@ interface AvatarDropdownProps {
 //   (props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
 
 export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
-  // export const AvatarDropdown = forwardRef(props: AvatarDropdownProps, ref: ForwardedRef<HTML>) => {
   const { className } = props;
+
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
-
-  const isAdmin = useSelector(isUserAdmin);
-  const isManager = useSelector(isUserManager);
+  const navigate = useNavigate();
 
   const authData = useSelector(getUserAuthData);
+  const isAdmin = useSelector(isUserAdmin);
+  const isManager = useSelector(isUserManager);
 
   //  Обработчик выхода из системы. Dispatch действие выхода из системы.
   const onLogout = useCallback(() => {
     dispatch(userActions.logout());
-  }, [dispatch]);
+    navigate(getRouteMain());
+  }, [dispatch, navigate]);
 
   const isAdminPanelAvailable = isAdmin || isManager;
 

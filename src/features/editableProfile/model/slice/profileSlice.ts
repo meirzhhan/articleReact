@@ -73,9 +73,9 @@ const profileSlice = createSlice({
           state.validateErrors = undefined;
         },
       )
-      .addCase(updateProfileData.rejected, (state) => {
+      .addCase(updateProfileData.rejected, (state, action) => {
         state.isLoading = false;
-        // state.validateErrors = action.payload;
+        state.validateErrors = action.payload;
       });
   },
 });

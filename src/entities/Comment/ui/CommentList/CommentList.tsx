@@ -30,7 +30,7 @@ export const CommentList = memo((props: CommentListProps) => {
   if (isLoading) {
     return (
       <VStack gap={'16'} maxWidth className={className}>
-        {[1, 2, 3, 4].map((index) => (
+        {[1, 2, 3].map((index) => (
           <CommentCard key={index} isLoading={true} />
         ))}
       </VStack>

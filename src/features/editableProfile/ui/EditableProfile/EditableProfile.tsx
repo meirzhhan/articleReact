@@ -16,7 +16,7 @@ import {
 } from '@/shared/lib/components/DynamicReducer';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
-import { EditableProfileHeader } from '../EditableProfileHeader/EditableProfileHeader';
+import { ProfileHeader } from '../ProfileHeader/ProfileHeader';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
@@ -63,7 +63,8 @@ export const EditableProfile = memo((props: EditableProfileProps) => {
     [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка'),
     [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректная страна'),
     [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
-    [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
+    [ValidateProfileError.INCORRECT_FIRST]: t('Не правильная форма имени'),
+    [ValidateProfileError.INCORRECT_LAST]: t('Не правильная форма фамилии'),
     [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
   };
 
@@ -138,17 +139,7 @@ export const EditableProfile = memo((props: EditableProfileProps) => {
   return (
     <DynamicReducer reducers={reducers} removeAfterUnmount={false}>
       <VStack gap="16" maxWidth className={className} align="center">
-        <EditableProfileHeader />
-
-        {validateErrors?.length &&
-          validateErrors.map((err) => (
-            <Text
-              key={err}
-              variant="error"
-              text={validateErrorsTranslates[err]}
-              data-testid="EditableProfileCard.Error"
-            />
-          ))}
+        <ProfileHeader />
 
         <ProfileCard
           data={formData}
@@ -164,6 +155,16 @@ export const EditableProfile = memo((props: EditableProfileProps) => {
           onChangeCurrency={onChangeCurrency}
           onChangeCountry={onChangeCountry}
         />
+
+        {validateErrors?.length &&
+          validateErrors.map((err) => (
+            <Text
+              key={err}
+              variant="error"
+              text={validateErrorsTranslates[err]}
+              data-testid="EditableProfileCard.Error"
+            />
+          ))}
       </VStack>
     </DynamicReducer>
   );

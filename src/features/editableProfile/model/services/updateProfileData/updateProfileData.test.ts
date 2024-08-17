@@ -51,7 +51,13 @@ describe('updateProfileData.test', () => {
   test('validate error', async () => {
     const thunk = new TestAsyncThunk(updateProfileData, {
       profile: {
-        form: { ...data, lastname: '', age: NaN, country: undefined },
+        form: {
+          ...data,
+          first: '',
+          lastname: '',
+          age: NaN,
+          country: undefined,
+        },
       },
     } as StateSchema); // incorrect filled lastname
 
@@ -60,7 +66,8 @@ describe('updateProfileData.test', () => {
     expect(result.meta.requestStatus).toBe('rejected');
 
     expect(result.payload).toEqual([
-      ValidateProfileError.INCORRECT_USER_DATA,
+      ValidateProfileError.INCORRECT_FIRST,
+      ValidateProfileError.INCORRECT_LAST,
       ValidateProfileError.INCORRECT_AGE,
       ValidateProfileError.INCORRECT_COUNTRY,
     ]); // should return validate errors

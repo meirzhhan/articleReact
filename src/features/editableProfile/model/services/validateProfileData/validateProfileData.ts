@@ -20,8 +20,9 @@ export const validateProfileData = (
 
   const errors: ValidateProfileError[] = [];
 
-  if (!first || !lastname)
-    errors.push(ValidateProfileError.INCORRECT_USER_DATA);
+  if (!first) errors.push(ValidateProfileError.INCORRECT_FIRST);
+
+  if (!lastname) errors.push(ValidateProfileError.INCORRECT_LAST);
 
   if (!age || !Number.isInteger(age))
     errors.push(ValidateProfileError.INCORRECT_AGE);
