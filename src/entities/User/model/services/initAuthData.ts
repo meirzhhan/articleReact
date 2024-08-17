@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { USER_LOCALSTORAGE_KEY } from '@/shared/consts/localStorage';
 
-import { getUserDataByIdQuery } from '../../api/userApi';
+import { getUserByIdQuery } from '../../api/userApi';
 import { User } from '../types/user';
 
 /**
@@ -27,7 +27,7 @@ export const initAuthData = createAsyncThunk<
   if (!userId) return rejectWithValue('');
 
   try {
-    const response = await dispatch(getUserDataByIdQuery(userId)).unwrap();
+    const response = await dispatch(getUserByIdQuery(userId)).unwrap();
 
     return response;
   } catch (e) {

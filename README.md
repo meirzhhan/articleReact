@@ -17,7 +17,7 @@
 Проект и сервер развернуты на двух сайтах. Логин для входа: **`user`**, пароль: **`123`**.
 
 - Frontend: [zhannews](https://zhannews.netlify.app/)
-- Backend: [backendForArticle](https://backend-for-articles.vercel.app/)
+- Backend серер: [backendForArticle](https://backend-for-articles.vercel.app/)
 
 Репозиторий сервера [здесь](https://github.com/meirzhhan/dbForArticleReact)
 

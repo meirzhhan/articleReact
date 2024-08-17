@@ -5,7 +5,6 @@ import { HStack } from '@/shared/ui/Stack';
 import { Card } from '@/shared/ui/Card';
 import { AppImage } from '@/shared/ui/AppImage';
 import { Skeleton } from '@/shared/ui/Skeleton';
-import { Avatar } from '@/shared/ui/Avatar';
 import { Text } from '@/shared/ui/Text';
 import { Icon } from '@/shared/ui/Icon';
 import { Button } from '@/shared/ui/Button';
@@ -20,6 +19,7 @@ import {
   ArticleView,
 } from '../../model/consts/articleConsts';
 import cl from './ArticleListItem.module.scss';
+import { UserCard } from '@/shared/ui/UserCard';
 
 export interface ArticleListItemProps {
   className?: string;
@@ -40,13 +40,6 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   const { t } = useTranslation('articles');
 
   const mainClassName = customCl(cl.ArticleListItem, {}, [className, cl[view]]);
-
-  const userInfo = (
-    <>
-      <Avatar size={32} src={article.user.avatar} />
-      <Text bold text={article.user.username} />
-    </>
-  );
 
   const views = (
     <HStack gap="8">
@@ -71,7 +64,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         gap="8"
       >
         <HStack gap="8" maxWidth>
-          {userInfo}
+          <UserCard imgSize={32} user={article.user} />
           <Text text={article.createdAt} />
         </HStack>
 
@@ -128,7 +121,9 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
               <Text text={article.createdAt} />
               {views}
             </HStack>
-            <HStack gap="4">{userInfo}</HStack>
+            <HStack gap="4">
+              <UserCard imgSize={32} user={article.user} />
+            </HStack>
           </div>
         </Card>
       </Card>

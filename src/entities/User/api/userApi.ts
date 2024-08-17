@@ -48,7 +48,10 @@ const userApi = rtkApi.injectEndpoints({
 export const setJsonSettingsMutation =
   userApi.endpoints.setJsonSettings.initiate;
 
+// Получает айди
+export const getUserByIdQuery = userApi.endpoints.getUserDataById.initiate;
+
 /**
  * Хук для выполнения запроса получения данных пользователя по идентификатору.
  */
-export const getUserDataByIdQuery = userApi.endpoints.getUserDataById.initiate;
+export const getUserDataByIdQuery = userApi.useGetUserDataByIdQuery;

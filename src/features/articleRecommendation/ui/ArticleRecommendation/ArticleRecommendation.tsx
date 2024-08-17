@@ -9,8 +9,12 @@ import { Text } from '@/shared/ui/Text';
 
 import { useArticleRecommendationsList } from '../../api/ArticleRecommendationsApi';
 
+type Align = 'center' | 'start' | 'end';
 interface ArticleRecommendationProps {
   className?: string;
+  label?: string;
+  count?: number;
+  align?: Align;
 }
 
 /**
@@ -21,24 +25,26 @@ interface ArticleRecommendationProps {
 
 export const ArticleRecommendation = memo(
   (props: ArticleRecommendationProps) => {
-    const { className } = props;
+    const { className, label, count = 3, align = 'center' } = props;
     const { t } = useTranslation('article-info');
+    const countLength = Array.from({ length: count }, (_, index) => index);
 
     // Хук для получения списка рекомендуемых статей, ограничение до 3 статей.
     const {
       isLoading,
       data: articles,
       error,
-    } = useArticleRecommendationsList(3);
+    } = useArticleRecommendationsList(count);
 
     if (isLoading) {
       return (
-        <VStack gap="8" maxWidth align="center">
-          <Skeleton width={230} height={40} border="20px" />
+        <VStack gap="8" maxWidth align={align}>
+          {label && <Skeleton width={230} height={40} border="20px" />}
+
           <HStack gap="16">
-            <Skeleton width={240} height={320} border="20px" />
-            <Skeleton width={240} height={320} border="20px" />
-            <Skeleton width={240} height={320} border="20px" />
+            {countLength.map((_, index) => (
+              <Skeleton key={index} width={240} height={320} border="20px" />
+            ))}
           </HStack>
         </VStack>
       );
@@ -47,8 +53,8 @@ export const ArticleRecommendation = memo(
     if (error || !articles) return null;
 
     return (
-      <VStack className={className} gap="8" maxWidth align="center">
-        <Text size="l" title={t('Рекомендации')} />
+      <VStack className={className} gap="8" maxWidth align={align}>
+        {label && <Text size="l" title={t(label)} />}
         <ArticleList articles={articles} target="_blank" />
       </VStack>
     );

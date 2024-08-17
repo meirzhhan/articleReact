@@ -4,7 +4,6 @@ import { VStack } from '@/shared/ui/Stack';
 
 import { useNotifications } from '../../api/notificationApi';
 import { NotificationCard } from '../NotificationItem/NotificationCard';
-import { Card } from '@/shared/ui/Card';
 
 /**
  * Компонент для отображения списка уведомлений.

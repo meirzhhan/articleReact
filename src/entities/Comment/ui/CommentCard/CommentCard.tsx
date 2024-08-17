@@ -4,11 +4,9 @@ import { CommentType } from '@/entities/Comment/model/types/comment';
 
 import { HStack } from '@/shared/ui/Stack';
 import { Card } from '@/shared/ui/Card';
-import { AppLink } from '@/shared/ui/AppLink';
 import { Skeleton } from '@/shared/ui/Skeleton';
-import { Avatar } from '@/shared/ui/Avatar';
 import { Text } from '@/shared/ui/Text';
-import { getRouteProfile } from '@/shared/consts/router';
+import { UserCard } from '@/shared/ui/UserCard';
 
 interface CommentCardProps {
   className?: string;
@@ -52,15 +50,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
       flexColumn
       gap="8"
     >
-      <AppLink to={getRouteProfile(comment.user.id)}>
-        <HStack gap="8">
-          {comment?.user.avatar ? (
-            <Avatar size={30} src={comment.user.avatar} />
-          ) : null}
-
-          <Text text={comment?.user.username} bold />
-        </HStack>
-      </AppLink>
+      <UserCard imgSize={30} user={comment.user} />
 
       <Text text={comment?.text} />
     </Card>

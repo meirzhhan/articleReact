@@ -1,7 +1,7 @@
 .Sticky {
   display: grid;
   grid-template-areas: 'content right';
-  grid-template-columns: 1fr min-content;
+  grid-template-columns: 1fr max-content;
   gap: 16px;
   &__content {
     grid-area: content;

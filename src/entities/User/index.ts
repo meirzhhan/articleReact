@@ -9,6 +9,7 @@ import {
 import { getUserAuthData } from './model/selectors/getUserAuthData/getUserAuthData';
 import { getUserInitiated } from './model/selectors/getUserInitiated/getUserInitiated';
 import { useJsonSettings } from './model/selectors/jsonSettings';
+import { getUserDataByIdQuery } from './api/userApi';
 
 import { UserRole } from './model/consts/userConsts';
 import { UserSchema, User } from './model/types/user';
@@ -25,6 +26,7 @@ export {
   getUserInitiated,
   useJsonSettings,
   UserRole,
+  getUserDataByIdQuery,
 };
 
 export type { UserSchema, User };
