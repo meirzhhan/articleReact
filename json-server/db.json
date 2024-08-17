@@ -42,9 +42,7 @@
       "views": 18930,
       "createdAt": "12.02.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -74,9 +72,7 @@
           "id": "4",
           "type": "TEXT",
           "title": "",
-          "paragraphs": [
-            "Мы сможем писать:"
-          ]
+          "paragraphs": ["Мы сможем писать:"]
         },
         {
           "id": "5",
@@ -150,9 +146,7 @@
       "views": 7300,
       "createdAt": "07.06.2023",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -256,9 +250,7 @@
       "views": 9230,
       "createdAt": "26.02.2024",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -391,9 +383,7 @@
       "views": 6700,
       "createdAt": "02.08.24",
       "userId": "1",
-      "type": [
-        "BUSINESS"
-      ],
+      "type": ["BUSINESS"],
       "blocks": [
         {
           "id": "1",
@@ -434,9 +424,7 @@
       "views": 21200,
       "createdAt": "30.07.2024",
       "userId": "1",
-      "type": [
-        "BUSINESS"
-      ],
+      "type": ["BUSINESS"],
       "blocks": [
         {
           "id": "1",
@@ -471,9 +459,7 @@
       "views": "3400",
       "createdAt": "18.06.2024",
       "userId": "1",
-      "type": [
-        "BUSINESS"
-      ],
+      "type": ["BUSINESS"],
       "blocks": [
         {
           "id": "1",
@@ -509,9 +495,7 @@
       "views": 300,
       "createdAt": "13.06.2024",
       "userId": "1",
-      "type": [
-        "BUSINESS"
-      ],
+      "type": ["BUSINESS"],
       "blocks": [
         {
           "id": "1",
@@ -552,9 +536,7 @@
       "views": 1750,
       "createdAt": "28.05.2024",
       "userId": "1",
-      "type": [
-        "GREEN"
-      ],
+      "type": ["GREEN"],
       "blocks": [
         {
           "id": "1",
@@ -598,9 +580,7 @@
       "views": 2312,
       "createdAt": "21.03.24",
       "userId": "1",
-      "type": [
-        "GREEN"
-      ],
+      "type": ["GREEN"],
       "blocks": [
         {
           "id": "1",
@@ -661,9 +641,7 @@
       "views": 5213,
       "createdAt": "12.02.24",
       "userId": "1",
-      "type": [
-        "GREEN"
-      ],
+      "type": ["GREEN"],
       "blocks": [
         {
           "id": "1",
@@ -705,9 +683,7 @@
       "views": 870,
       "createdAt": "11.07.23",
       "userId": "1",
-      "type": [
-        "GREEN"
-      ],
+      "type": ["GREEN"],
       "blocks": [
         {
           "id": "1",
@@ -748,9 +724,7 @@
       "views": 12520,
       "createdAt": "03.05.24",
       "userId": "1",
-      "type": [
-        "TECHNOLOGIES"
-      ],
+      "type": ["TECHNOLOGIES"],
       "blocks": [
         {
           "id": "1",
@@ -809,9 +783,7 @@
       "views": 4321,
       "createdAt": "25.05.2024",
       "userId": "1",
-      "type": [
-        "TECHNOLOGIES"
-      ],
+      "type": ["TECHNOLOGIES"],
       "blocks": [
         {
           "id": "1",
@@ -866,9 +838,7 @@
       "views": 15773,
       "createdAt": "17.04.24",
       "userId": "1",
-      "type": [
-        "TECHNOLOGIES"
-      ],
+      "type": ["TECHNOLOGIES"],
       "blocks": [
         {
           "id": "1",
@@ -923,9 +893,7 @@
       "views": 8121,
       "createdAt": "07.05.24",
       "userId": "1",
-      "type": [
-        "TECHNOLOGIES"
-      ],
+      "type": ["TECHNOLOGIES"],
       "blocks": [
         {
           "id": "1",
@@ -962,9 +930,7 @@
       "views": 10232,
       "createdAt": "03.04.24",
       "userId": "1",
-      "type": [
-        "ECONOMICS"
-      ],
+      "type": ["ECONOMICS"],
       "blocks": [
         {
           "id": "1",
@@ -1024,9 +990,7 @@
       "views": 983,
       "createdAt": "15.03.24",
       "userId": "1",
-      "type": [
-        "ECONOMICS"
-      ],
+      "type": ["ECONOMICS"],
       "blocks": [
         {
           "id": "1",
@@ -1115,9 +1079,7 @@
       "views": 16302,
       "createdAt": "12.03.24",
       "userId": "1",
-      "type": [
-        "ECONOMICS"
-      ],
+      "type": ["ECONOMICS"],
       "blocks": [
         {
           "id": "1",
@@ -1196,9 +1158,7 @@
       "views": "3242",
       "createdAt": "30.05.24",
       "userId": "1",
-      "type": [
-        "ECONOMICS"
-      ],
+      "type": ["ECONOMICS"],
       "blocks": [
         {
           "id": "1",
@@ -1615,6 +1575,18 @@
       "userId": "3",
       "text": "qweqrt",
       "id": "XTiaB2v"
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "text": "test228",
+      "id": "VtCv1tE"
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "text": "TESTTEST",
+      "id": "U8R--DP"
     }
   ],
   "users": [
@@ -1622,56 +1594,47 @@
       "id": "1",
       "username": "meirzhhan",
       "password": "123",
-      "roles": [
-        "ADMIN"
-      ],
+      "roles": ["ADMIN"],
       "features": {
-        "isArticleRatingEnabled": true,
         "isProfileEditEnabled": true,
         "isAddCommentEnabled": true,
-        "isAppRedesigned": false
+        "isEditLoginEnabled": false,
+        "isEditAvatarEnabled": false
       },
       "jsonSettings": {
         "theme": "app_dark_theme"
       },
-      "avatar": "https://2.downloader.disk.yandex.kz/preview/922bcc92ea05b45a13e5b947e8d857df60015823b224a2c9377f84971ece80e2/inf/xy2aN4qiyJBaIw9tdaKubWYPatbyEq8mOAOgg9FdCQqsZt6zC-us8AA5W85y7o7TCw0frz_3KS7XwxGn4w0McQ%3D%3D?uid=1397265792&filename=2.JPG&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=1397265792&tknv=v2&size=1920x970"
+      "avatar": "https://avatars.githubusercontent.com/u/129574873?v=4"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "roles": [
-        "USER"
-      ],
+      "roles": ["USER"],
       "features": {
-        "isArticleRatingEnabled": false,
-        "isCounterEnabled": false,
-        "isAppRedesigned": false
+        "isProfileEditEnabled": false,
+        "isAddCommentEnabled": true,
+        "isEditLoginEnabled": false,
+        "isEditAvatarEnabled": false
       },
       "jsonSettings": {
-        "theme": "app_dark_theme",
-        "isFirstVisit": true,
-        "settingsPageHasBeenOpen": false,
-        "isArticlesPageWasOpened": true
+        "theme": "app_light_theme"
       },
-      "avatar": "https://avatars.dzeninfra.ru/get-zen_doc/5327700/pub_634d11eb9de7f5753f556834_634d1e2f9853e80abd26a73f/scale_1200"
+      "avatar": "https://cdn.pixabay.com/photo/2016/06/20/04/30/asian-man-1468032_1280.jpg"
     },
     {
       "id": "3",
       "username": "manager",
       "password": "123",
-      "roles": [
-        "MANAGER"
-      ],
+      "roles": ["MANAGER"],
       "features": {
-        "isArticleRatingEnabled": false,
-        "isCounterEnabled": true
+        "isProfileEditEnabled": false,
+        "isAddCommentEnabled": true,
+        "isEditLoginEnabled": false,
+        "isEditAvatarEnabled": false
       },
       "jsonSettings": {
-        "theme": "app_dark_theme",
-        "isFirstVisit": true,
-        "settingsPageHasBeenOpen": false,
-        "isArticlesPageWasOpened": true
+        "theme": "app_dark_theme"
       },
       "avatar": "https://cdn.pixabay.com/photo/2023/11/10/02/30/woman-8378634_1280.jpg"
     }
@@ -1681,12 +1644,12 @@
       "id": "1",
       "first": "Meirzhan",
       "lastname": "Beimishev",
-      "age": 22,
+      "age": 21,
       "currency": "KZT",
       "country": "Kazakhstan",
       "city": "Almaty",
       "username": "meirzhhan",
-      "avatar": "https://2.downloader.disk.yandex.kz/preview/922bcc92ea05b45a13e5b947e8d857df60015823b224a2c9377f84971ece80e2/inf/xy2aN4qiyJBaIw9tdaKubWYPatbyEq8mOAOgg9FdCQqsZt6zC-us8AA5W85y7o7TCw0frz_3KS7XwxGn4w0McQ%3D%3D?uid=1397265792&filename=2.JPG&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=1397265792&tknv=v2&size=1920x970"
+      "avatar": "https://avatars.githubusercontent.com/u/129574873?v=4"
     },
     {
       "id": "2",
@@ -1696,7 +1659,7 @@
       "currency": "USD",
       "country": "Belarus",
       "city": "Minsk",
-      "username": "someone",
+      "username": "user",
       "avatar": "https://cdn.pixabay.com/photo/2016/06/20/04/30/asian-man-1468032_1280.jpg"
     },
     {

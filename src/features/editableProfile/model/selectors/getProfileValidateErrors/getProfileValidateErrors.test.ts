@@ -8,7 +8,8 @@ describe('getProfileValidateErrors.test', () => {
     const state: Partial<StateSchema> = {
       profile: {
         validateErrors: [
-          ValidateProfileError.INCORRECT_USER_DATA,
+          ValidateProfileError.INCORRECT_FIRST,
+          ValidateProfileError.INCORRECT_LAST,
           ValidateProfileError.INCORRECT_AGE,
           ValidateProfileError.INCORRECT_COUNTRY,
           ValidateProfileError.NO_DATA,
@@ -18,7 +19,8 @@ describe('getProfileValidateErrors.test', () => {
     };
 
     expect(getProfileValidateErrors(state as StateSchema)).toEqual([
-      ValidateProfileError.INCORRECT_USER_DATA,
+      ValidateProfileError.INCORRECT_FIRST,
+      ValidateProfileError.INCORRECT_LAST,
       ValidateProfileError.INCORRECT_AGE,
       ValidateProfileError.INCORRECT_COUNTRY,
       ValidateProfileError.NO_DATA,

@@ -27,7 +27,10 @@ describe('validateProfileData.test', () => {
       lastname: '',
     });
 
-    expect(result).toEqual([ValidateProfileError.INCORRECT_USER_DATA]);
+    expect(result).toEqual([
+      ValidateProfileError.INCORRECT_FIRST,
+      ValidateProfileError.INCORRECT_LAST,
+    ]);
   });
 
   test('incorrect age', async () => {
@@ -53,7 +56,8 @@ describe('validateProfileData.test', () => {
     const result = validateProfileData({});
 
     expect(result).toEqual([
-      ValidateProfileError.INCORRECT_USER_DATA,
+      ValidateProfileError.INCORRECT_FIRST,
+      ValidateProfileError.INCORRECT_LAST,
       ValidateProfileError.INCORRECT_AGE,
       ValidateProfileError.INCORRECT_COUNTRY,
     ]);

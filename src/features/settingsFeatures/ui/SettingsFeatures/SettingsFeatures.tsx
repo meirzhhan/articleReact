@@ -2,7 +2,7 @@ import { memo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
-import { getUserAuthData } from '@/entities/User';
+import { getUserAuthData, isUserAdmin } from '@/entities/User';
 import { FeatureSwitch, updateFeatureFlag } from '@/entities/Feature';
 
 import { VStack } from '@/shared/ui/Stack';
@@ -22,6 +22,7 @@ export const SettingsFeatures = memo(() => {
   const { t } = useTranslation('settings');
   const dispatch = useAppDispatch();
   const authData = useSelector(getUserAuthData);
+  const isAdmin = useSelector(isUserAdmin);
   const [isLoading, setIsLoading] = useState(false);
 
   const features: FeatureProps[] = [
@@ -36,9 +37,14 @@ export const SettingsFeatures = memo(() => {
       readonly: false,
     },
     {
-      featureKey: 'isArticleRatingEnabled',
-      featureLabel: t('Рейтинг для статьей'),
-      readonly: true,
+      featureKey: 'isEditLoginEnabled',
+      featureLabel: t('Редактирование логина'),
+      readonly: !isAdmin,
+    },
+    {
+      featureKey: 'isEditAvatarEnabled',
+      featureLabel: t('Редактирование ссылки на аватар'),
+      readonly: !isAdmin,
     },
   ];
 

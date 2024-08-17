@@ -1,7 +1,8 @@
 export interface FeatureFlags {
-  isArticleRatingEnabled?: boolean;
   isProfileEditEnabled?: boolean;
   isAddCommentEnabled?: boolean;
+  isEditLoginEnabled?: boolean;
+  isEditAvatarEnabled?: boolean;
 }
 
 export interface FeatureProps {
