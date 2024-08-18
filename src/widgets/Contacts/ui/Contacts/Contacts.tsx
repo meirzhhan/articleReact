@@ -19,16 +19,16 @@ export const Contacts = memo(() => {
     <Card maxWidth flexRow padding="16" border="round">
       <HStack maxWidth gap="16" justify="center">
         <AppLink to={'https://github.com/meirzhhan'} target="_blank">
-          <Icon Svg={GithubIcon} />
+          <Icon Svg={GithubIcon} hover />
         </AppLink>
         <AppLink to="https://t.me/beimishev" target="_blank">
-          <Icon Svg={TelegramIcon} />
+          <Icon Svg={TelegramIcon} hover />
         </AppLink>
         <AppLink
           to={'https://api.whatsapp.com/send?phone=77076002075'}
           target="_blank"
         >
-          <Icon Svg={WhatsappIcon} />
+          <Icon Svg={WhatsappIcon} hover />
         </AppLink>
       </HStack>
     </Card>

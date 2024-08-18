@@ -4,10 +4,10 @@ import { User } from '@/entities/User';
 
 import { getRouteProfile } from '@/shared/consts/router';
 
-import { AppLink } from '../AppLink';
 import { HStack } from '../Stack';
 import { Avatar } from '../Avatar';
 import { Text } from '../Text';
+import { useNavigate } from 'react-router-dom';
 
 interface UserCardProps {
   className?: string;
@@ -26,16 +26,21 @@ interface UserCardProps {
 
 export const UserCard = memo((props: UserCardProps) => {
   const { className, imgSize, user, textSize = 'm' } = props;
+  const navigate = useNavigate();
 
   if (!user) return null;
 
   return (
-    <AppLink className={className} to={getRouteProfile(user.id)}>
-      <HStack gap="8">
-        <Avatar size={imgSize} src={user.avatar} />
+    // Пришлось использовать navigate, чтобы не было вложенности <a><a></a></a>.
+    // в ArticleListItem есть карточка статьи и внутри её ссылка на профиль редактора
+    <HStack
+      className={className}
+      gap="8"
+      onClick={() => navigate(getRouteProfile(user.id))}
+    >
+      <Avatar size={imgSize} src={user.avatar} />
 
-        <Text text={user.username} bold size={textSize} />
-      </HStack>
-    </AppLink>
+      <Text text={user.username} bold size={textSize} />
+    </HStack>
   );
 });

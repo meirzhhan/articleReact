@@ -9,6 +9,7 @@ type SvgProps = Omit<React.SVGProps<SVGSVGElement>, 'onClick'>;
 interface IconBaseProps extends SvgProps {
   className?: string;
   Svg: React.FC<React.SVGProps<SVGSVGElement>>; // Компонент SVG, который будет использоваться для отображения иконки.
+  hover?: boolean;
 }
 
 // Не кликабельная иконка кликабельна. (button)
@@ -39,12 +40,13 @@ export const Icon = memo((props: IconProps) => {
     width = 32,
     height = 32,
     clickable,
+    hover,
     ...otherProps
   } = props;
 
   const icon = (
     <Svg
-      className={customCl(cl.Icon, {}, [className])}
+      className={customCl(cl.Icon, { [cl.hover]: hover }, [className])}
       width={width}
       height={height}
       {...otherProps}

@@ -58,7 +58,6 @@ export const MainRecommendation = memo((props: MainRecommendationProps) => {
             <UserCard imgSize={40} user={data} textSize="l" />
             <Text text={t('рекомендует')} size="l" />
           </HStack>
-
           <AppLink to={getRouteArticles()}>
             <Button variant="filled">{t('К списку всех статьей')}</Button>
           </AppLink>

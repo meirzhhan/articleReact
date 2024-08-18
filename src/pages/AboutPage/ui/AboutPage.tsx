@@ -1,14 +1,10 @@
-import { useTranslation } from 'react-i18next';
-
 import { Page } from '@/widgets/Page';
-import { Text } from '@/shared/ui/Text';
+import { Contacts } from '@/widgets/Contacts';
 
 const AboutPage = () => {
-  const { t } = useTranslation('about');
-
   return (
     <Page data-testid="AboutPage">
-      <Text title={t('О сайте')} bold />
+      <Contacts />
     </Page>
   );
 };

@@ -1639,9 +1639,9 @@
       ],
       "features": {
         "isProfileEditEnabled": true,
-        "isAddCommentEnabled": true,
-        "isEditLoginEnabled": false,
-        "isEditAvatarEnabled": false
+        "isAddCommentEnabled": false,
+        "isEditLoginEnabled": true,
+        "isEditAvatarEnabled": true
       },
       "jsonSettings": {
         "theme": "app_dark_theme"
@@ -1662,7 +1662,7 @@
         "isEditAvatarEnabled": false
       },
       "jsonSettings": {
-        "theme": "app_light_theme"
+        "theme": "app_dark_theme"
       },
       "avatar": "https://cdn.pixabay.com/photo/2016/06/20/04/30/asian-man-1468032_1280.jpg"
     },

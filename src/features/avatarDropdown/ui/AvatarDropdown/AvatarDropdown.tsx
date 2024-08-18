@@ -5,8 +5,8 @@ import { useTranslation } from 'react-i18next';
 
 import {
   getUserAuthData,
-  isUserAdmin,
-  isUserManager,
+  // isUserAdmin,
+  // isUserManager,
   userActions,
 } from '@/entities/User';
 
@@ -14,9 +14,9 @@ import { Avatar } from '@/shared/ui/Avatar';
 import { Dropdown } from '@/shared/ui/Popups';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
-  getRouteAdmin,
+  // getRouteAdmin,
   getRouteMain,
-  getRouteProfile,
+  // getRouteProfile,
   getRouteSettings,
 } from '@/shared/consts/router';
 
@@ -44,8 +44,8 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
   const navigate = useNavigate();
 
   const authData = useSelector(getUserAuthData);
-  const isAdmin = useSelector(isUserAdmin);
-  const isManager = useSelector(isUserManager);
+  // const isAdmin = useSelector(isUserAdmin);
+  // const isManager = useSelector(isUserManager);
 
   //  Обработчик выхода из системы. Dispatch действие выхода из системы.
   const onLogout = useCallback(() => {
@@ -53,23 +53,23 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
     navigate(getRouteMain());
   }, [dispatch, navigate]);
 
-  const isAdminPanelAvailable = isAdmin || isManager;
+  // const isAdminPanelAvailable = isAdmin || isManager;
 
   if (!authData) return null;
 
   const items = [
-    ...(isAdminPanelAvailable
-      ? [
-          {
-            content: t('Админка'),
-            href: getRouteAdmin(),
-          },
-        ]
-      : []),
-    {
-      content: t('Профиль'),
-      href: getRouteProfile(authData.id),
-    },
+    // ...(isAdminPanelAvailable
+    //   ? [
+    //       {
+    //         content: t('Админка'),
+    //         href: getRouteAdmin(),
+    //       },
+    //     ]
+    //   : []),
+    // {
+    //   content: t('Профиль'),
+    //   href: getRouteProfile(authData.id),
+    // },
     {
       content: t('Настройки'),
       href: getRouteSettings(),

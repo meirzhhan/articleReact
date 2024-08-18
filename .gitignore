@@ -1,6 +1,6 @@
 /build
+extractedTranslations/
+/reports
 node_modules
 .vscode
-/extractedTranslations
-/reports
 

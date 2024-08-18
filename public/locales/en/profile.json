@@ -3,7 +3,9 @@
   "Некорректный возраст": "Incorrect age",
   "Некорректная страна": "Incorrect country",
   "Данные не указаны": "Data not provided",
-  "Имя и фамилия обязательны": "First and last name are required",
+  "Не правильная форма имени": "The wrong form of the name",
+  "Не правильная форма фамилии": "The wrong form of the surname",
+  "Включите редактирование в настройках": "Enable editing in the settings",
 
   "Профиль": "Profile",
   "Редактировать": "Edit",

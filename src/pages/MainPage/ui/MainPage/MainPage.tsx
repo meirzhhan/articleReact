@@ -7,8 +7,8 @@ import { getUserAuthData } from '@/entities/User';
 
 import { VStack } from '@/shared/ui/Stack';
 
-import { MainInfo } from './MainInfo/MainInfo';
-import { MainRecommendation } from './MainRecommendation/MainRecommendation';
+import { MainInfo } from '../MainInfo/MainInfo';
+import { MainRecommendation } from '../MainRecommendation/MainRecommendation';
 
 /**
  * `MainPage` компонент отображает основную страницу приложения.
