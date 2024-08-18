@@ -1,0 +1,67 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "title": "title",
+      "subtitle": "subtitle",
+      "img": "src",
+      "views": 1,
+      "createdAt": "date",
+      "userId": 1,
+      "type": "IT или ECONOMY, ...",
+      "blocks": [
+        {
+          "id": 1,
+          "type": "TEXT или CODE или IMAGE",
+          "title": "title",
+          "paragraphs": ["text", "text"]
+        }
+      ]
+    }
+  ],
+
+  "comments": [
+    {
+      "id": 1,
+      "articleId": 1,
+      "userId": 1,
+      "text": "text"
+    }
+  ],
+
+  "users": [
+    {
+      "id": 1,
+      "username": "username",
+      "password": "password",
+      "roles": "ADMIN || USER",
+      "features": {
+        "isProfileEditEnabled": true,
+        "isAddCommentEnabled": false,
+        "isEditLoginEnabled": true,
+        "isEditAvatarEnabled": true
+      },
+      "jsonSettings": {
+        "theme": "dark | default"
+      },
+      "avatar": "src"
+    }
+  ],
+  "article-ratings": [
+    {
+      "id": 1,
+      "rate": 5,
+      "feedback": "feedback",
+      "userId": 1,
+      "articleId": 1
+    }
+  ],
+  "notifications": [
+    {
+      "id": 1,
+      "title": "title",
+      "description": "description",
+      "userId": 1
+    }
+  ]
+}
