@@ -29,7 +29,7 @@ export const fetchArticleById = createAsyncThunk<
 
     return response.data;
   } catch (e) {
-    console.log(e);
+    // console.log(e); derscanner fix
     return rejectWithValue('error');
   }
 });

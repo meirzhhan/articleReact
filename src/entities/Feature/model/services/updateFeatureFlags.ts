@@ -49,7 +49,7 @@ export const updateFeatureFlag = createAsyncThunk<
 
       return undefined;
     } catch (e) {
-      console.log(e);
+      // console.log(e); derscanner fix
       return rejectWithValue('');
     }
   },

@@ -37,7 +37,7 @@ export const loginByUsername = createAsyncThunk<
 
     return response.data;
   } catch (e) {
-    console.log(e);
+    // console.log(e); derscanner fix
     return rejectWithValue(i18n.t('Вы ввели неверный логин или пароль'));
   }
 });

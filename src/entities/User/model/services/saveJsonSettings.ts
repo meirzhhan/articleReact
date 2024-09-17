@@ -43,7 +43,7 @@ export const saveJsonSettings = createAsyncThunk<
 
     return response.jsonSettings;
   } catch (e) {
-    console.log(e);
+    // console.log(e); derscanner fix
     return rejectWithValue('');
   }
 });

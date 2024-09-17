@@ -60,12 +60,22 @@ export const Text = memo((props: TextProps) => {
   return (
     <div className={customCl(cl.Text, { [cl.bold]: bold }, additionalClasses)}>
       {title && (
-        <HeaderTag className={cl.title} data-testid={`${dataTestId}.Header`}>
+        <HeaderTag
+          className={cl.title}
+          {...(process.env.NODE_ENV === 'development' && {
+            'data-testid': `${dataTestId}.Header`,
+          })}
+        >
           {title}
         </HeaderTag>
       )}
       {text && (
-        <p className={cl.text} data-testid={`${dataTestId}.Paragraph`}>
+        <p
+          className={cl.text}
+          {...(process.env.NODE_ENV === 'development' && {
+            'data-testid': `${dataTestId}.Paragraph`,
+          })}
+        >
           {text}
         </p>
       )}

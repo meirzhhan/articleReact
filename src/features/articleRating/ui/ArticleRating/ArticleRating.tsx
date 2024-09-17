@@ -52,7 +52,7 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
           feedback,
         });
       } catch (e) {
-        console.log(e);
+        // console.log(e); derscanner fix
       }
     },
     [articleId, rateArticleMutation, userData?.id],

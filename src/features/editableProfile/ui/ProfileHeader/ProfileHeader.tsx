@@ -71,8 +71,10 @@ export const ProfileHeader = memo((props: ProfileHeaderProps) => {
       {readonly ? (
         <Button
           onClick={onEdit}
-          data-testid={'EditableProfileCardHeader.EditButton'}
           variant="filled"
+          {...(process.env.NODE_ENV === 'development' && {
+            'data-testid': 'EditableProfileCardHeader.EditButton',
+          })}
         >
           {t('Редактировать')}
         </Button>
@@ -82,7 +84,9 @@ export const ProfileHeader = memo((props: ProfileHeaderProps) => {
             variant="filled"
             onClick={onCancelEdit}
             color="error"
-            data-testid={'EditableProfileCardHeader.CancelButton'}
+            {...(process.env.NODE_ENV === 'development' && {
+              'data-testid': 'EditableProfileCardHeader.CancelButton',
+            })}
           >
             {t('Отменить')}
           </Button>
@@ -90,7 +94,9 @@ export const ProfileHeader = memo((props: ProfileHeaderProps) => {
             variant="filled"
             onClick={onSave}
             color="success"
-            data-testid={'EditableProfileCardHeader.SaveButton'}
+            {...(process.env.NODE_ENV === 'development' && {
+              'data-testid': 'EditableProfileCardHeader.SaveButton',
+            })}
           >
             {t('Сохранить')}
           </Button>

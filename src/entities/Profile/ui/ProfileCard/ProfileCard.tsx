@@ -117,7 +117,9 @@ export const ProfileCard = (props: ProfileCardProps): JSX.Element => {
             label={t('Фамилия')}
             onChange={onChangeLastname}
             readonly={readonly}
-            data-testid={'ProfileCard.lastname'}
+            {...(process.env.NODE_ENV === 'development' && {
+              'data-testid': 'ProfileCard.lastname',
+            })}
           />
           <Input
             value={data?.age}

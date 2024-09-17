@@ -31,7 +31,7 @@ export const initAuthData = createAsyncThunk<
 
     return response;
   } catch (e) {
-    console.log(e);
+    // console.log(e); derscanner fix
     return rejectWithValue('');
   }
 });

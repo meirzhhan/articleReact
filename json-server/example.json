@@ -33,7 +33,6 @@
     {
       "id": 1,
       "username": "username",
-      "password": "password",
       "roles": "ADMIN || USER",
       "features": {
         "isProfileEditEnabled": true,

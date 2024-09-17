@@ -77,7 +77,9 @@ export const Page = memo((props: PageProps) => {
       className={customCl(cl.Page, {}, [className])}
       onScroll={onScroll}
       id={PAGE_ID}
-      data-testid={props['data-testid'] ?? 'Page'}
+      {...(process.env.NODE_ENV === 'development' && {
+        'data-testid': props['data-testid'] ?? 'Page',
+      })}
     >
       {children}
       {onScrollEnd ? <div className={cl.trigger} ref={triggerRef} /> : null}
